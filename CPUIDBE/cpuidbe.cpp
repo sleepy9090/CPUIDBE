@@ -1,9 +1,18 @@
+/*
+    File           cpuidbe.cpp
+    Brief          CPUID Backend DLL implementation for Windows
+    Copyright      2026 Shawn M. Crawford [sleepy]
+    Date           05/29/2026
+    Author         Shawn M. Crawford [sleepy]
+*/
 #include <iomanip>
 #include <iostream>
 #include <string>
 #include <bitset>
 #include <sstream>
 #include <intrin.h>
+
+using namespace std;
 
 unsigned int ExtractBits(unsigned int num,
                          unsigned int pos,
