@@ -277,17 +277,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX1EBX24_31_LocalAPICID()
     return localAPICID;
 }
 
-
-
-
-
-
-
-
-
-
-
-// TODO: Implement functions for ECX feature bits
+// ECX feature bits
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX00SSE3IsSupported()
 {
     int cpuInfo[4];
@@ -508,29 +498,107 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX21X2APICIsSupported()
     return (bool)x2apicSupported;
 }
 
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX22MOVBEIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
 
+    unsigned int movbeSupported = ExtractBits(cpuInfo[2], 22, 1);
 
+    return (bool)movbeSupported;
+}
 
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX23POPCNTIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
 
+    unsigned int popcntSupported = ExtractBits(cpuInfo[2], 23, 1);
 
+    return (bool)popcntSupported;
+}
 
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX24TSCDeadlineIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
 
+    unsigned int tscDeadlineSupported = ExtractBits(cpuInfo[2], 24, 1);
 
+    return (bool)tscDeadlineSupported;
+}
 
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX25AESNIIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
 
+    unsigned int aesniSupported = ExtractBits(cpuInfo[2], 25, 1);
 
+    return (bool)aesniSupported;
+}
 
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX26XSAVEIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
 
+    unsigned int xsaveSupported = ExtractBits(cpuInfo[2], 26, 1);
 
+    return (bool)xsaveSupported;
+}
 
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX27OSXSAVEIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
 
+    unsigned int osxsaveSupported = ExtractBits(cpuInfo[2], 27, 1);
 
+    return (bool)osxsaveSupported;
+}
 
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX28AVXIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
 
+    unsigned int avxSupported = ExtractBits(cpuInfo[2], 28, 1);
 
+    return (bool)avxSupported;
+}
 
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX29F16CIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
 
-// TODO: Implement functions for EDX feature bits
+    unsigned int f16cSupported = ExtractBits(cpuInfo[2], 29, 1);
+
+    return (bool)f16cSupported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX30RDRANDIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
+
+    unsigned int rdrandSupported = ExtractBits(cpuInfo[2], 30, 1);
+
+    return (bool)rdrandSupported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX31HypervisorIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
+
+    unsigned int hypervisorSupported = ExtractBits(cpuInfo[2], 31, 1);
+
+    return (bool)hypervisorSupported;
+}
+
+// EDX feature bits
 
 
 #pragma endregion
