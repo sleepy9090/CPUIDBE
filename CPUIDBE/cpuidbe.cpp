@@ -1757,6 +1757,38 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX15EDX()
     return edxBits.to_ulong();
 }
 
+extern "C" __declspec(dllexport) int __cdecl GetEAX15EAX_RatioOfTSCFrequencyToCoreCrystalClockFrequency_Denominator()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x15, 0);
+
+    return cpuInfo[0];
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX15EBX_RatioOfTSCFrequencyToCoreCrystalClockFrequency_Numerator()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x15, 0);
+
+    return cpuInfo[1];
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX15ECX_CoreCrystalClockFrequencyInHz()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x15, 0);
+
+    return cpuInfo[2];
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX15EDX_TSCFrequencyInUnitsOfHz()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x15, 0);
+
+    return cpuInfo[3];
+}
+
 #pragma endregion
 
 
@@ -1808,6 +1840,28 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX16EDX()
 
     return edxBits.to_ulong();
 }
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX16EAX0_15_ProcessorBaseFrequencyInMHz()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x16, 0);
+    unsigned int processorBaseFrequency = ExtractBits(cpuInfo[0], 0, 16);
+
+    return processorBaseFrequency;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX16EAX16_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x16, 0);
+    unsigned int reserved = ExtractBits(cpuInfo[0], 16, 16);
+
+    return reserved;
+}
+
+
+
+
 
 #pragma endregion
 
@@ -2275,6 +2329,14 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX20000000EDX()
     return edxBits.to_ulong();
 }
 
+extern "C" __declspec(dllexport) int __cdecl GetEAX20000000EAX_HighestXeonPhiFunctionImplemented()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x20000000, 0);
+
+    return cpuInfo[0];
+}
+
 #pragma endregion
 
 
@@ -2444,7 +2506,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000000EDX()
     return edxBits.to_ulong();
 }
 
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000000EAX_HighestFunctionImplemented()
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000000EAX_HighestExtendedFunctionImplemented()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000000, 0);
