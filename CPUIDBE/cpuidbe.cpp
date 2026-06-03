@@ -87,9 +87,11 @@ extern "C" __declspec (dllexport) char* __cdecl GetEAX0EBXEDXECXCpuVendor()
 	*reinterpret_cast<int*>(vendor + 8) = cpuInfo[2]; // ECX
 	return vendor;
 }
+
 #pragma endregion
 
 #pragma region EAX=0x1: Processor Info and Feature Bits
+
 extern "C" __declspec(dllexport) int __cdecl GetEAX1EAX()
 {
     int cpuInfo[4];
@@ -2621,6 +2623,43 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000004EDX()
     return edxBits.to_ulong();
 }
 
+extern "C" __declspec (dllexport) char* __cdecl GetEAX80000002_3_4EAXEBXECXEDXProcessorBrandString()
+{
+    
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000002, 0);
+    unsigned int regs[12]{};
+    char processorBrandString[sizeof(regs) + 1];
+    regs[0] = cpuInfo[0];
+    regs[1] = cpuInfo[1];
+    regs[2] = cpuInfo[2];
+    regs[3] = cpuInfo[3];
+
+    __cpuidex(cpuInfo, 0x80000003, 0);
+    regs[4] = cpuInfo[0];
+    regs[5] = cpuInfo[1];
+    regs[6] = cpuInfo[2];
+    regs[7] = cpuInfo[3];
+
+    __cpuidex(cpuInfo, 0x80000004, 0);
+    regs[8] = cpuInfo[0];
+    regs[9] = cpuInfo[1];
+    regs[10] = cpuInfo[2];
+    regs[11] = cpuInfo[3];
+
+    //__cpuidex(cpuInfo, 0x80000000, 0);
+    //int pbsFeatureAvailable = cpuInfo[0];
+
+	// TODO: Check if the processor supports the brand string before copying it
+    //if (pbsFeatureAvailable >= 0x80000004)
+    //{
+        memcpy(processorBrandString, regs, sizeof(regs));
+        processorBrandString[sizeof(regs)] = '\0';
+    //}
+
+    return processorBrandString;
+}
+
 #pragma endregion
 
 
@@ -2722,6 +2761,33 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EDX()
     std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
 
     return edxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006ECX_LineSize()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000006, 0);
+    unsigned int lineSize = cpuInfo[2] & 0xff;
+
+    return lineSize;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006ECX_Associativity()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000006, 0);
+    unsigned int associativity = (cpuInfo[2] >> 12) & 0x0f;
+
+    return associativity;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006ECX_CacheSize()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000006, 0);
+    unsigned int cacheSize = (cpuInfo[2] >> 16) & 0xffff;
+
+    return cacheSize;
 }
 
 #pragma endregion
