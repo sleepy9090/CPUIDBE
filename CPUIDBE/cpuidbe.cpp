@@ -709,6 +709,216 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX10ReservedIsSupported()
     return (bool)reservedSupported;
 }
 
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX11SEPIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
+
+    unsigned int sepSupported = ExtractBits(cpuInfo[3], 11, 1);
+
+    return (bool)sepSupported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX12MTRRIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
+
+    unsigned int mtrrSupported = ExtractBits(cpuInfo[3], 12, 1);
+
+    return (bool)mtrrSupported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX13PGEIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
+
+    unsigned int pgeSupported = ExtractBits(cpuInfo[3], 13, 1);
+
+    return (bool)pgeSupported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX14MCAIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
+
+    unsigned int mcaSupported = ExtractBits(cpuInfo[3], 14, 1);
+
+    return (bool)mcaSupported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX15CMOVIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
+
+    unsigned int cmovSupported = ExtractBits(cpuInfo[3], 15, 1);
+
+    return (bool)cmovSupported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX16PATIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
+
+    unsigned int patSupported = ExtractBits(cpuInfo[3], 16, 1);
+
+    return (bool)patSupported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX17PSE36IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
+
+    unsigned int pse36Supported = ExtractBits(cpuInfo[3], 17, 1);
+
+    return (bool)pse36Supported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX18PSNIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
+
+    unsigned int psnSupported = ExtractBits(cpuInfo[3], 18, 1);
+
+    return (bool)psnSupported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX19CLFSHIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
+
+    unsigned int clflushSupported = ExtractBits(cpuInfo[3], 19, 1);
+
+    return (bool)clflushSupported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX20NXIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
+
+    unsigned int nxSupported = ExtractBits(cpuInfo[3], 20, 1);
+
+    return (bool)nxSupported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX21DSIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
+
+    unsigned int dsSupported = ExtractBits(cpuInfo[3], 21, 1);
+
+    return (bool)dsSupported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX22ACPIIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
+
+    unsigned int acpiSupported = ExtractBits(cpuInfo[3], 22, 1);
+
+    return (bool)acpiSupported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX23MMXIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
+
+    unsigned int mmxSupported = ExtractBits(cpuInfo[3], 23, 1);
+
+    return (bool)mmxSupported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX24FXSRIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
+
+    unsigned int fxsrSupported = ExtractBits(cpuInfo[3], 24, 1);
+
+    return (bool)fxsrSupported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX25SSEIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
+
+    unsigned int sseSupported = ExtractBits(cpuInfo[3], 25, 1);
+
+    return (bool)sseSupported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX26SSE2IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
+
+    unsigned int sse2Supported = ExtractBits(cpuInfo[3], 26, 1);
+
+    return (bool)sse2Supported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX27SSIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
+
+    unsigned int ssSupported = ExtractBits(cpuInfo[3], 27, 1);
+
+    return (bool)ssSupported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX28HTTIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
+
+    unsigned int httSupported = ExtractBits(cpuInfo[3], 28, 1);
+
+    return (bool)httSupported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX29TMIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
+
+    unsigned int tmSupported = ExtractBits(cpuInfo[3], 29, 1);
+
+    return (bool)tmSupported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX30IA64IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
+
+    unsigned int ia64Supported = ExtractBits(cpuInfo[3], 30, 1);
+
+    return (bool)ia64Supported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX31PBEIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
+
+    unsigned int pbeSupported = ExtractBits(cpuInfo[3], 31, 1);
+
+    return (bool)pbeSupported;
+}
+
 #pragma endregion
 
 
