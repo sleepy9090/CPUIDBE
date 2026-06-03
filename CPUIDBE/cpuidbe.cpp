@@ -925,147 +925,2492 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1ECX31PBEIsSupported()
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 #pragma region EAX=0x2: Cache and TLB Descriptor Information
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX2EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x2, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX2EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x2, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX2ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x2, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX2EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x2, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 #pragma region EAX=0x3: Processor Serial Number
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX3EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x3, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX3EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x3, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX3ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x3, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX3EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x3, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
 
 
 
 
 #pragma region EAX=0x4 and EAX=0x8000001D: Cache Hierarchy and Topology
+
+// EAX=0x4
+extern "C" __declspec(dllexport) int __cdecl GetEAX4EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX4EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX4ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX4EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
+
+
+
+
+
+
+//EAX=0x8000001D
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DEAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000001D, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DEBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000001D, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000001D, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DEDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000001D, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
+
+
+
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 
 #pragma region EAX=0x4 and EAX=0xB: Intel Thread/Core and Cache Topology
+
+/*
+// EAX=0x4
+extern "C" __declspec(dllexport) int __cdecl GetEAX4EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX4EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX4ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX4EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+*/
+
+extern "C" __declspec(dllexport) int __cdecl GetEAXBEAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0xB, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAXBEBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0xB, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAXBECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0xB, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAXBEDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0xB, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x5: MONITOR/MWAIT Features
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX5EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x5, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX5EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x5, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX5ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x5, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX5EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x5, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x6: Thermal and Power Management
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX6EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x6, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX6EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x6, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX6ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x6, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX6EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x6, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x7, ECX=0x0: Extended Features
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX7ECX0EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX7ECX0EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX7ECX0ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX7ECX0EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x7, ECX=0x1: Extended Features
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX7ECX1EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX7ECX1EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX7ECX1ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX7ECX1EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x7, ECX=0x2: Extended Features
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX7ECX2EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 2);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX7ECX2EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 2);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX7ECX2ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 2);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX7ECX2EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 2);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x0D: XSAVE Features and State Components
+
+extern "C" __declspec(dllexport) int __cdecl GetEAXDEAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0xD, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAXDEBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0xD, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAXDECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0xD, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAXDEDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0xD, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x12: SGX Capabilities
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX12EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x12, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX12EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x12, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX12ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x12, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX12EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x12, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x14, ECX=0x0: Processor Trace feature bits in EBX and ECX
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX0EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x14, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX0EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x14, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX0ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x14, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX0EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x14, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x14, ECX=0x1: Processor Trace packet generation information in EAX, EBX and ECX
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x14, 1);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x14, 1);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x14, 1);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x14, 1);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x15: TSC and Core Crystal frequency information
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX15EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x15, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX15EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x15, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX15ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x15, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX15EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x15, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x16: Processor and Bus specification frequencies
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX16EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x16, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX16EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x16, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX16ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x16, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX16EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x16, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x17: SoC Vendor Attribute Enumeration
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX17EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x17, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX17EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x17, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX17ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x17, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX17EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x17, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x18: TLB Hierarchy and Topology
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX18EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x18, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX18EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x18, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX18ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x18, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX18EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x18, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x19: Intel Key Locker Features
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX19EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x19, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX19EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x19, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX19ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x19, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX19EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x19, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x1D: Intel AMX Tile Information
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX1DEAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1D, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX1DEBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1D, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX1DECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1D, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX1DEDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1D, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x1E: Intel AMX Tile Multiplier (TMUL) Information
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX1EEAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1E, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX1EEBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1E, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX1EECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1E, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX1EEDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1E, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x21: Reserved for TDX enumeration
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX21EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x21, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX21EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x21, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX21ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x21, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX21EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x21, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
 
 #pragma region EAX=0x24, ECX=0x0: AVX10 Converged Vector ISA
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX24ECX0EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x24, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX24ECX0EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x24, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX24ECX0ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x24, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX24ECX0EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x24, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x24, ECX=0x1: Discrete AVX10 Features
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX24ECX1EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x24, 1);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX24ECX1EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x24, 1);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX24ECX1ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x24, 1);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX24ECX1EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x24, 1);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x20000000: Highest Xeon Phi Function Implemented
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX20000000EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x20000000, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX20000000EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x20000000, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX20000000ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x20000000, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX20000000EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x20000000, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x20000001: Xeon Phi Feature Bits
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX20000001EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x20000001, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX20000001EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x20000001, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX20000001ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x20000001, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX20000001EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x20000001, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x40000000h-0x4FFFFFFFh: Reserved for Hypervisors
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000000EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000000, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000000EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000000, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000000ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000000, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000000EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000000, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x80000000: Highest Extended Function Implemented
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000000EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000000, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000000EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000000, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000000ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000000, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000000EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000000, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x80000001: Extended Processor Info and Feature Bits
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000001EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000001, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000001EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000001, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000001ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000001, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000001EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000001, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x80000002,0x80000003,0x80000004: Processor Brand String
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000002EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000002, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000002EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000002, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000002ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000002, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000002EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000002, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000003EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000003, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000003EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000003, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000003ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000003, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000003EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000003, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000004EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000004, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000004EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000004, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000004ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000004, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000004EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000004, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x80000005: L1 Cache and TLB Identifiers
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000005, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000005, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000005ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000005, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000005, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
 
 #pragma region EAX=0x80000006: Extended L2 Cache Features
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000006, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000006, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000006, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000006, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x80000007: Processor Power Management Information and RAS Capabilities
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000007EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000007EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000007ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000007EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x80000008: Virtual and Physical Address Sizes
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000008EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000008EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000008ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000008EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x8000000A: SVM features
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000000AEAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000000A, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000000AEBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000000A, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000000AECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000000A, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000000AEDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000000A, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x8000001F: Encrypted Memory Capabilities
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000001FEAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000001F, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000001FEBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000001F, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000001FECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000001F, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000001FEDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000001F, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x80000021: Extended Feature Identification
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000021EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000021EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000021ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000021EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x80000025: Encrypted Memory Capabilities 2
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000025EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000025, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000025EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000025, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000025ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000025, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000025EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000025, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x8C860000: Hygon Extended Feature Flags
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8C860000EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8C860000, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8C860000EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8C860000, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8C860000ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8C860000, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8C860000EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8C860000, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x8FFFFFFE: AMD Easter Eggs
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8FFFFFFEEAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8FFFFFFE, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8FFFFFFEEBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8FFFFFFE, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8FFFFFFEECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8FFFFFFE, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8FFFFFFEEDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8FFFFFFE, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0x8FFFFFFF: AMD Easter Eggs
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8FFFFFFFEAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8FFFFFFF, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8FFFFFFFEBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8FFFFFFF, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8FFFFFFFECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8FFFFFFF, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8FFFFFFFEDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8FFFFFFF, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0xC0000000: Highest Centaur Extended Function
+
+extern "C" __declspec(dllexport) int __cdecl GetEAXC0000000EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0xC0000000, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAXC0000000EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0xC0000000, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAXC0000000ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0xC0000000, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAXC0000000EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0xC0000000, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0xC0000001: Centaur Feature Information
+
+extern "C" __declspec(dllexport) int __cdecl GetEAXC0000001EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0xC0000001, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAXC0000001EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0xC0000001, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAXC0000001ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0xC0000001, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAXC0000001EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0xC0000001, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
 
 #pragma region EAX=0xC0000002: Centaur Extended CPUID Performance Data
+
+extern "C" __declspec(dllexport) int __cdecl GetEAXC0000002EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0xC0000002, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAXC0000002EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0xC0000002, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAXC0000002ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0xC0000002, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAXC0000002EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0xC0000002, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
 
+
+
+
+
+
+
+
+
+
 #pragma region EAX=0xC0000006, ECX=0: Zhaoxin Feature Information
+
+extern "C" __declspec(dllexport) int __cdecl GetEAXC0000006ECX0EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0xC0000006, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+    return eaxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAXC0000006ECX0EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0xC0000006, 0);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+
+    return ebxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAXC0000006ECX0ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0xC0000006, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+
+    return ecxBits.to_ulong();
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAXC0000006ECX0EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0xC0000006, 0);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+
+    return edxBits.to_ulong();
+}
+
 #pragma endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma region
 #pragma endregion
