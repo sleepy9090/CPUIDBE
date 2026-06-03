@@ -2444,6 +2444,14 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000000EDX()
     return edxBits.to_ulong();
 }
 
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000000EAX_HighestFunctionImplemented()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000000, 0);
+
+    return cpuInfo[0];
+}
+
 #pragma endregion
 
 
