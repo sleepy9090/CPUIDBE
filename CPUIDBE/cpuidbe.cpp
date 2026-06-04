@@ -1859,9 +1859,50 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX16EAX16_31_Reserved()
     return reserved;
 }
 
+extern "C" __declspec(dllexport) int __cdecl GetEAX16EBX0_15_ProcessorMaxFrequencyInMHz()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x16, 0);
+    unsigned int processorMaxFrequency = ExtractBits(cpuInfo[1], 0, 16);
 
+    return processorMaxFrequency;
+}
 
+extern "C" __declspec(dllexport) int __cdecl GetEAX16EBX16_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x16, 0);
+    unsigned int reserved = ExtractBits(cpuInfo[1], 16, 16);
 
+    return reserved;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX16ECX0_15_BusReferenceFrequencyInMHz()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x16, 0);
+    unsigned int busReferenceFrequency = ExtractBits(cpuInfo[2], 0, 16);
+
+    return busReferenceFrequency;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX16ECX16_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x16, 0);
+    unsigned int reserved = ExtractBits(cpuInfo[2], 16, 16);
+
+    return reserved;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX16EDX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x16, 0);
+    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
+
+    return reserved;
+}
 
 #pragma endregion
 
