@@ -644,6 +644,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX0_FPUIsSupported()
     return (bool)fpuSupported;
 }
 
+/* Virtual 8086 mode extensions (such as VIF, VIP, PVI) - (VME). */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX1_VMEIsSupported()
 {
     int cpuInfo[4];
@@ -654,6 +655,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX1_VMEIsSupported()
     return (bool)vmeSupported;
 }
 
+/* Debugging extensions (CR4 bit 3) - (DE).*/
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX2_DEIsSupported()
 {
     int cpuInfo[4];
@@ -664,6 +666,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX2_DEIsSupported()
     return (bool)deSupported;
 }
 
+/* Page Size Extension (4 MB pages) - (PSE). */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX3_PSEIsSupported()
 {
     int cpuInfo[4];
@@ -674,6 +677,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX3_PSEIsSupported()
     return (bool)pseSupported;
 }
 
+/* Time Stamp Counter and RDTSC instruction - (TSC). */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX4_TSCIsSupported()
 {
     int cpuInfo[4];
@@ -684,6 +688,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX4_TSCIsSupported()
     return (bool)tscSupported;
 }
 
+/* Model-specific registers and RDMSR/WRMSR instructions  - (MSR). */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX5_MSRIsSupported()
 {
     int cpuInfo[4];
@@ -694,6 +699,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX5_MSRIsSupported()
     return (bool)msrSupported;
 }
 
+/* Physical Address Extension - (PAE). */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX6_PAEIsSupported()
 {
     int cpuInfo[4];
@@ -704,6 +710,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX6_PAEIsSupported()
     return (bool)paeSupported;
 }
 
+/* Machine Check Exception - (MCE).*/
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX7_MCEIsSupported()
 {
     int cpuInfo[4];
@@ -714,6 +721,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX7_MCEIsSupported()
     return (bool)mceSupported;
 }
 
+/* CMPXCHG8B (compare-and-swap) instruction - (CX8). */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX8_CX8IsSupported()
 {
     int cpuInfo[4];
@@ -724,6 +732,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX8_CX8IsSupported()
     return (bool)cx8Supported;
 }
 
+/* Onboard Advanced Programmable Interrupt Controller - (APIC). */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX9_APICIsSupported()
 {
     int cpuInfo[4];
@@ -734,6 +743,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX9_APICIsSupported()
     return (bool)apicSupported;
 }
 
+/* Reserved. */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX10_ReservedIsSupported()
 {
     int cpuInfo[4];
@@ -744,6 +754,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX10_ReservedIsSupported()
     return (bool)reservedSupported;
 }
 
+/* SYSENTER and SYSEXIT fast system call instructions  - (SEP). */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX11_SEPIsSupported()
 {
     int cpuInfo[4];
@@ -754,6 +765,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX11_SEPIsSupported()
     return (bool)sepSupported;
 }
 
+/* Memory Type Range Registers - (MTRR).*/
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX12_MTRRIsSupported()
 {
     int cpuInfo[4];
@@ -764,6 +776,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX12_MTRRIsSupported()
     return (bool)mtrrSupported;
 }
 
+/* Page Global Enable bit in CR4 - (PGE). */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX13_PGEIsSupported()
 {
     int cpuInfo[4];
@@ -774,6 +787,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX13_PGEIsSupported()
     return (bool)pgeSupported;
 }
 
+/* Machine Check Architecture - (MCA).*/
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX14_MCAIsSupported()
 {
     int cpuInfo[4];
@@ -784,6 +798,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX14_MCAIsSupported()
     return (bool)mcaSupported;
 }
 
+/* Conditional move: CMOV, FCMOV and FCOMI instructions - (CMOV). */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX15_CMOVIsSupported()
 {
     int cpuInfo[4];
@@ -794,6 +809,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX15_CMOVIsSupported()
     return (bool)cmovSupported;
 }
 
+/* Page Attribute Table - (PAT).*/
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX16_PATIsSupported()
 {
     int cpuInfo[4];
@@ -804,6 +820,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX16_PATIsSupported()
     return (bool)patSupported;
 }
 
+/* 36-bit Page Size Extension - (PSE-36). */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX17_PSE36IsSupported()
 {
     int cpuInfo[4];
@@ -814,6 +831,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX17_PSE36IsSupported()
     return (bool)pse36Supported;
 }
 
+/* Processor Serial Number supported and enable - (PSN). */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX18_PSNIsSupported()
 {
     int cpuInfo[4];
@@ -824,6 +842,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX18_PSNIsSupported()
     return (bool)psnSupported;
 }
 
+/* CLFLUSH cache line flush instruction (SSE2)  - (CLFSH). */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX19_CLFSHIsSupported()
 {
     int cpuInfo[4];
@@ -834,6 +853,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX19_CLFSHIsSupported()
     return (bool)clflushSupported;
 }
 
+/* No-execute (NX) bit (Itanium only, reserved on other CPUs - (NX). */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX20_NXIsSupported()
 {
     int cpuInfo[4];
@@ -844,6 +864,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX20_NXIsSupported()
     return (bool)nxSupported;
 }
 
+/* Debug store: save trace of executed jumps - (DS). */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX21_DSIsSupported()
 {
     int cpuInfo[4];
@@ -854,6 +875,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX21_DSIsSupported()
     return (bool)dsSupported;
 }
 
+/* Onboard thermal control MSRs for ACPI - (ACPI). */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX22_ACPIIsSupported()
 {
     int cpuInfo[4];
@@ -864,6 +886,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX22_ACPIIsSupported()
     return (bool)acpiSupported;
 }
 
+/* MMX instructions (64-bit SIMD) - (MMX). */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX23_MMXIsSupported()
 {
     int cpuInfo[4];
@@ -874,6 +897,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX23_MMXIsSupported()
     return (bool)mmxSupported;
 }
 
+/* FXSAVE, FXRSTOR instructions, CR4 bit 9 - (FXSR). */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX24_FXSRIsSupported()
 {
     int cpuInfo[4];
@@ -884,6 +908,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX24_FXSRIsSupported()
     return (bool)fxsrSupported;
 }
 
+/* Streaming SIMD Extensions (SSE) / Katmai New Instructions 128-bit SIMD - (SSE). */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX25_SSEIsSupported()
 {
     int cpuInfo[4];
@@ -894,6 +919,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX25_SSEIsSupported()
     return (bool)sseSupported;
 }
 
+/* SSE2 instructions - (SSE2). */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX26_SSE2IsSupported()
 {
     int cpuInfo[4];
@@ -904,6 +930,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX26_SSE2IsSupported()
     return (bool)sse2Supported;
 }
 
+/* CPU cache implements self-snoop - (SS). */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX27_SSIsSupported()
 {
     int cpuInfo[4];
@@ -914,6 +941,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX27_SSIsSupported()
     return (bool)ssSupported;
 }
 
+/* Max APIC IDs reserved field is Valid - (HTT). */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX28_HTTIsSupported()
 {
     int cpuInfo[4];
@@ -924,6 +952,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX28_HTTIsSupported()
     return (bool)httSupported;
 }
 
+/* Thermal monitor automatically limits temperature - (TM). */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX29_TMIsSupported()
 {
     int cpuInfo[4];
@@ -934,6 +963,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX29_TMIsSupported()
     return (bool)tmSupported;
 }
 
+/* IA64 processor emulating x86 - (IA64). */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX30_IA64IsSupported()
 {
     int cpuInfo[4];
@@ -944,6 +974,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX30_IA64IsSupported()
     return (bool)ia64Supported;
 }
 
+/* Pending Break Enable (PBE# pin) wakeup capability - (PBE). */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX31_PBEIsSupported()
 {
     int cpuInfo[4];
@@ -955,22 +986,6 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX31_PBEIsSupported()
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0x2: Cache and TLB Descriptor Information
 
