@@ -28,6 +28,23 @@ unsigned int ExtractBits(unsigned int num,
     return (shifted & mask);
 }
 
+// Pad a number with zeros to make it 8 characters long, return the padded hex string
+string ZeroPadNumber(int num, int zeros) {
+    std::stringstream ss;
+    // Convert integer to string
+    ss << std::hex << num;
+    std::string paddedString;
+    // Get the string from stringstream
+    ss >> paddedString;
+
+    int stringLlength = paddedString.length();
+    for (int i = 0; i < zeros - stringLlength; i++)
+    {
+        paddedString = "0" + paddedString;
+    }
+    return paddedString;
+}
+
 #pragma region EAX=0x0: Highest Function Parameter and Manufacturer ID
 
 extern "C" __declspec(dllexport) int __cdecl GetEAX0EAX()
@@ -1214,29 +1231,6 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX2_EDX24_31_CacheAndTLBDescrip
 
 #pragma endregion
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #pragma region EAX=0x3: Processor Serial Number
 
 extern "C" __declspec(dllexport) int __cdecl GetEAX3EAX()
@@ -1273,6 +1267,44 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX3EDX()
     std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
 
     return edxBits.to_ulong();
+}
+
+/* Pentium 3 CPUs - 96-bit Serial Number. */
+extern "C" __declspec(dllexport) char* __cdecl GetEAX3_EAX_EDX_ECX_Pentium3CPU96BitSerialNumber()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+
+
+    __cpuidex(cpuInfo, 0x3, 0);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+	char serialNumber[41]{};
+	string bits = ZeroPadNumber(eaxBits.to_ulong(), 8) + ZeroPadNumber(edxBits.to_ulong(), 8) + ZeroPadNumber(ecxBits.to_ulong(), 8);
+
+    memcpy(serialNumber, bits.c_str(), sizeof(bits));
+    serialNumber[sizeof(bits)] = '\0';
+
+	return serialNumber;
+}
+
+/* Transmeta Crusoe and Efficeon CPUs - 128-bit Serial Number. */
+extern "C" __declspec(dllexport) char* __cdecl GetEAX3_EAX_EDX_ECX_TransmetaCrusoeAndEfficeonCPU128BitSerialNumber()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x3, 0);
+    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
+    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
+    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
+    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
+    char serialNumber[41]{};
+    string bits = ZeroPadNumber(eaxBits.to_ulong(), 8) + ZeroPadNumber(ebxBits.to_ulong(), 8) + ZeroPadNumber(ecxBits.to_ulong(), 8) + ZeroPadNumber(edxBits.to_ulong(), 8);
+
+    memcpy(serialNumber, bits.c_str(), sizeof(bits));
+    serialNumber[sizeof(bits)] = '\0';
+
+    return serialNumber;
 }
 
 #pragma endregion
