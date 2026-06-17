@@ -1010,6 +1010,193 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX2EDX()
     return edxBits.to_ulong();
 }
 
+/* If the cache and TLB descriptors are invalid (EAX). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX2_EAX31_IsInvalidCacheAndTblDescriptorsEAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x2, 0);
+
+    unsigned int isInvalidCacheAndTblDescriptors = ExtractBits(cpuInfo[0], 31, 1);
+
+    return (bool)isInvalidCacheAndTblDescriptors;
+}
+
+/* Number of times to query CPUID with 0x2 (should be 1). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX2_EAX0_7_NumberOfTimeToQueryCPUIDWithEAX2()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x2, 0);
+
+    unsigned int timesToQuery =ExtractBits(cpuInfo[0], 0, 8);
+
+    return timesToQuery;
+}
+
+/* Cache and TLB Descriptor Information (EAX byte 1). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX2_EAX8_15_CacheAndTLBDescriptorInformation1()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x2, 0);
+
+    unsigned int cacheAndTLBDescriptorInformation = ExtractBits(cpuInfo[0], 8, 8);
+
+    return cacheAndTLBDescriptorInformation;
+}
+
+/* Cache and TLB Descriptor Information (EAX byte 2). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX2_EAX16_23_CacheAndTLBDescriptorInformation2()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x2, 0);
+
+    unsigned int cacheAndTLBDescriptorInformation = ExtractBits(cpuInfo[0], 16, 8);
+
+    return cacheAndTLBDescriptorInformation;
+}
+
+/* Cache and TLB Descriptor Information (EAX byte 3). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX2_EAX24_31_CacheAndTLBDescriptorInformation3()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x2, 0);
+
+    unsigned int cacheAndTLBDescriptorInformation = ExtractBits(cpuInfo[0], 24, 8);
+
+    return cacheAndTLBDescriptorInformation;
+}
+
+/* If the cache and TLB descriptors are invalid (EBX). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX2_EBX31_IsInvalidCacheAndTblDescriptorsEBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x2, 0);
+
+    unsigned int isInvalidCacheAndTblDescriptors = ExtractBits(cpuInfo[1], 31, 1);
+
+    return (bool)isInvalidCacheAndTblDescriptors;
+}
+
+/* Cache and TLB Descriptor Information (EBX byte 1). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX2_EBX8_15_CacheAndTLBDescriptorInformation1()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x2, 0);
+
+    unsigned int cacheAndTLBDescriptorInformation = ExtractBits(cpuInfo[1], 8, 8);
+
+    return cacheAndTLBDescriptorInformation;
+}
+
+/* Cache and TLB Descriptor Information (EBX byte 2). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX2_EBX16_23_CacheAndTLBDescriptorInformation2()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x2, 0);
+
+    unsigned int cacheAndTLBDescriptorInformation = ExtractBits(cpuInfo[1], 16, 8);
+
+    return cacheAndTLBDescriptorInformation;
+}
+
+/* Cache and TLB Descriptor Information (EBX byte 3). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX2_EBX24_31_CacheAndTLBDescriptorInformation3()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x2, 0);
+
+    unsigned int cacheAndTLBDescriptorInformation = ExtractBits(cpuInfo[1], 24, 8);
+
+    return cacheAndTLBDescriptorInformation;
+}
+
+/* If the cache and TLB descriptors are invalid (ECX). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX2_ECX31_IsInvalidCacheAndTblDescriptorsECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x2, 0);
+
+    unsigned int isInvalidCacheAndTblDescriptors = ExtractBits(cpuInfo[2], 31, 1);
+
+    return (bool)isInvalidCacheAndTblDescriptors;
+}
+
+/* Cache and TLB Descriptor Information (ECX byte 1). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX2_ECX8_15_CacheAndTLBDescriptorInformation1()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x2, 0);
+
+    unsigned int cacheAndTLBDescriptorInformation = ExtractBits(cpuInfo[2], 8, 8);
+
+    return cacheAndTLBDescriptorInformation;
+}
+
+/* Cache and TLB Descriptor Information (ECX byte 2). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX2_ECX16_23_CacheAndTLBDescriptorInformation2()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x2, 0);
+
+    unsigned int cacheAndTLBDescriptorInformation = ExtractBits(cpuInfo[2], 16, 8);
+
+    return cacheAndTLBDescriptorInformation;
+}
+
+/* Cache and TLB Descriptor Information (ECX byte 3). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX2_ECX24_31_CacheAndTLBDescriptorInformation3()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x2, 0);
+
+    unsigned int cacheAndTLBDescriptorInformation = ExtractBits(cpuInfo[2], 24, 8);
+
+    return cacheAndTLBDescriptorInformation;
+}
+
+/* If the cache and TLB descriptors are invalid (EDX). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX2_EDX31_IsInvalidCacheAndTblDescriptorsEDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x2, 0);
+
+    unsigned int isInvalidCacheAndTblDescriptors = ExtractBits(cpuInfo[3], 31, 1);
+
+    return (bool)isInvalidCacheAndTblDescriptors;
+}
+
+/* Cache and TLB Descriptor Information (EDX byte 1). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX2_EDX8_15_CacheAndTLBDescriptorInformation1()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x2, 0);
+
+    unsigned int cacheAndTLBDescriptorInformation = ExtractBits(cpuInfo[3], 8, 8);
+
+    return cacheAndTLBDescriptorInformation;
+}
+
+/* Cache and TLB Descriptor Information (EDX byte 2). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX2_EDX16_23_CacheAndTLBDescriptorInformation2()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x2, 0);
+
+    unsigned int cacheAndTLBDescriptorInformation = ExtractBits(cpuInfo[3], 16, 8);
+
+    return cacheAndTLBDescriptorInformation;
+}
+
+/* Cache and TLB Descriptor Information (EDX byte 3). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX2_EDX24_31_CacheAndTLBDescriptorInformation3()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x2, 0);
+
+    unsigned int cacheAndTLBDescriptorInformation = ExtractBits(cpuInfo[3], 24, 8);
+
+    return cacheAndTLBDescriptorInformation;
+}
+
 #pragma endregion
 
 
