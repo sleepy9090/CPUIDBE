@@ -1231,6 +1231,28 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX2_EDX24_31_CacheAndTLBDescrip
 
 #pragma endregion
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #pragma region EAX=0x3: Processor Serial Number
 
 extern "C" __declspec(dllexport) int __cdecl GetEAX3EAX()
@@ -1550,6 +1572,193 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX5EDX()
     std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
 
     return edxBits.to_ulong();
+}
+
+/* Smallest monitor-line size in bytes. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX5_EAX0_15_SmallestMonitorLineSize()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x5, 0);
+
+    unsigned int smallestMonitorLineSize = ExtractBits(cpuInfo[0], 0, 16);
+
+    return smallestMonitorLineSize;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX5_EAX16_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x5, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[0], 16, 16);
+
+    return reserved;
+}
+
+/* Largest monitor-line size in bytes. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX5_EBX0_15_LargestMonitorLineSize()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x5, 0);
+
+    unsigned int largestMonitorLineSize = ExtractBits(cpuInfo[1], 0, 16);
+
+    return largestMonitorLineSize;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX5_EBX16_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x5, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 16, 16);
+
+    return reserved;
+}
+
+/* Enumeration of MONITOR/MWAIT extensions in ECX and EDX supported (EMX). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX5_ECX0_EnumOfMonitorMWAITExtensionsInECXAndEDXSupported_EMX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x5, 0);
+
+    unsigned int emx = ExtractBits(cpuInfo[2], 0, 1);
+
+    return emx;
+}
+
+/* Supports treating interrupts as break-events for MWAIT even when interrupts are disabled (IBE). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX5_ECX1_SupportsTreatingInterruptsAsBreakEventsForMWAITEvenWhenInterruptsAreDisabled_IBE()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x5, 0);
+
+    unsigned int ibe = ExtractBits(cpuInfo[2], 1, 1);
+
+    return ibe;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX5_ECX2_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x5, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[2], 2, 1);
+
+    return reserved;
+}
+
+/* Allow MWAIT to be used for power management without setting up memory monitoring with MONITOR (Monitorless_­MWAIT). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX5_ECX3_AllowMWAITToBeUsedForPowerManagementWithoutSettingUpMemoryMonitoringWithMONITOR_Monitorless_MWAIT()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x5, 0);
+
+    unsigned int monitorlessMWAIT = ExtractBits(cpuInfo[2], 3, 1);
+
+    return monitorlessMWAIT;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX5_ECX4_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x5, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[2], 4, 28);
+
+    return reserved;
+}
+
+/* Number of C0 sub-states supported for MWAIT. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX5_EDX0_3_NumberOfC0SubStatesSupportedForMWAIT()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x5, 0);
+
+    unsigned int numberOfC0SubStates = ExtractBits(cpuInfo[3], 0, 4);
+
+    return numberOfC0SubStates;
+}
+
+/* Number of C1 sub-states supported for MWAIT. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX5_EDX4_7_NumberOfC1SubStatesSupportedForMWAIT()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x5, 0);
+
+    unsigned int numberOfC1SubStates = ExtractBits(cpuInfo[3], 4, 4);
+
+    return numberOfC1SubStates;
+}
+
+/* Number of C2 sub-states supported for MWAIT. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX5_EDX8_11_NumberOfC2SubStatesSupportedForMWAIT()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x5, 0);
+
+    unsigned int numberOfC2SubStates = ExtractBits(cpuInfo[3], 8, 4);
+
+    return numberOfC2SubStates;
+}
+
+/* Number of C3 sub-states supported for MWAIT. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX5_EDX12_15_NumberOfC3SubStatesSupportedForMWAIT()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x5, 0);
+
+    unsigned int numberOfC3SubStates = ExtractBits(cpuInfo[3], 12, 4);
+
+    return numberOfC3SubStates;
+}
+
+/* Number of C4 sub-states supported for MWAIT. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX5_EDX16_19_NumberOfC4SubStatesSupportedForMWAIT()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x5, 0);
+
+    unsigned int numberOfC4SubStates = ExtractBits(cpuInfo[3], 16, 4);
+
+    return numberOfC4SubStates;
+}
+
+/* Number of C5 sub-states supported for MWAIT. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX5_EDX20_23_NumberOfC5SubStatesSupportedForMWAIT()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x5, 0);
+
+    unsigned int numberOfC5SubStates = ExtractBits(cpuInfo[3], 20, 4);
+
+    return numberOfC5SubStates;
+}
+
+/* Number of C6 sub-states supported for MWAIT. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX5_EDX24_27_NumberOfC6SubStatesSupportedForMWAIT()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x5, 0);
+
+    unsigned int numberOfC6SubStates = ExtractBits(cpuInfo[3], 24, 4);
+
+    return numberOfC6SubStates;
+}
+
+/* Number of C7 sub-states supported for MWAIT. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX5_EDX28_31_NumberOfC7SubStatesSupportedForMWAIT()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x5, 0);
+
+    unsigned int numberOfC7SubStates = ExtractBits(cpuInfo[3], 28, 4);
+
+    return numberOfC7SubStates;
 }
 
 #pragma endregion
