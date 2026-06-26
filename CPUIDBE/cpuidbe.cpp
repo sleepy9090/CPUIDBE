@@ -3305,15 +3305,137 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX19_LBRIsSupported()
     return (bool)lbrSupported;
 }
 
+/* Control flow enforcement (CET): indirect branch tracking - (cet-ibt). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX20_CETIBTIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
 
+    unsigned int cetIbtSupported = ExtractBits(cpuInfo[3], 20, 1);
 
+    return (bool)cetIbtSupported;
+}
 
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX21_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
 
+    unsigned int reservedSupported = ExtractBits(cpuInfo[3], 21, 1);
 
+    return (bool)reservedSupported;
+}
 
+/* AMX tile computation on bfloat16 numbers - (amx-bf16). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX22_AMXBF16IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
 
+    unsigned int amxBf16Supported = ExtractBits(cpuInfo[3], 22, 1);
 
+    return (bool)amxBf16Supported;
+}
 
+/* AVX-512 half-precision floating-point arithmetic instructions - (avx512-fp16). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX23_AVX512FP16IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int avx512fp16Supported = ExtractBits(cpuInfo[3], 23, 1);
+
+    return (bool)avx512fp16Supported;
+}
+
+/* AMX tile load/store instructions - (amx-tile). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX24_AMXTILEIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int amxTileSupported = ExtractBits(cpuInfo[3], 24, 1);
+
+    return (bool)amxTileSupported;
+}
+
+/* AMX tile computation on 8-bit integers - (amx-int8). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX25_AMXINT8IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int amxInt8Supported = ExtractBits(cpuInfo[3], 25, 1);
+
+    return (bool)amxInt8Supported;
+}
+
+/* Speculation Control, part of Indirect Branch Control (IBC): Indirect Branch Restricted Speculation (IBRS) and Indirect Branch Prediction Barrier (IBPB) - (ibrs / spec_ctrl). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX26_SPEC_CTRLIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int specCtrlSupported = ExtractBits(cpuInfo[3], 26, 1);
+
+    return (bool)specCtrlSupported;
+}
+
+/* Single Thread Indirect Branch Predictor, part of IBC - (stibp). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX27_STIBPIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int stibpSupported = ExtractBits(cpuInfo[3], 27, 1);
+
+    return (bool)stibpSupported;
+}
+
+/* IA32_FLUSH_CMD MSR - L1D_FLUSH. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX28_L1D_FLUSHIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int l1dFlushSupported = ExtractBits(cpuInfo[3], 28, 1);
+
+    return (bool)l1dFlushSupported;
+}
+
+/* IA32_ARCH_CAPABILITIES MSR (lists speculative side channel mitigations) - (arch_­capabilities). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX29_ARCH_CAPABILITIESIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int archCapabilitiesSupported = ExtractBits(cpuInfo[3], 29, 1);
+
+    return (bool)archCapabilitiesSupported;
+}
+
+/* IA32_CORE_CAPABILITIES MSR (lists model-specific core capabilities) - (core_­capabilities). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX30_CORE_CAPABILITIESIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int coreCapabilitiesSupported = ExtractBits(cpuInfo[3], 30, 1);
+
+    return (bool)coreCapabilitiesSupported;
+}
+
+/* Speculative Store Bypass Disable, as mitigation for Speculative Store Bypass (IA32_SPEC_CTRL) - (ssbd). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX31_SSBDIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int ssbdSupported = ExtractBits(cpuInfo[3], 31, 1);
+
+    return (bool)ssbdSupported;
+}
 
 
 
