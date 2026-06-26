@@ -3085,6 +3085,237 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_ECX31_PKSIsSupported()
 }
 
 /* EDX. */
+/* ? - (sgx-tem). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX0_SGXTEMIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int sgxtemSupported = ExtractBits(cpuInfo[3], 0, 1);
+
+    return (bool)sgxtemSupported;
+}
+
+/* Attestation Services for Intel SGX - (sgx-keys). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX1_SGXKEYIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int sgxkeysSupported = ExtractBits(cpuInfo[3], 1, 1);
+
+    return (bool)sgxkeysSupported;
+}
+
+/* AVX-512 4-register Neural Network Instructions - (avx512-4vnniw). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX2_AVX5124VNNIIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int avx5124vnniSupported = ExtractBits(cpuInfo[3], 2, 1);
+
+    return (bool)avx5124vnniSupported;
+}
+
+/* AVX-512 4-register Multiply Accumulation Single precision - (avx512-4fmaps). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX3_AVX5124FMAPSIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int avx5124fmapsSupported = ExtractBits(cpuInfo[3], 3, 1);
+
+    return (bool)avx5124fmapsSupported;
+}
+
+/* Fast Short REP MOVSB - (fsrm). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX4_FSRMIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int fsrmSupported = ExtractBits(cpuInfo[3], 4, 1);
+
+    return (bool)fsrmSupported;
+}
+
+/* User Inter-processor Interrupts - (uintr). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX5_UINTRIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int uintrSupported = ExtractBits(cpuInfo[3], 5, 1);
+
+    return (bool)uintrSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX6_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[3], 6, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX7_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[3], 7, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* AVX-512 vector intersection instructions on 32/64-bit integers - (avx512-vp2intersect). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX8_AVX512VP2INTERSECTIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int avx512vp2intersectSupported = ExtractBits(cpuInfo[3], 8, 1);
+
+    return (bool)avx512vp2intersectSupported;
+}
+
+/* Special Register Buffer Data Sampling Mitigations - (srbds-ctrl). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX9_SRBDSCtrlIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int srbdsCtrlSupported = ExtractBits(cpuInfo[3], 9, 1);
+
+    return (bool)srbdsCtrlSupported;
+}
+
+/* VERW instruction clears CPU buffers - (md-clear). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX10_MDClearIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int mdClearSupported = ExtractBits(cpuInfo[3], 10, 1);
+
+    return (bool)mdClearSupported;
+}
+
+/* All TSX transactions are aborted - (rtm-always-abort). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX11_RTMAlwaysAbortIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int rtmAlwaysAbortSupported = ExtractBits(cpuInfo[3], 11, 1);
+
+    return (bool)rtmAlwaysAbortSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX12_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[3], 12, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* TSX_FORCE_ABORT (MSR 0x10f) is available - (rtm-force-abort). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX13_RTMForceAbortIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int rtmForceAbortSupported = ExtractBits(cpuInfo[3], 13, 1);
+
+    return (bool)rtmForceAbortSupported;
+}
+
+/* SERIALIZE instruction - (serialize). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX14_SERIALIZEIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int serializeSupported = ExtractBits(cpuInfo[3], 14, 1);
+
+    return (bool)serializeSupported;
+}
+
+/* Mixture of CPU types in processor topology (e.g. Alder Lake) - (hybrid). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX15_HYBRIDIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int hybridSupported = ExtractBits(cpuInfo[3], 15, 1);
+
+    return (bool)hybridSupported;
+}
+
+/* TSX load address tracking suspend/resume instructions (TSUSLDTRK and TRESLDTRK) - (tsxldtrk). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX16_TSXLDTRKIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int tsxldtrkSupported = ExtractBits(cpuInfo[3], 16, 1);
+
+    return (bool)tsxldtrkSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX17_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[3], 17, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Platform configuration (Memory Encryption Technologies Instructions) - (pconfig). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX18_PCONFIGIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int pconfigSupported = ExtractBits(cpuInfo[3], 18, 1);
+
+    return (bool)pconfigSupported;
+}
+
+/* Architectural Last Branch Records - (lbr). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX19_LBRIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 0);
+
+    unsigned int lbrSupported = ExtractBits(cpuInfo[3], 19, 1);
+
+    return (bool)lbrSupported;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
