@@ -3480,14 +3480,1416 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX7ECX1EDX()
 }
 
 /* EAX. */
+/* SHA-512 extensions - (sha512). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX0_SHA512IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int sha512Supported = ExtractBits(cpuInfo[0], 0, 1);
+
+    return (bool)sha512Supported;
+}
+
+/* SM3 hash extensions - (sm3). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX1_SM3IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int sm3Supported = ExtractBits(cpuInfo[0], 1, 1);
+
+    return (bool)sm3Supported;
+}
+
+/* SM4 cipher extensions - (sm4). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX2_SM4IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int sm4Supported = ExtractBits(cpuInfo[0], 2, 1);
+
+    return (bool)sm4Supported;
+}
+
+/* Remote Atomic Operations on integers: AADD, AAND, AOR, AXOR instructions - (rao-int). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX3_RAO_INTIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int raoIntSupported = ExtractBits(cpuInfo[0], 3, 1);
+
+    return (bool)raoIntSupported;
+}
+
+/* AVX Vector Neural Network Instructions (VNNI) (VEX encoded) - (avx-vnni). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX4_AVX_VNNIIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int avxVnniSupported = ExtractBits(cpuInfo[0], 4, 1);
+
+    return (bool)avxVnniSupported;
+}
+
+/* AVX-512 instructions for bfloat16 numbers - (avx512-bf16). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX5_AVX512_BF16IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int avx512Bf16Supported = ExtractBits(cpuInfo[0], 5, 1);
+
+    return (bool)avx512Bf16Supported;
+}
+
+/* Linear Address Space Separation (CR4 bit 27) - (lass). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX6_LASSIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int lassSupported = ExtractBits(cpuInfo[0], 6, 1);
+
+    return (bool)lassSupported;
+}
+
+/* CMPccXADD instructions - (cmpccxadd). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX7_CMPCCXADDIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int cmpccxaddSupported = ExtractBits(cpuInfo[0], 7, 1);
+
+    return (bool)cmpccxaddSupported;
+}
+
+/* Architectural Performance Monitoring Extended Leaf (EAX=23h) - (archperf­monext). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX8_ARCHPERFMONEXTIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int archperfMonextSupported = ExtractBits(cpuInfo[0], 8, 1);
+
+    return (bool)archperfMonextSupported;
+}
+
+/* ? - (dedup). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX9_DEDUPIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int dedupSupported = ExtractBits(cpuInfo[0], 9, 1);
+
+    return (bool)dedupSupported;
+}
+
+/* Fast zero-length REP MOVSB - (fzrm). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX10_FZRMIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int fzrmSupported = ExtractBits(cpuInfo[0], 10, 1);
+
+    return (bool)fzrmSupported;
+}
+
+/* Fast short REP STOSB - (fsrs). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX11_FSRSIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int fsrsSupported = ExtractBits(cpuInfo[0], 11, 1);
+
+    return (bool)fsrsSupported;
+}
+
+/* Fast short REP CMPSB and REP SCASB - (rsrcs). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX12_RSRCSIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int rsrcsSupported = ExtractBits(cpuInfo[0], 12, 1);
+
+    return (bool)rsrcsSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX13_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[0], 13, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX14_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[0], 14, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX15_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[0], 15, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX16_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[0], 16, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Flexible Return and Event Delivery - (fred). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX17_FREDIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int fredSupported = ExtractBits(cpuInfo[0], 17, 1);
+
+    return (bool)fredSupported;
+}
+
+/* LKGS Instruction - (lkgs). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX18_LKGSIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int lkgsSupported = ExtractBits(cpuInfo[0], 18, 1);
+
+    return (bool)lkgsSupported;
+}
+
+/* WRMSRNS instruction (non-serializing write to MSRs) - (wrmsrns). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX19_WRMSRNSIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int wrmsrnsSupported = ExtractBits(cpuInfo[0], 19, 1);
+
+    return (bool)wrmsrnsSupported;
+}
+
+/* NMI source reporting - (nmi_src). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX20_NMI_SRCIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int nmi_srcSupported = ExtractBits(cpuInfo[0], 20, 1);
+
+    return (bool)nmi_srcSupported;
+}
+
+/* AMX instructions for FP16 numbers - (amx-fp16). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX21_AMX_FP16IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int amx_fp16Supported = ExtractBits(cpuInfo[0], 21, 1);
+
+    return (bool)amx_fp16Supported;
+}
+
+/* HRESET instruction, IA32_HRESET_ENABLE (17DAh) MSR, and Processor History Reset Leaf (EAX=20h) - (hreset). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX22_HRESETIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int hresetSupported = ExtractBits(cpuInfo[0], 22, 1);
+
+    return (bool)hresetSupported;
+}
+
+/* AVX IFMA instructions - (avx-ifma). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX23_AVX_IFMAIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int avx_ifmaSupported = ExtractBits(cpuInfo[0], 23, 1);
+
+    return (bool)avx_ifmaSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX24_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[0], 24, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX25_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[0], 25, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Linear Address Masking - (lam). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX26_LAMIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int lamSupported = ExtractBits(cpuInfo[0], 26, 1);
+
+    return (bool)lamSupported;
+}
+
+/* RDMSRLIST and WRMSRLIST instructions, and the IA32_BARRIER (02Fh) MSR - (msrlist). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX27_MSRListIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int msrlistSupported = ExtractBits(cpuInfo[0], 27, 1);
+
+    return (bool)msrlistSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX28_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[0], 28, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX29_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[0], 29, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* If 1, supports INVD instruction execution prevention after BIOS Done. - (invd_­disable_­post_­bios_done). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX30_INVD_DISABLE_POST_BIOS_DONEIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int invd_­disable_­post_­bios_doneSupported = ExtractBits(cpuInfo[0], 30, 1);
+
+    return (bool)invd_­disable_­post_­bios_doneSupported;
+}
+
+/* MOVRS and PREFETCHRST2 instructions supported (memory read/prefetch with read-shared hint) - (MOVRS). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EAX31_MOVRSIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int movrsSupported = ExtractBits(cpuInfo[0], 31, 1);
+
+    return (bool)movrsSupported;
+}
 
 /* EBX. */
+/* Intel PPIN (Protected Processor Inventory Number): IA32_PPIN_CTL (04Eh) and IA32_PPIN (04Fh) MSRs. - (ppin). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX0_PPINIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int ppinSupported = ExtractBits(cpuInfo[1], 0, 1);
+
+    return (bool)ppinSupported;
+}
+
+/* Total Storage Encryption: PBNDKB instruction and TSE_CAPABILITY (9F1h) MSR. - (pbndkb). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX1_PBNDKBIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int pbndkbSupported = ExtractBits(cpuInfo[1], 1, 1);
+
+    return (bool)pbndkbSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX2_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 2, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* If 1, then bit 22 of IA32_MISC_ENABLE cannot be set to 1 to limit the value returned by CPUID.(EAX=0):EAX[7:0]. - (CPUID­MAXVAL_­LIM_RMV). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX3_CPUID­MAXVAL_­LIM_RMVIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int cpuid_maxval_lim_rmvSupported = ExtractBits(cpuInfo[1], 3, 1);
+
+    return (bool)cpuid_maxval_lim_rmvSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX4_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 4, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX5_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 5, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX6_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 6, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX7_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 7, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX8_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 8, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX9_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 9, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX10_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 10, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX11_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 11, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX12_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 12, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX13_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 13, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX14_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 14, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX15_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 15, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX16_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 16, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX17_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 17, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX18_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 18, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX19_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 19, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX20_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 20, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX21_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 21, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX22_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 22, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX23_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 23, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX24_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 24, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX25_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 25, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX26_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 26, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX27_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 27, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved / ? - (mpsadbw_512). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX28_Reserved_MPSADBW_512IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reserved_mpsadbw_512Supported = ExtractBits(cpuInfo[1], 28, 1);
+
+    return (bool)reserved_mpsadbw_512Supported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX29_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 29, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved / ? - (avx512-rao-fp). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX30_Reserved_AVX512_RAO_FPIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reserved_avx512_rao_fpSupported = ExtractBits(cpuInfo[1], 30, 1);
+
+    return (bool)reserved_avx512_rao_fpSupported;
+}
+
+/* Reserved / ? - (avx512-rao-fp). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX31_Reserved_AVX512_RAO_FPIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reserved_avx512_rao_fpSupported = ExtractBits(cpuInfo[1], 31, 1);
+
+    return (bool)reserved_avx512_rao_fpSupported;
+}
 
 /* ECX. */
+/* Asymmetric RDT Monitoring capability - (RDT_M_­ASYM). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX0_RDT_M_­ASYMIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int rdt_m_asymSupported = ExtractBits(cpuInfo[2], 0, 1);
+
+    return (bool)rdt_m_asymSupported;
+}
+
+/* Asymmetric RDT Monitoring capability - (RDT_M_­ASYM). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX1_RDT_M_­ASYMIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int rdt_m_asymSupported = ExtractBits(cpuInfo[2], 1, 1);
+
+    return (bool)rdt_m_asymSupported;
+}
+
+/* Reserved / (X86S, cancelled) - (legacy_­reduced_­isa). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX2_Reserved_LEGACY_REDUCED_ISAIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reserved_legacy_reducde_isaSupported = ExtractBits(cpuInfo[2], 2, 1);
+
+    return (bool)reserved_legacy_reducde_isaSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX3_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 3, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* 64-bit SIPI (Startup InterProcessor Interrupt) (part of cancelled X86S) - (sipi64). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX4_SIPI64IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int sipi64Supported = ExtractBits(cpuInfo[2], 4, 1);
+
+    return (bool)sipi64Supported;
+}
+
+/* Immediate forms of the RDMSR and WRMSRNS instructions - (MSR_IMM). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX5_MSR_IMMIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int msr_immSupported = ExtractBits(cpuInfo[2], 5, 1);
+
+    return (bool)msr_immSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX6_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 6, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX7_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 7, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX8_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 8, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX9_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 9, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX10_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 10, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX11_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 11, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX12_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 12, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX13_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 13, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX14_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 14, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX15_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 15, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX16_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 16, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX17_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 17, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX18_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 18, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX19_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 19, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX20_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 20, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX21_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 21, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX22_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 22, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX23_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 23, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX24_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 24, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX25_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 25, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX26_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 26, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX27_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 27, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX28_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 28, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX29_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 29, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX30_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 30, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX31_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 31, 1);
+
+    return (bool)reservedSupported;
+}
 
 /* EDX. */
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX0_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
 
+    unsigned int reservedSupported = ExtractBits(cpuInfo[3], 0, 1);
 
+    return (bool)reservedSupported;
+}
+
+/* Reserved / ? - (avx512-vnni-fp16). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX1_Reserved_AVX512_VNNI_FP16IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reserved_avx512_vnni_fp16Supported = ExtractBits(cpuInfo[3], 1, 1);
+
+    return (bool)reserved_avx512_vnni_fp16Supported;
+}
+
+/* Reserved / ? - (avx512-vnni-int8). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX2_Reserved_AVX512_VNNI_INT8IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reserved_avx512_vnni_int8Supported = ExtractBits(cpuInfo[3], 2, 1);
+
+    return (bool)reserved_avx512_vnni_int8Supported;
+}
+
+/* Reserved / ? - (avx512-ne-convert). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX3_Reserved_AVX512_NE_CONVERTIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reserved_avx512_ne_convertSupported = ExtractBits(cpuInfo[3], 3, 1);
+
+    return (bool)reserved_avx512_ne_convertSupported;
+}
+
+/* AVX VNNI INT8 instructions - (avx-vnni-int8). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX4_AVX_VNNI_INT8IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int avx_vnni_int8Supported = ExtractBits(cpuInfo[3], 4, 1);
+
+    return (bool)avx_vnni_int8Supported;
+}
+
+/* AVX no-exception FP conversion instructions (bfloat16-FP32 and FP16->FP32) - (avx-ne-convert). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX5_AVX_NE_CONVERTIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int avx_ne_convertSupported = ExtractBits(cpuInfo[3], 5, 1);
+
+    return (bool)avx_ne_convertSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX6_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[3], 6, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX7_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[3], 7, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* AMX support for "complex" tiles (TCMMIMFP16PS and TCMMRLFP16PS) - (amx-complex). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX8_AMX_COMPLEXIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int amx_complexSupported = ExtractBits(cpuInfo[3], 8, 1);
+
+    return (bool)amx_complexSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX9_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[3], 9, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* AVX VNNI INT16 instructions - (avx-vnni-int16). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX10_AVX_VNNI_INT16IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int avx_vnni_int16Supported = ExtractBits(cpuInfo[3], 10, 1);
+
+    return (bool)avx_vnni_int16Supported;
+}
+
+/* Reserved / ? - (avx512-vnni-int16). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX11_Reserved_AVX512_VNNI_INT16IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reserved_avx512_vnni_int16Supported = ExtractBits(cpuInfo[3], 11, 1);
+
+    return (bool)reserved_avx512_vnni_int16Supported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX12_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[3], 12, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* User-timer events: IA32_UINTR_TIMER (1B00h) MSR - (utmr). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX13_UTMRIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int utmrSupported = ExtractBits(cpuInfo[3], 13, 1);
+
+    return (bool)utmrSupported;
+}
+
+/* Instruction-cache prefetch instructions (PREFETCHIT0 and PREFETCHIT1) - (prefetchi). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX14_PREFETCHIIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int prefetchiSupported = ExtractBits(cpuInfo[3], 14, 1);
+
+    return (bool)prefetchiSupported;
+}
+
+/* User-mode MSR access instructions (URDMSR and UWRMSR) - (user_msr). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX15_USER_MSRIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int user_msrSupported = ExtractBits(cpuInfo[3], 15, 1);
+
+    return (bool)user_msrSupported;
+}
+
+/* Reserved / ? - (avx512-bf16-ne). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX16_Reserved_AVX512_BF16_NEIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reserved_avx512_bf16_neSupported = ExtractBits(cpuInfo[3], 16, 1);
+
+    return (bool)reserved_avx512_bf16_neSupported;
+}
+
+/* If 1, the UIRET (User Interrupt Return) instruction will set UIF (User Interrupt Flag) to the value of bit 1 of the RFLAGS image popped off the stack. - (uiret-uif-from-rflags). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX17_UIRET_UIF_FROM_RFLAGSIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int uiret_uif_from_rflagsSupported = ExtractBits(cpuInfo[3], 17, 1);
+
+    return (bool)uiret_uif_from_rflagsSupported;
+}
+
+/* If 1, then Control-Flow Enforcement (CET) Supervisor Shadow Stacks (SSS) are guaranteed not to become prematurely busy as long as shadow stack switching does not cause page faults on the stack being switched to. - (cet-sss). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX18_CET_SSSIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int cet_sssSupported = ExtractBits(cpuInfo[3], 18, 1);
+
+    return (bool)cet_sssSupported;
+}
+
+/* AVX10 Converged Vector ISA (see also leaf 24h) - (avx10). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX19_AVX10IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int avx10Supported = ExtractBits(cpuInfo[3], 19, 1);
+
+    return (bool)avx10Supported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX20_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[3], 20, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Advanced Performance Extensions, Foundation (adds REX2 and extended EVEX prefix encodings to support 32 GPRs, as well as some new instructions) - (APX_F). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX21_APX_FIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int apx_fSupported = ExtractBits(cpuInfo[3], 21, 1);
+
+    return (bool)apx_fSupported;
+}
+
+/* If 1, then trusted execution environment technologies (Intel TDX and Intel SGX) support attestation rooted in the on-chip Security Engine. - (SEC_TEE_­ATTESTATION). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX22_SEC_TEE_ATTESTATIONIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int sec_tee_attestationSupported = ExtractBits(cpuInfo[3], 22, 1);
+
+    return (bool)sec_tee_attestationSupported;
+}
+
+/* MWAIT instruction - (mwait). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX23_MWAITIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int mwaitSupported = ExtractBits(cpuInfo[3], 23, 1);
+
+    return (bool)mwaitSupported;
+}
+
+/* Static Lockstep Mode (bit 0 of IA32_INTEGRITY_STATUS MSR is available) - (slsm). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX24_SLSMIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int slsmSupported = ExtractBits(cpuInfo[3], 24, 1);
+
+    return (bool)slsmSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX25_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[3], 25, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX26_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[3], 26, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX27_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[3], 27, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX28_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[3], 28, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX29_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[3], 29, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX30_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[3], 30, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX31_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x7, 1);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[3], 31, 1);
+
+    return (bool)reservedSupported;
+}
 
 /* EAX=7, ECX=2: Extended Features. */
 extern "C" __declspec(dllexport) int __cdecl GetEAX7ECX2EAX()
