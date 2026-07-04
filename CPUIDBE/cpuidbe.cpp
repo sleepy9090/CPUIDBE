@@ -3437,12 +3437,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX0_EDX31_SSBDIsSupported(
     return (bool)ssbdSupported;
 }
 
-
-
-
-
-
-/* EAX=7, ECX=1: Extended Features. */
+/* EAX=0x7, ECX=0x1: Extended Features. */
 extern "C" __declspec(dllexport) int __cdecl GetEAX7ECX1EAX()
 {
     int cpuInfo[4];
@@ -4891,7 +4886,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX31_ReservedIsSuppor
     return (bool)reservedSupported;
 }
 
-/* EAX=7, ECX=2: Extended Features. */
+/* EAX=0x7, ECX=0x2: Extended Features. */
 extern "C" __declspec(dllexport) int __cdecl GetEAX7ECX2EAX()
 {
     int cpuInfo[4];
@@ -5282,117 +5277,6 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX2_EDX31_ReservedIsSuppor
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#pragma region EAX=0x7, ECX=0x1: Extended Features
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX7ECX1EAX()
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x7, 1);
-    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
-
-    return eaxBits.to_ulong();
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX7ECX1EBX()
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x7, 1);
-    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
-
-    return ebxBits.to_ulong();
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX7ECX1ECX()
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x7, 1);
-    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
-
-    return ecxBits.to_ulong();
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX7ECX1EDX()
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x7, 1);
-    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
-
-    return edxBits.to_ulong();
-}
-
-#pragma endregion
-
-
-
-
-
-
-
-
-
-
-#pragma region EAX=0x7, ECX=0x2: Extended Features
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX7ECX2EAX()
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x7, 2);
-    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
-
-    return eaxBits.to_ulong();
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX7ECX2EBX()
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x7, 2);
-    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
-
-    return ebxBits.to_ulong();
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX7ECX2ECX()
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x7, 2);
-    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
-
-    return ecxBits.to_ulong();
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX7ECX2EDX()
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x7, 2);
-    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
-
-    return edxBits.to_ulong();
-}
-
-#pragma endregion
-
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0x0D: XSAVE Features and State Components
 
