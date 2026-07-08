@@ -7637,6 +7637,483 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000008EDX()
     return edxBits.to_ulong();
 }
 
+/* Size and range fields in EAX. */
+/* Number of Physical Address Bits. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000008EAX0_7_NumberOfPhysicalAddressBits()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int numberOfPhysicalAddressBits = ExtractBits(cpuInfo[0], 0, 7);
+
+    return numberOfPhysicalAddressBits;
+}
+
+/* Number of Linear Address Bits. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000008EAX8_15_NumberOfLinearAddressBits()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int numberOfLinearAddressBits = ExtractBits(cpuInfo[0], 8, 15);
+
+    return numberOfLinearAddressBits;
+}
+
+/* Guest Physical Address Size. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000008EAX16_23_GuestPhysicalAddressSize()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int guestPhysicalAddressSize = ExtractBits(cpuInfo[0], 16, 23);
+
+    return guestPhysicalAddressSize;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000008EAX24_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[0], 24, 31);
+
+    return reserved;
+}
+
+/* Feature bits in EBX. */
+/* CLZERO instruction - (clzero). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX0_CLZERO_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int clzeroSupported = ExtractBits(cpuInfo[1], 0, 1);
+
+    return (bool)clzeroSupported;
+}
+
+/* Retired instruction count MSR (C000_00E9h) supported - (retired_instr). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX1_RetiredInstr_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int retiredInstrSupported = ExtractBits(cpuInfo[1], 1, 1);
+
+    return (bool)retiredInstrSupported;
+}
+
+/* XRSTOR restores FP errors - (xrstor_fp_err). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX2_XRSTOR_FP_ERR_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int xrstorFpErrSupported = ExtractBits(cpuInfo[1], 2, 1);
+
+    return (bool)xrstorFpErrSupported;
+}
+
+/* INVLPGB and TLBSYNC instructions - (invlpgb). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX3_INVLPGB_TLBSYNC_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int invlpgbTlbsyncSupported = ExtractBits(cpuInfo[1], 3, 1);
+
+    return (bool)invlpgbTlbsyncSupported;
+}
+
+/* RDPRU instruction - (rdpru). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX4_RDPRU_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int rdpruSupported = ExtractBits(cpuInfo[1], 4, 1);
+
+    return (bool)rdpruSupported;
+}
+
+/* PlayStation 5: Execute-Only Memory - (xotext). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX5_XOTEXT_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int xotextSupported = ExtractBits(cpuInfo[1], 5, 1);
+
+    return (bool)xotextSupported;
+}
+
+/* Memory Bandwidth Enforcement - (mbe). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX6_MBE_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int mbeSupported = ExtractBits(cpuInfo[1], 6, 1);
+
+    return (bool)mbeSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX7_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 7, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* MCOMMIT instruction - (mcommit). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX8_MCOMMIT_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int mcommitSupported = ExtractBits(cpuInfo[1], 8, 1);
+
+    return (bool)mcommitSupported;
+}
+
+/* WBNOINVD instruction - (wbnoinvd). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX9_WBNOINVD_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int wbnoinvdSupported = ExtractBits(cpuInfo[1], 9, 1);
+
+    return (bool)wbnoinvdSupported;
+}
+
+/* LBR extensions v1 - (LBR_EXT_V1). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX10_LBR_EXT_V1_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int lbrExtV1Supported = ExtractBits(cpuInfo[1], 10, 1);
+
+    return (bool)lbrExtV1Supported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX11_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 11, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Indirect Branch Prediction Barrier (performed by writing 1 to bit 0 of PRED_CMD (MSR 049h)) - (IBPB). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX12_IBPB_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int ibpbSupported = ExtractBits(cpuInfo[1], 12, 1);
+
+    return (bool)ibpbSupported;
+}
+
+/* WBINVD and WBNOINVD are interruptible - (wbinvd_int). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX13_WBINVD_INT_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int wbinvdIntSupported = ExtractBits(cpuInfo[1], 13, 1);
+
+    return (bool)wbinvdIntSupported;
+}
+
+/* Indirect Branch Restricted Speculation - (IBRS). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX14_IBRS_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int ibrsSupported = ExtractBits(cpuInfo[1], 14, 1);
+
+    return (bool)ibrsSupported;
+}
+
+/* Single Thread Indirect Branch Prediction mode - (STIBP). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX15_STIBP_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int stibpSupported = ExtractBits(cpuInfo[1], 15, 1);
+
+    return (bool)stibpSupported;
+}
+
+/* IBRS mode has enhanced performance and should be left always on - (IbrsAlwaysOn). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX16_IBRS_ALWAYS_ON_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int ibrsAlwaysOnSupported = ExtractBits(cpuInfo[1], 16, 1);
+
+    return (bool)ibrsAlwaysOnSupported;
+}
+
+/* STIBP mode has enhanced performance and should be left always on - (STIBPAlwaysOn). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX17_STIBP_ALWAYS_ON_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int stibpAlwaysOnSupported = ExtractBits(cpuInfo[1], 17, 1);
+
+    return (bool)stibpAlwaysOnSupported;
+}
+
+/* IBRS preferred over software - (ibrs_preferred). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX18_IBRS_PREFERRED_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int ibrsPreferredSupported = ExtractBits(cpuInfo[1], 18, 1);
+
+    return (bool)ibrsPreferredSupported;
+}
+
+/* IBRS provides Same Mode Protection - (ibrs_same_mode_protection). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX19_IBRS_SAME_MODE_PROTECTION_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int ibrsSameModeProtectionSupported = ExtractBits(cpuInfo[1], 19, 1);
+
+    return (bool)ibrsSameModeProtectionSupported;
+}
+
+/* EFER.LMSLE is unsupported - (no_efer_lmsle). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX20_NO_EFER_LMSLE_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int noEferLmsleSupported = ExtractBits(cpuInfo[1], 20, 1);
+
+    return (bool)noEferLmsleSupported;
+}
+
+/* INVLPGB support for nested pages - (invlpgb_nested). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX21_INVLPGB_NESTED_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int invlpgbNestedSupported = ExtractBits(cpuInfo[1], 21, 1);
+
+    return (bool)invlpgbNestedSupported;
+}
+
+/* LBR TSX info - (LBR_TSX). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX22_LBR_TSX_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int lbrTsxBits = ExtractBits(cpuInfo[1], 22, 1);
+
+    return (bool)lbrTsxBits;
+}
+
+/* Protected Processor Inventory Number - PPIN_CTL(C001_02F0) and PPIN(C001_02F1) MSRs are present - (ppin). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX23_PPIN_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int ppinSupported = ExtractBits(cpuInfo[1], 23, 1);
+
+    return (bool)ppinSupported;
+}
+
+/* Speculative Store Bypass Disable - (ssbd). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX24_SSBD_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int ssbdSupported = ExtractBits(cpuInfo[1], 24, 1);
+
+    return (bool)ssbdSupported;
+}
+
+/* Speculative Store Bypass Disable Legacy - (ssbd_legacy). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX25_SSBD_LEGACY_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int ssbdLegacySupported = ExtractBits(cpuInfo[1], 25, 1);
+
+    return (bool)ssbdLegacySupported;
+}
+
+/* Speculative Store Bypass Disable Not Required - (ssbd_no). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX26_SSBD_NO_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int ssbdNoSupported = ExtractBits(cpuInfo[1], 26, 1);
+
+    return (bool)ssbdNoSupported;
+}
+
+/* Collaborative Processor Performance Control - (cppc). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX27_CPPC_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int cppcSupported = ExtractBits(cpuInfo[1], 27, 1);
+
+    return (bool)cppcSupported;
+}
+
+/* Predictive Store Forward Disable - (psfd). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX28_PSFD_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int psfdSupported = ExtractBits(cpuInfo[1], 28, 1);
+
+    return (bool)psfdSupported;
+}
+
+/* Branch Type Confusion: Processor not affected - (btc_no). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX29_BTC_NO_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int btcNoSupported = ExtractBits(cpuInfo[1], 29, 1);
+
+    return (bool)btcNoSupported;
+}
+
+/* IBPB (see bit 12) also clears return address predictor - (IBPB_RET). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX30_IBPB_RET_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int ibpbRetSupported = ExtractBits(cpuInfo[1], 30, 1);
+
+    return (bool)ibpbRetSupported;
+}
+
+/* Branch Sampling Support - (branch_sampling). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000008EBX31_BRANCH_SAMPLING_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int branchSamplingSupported = ExtractBits(cpuInfo[1], 31, 1);
+
+    return (bool)branchSamplingSupported;
+}
+
+/* Size and range fields in ECX. */
+/* Number of Physical Threads in processor (minus 1). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000008ECX0_7_NumberOfPhysicalThreadsInProcessorMinus1()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int numberOfPhysicalThreads = ExtractBits(cpuInfo[2], 0, 7);
+
+    return numberOfPhysicalThreads;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000008ECX8_11_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[2], 8, 3);
+
+    return reserved;
+}
+
+/* APIC ID Size. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000008ECX12_15_APIC_IDSize()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int apicIdSize = ExtractBits(cpuInfo[2], 12, 3);
+
+    return apicIdSize;
+}
+
+/* Performance Timestamp Counter size. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000008ECX16_17_PerformanceTimestampCounterSize()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int performanceTimestampCounterSize = ExtractBits(cpuInfo[2], 16, 1);
+
+    return performanceTimestampCounterSize;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000008ECX18_31_Reserverd()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[2], 18, 13);
+
+    return reserved;
+}
+
+/* Size and range fields in EDX. */
+/* Maximum page count for INVLPGB instruction. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000008EDX0_15_MaximumPageCountForINVLPGBInstruction()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int maximumPageCount = ExtractBits(cpuInfo[3], 0, 16);
+
+    return maximumPageCount;
+}
+
+/* Maximum ECX value recognized by RDPRU instruction. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000008EDX16_31_MaximumECXValueForRDPRUInstruction()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000008, 0);
+
+    unsigned int maximumECXValue = ExtractBits(cpuInfo[3], 16, 16);
+
+    return maximumECXValue;
+}
+
 #pragma endregion
 
 
