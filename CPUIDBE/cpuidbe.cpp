@@ -7459,6 +7459,182 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EDX()
     return edxBits.to_ulong();
 }
 
+/* L1 Cache/TLB information in EAX,EBX,ECX,EDX. */
+/* Number of instruction TLB entries. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EAX0_7_NumberOfInstructionTLBEntries()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000005, 0);
+
+    unsigned int numberOfInstructionTLBEntries = ExtractBits(cpuInfo[0], 0, 7);
+
+    return numberOfInstructionTLBEntries;
+}
+
+/* Instruction TLB associativity. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EAX8_15_InstructionTLBAssociativity()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000005, 0);
+
+    unsigned int instructionTLBAssociativity = ExtractBits(cpuInfo[0], 8, 15);
+
+    return instructionTLBAssociativity;
+}
+
+/* Number of data TLB entries. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EAX16_23_DataTLBEntries()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000005, 0);
+
+    unsigned int dataTLBEntries = ExtractBits(cpuInfo[0], 16, 23);
+
+    return dataTLBEntries;
+}
+
+/* Data TLB associativity. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EAX24_31_DataTLBAssociativity()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000005, 0);
+
+    unsigned int dataTLBAssociativity = ExtractBits(cpuInfo[0], 24, 31);
+
+    return dataTLBAssociativity;
+}
+
+/* Number of instruction TLB entries. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX0_7_NumberOfInstructionTLBEntries()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000005, 0);
+
+    unsigned int numberOfInstructionTLBEntries = ExtractBits(cpuInfo[1], 0, 7);
+
+    return numberOfInstructionTLBEntries;
+}
+
+/* Instruction TLB associativity. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX8_15_InstructionTLBAssociativity()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000005, 0);
+
+    unsigned int instructionTLBAssociativity = ExtractBits(cpuInfo[1], 8, 15);
+
+    return instructionTLBAssociativity;
+}
+
+/* Number of data TLB entries. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX16_23_DataTLBEntries()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000005, 0);
+
+    unsigned int dataTLBEntries = ExtractBits(cpuInfo[1], 16, 23);
+
+    return dataTLBEntries;
+}
+
+/* Data TLB associativity. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX24_31_DataTLBAssociativity()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000005, 0);
+
+    unsigned int dataTLBAssociativity = ExtractBits(cpuInfo[1], 24, 31);
+
+    return dataTLBAssociativity;
+}
+
+/* Cache line size in bytes. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000005ECX0_7_CacheLineSizeInBytes()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000005, 0);
+
+    unsigned int cacheLineSizeInBytes = ExtractBits(cpuInfo[2], 0, 7);
+
+    return cacheLineSizeInBytes;
+}
+
+/* Number of cache lines per tag. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000005ECX8_15_NumberOfCacheLinesPerTag()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000005, 0);
+
+    unsigned int numberOfCacheLinesPerTag = ExtractBits(cpuInfo[2], 8, 15);
+
+    return numberOfCacheLinesPerTag;
+}
+
+/* Cache associativity. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000005ECX16_23_CacheAssociativity()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000005, 0);
+
+    unsigned int cacheAssociativity = ExtractBits(cpuInfo[2], 16, 23);
+
+    return cacheAssociativity;
+}
+
+/* Cache size in kibibytes. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000005ECX24_31_CacheSize()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000005, 0);
+
+    unsigned int cacheSize = ExtractBits(cpuInfo[2], 24, 31);
+
+    return cacheSize;
+}
+
+/* Cache line size in bytes. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EDX0_7_CacheLineSizeInBytes()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000005, 0);
+
+    unsigned int cacheLineSizeInBytes = ExtractBits(cpuInfo[3], 0, 7);
+
+    return cacheLineSizeInBytes;
+}
+
+/* Number of cache lines per tag. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EDX8_15_NumberOfCacheLinesPerTag()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000005, 0);
+
+    unsigned int numberOfCacheLinesPerTag = ExtractBits(cpuInfo[3], 8, 15);
+
+    return numberOfCacheLinesPerTag;
+}
+
+/* Cache associativity. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EDX16_23_CacheAssociativity()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000005, 0);
+
+    unsigned int cacheAssociativity = ExtractBits(cpuInfo[3], 16, 23);
+
+    return cacheAssociativity;
+}
+
+/* Cache size in kibibytes. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EDX24_31_CacheSize()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000005, 0);
+
+    unsigned int cacheSize = ExtractBits(cpuInfo[3], 24, 31);
+
+    return cacheSize;
+}
 #pragma endregion
 
 
