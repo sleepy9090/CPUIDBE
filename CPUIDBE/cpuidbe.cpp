@@ -10,6 +10,8 @@
 #include <iomanip>
 #include <iostream>
 #include <string>
+#include <windows.h>
+#include <cstring>
 #include <sstream>
 #include <intrin.h>
 #include "pch.h"
@@ -66,7 +68,7 @@ void intToBinary32(int num, char* str, bool nullTerminate = true) {
 }
 
 #pragma region EAX=0x0: Highest Function Parameter and Manufacturer ID
-extern "C" __declspec(dllexport) char* __cdecl GetEAX0EAX()
+extern "C" __declspec(dllexport) const char* __cdecl GetEAX0EAX()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0, 0);
@@ -112,7 +114,31 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX0EAXHightestFunctionParamet
     return binaryStr;
 }
 
-extern "C" __declspec (dllexport) char* __cdecl GetEAX0EBXEDXECXCpuVendor()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0EBXEDXECXCpuVendor() {
+    int cpuInfo[4] = { 0 };
+
+    // Call CPUID with EAX = 0 to get vendor string information
+    __cpuid(cpuInfo, 0);
+
+    // The vendor string is stored across EBX, EDX, and ECX in that order
+    // EBX (4 bytes) + EDX (4 bytes) + ECX (4 bytes) = 12 bytes
+    char vendor[13];
+    memcpy(vendor, &cpuInfo[1], 4); // EBX
+    memcpy(vendor + 4, &cpuInfo[3], 4); // EDX
+    memcpy(vendor + 8, &cpuInfo[2], 4); // ECX
+    vendor[12] = '\0'; // Null-terminate the string
+
+    // Allocate memory for the string that the caller can clean up
+    char* result = (char*)malloc(13);
+    if (result) {
+        strcpy_s(result, 13, vendor);
+    }
+
+    return result;
+}
+
+/*
+extern "C" __declspec(dllexport) char* GetEAX0EBXEDXECXCpuVendor()
 {
 	// EAX=0: Manufacturer ID
 	int cpuInfo[4];
@@ -121,8 +147,14 @@ extern "C" __declspec (dllexport) char* __cdecl GetEAX0EBXEDXECXCpuVendor()
 	*reinterpret_cast<int*>(vendor) = cpuInfo[1]; // EBX
 	*reinterpret_cast<int*>(vendor + 4) = cpuInfo[3]; // EDX
 	*reinterpret_cast<int*>(vendor + 8) = cpuInfo[2]; // ECX
-	return vendor;
+	//return vendor;
+    char* result = (char*)CoTaskMemAlloc(13);
+    if (result) {
+        strcpy_s(result, 13, vendor);
+    }
+    return result;
 }
+*/
 
 #pragma endregion
 
