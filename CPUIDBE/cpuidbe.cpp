@@ -5,12 +5,18 @@
     Date           05/29/2026
     Author         Shawn M. Crawford [sleepy]
 */
+#include <bitset>
+#include <stdlib.h>
 #include <iomanip>
 #include <iostream>
 #include <string>
-#include <bitset>
 #include <sstream>
 #include <intrin.h>
+#include "pch.h"
+#include "cpuidbe.h"
+#include <string.h>
+#include <vector>
+//#include <ios>
 
 using namespace std;
 
@@ -29,6 +35,7 @@ unsigned int ExtractBits(unsigned int num,
 }
 
 // Pad a number with zeros to make it 8 characters long, return the padded hex string
+/*
 string ZeroPadNumber(int num, int zeros) {
     std::stringstream ss;
     // Convert integer to string
@@ -37,60 +44,70 @@ string ZeroPadNumber(int num, int zeros) {
     // Get the string from stringstream
     ss >> paddedString;
 
-    int stringLlength = paddedString.length();
-    for (int i = 0; i < zeros - stringLlength; i++)
+    int stringLength = paddedString.length();
+    for (int i = 0; i < zeros - stringLength; i++)
     {
         paddedString = "0" + paddedString;
     }
     return paddedString;
 }
+*/
+
+void intToBinary32(int num, char* str) {
+    // Loop through all 32 bits, starting from the Most Significant Bit (MSB)
+    for (int i = 31; i >= 0; i--) {
+        // Shift the bit to the 1st position and check if it is 1 or 0
+        str[31 - i] = ((num >> i) & 1) ? '1' : '0';
+    }
+    // Append the null terminator to make it a valid C string
+    str[32] = '\0';
+}
 
 #pragma region EAX=0x0: Highest Function Parameter and Manufacturer ID
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX0EAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0EAX()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0, 0);
-    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
-
-    return eaxBits.to_ulong();
+    char binaryStr[33];
+    intToBinary32(cpuInfo[0], binaryStr);
+    return binaryStr;
 }
 
-extern "C" __declspec(dllexport) int __cdecl GetEAX0EBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0EBX()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0, 0);
-    std::bitset<32> ebxBits = std::bitset<32>(cpuInfo[1]);
-
-    return ebxBits.to_ulong();
+    char binaryStr[33];
+    intToBinary32(cpuInfo[1], binaryStr);
+    return binaryStr;
 }
 
-extern "C" __declspec(dllexport) int __cdecl GetEAX0ECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0ECX()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0, 0);
-    std::bitset<32> ecxBits = std::bitset<32>(cpuInfo[2]);
-
-    return ecxBits.to_ulong();
+    char binaryStr[33];
+    intToBinary32(cpuInfo[2], binaryStr);
+    return binaryStr;
 }
 
-extern "C" __declspec(dllexport) int __cdecl GetEAX0EDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0EDX()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0, 0);
-    std::bitset<32> edxBits = std::bitset<32>(cpuInfo[3]);
-
-    return edxBits.to_ulong();
+    char binaryStr[33];
+    intToBinary32(cpuInfo[3], binaryStr);
+    return binaryStr;
 }
 
-extern "C" __declspec(dllexport) int __cdecl GetEAX0EAXHightestFunctionParameter()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0EAXHightestFunctionParameter()
 {
     // EAX=0: Highest Function Parameter
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0, 0);
-    std::bitset<32> eaxBits = std::bitset<32>(cpuInfo[0]);
-
-    return eaxBits.to_ulong();
+    char binaryStr[33];
+    intToBinary32(cpuInfo[0], binaryStr);
+    return binaryStr;
 }
 
 extern "C" __declspec (dllexport) char* __cdecl GetEAX0EBXEDXECXCpuVendor()
@@ -8873,6 +8890,3 @@ extern "C" __declspec(dllexport) int __cdecl GetEAXC0000006ECX0EDX()
 
 
 
-
-#pragma region
-#pragma endregion
