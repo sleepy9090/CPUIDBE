@@ -67,6 +67,16 @@ void IntToBinary32(int num, char* str, bool nullTerminate = true) {
     }
 }
 
+char* Concat(const char* a, const char* b) {
+    int lena = strlen(a);
+    int lenb = strlen(b);
+    char* con = (char*)malloc(lena + lenb + 1);
+    // copy & concat (including string termination)
+    memcpy(con, a, lena);
+    memcpy(con + lena, b, lenb + 1);
+    return con;
+}
+
 #pragma region EAX=0x0: Highest Function Parameter and Manufacturer ID
 extern "C" __declspec(dllexport) const char* __cdecl GetEAX0EAX()
 {
@@ -1433,52 +1443,55 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX3_EAX_EDX_ECX_Pentium3CPU96
 {
     int cpuInfo[4] = { 0 };
     __cpuidex(cpuInfo, 0x3, 0);
-    char eaxBinaryStr[32];
-    IntToBinary32(cpuInfo[0], eaxBinaryStr, false);
-    char edxBinaryStr[32];
-    IntToBinary32(cpuInfo[3], edxBinaryStr, false);
-    char ecxBinaryStr[32];
-    IntToBinary32(cpuInfo[2], ecxBinaryStr, false);
-	char serialNumber[98];
-	strcpy_s(serialNumber, eaxBinaryStr);
-	strcat_s(serialNumber, edxBinaryStr);
-	strcat_s(serialNumber, ecxBinaryStr);
-    serialNumber[97] = '\0';
+
+    char eaxBinaryStr[33];
+    IntToBinary32(cpuInfo[0], eaxBinaryStr);
+
+    char edxBinaryStr[33];
+    IntToBinary32(cpuInfo[3], edxBinaryStr);
+    
+    char ecxBinaryStr[33];
+    IntToBinary32(cpuInfo[2], ecxBinaryStr);
+	
+    char* con = Concat(eaxBinaryStr, edxBinaryStr);
+    con = Concat(con, ecxBinaryStr);
 
     // Allocate memory for the string that the caller can clean up
-    char* result = (char*)malloc(98);
+    char* result = (char*)malloc(strlen(con) + 1);
     if (result) {
-        strcpy_s(result, 98, serialNumber);
+        strcpy_s(result, strlen(con) + 1, con);
     }
 
     return result;
 }
+
+
 
 /* Transmeta Crusoe and Efficeon CPUs - 128-bit Serial Number. */
 extern "C" __declspec(dllexport) char* __cdecl GetEAX3_EAX_EDX_ECX_TransmetaCrusoeAndEfficeonCPU128BitSerialNumber()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x3, 0);
-    char eaxBinaryStr[32];
-    IntToBinary32(cpuInfo[0], eaxBinaryStr, false);
-    char ebxBinaryStr[32];
-    IntToBinary32(cpuInfo[1], ebxBinaryStr, false);
-    char ecxBinaryStr[32];
-    IntToBinary32(cpuInfo[2], ecxBinaryStr, false);
-    char edxBinaryStr[32];
-    IntToBinary32(cpuInfo[3], edxBinaryStr, false);
-    char serialNumber[129];
-    strcpy_s(serialNumber, eaxBinaryStr);
-    strcat_s(serialNumber, ebxBinaryStr);
-    strcat_s(serialNumber, ecxBinaryStr);
-    strcat_s(serialNumber, edxBinaryStr);
-    serialNumber[128] = '\0';
 
-    // Allocate memory for the string that the caller can clean up
-    char* result = (char*)malloc(129);
-    if (result) 
-    {
-        strcpy_s(result, 129, serialNumber);
+    char eaxBinaryStr[33];
+    IntToBinary32(cpuInfo[0], eaxBinaryStr);
+
+    char ebxBinaryStr[33];
+    IntToBinary32(cpuInfo[1], ebxBinaryStr);
+
+    char ecxBinaryStr[33];
+    IntToBinary32(cpuInfo[2], ecxBinaryStr);
+
+    char edxBinaryStr[33];
+    IntToBinary32(cpuInfo[3], edxBinaryStr);
+
+    char* con = Concat(eaxBinaryStr, ebxBinaryStr);
+    con = Concat(con, ecxBinaryStr);
+    con = Concat(con, edxBinaryStr);
+
+    char* result = (char*)malloc(strlen(con) + 1);
+    if (result) {
+        strcpy_s(result, strlen(con) + 1, con);
     }
 
     return result;
