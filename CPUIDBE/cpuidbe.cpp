@@ -2511,36 +2511,36 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6ECX3_PerformanceEnergyBiasC
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6ECX4_7_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX6ECX4_7_Reserved()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x6, 0);
 
     unsigned int reserved = ExtractBits(cpuInfo[2], 4, 4);
 
-    return (bool)reserved;
+    return reserved;
 }
 
 /* Number of Intel Thread Director classes supported by hardware. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6ECX8_15_NumberOfIntelThreadDirectorClasses()
+extern "C" __declspec(dllexport) int __cdecl GetEAX6ECX8_15_NumberOfIntelThreadDirectorClasses()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x6, 0);
 
     unsigned int numberOfIntelThreadDirectorClasses = ExtractBits(cpuInfo[2], 8, 8);
 
-    return (bool)numberOfIntelThreadDirectorClasses;
+    return numberOfIntelThreadDirectorClasses;
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6ECX16_31_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX6ECX16_31_Reserved()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x6, 0);
 
     unsigned int reserved = ExtractBits(cpuInfo[2], 16, 16);
 
-    return (bool)reserved;
+    return reserved;
 }
 
 /* Hardware Feedback reporting: Performance Capability Reporting supported. */
