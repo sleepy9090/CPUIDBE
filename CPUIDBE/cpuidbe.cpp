@@ -2577,36 +2577,36 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EDX2_7_Reserved()
 }
 
 /* Size of Hardware Feedback interface structure (in units of 4 KiB) minus 1. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EDX8_11_SizeOfHardwareFeedbackInterfaceStructure()
+extern "C" __declspec(dllexport) int __cdecl GetEAX6EDX8_11_SizeOfHardwareFeedbackInterfaceStructure()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x6, 0);
 
     unsigned int sizeOfHardwareFeedbackInterfaceStructure = ExtractBits(cpuInfo[3], 8, 4);
 
-    return (bool)sizeOfHardwareFeedbackInterfaceStructure;
+    return sizeOfHardwareFeedbackInterfaceStructure;
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EDX12_15_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX6EDX12_15_Reserved()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x6, 0);
 
     unsigned int reserved = ExtractBits(cpuInfo[3], 12, 4);
 
-    return (bool)reserved;
+    return reserved;
 }
 
 /* Index of this logical processor's row in hardware feedback interface structure. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EDX16_31_IndexOfThisLogicalProcessorsRowInHardwareFeedbackInterfaceStructure()
+extern "C" __declspec(dllexport) int __cdecl GetEAX6EDX16_31_IndexOfThisLogicalProcessorsRowInHardwareFeedbackInterfaceStructure()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x6, 0);
 
     unsigned int indexOfThisLogicalProcessorsRowInHardwareFeedbackInterfaceStructure = ExtractBits(cpuInfo[3], 16, 16);
 
-    return (bool)indexOfThisLogicalProcessorsRowInHardwareFeedbackInterfaceStructure;
+    return indexOfThisLogicalProcessorsRowInHardwareFeedbackInterfaceStructure;
 }
 
 #pragma endregion
@@ -4198,7 +4198,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX2_ReservedIsSupport
 }
 
 /* If 1, then bit 22 of IA32_MISC_ENABLE cannot be set to 1 to limit the value returned by CPUID.(EAX=0):EAX[7:0]. - (CPUID­MAXVAL_­LIM_RMV). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX3_CPUID­MAXVAL_­LIM_RMVIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX3_CPUIDMAXVAL_LIM_RMVIsSupported()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x7, 1);
@@ -4518,7 +4518,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EBX31_Reserved_AVX512_
 
 /* ECX. */
 /* Asymmetric RDT Monitoring capability - (RDT_M_­ASYM). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX0_RDT_M_­ASYMIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX0_RDT_M_ASYMIsSupported()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x7, 1);
@@ -4529,7 +4529,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX0_RDT_M_­ASYMIsSupp
 }
 
 /* Asymmetric RDT Monitoring capability - (RDT_M_­ASYM). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX1_RDT_M_­ASYMIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_ECX1_RDT_M_ASYMIsSupported()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x7, 1);
