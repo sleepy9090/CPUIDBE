@@ -156,6 +156,60 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX0EAXHightestFunctionParamet
     return result;
 }
 
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0EBXCpuVendor()
+{
+    int cpuInfo[4] = { 0 };
+
+    __cpuid(cpuInfo, 0);
+
+    char vendor[5];
+    memcpy(vendor, &cpuInfo[1], 4); // EBX
+    vendor[4] = '\0';
+
+    char* result = (char*)malloc(5);
+    if (result) {
+        strcpy_s(result, 5, vendor);
+    }
+
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0ECXCpuVendor()
+{
+    int cpuInfo[4] = { 0 };
+
+    __cpuid(cpuInfo, 0);
+
+    char vendor[5];
+    memcpy(vendor, &cpuInfo[2], 4); // ECX
+    vendor[4] = '\0';
+
+    char* result = (char*)malloc(5);
+    if (result) {
+        strcpy_s(result, 5, vendor);
+    }
+
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0EDXCpuVendor()
+{
+    int cpuInfo[4] = { 0 };
+
+    __cpuid(cpuInfo, 0);
+
+    char vendor[5];
+    memcpy(vendor, &cpuInfo[3], 4); // EDX
+    vendor[4] = '\0';
+
+    char* result = (char*)malloc(5);
+    if (result) {
+        strcpy_s(result, 5, vendor);
+    }
+
+    return result;
+}
+
 extern "C" __declspec(dllexport) char* __cdecl GetEAX0EBXEDXECXCpuVendor()
 {
     int cpuInfo[4] = {0};
