@@ -85,7 +85,6 @@ extern "C" __declspec(dllexport) const char* __cdecl GetEAX0EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -101,7 +100,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX0EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
     
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -117,7 +115,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX0ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -131,8 +128,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX0EDX()
     __cpuidex(cpuInfo, 0x0, 0);
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
-    
-    // Allocate memory for the string that the caller can clean up
+
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -147,8 +143,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX0EAXHightestFunctionParamet
     __cpuidex(cpuInfo, 0x0, 0);
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
-    
-    // Allocate memory for the string that the caller can clean up
+
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -225,7 +220,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX0EBXEDXECXCpuVendor()
     memcpy(vendor + 8, &cpuInfo[2], 4); // ECX
     vendor[12] = '\0'; // Null-terminate the string
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(13);
     if (result) {
         strcpy_s(result, 13, vendor);
@@ -244,8 +238,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX1EAX()
     __cpuidex(cpuInfo, 0x1, 0);
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
-    
-    // Allocate memory for the string that the caller can clean up
+
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -259,8 +252,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX1EBX()
     __cpuidex(cpuInfo, 0x1, 0);
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
-    
-    // Allocate memory for the string that the caller can clean up
+
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -274,8 +266,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX1ECX()
     __cpuidex(cpuInfo, 0x1, 0);
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
-    
-    // Allocate memory for the string that the caller can clean up
+
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -289,8 +280,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX1EDX()
     __cpuidex(cpuInfo, 0x1, 0);
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
-    
-    // Allocate memory for the string that the caller can clean up
+
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -1166,7 +1156,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX2EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -1181,7 +1170,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX2EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -1196,7 +1184,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX2ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -1211,7 +1198,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX2EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -1408,28 +1394,6 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX2_EDX24_31_CacheAndTLBDescrip
 
 #pragma endregion
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #pragma region EAX=0x3: Processor Serial Number
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX3EAX()
@@ -1439,7 +1403,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX3EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -1454,7 +1417,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX3EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -1469,7 +1431,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX3ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -1484,7 +1445,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX3EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -1510,7 +1470,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX3_EAX_EDX_ECX_Pentium3CPU96
     char* con = Concat(eaxBinaryStr, edxBinaryStr);
     con = Concat(con, ecxBinaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(strlen(con) + 1);
     if (result) {
         strcpy_s(result, strlen(con) + 1, con);
@@ -1518,8 +1477,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX3_EAX_EDX_ECX_Pentium3CPU96
 
     return result;
 }
-
-
 
 /* Transmeta Crusoe and Efficeon CPUs - 128-bit Serial Number. */
 extern "C" __declspec(dllexport) char* __cdecl GetEAX3_EAX_EDX_ECX_TransmetaCrusoeAndEfficeonCPU128BitSerialNumber()
@@ -1553,18 +1510,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX3_EAX_EDX_ECX_TransmetaCrus
 
 #pragma endregion
 
-
-
-
-
-
-
-
-
-
-
-
-
 #pragma region EAX=0x4 and EAX=0x8000001D: Cache Hierarchy and Topology
 
 // EAX=0x4
@@ -1575,7 +1520,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX4EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -1590,7 +1534,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX4EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -1605,7 +1548,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX4ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -1620,19 +1562,12 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX4EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
     }
     return result;
 }
-
-
-
-
-
-
 
 //EAX=0x8000001D
 extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001DEAX()
@@ -1642,7 +1577,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001DEAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -1657,7 +1591,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001DEBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -1672,7 +1605,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001DECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -1687,7 +1619,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001DEDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -1695,26 +1626,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001DEDX()
     return result;
 }
 
-
-
-
-
 #pragma endregion
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0x4 and EAX=0xB: Intel Thread/Core and Cache Topology
 
@@ -1764,7 +1676,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXBEAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -1779,7 +1690,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXBEBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -1794,7 +1704,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXBECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -1809,7 +1718,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXBEDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -1818,17 +1726,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXBEDX()
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0x5: MONITOR/MWAIT Features
 
@@ -1839,7 +1736,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX5EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -1854,7 +1750,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX5EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -1869,7 +1764,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX5ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -1884,7 +1778,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX5EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -2090,7 +1983,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX6EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -2105,7 +1997,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX6EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -2120,7 +2011,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX6ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -2135,7 +2025,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX6EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -2665,21 +2554,6 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX6EDX16_31_IndexOfThisLogicalP
 
 #pragma endregion
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #pragma region EAX=0x7, ECX=0x0: Extended Features
 
 /* Returns the maximum ECX value for EAX=7 in EAX. */
@@ -2690,7 +2564,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX7ECX0EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -2705,7 +2578,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX7ECX0EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -2720,7 +2592,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX7ECX0ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -2735,7 +2606,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX7ECX0EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -3811,7 +3681,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX7ECX1EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -3826,7 +3695,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX7ECX1EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -3841,7 +3709,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX7ECX1ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -3856,7 +3723,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX7ECX1EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -5284,7 +5150,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX7ECX2EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -5299,7 +5164,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX7ECX2EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -5314,7 +5178,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX7ECX2ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -5329,7 +5192,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX7ECX2EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -5692,7 +5554,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX2_EDX31_ReservedIsSuppor
 
 #pragma endregion
 
-#pragma region EAX=0x0D: XSAVE Features and State Components
+#pragma region EAX=0xD: XSAVE Features and State Components
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAXDEAX()
 {
@@ -5701,7 +5563,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXDEAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -5716,7 +5577,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXDEBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -5731,7 +5591,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXDECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -5746,7 +5605,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXDEDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -5755,18 +5613,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXDEDX()
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0x12: SGX Capabilities
 
@@ -5777,7 +5623,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX12EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -5792,7 +5637,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX12EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -5807,7 +5651,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX12ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -5822,7 +5665,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX12EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -5831,20 +5673,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX12EDX()
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0x14, ECX=0x0: Processor Trace feature bits in EBX and ECX
 
@@ -5855,7 +5683,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX14ECX0EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -5870,7 +5697,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX14ECX0EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -5885,7 +5711,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX14ECX0ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -5900,7 +5725,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX14ECX0EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -6616,15 +6440,6 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX14ECX0_ECX31_IPFormatForTrac
 
 #pragma endregion
 
-
-
-
-
-
-
-
-
-
 #pragma region EAX=0x14, ECX=0x1: Processor Trace packet generation information in EAX, EBX and ECX
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX14ECX1EAX()
@@ -6634,7 +6449,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX14ECX1EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -6649,7 +6463,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX14ECX1EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -6664,7 +6477,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX14ECX1ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -6679,7 +6491,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX14ECX1EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -6849,18 +6660,6 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1ECX16_31_Reserved()
 
 #pragma endregion
 
-
-
-
-
-
-
-
-
-
-
-
-
 #pragma region EAX=0x15: TSC and Core Crystal frequency information
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX15EAX()
@@ -6870,7 +6669,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX15EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -6885,7 +6683,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX15EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -6900,7 +6697,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX15ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -6915,7 +6711,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX15EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -6957,18 +6752,6 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX15EDX_TSCFrequencyInUnitsOfHz
 
 #pragma endregion
 
-
-
-
-
-
-
-
-
-
-
-
-
 #pragma region EAX=0x16: Processor and Bus specification frequencies
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX16EAX()
@@ -6978,7 +6761,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX16EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -6993,7 +6775,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX16EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7008,7 +6789,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX16ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7023,7 +6803,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX16EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7096,20 +6875,6 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX16EDX0_31_Reserved()
 
 #pragma endregion
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #pragma region EAX=0x17: SoC Vendor Attribute Enumeration
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX17EAX()
@@ -7119,7 +6884,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX17EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7134,7 +6898,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX17EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7149,7 +6912,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX17ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7164,7 +6926,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX17EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7173,22 +6934,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX17EDX()
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0x18: TLB Hierarchy and Topology
 
@@ -7199,7 +6944,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX18EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7214,7 +6958,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX18EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7229,7 +6972,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX18ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7244,7 +6986,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX18EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7253,17 +6994,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX18EDX()
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0x19: Intel Key Locker Features
 
@@ -7274,7 +7004,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX19EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7289,7 +7018,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX19EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7304,7 +7032,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX19ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7319,7 +7046,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX19EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7328,15 +7054,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX19EDX()
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0x1D: Intel AMX Tile Information
 
@@ -7347,7 +7064,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX1DEAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7362,7 +7078,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX1DEBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7377,7 +7092,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX1DECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7392,7 +7106,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX1DEDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7401,18 +7114,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX1DEDX()
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0x1E: Intel AMX Tile Multiplier (TMUL) Information
 
@@ -7423,7 +7124,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX1EEAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7438,7 +7138,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX1EEBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7453,7 +7152,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX1EECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7468,7 +7166,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX1EEDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7477,16 +7174,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX1EEDX()
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0x21: Reserved for TDX enumeration
 
@@ -7497,7 +7184,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX21EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7512,7 +7198,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX21EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7527,7 +7212,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX21ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7542,7 +7226,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX21EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7551,11 +7234,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX21EDX()
 }
 
 #pragma endregion
-
-
-
-
-
 
 #pragma region EAX=0x24, ECX=0x0: AVX10 Converged Vector ISA
 
@@ -7566,7 +7244,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX0EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7581,7 +7258,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX0EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7596,7 +7272,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX0ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7611,7 +7286,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX0EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7620,15 +7294,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX0EDX()
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0x24, ECX=0x1: Discrete AVX10 Features
 
@@ -7639,7 +7304,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX1EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7654,7 +7318,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX1EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7669,7 +7332,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX1ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7684,7 +7346,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX1EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7693,26 +7354,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX1EDX()
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0x20000000: Highest Xeon Phi Function Implemented
 
@@ -7723,7 +7364,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX20000000EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7738,7 +7378,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX20000000EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7753,7 +7392,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX20000000ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7768,7 +7406,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX20000000EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7786,22 +7423,6 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX20000000EAX_HighestXeonPhiFun
 
 #pragma endregion
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #pragma region EAX=0x20000001: Xeon Phi Feature Bits
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX20000001EAX()
@@ -7811,7 +7432,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX20000001EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7826,7 +7446,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX20000001EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7841,7 +7460,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX20000001ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7856,7 +7474,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX20000001EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7866,27 +7483,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX20000001EDX()
 
 #pragma endregion
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#pragma region EAX=0x40000000h-0x4FFFFFFFh: Reserved for Hypervisors
+#pragma region EAX=0x40000000-0x4FFFFFFF: Reserved for Hypervisors
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000000EAX()
 {
@@ -7895,7 +7492,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX40000000EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7910,7 +7506,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX40000000EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7925,7 +7520,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX40000000ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7940,7 +7534,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX40000000EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7949,19 +7542,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX40000000EDX()
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0x80000000: Highest Extended Function Implemented
 
@@ -7972,7 +7552,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000000EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -7987,7 +7566,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000000EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8002,7 +7580,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000000ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8017,7 +7594,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000000EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8035,22 +7611,6 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000000EAX_HighestExtendedFu
 
 #pragma endregion
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #pragma region EAX=0x80000001: Extended Processor Info and Feature Bits
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX80000001EAX()
@@ -8060,7 +7620,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000001EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8075,7 +7634,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000001EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8090,7 +7648,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000001ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8105,7 +7662,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000001EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8114,17 +7670,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000001EDX()
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0x80000002,0x80000003,0x80000004: Processor Brand String
 
@@ -8135,7 +7680,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000002EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8150,7 +7694,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000002EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8165,7 +7708,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000002ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8180,7 +7722,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000002EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8195,7 +7736,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000003EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8210,7 +7750,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000003EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8225,7 +7764,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000003ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8240,7 +7778,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000003EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8255,7 +7792,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000004EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8270,7 +7806,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000004EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8285,7 +7820,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000004ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8300,7 +7834,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000004EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8342,7 +7875,6 @@ extern "C" __declspec (dllexport) char* __cdecl GetEAX80000002_3_4EAXEBXECXEDXPr
         processorBrandString[sizeof(regs)] = '\0';
     //}
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(sizeof(processorBrandString));
     if (result) {
         strcpy_s(result, sizeof(processorBrandString), processorBrandString);
@@ -8351,22 +7883,6 @@ extern "C" __declspec (dllexport) char* __cdecl GetEAX80000002_3_4EAXEBXECXEDXPr
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0x80000005: L1 Cache and TLB Identifiers
 
@@ -8377,7 +7893,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000005EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8392,7 +7907,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000005EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8407,7 +7921,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000005ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8422,7 +7935,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000005EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8608,13 +8120,6 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EDX24_31_CacheSize()
 }
 #pragma endregion
 
-
-
-
-
-
-
-
 #pragma region EAX=0x80000006: Extended L2 Cache Features
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX80000006EAX()
@@ -8624,7 +8129,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000006EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8639,7 +8143,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000006EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8654,7 +8157,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000006ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8669,7 +8171,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000006EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8706,16 +8207,6 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000006ECX_CacheSize()
 
 #pragma endregion
 
-
-
-
-
-
-
-
-
-
-
 #pragma region EAX=0x80000007: Processor Power Management Information and RAS Capabilities
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX80000007EAX()
@@ -8725,7 +8216,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000007EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8740,7 +8230,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000007EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8755,7 +8244,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000007ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8770,7 +8258,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000007EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8779,20 +8266,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000007EDX()
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0x80000008: Virtual and Physical Address Sizes
 
@@ -8803,7 +8276,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000008EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8818,7 +8290,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000008EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8833,7 +8304,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000008ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -8848,7 +8318,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000008EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9335,21 +8804,6 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000008EDX16_31_MaximumECXVa
 
 #pragma endregion
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #pragma region EAX=0x8000000A: SVM features
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX8000000AEAX()
@@ -9359,7 +8813,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8000000AEAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9374,7 +8827,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8000000AEBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9389,7 +8841,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8000000AECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9404,7 +8855,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8000000AEDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9413,18 +8863,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8000000AEDX()
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0x8000001F: Encrypted Memory Capabilities
 
@@ -9435,7 +8873,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001FEAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9450,7 +8887,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001FEBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9465,7 +8901,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001FECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9480,7 +8915,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001FEDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9489,20 +8923,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001FEDX()
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0x80000021: Extended Feature Identification
 
@@ -9513,7 +8933,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000021EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9528,7 +8947,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000021EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9543,7 +8961,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000021ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9558,7 +8975,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000021EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9567,17 +8983,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000021EDX()
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0x80000025: Encrypted Memory Capabilities 2
 
@@ -9588,7 +8993,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000025EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9603,7 +9007,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000025EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9618,7 +9021,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000025ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9633,7 +9035,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000025EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9642,22 +9043,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000025EDX()
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0x8C860000: Hygon Extended Feature Flags
 
@@ -9668,7 +9053,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8C860000EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9683,7 +9067,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8C860000EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9698,7 +9081,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8C860000ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9713,7 +9095,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8C860000EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9722,18 +9103,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8C860000EDX()
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0x8FFFFFFE: AMD Easter Eggs
 
@@ -9744,7 +9113,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8FFFFFFEEAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9759,7 +9127,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8FFFFFFEEBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9774,7 +9141,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8FFFFFFEECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9789,7 +9155,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8FFFFFFEEDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9798,15 +9163,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8FFFFFFEEDX()
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0x8FFFFFFF: AMD Easter Eggs
 
@@ -9817,7 +9173,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8FFFFFFFEAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9832,7 +9187,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8FFFFFFFEBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9847,7 +9201,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8FFFFFFFECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9862,7 +9215,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8FFFFFFFEDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9871,17 +9223,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8FFFFFFFEDX()
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0xC0000000: Highest Centaur Extended Function
 
@@ -9892,7 +9233,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000000EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9907,7 +9247,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000000EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9922,7 +9261,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000000ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9937,7 +9275,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000000EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9946,17 +9283,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000000EDX()
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0xC0000001: Centaur Feature Information
 
@@ -9967,7 +9293,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000001EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9982,7 +9307,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000001EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -9997,7 +9321,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000001ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -10012,7 +9335,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000001EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -10021,14 +9343,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000001EDX()
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0xC0000002: Centaur Extended CPUID Performance Data
 
@@ -10039,7 +9353,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000002EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -10054,7 +9367,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000002EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -10069,7 +9381,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000002ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -10084,7 +9395,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000002EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -10093,15 +9403,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000002EDX()
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-
 
 #pragma region EAX=0xC0000006, ECX=0: Zhaoxin Feature Information
 
@@ -10112,7 +9413,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000006ECX0EAX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[0], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -10127,7 +9427,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000006ECX0EBX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[1], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -10142,7 +9441,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000006ECX0ECX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[2], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -10157,7 +9455,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000006ECX0EDX()
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
-    // Allocate memory for the string that the caller can clean up
     char* result = (char*)malloc(33);
     if (result) {
         strcpy_s(result, 33, binaryStr);
@@ -10166,17 +9463,4 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000006ECX0EDX()
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-
-
-
-
-
 
