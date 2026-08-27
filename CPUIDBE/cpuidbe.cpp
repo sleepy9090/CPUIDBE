@@ -1699,13 +1699,26 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4ECX0_31_NumberOfSetsInCacheM
     return numberOfSets;
 }
 
-// TODO:
 // For any caches that are valid and not fully-associative, the value returned in ECX 
 // is the number of sets in the cache minus 1. (For fully-associative caches, ECX 
 // should be treated as if it return the value 0.) For any given cache described by a 
 // sub-leaf of CPUID leaf 4 or 8000'001Dh, the total cache size in bytes can be 
 // computed as:
 // CacheSize = (EBX[11:0] + 1) * (EBX[21:12] + 1) * (EBX[31:22] + 1) * (ECX + 1)
+extern "C" __declspec(dllexport) int __cdecl GetEAX4TotalCacheSizeInBytes()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4, 0);
+
+    unsigned int ebx11_0 = ExtractBits(cpuInfo[1], 0, 12);
+    unsigned int ebx21_12 = ExtractBits(cpuInfo[1], 12, 10);
+    unsigned int ebx31_22 = ExtractBits(cpuInfo[1], 22, 10);
+    unsigned int ecx = ExtractBits(cpuInfo[2], 0, 32);
+
+    unsigned int cacheSize = (ebx11_0 + 1) * (ebx21_12 + 1) * (ebx31_22 + 1) * (ecx + 1);
+
+    return cacheSize;
+}
 
 extern "C" __declspec(dllexport) int __cdecl GetEAX4EDX0_WBINVDCacheInvalidationExecutionScope()
 {
@@ -2034,13 +2047,26 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DECX0_31_NumberOfSetsI
     return numberOfSets;
 }
 
-// TODO:
 // For any caches that are valid and not fully-associative, the value returned in ECX 
 // is the number of sets in the cache minus 1. (For fully-associative caches, ECX 
 // should be treated as if it return the value 0.) For any given cache described by a 
 // sub-leaf of CPUID leaf 4 or 8000'001Dh, the total cache size in bytes can be 
 // computed as:
 // CacheSize = (EBX[11:0] + 1) * (EBX[21:12] + 1) * (EBX[31:22] + 1) * (ECX + 1)
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DTotalCacheSizeInBytes()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000001D, 0);
+
+    unsigned int ebx11_0 = ExtractBits(cpuInfo[1], 0, 12);
+    unsigned int ebx21_12 = ExtractBits(cpuInfo[1], 12, 10);
+    unsigned int ebx31_22 = ExtractBits(cpuInfo[1], 22, 10);
+    unsigned int ecx = ExtractBits(cpuInfo[2], 0, 32);
+
+    unsigned int cacheSize = (ebx11_0 + 1) * (ebx21_12 + 1) * (ebx31_22 + 1) * (ecx + 1);
+
+    return cacheSize;
+}
 
 extern "C" __declspec(dllexport) int __cdecl GetEAX8000001D_EDX0_WBINVDCacheInvalidationExecutionScope()
 {
