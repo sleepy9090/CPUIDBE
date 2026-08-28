@@ -1619,7 +1619,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4EAX10_WBINVDCacheInvalidatio
     return wbinvdCacheInvalidationExecutionScope;
 }
 
-extern "C" __declspec(dllexport) int __cdecl GetEAX4EAX11_CacheInvlusiveness()
+extern "C" __declspec(dllexport) int __cdecl GetEAX4EAX11_CacheInclusiveness()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4, 0);
