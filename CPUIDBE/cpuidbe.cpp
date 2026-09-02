@@ -7091,7 +7091,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EAX0_2_Rangecnt()
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EAX3_5_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EAX3_7_Reserved()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x14, 1);
