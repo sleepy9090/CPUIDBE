@@ -8144,6 +8144,75 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX40000000EDX()
     return result;
 }
 
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000000EAXHightestFunctionParameter()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000000, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[0], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000000EBXCpuVendor()
+{
+    int cpuInfo[4] = { 0 };
+
+    __cpuid(cpuInfo, 0x40000000);
+
+    char vendor[5];
+    memcpy(vendor, &cpuInfo[1], 4); // EBX
+    vendor[4] = '\0';
+
+    char* result = (char*)malloc(5);
+    if (result) {
+        strcpy_s(result, 5, vendor);
+    }
+
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000000ECXCpuVendor()
+{
+    int cpuInfo[4] = { 0 };
+
+    __cpuid(cpuInfo, 0x40000000);
+
+    char vendor[5];
+    memcpy(vendor, &cpuInfo[2], 4); // ECX
+    vendor[4] = '\0';
+
+    char* result = (char*)malloc(5);
+    if (result) {
+        strcpy_s(result, 5, vendor);
+    }
+
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000000EDXCpuVendor()
+{
+    int cpuInfo[4] = { 0 };
+
+    __cpuid(cpuInfo, 0x40000000);
+
+    char vendor[5];
+    memcpy(vendor, &cpuInfo[3], 4); // EDX
+    vendor[4] = '\0';
+
+    char* result = (char*)malloc(5);
+    if (result) {
+        strcpy_s(result, 5, vendor);
+    }
+
+    return result;
+}
+
+
 #pragma endregion
 
 #pragma region EAX=0x80000000: Highest Extended Function Implemented
