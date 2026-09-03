@@ -7300,6 +7300,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX15EDX()
     return result;
 }
 
+/* Ratio of TSC frequency to Core Crystal Clock frequency, denominator */
 extern "C" __declspec(dllexport) int __cdecl GetEAX15EAX_RatioOfTSCFrequencyToCoreCrystalClockFrequency_Denominator()
 {
     int cpuInfo[4];
@@ -7308,6 +7309,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX15EAX_RatioOfTSCFrequencyToCo
     return cpuInfo[0];
 }
 
+/* Ratio of TSC frequency to Core Crystal Clock frequency, numerator */
 extern "C" __declspec(dllexport) int __cdecl GetEAX15EBX_RatioOfTSCFrequencyToCoreCrystalClockFrequency_Numerator()
 {
     int cpuInfo[4];
@@ -7316,6 +7318,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX15EBX_RatioOfTSCFrequencyToCo
     return cpuInfo[1];
 }
 
+/* Core Crystal Clock frequency, in units of Hz */
 extern "C" __declspec(dllexport) int __cdecl GetEAX15ECX_CoreCrystalClockFrequencyInHz()
 {
     int cpuInfo[4];
@@ -7324,7 +7327,18 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX15ECX_CoreCrystalClockFrequen
     return cpuInfo[2];
 }
 
+/*
 extern "C" __declspec(dllexport) int __cdecl GetEAX15EDX_TSCFrequencyInUnitsOfHz()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x15, 0);
+
+    return cpuInfo[3];
+}
+*/
+
+/* Reserved */
+extern "C" __declspec(dllexport) int __cdecl GetEAX15EDX0_31_Reserved()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x15, 0);
@@ -7392,6 +7406,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX16EDX()
     return result;
 }
 
+/* Processor Base Frequency (in MHz) */
 extern "C" __declspec(dllexport) int __cdecl GetEAX16EAX0_15_ProcessorBaseFrequencyInMHz()
 {
     int cpuInfo[4];
@@ -7401,6 +7416,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX16EAX0_15_ProcessorBaseFreque
     return processorBaseFrequency;
 }
 
+/* Reserved */
 extern "C" __declspec(dllexport) int __cdecl GetEAX16EAX16_31_Reserved()
 {
     int cpuInfo[4];
@@ -7410,6 +7426,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX16EAX16_31_Reserved()
     return reserved;
 }
 
+/* Processor Maximum Frequency (in MHz)*/
 extern "C" __declspec(dllexport) int __cdecl GetEAX16EBX0_15_ProcessorMaxFrequencyInMHz()
 {
     int cpuInfo[4];
@@ -7419,6 +7436,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX16EBX0_15_ProcessorMaxFrequen
     return processorMaxFrequency;
 }
 
+/* Reserved */
 extern "C" __declspec(dllexport) int __cdecl GetEAX16EBX16_31_Reserved()
 {
     int cpuInfo[4];
@@ -7428,6 +7446,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX16EBX16_31_Reserved()
     return reserved;
 }
 
+/* Bus/Reference frequency (in MHz) */
 extern "C" __declspec(dllexport) int __cdecl GetEAX16ECX0_15_BusReferenceFrequencyInMHz()
 {
     int cpuInfo[4];
@@ -7437,6 +7456,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX16ECX0_15_BusReferenceFrequen
     return busReferenceFrequency;
 }
 
+/* Reserved */
 extern "C" __declspec(dllexport) int __cdecl GetEAX16ECX16_31_Reserved()
 {
     int cpuInfo[4];
@@ -7446,6 +7466,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX16ECX16_31_Reserved()
     return reserved;
 }
 
+/* Reserved */
 extern "C" __declspec(dllexport) int __cdecl GetEAX16EDX0_31_Reserved()
 {
     int cpuInfo[4];
