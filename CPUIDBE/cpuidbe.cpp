@@ -77,6 +77,69 @@ char* Concat(const char* a, const char* b) {
     return con;
 }
 
+#pragma region Custom
+
+/**
+ * Gets the binary representation of a specific CPUID register value.
+ * @param leaf The CPUID leaf value (e.g. 0x0, 0x1, 0x2...0x8000000A...).
+ * @param subleaf The CPUID subleaf value (e.g. 0x0, 0x1, 0x2...).
+ * @param registerIndex The index of the register to retrieve, EAX = 0x0, EBX = 0x1, ECX = 0x2, EDX = 0x3.
+ * @return A pointer to the binary string representing the register value in binary format.
+ */
+extern "C" __declspec(dllexport) const char* __cdecl GetCustom(unsigned int leaf, unsigned int subleaf, unsigned int registerIndex)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, leaf, subleaf);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[registerIndex], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+
+    return result;
+}
+
+/**
+ * Gets the binary representation of a specific CPUID register value.
+ * @param leaf The CPUID leaf value (e.g. 0x0, 0x1, 0x2...0x8000000A...).
+ * @param subleaf The CPUID subleaf value (e.g. 0x0, 0x1, 0x2...).
+ * @param registerIndex The index of the register to retrieve, EAX = 0x0, EBX = 0x1, ECX = 0x2, EDX = 0x3.
+ * @param pos The starting position of the bits to extract (0-based index).
+ * @param k The number of bits to extract starting from the position 'pos'.
+ * @return A pointer to the binary string representing the register value in binary format.
+ */
+extern "C" __declspec(dllexport) int __cdecl GetCustomRange(unsigned int leaf, unsigned int subleaf, unsigned int registerIndex, unsigned int pos, unsigned int k)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, leaf, subleaf);
+
+    unsigned int result = ExtractBits(cpuInfo[registerIndex], pos, k);
+
+    return result;
+}
+
+/**
+ * Gets the boolean representation of a specific CPUID register bit value.
+ * @param leaf The CPUID leaf value (e.g. 0x0, 0x1, 0x2...0x8000000A...).
+ * @param subleaf The CPUID subleaf value (e.g. 0x0, 0x1, 0x2...).
+ * @param registerIndex The index of the register to retrieve, EAX = 0x0, EBX = 0x1, ECX = 0x2, EDX = 0x3.
+ * @param pos The starting position of the bit to extract (0-based index).
+ * @return A pointer to the bit representing the register value as a boolean.
+ */
+extern "C" __declspec(dllexport) bool __cdecl GetCustomBitAsBool(unsigned int leaf, unsigned int subleaf, unsigned int registerIndex, unsigned int pos)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, leaf, subleaf);
+
+    unsigned int result = ExtractBits(cpuInfo[registerIndex], pos, 1);
+
+    return (bool)result;
+}
+
+#pragma endregion
+
 #pragma region EAX=0x0: Highest Function Parameter and Manufacturer ID
 extern "C" __declspec(dllexport) const char* __cdecl GetEAX0EAX()
 {
