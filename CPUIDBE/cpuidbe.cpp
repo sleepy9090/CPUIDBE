@@ -121,6 +121,42 @@ extern "C" __declspec(dllexport) int __cdecl GetCustomRange(unsigned int leaf, u
 }
 
 /**
+ * Gets the binary representation of a specific CPUID register value.
+ * @param leaf The CPUID leaf value (e.g. 0x0, 0x1, 0x2...0x8000000A...).
+ * @param subleaf The CPUID subleaf value (e.g. 0x0, 0x1, 0x2...).
+ * @param registerIndex The index of the register to retrieve, EAX = 0x0, EBX = 0x1, ECX = 0x2, EDX = 0x3.
+ * @param pos The starting position of the bits to extract (0-based index).
+ * @return A pointer to the binary string representing the register value in binary format.
+ */
+extern "C" __declspec(dllexport) int __cdecl GetCustomRangeFromPosition(unsigned int leaf, unsigned int subleaf, unsigned int registerIndex, unsigned int pos)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, leaf, subleaf);
+
+    unsigned int result = ExtractBits(cpuInfo[registerIndex], pos, (32 - pos));
+
+    return result;
+}
+
+/**
+ * Gets the binary representation of a specific CPUID register value.
+ * @param leaf The CPUID leaf value (e.g. 0x0, 0x1, 0x2...0x8000000A...).
+ * @param subleaf The CPUID subleaf value (e.g. 0x0, 0x1, 0x2...).
+ * @param registerIndex The index of the register to retrieve, EAX = 0x0, EBX = 0x1, ECX = 0x2, EDX = 0x3.
+ * @param k The number of bits to extract starting from the position 'pos'.
+ * @return A pointer to the binary string representing the register value in binary format.
+ */
+extern "C" __declspec(dllexport) int __cdecl GetCustomRangeFromStartBit(unsigned int leaf, unsigned int subleaf, unsigned int registerIndex, unsigned int k)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, leaf, subleaf);
+
+    unsigned int result = ExtractBits(cpuInfo[registerIndex], 0, k);
+
+    return result;
+}
+
+/**
  * Gets the boolean representation of a specific CPUID register bit value.
  * @param leaf The CPUID leaf value (e.g. 0x0, 0x1, 0x2...0x8000000A...).
  * @param subleaf The CPUID subleaf value (e.g. 0x0, 0x1, 0x2...).
