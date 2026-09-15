@@ -110,12 +110,18 @@ extern "C" __declspec(dllexport) const char* __cdecl GetCustom(unsigned int leaf
  * @param k The number of bits to extract starting from the position 'pos'.
  * @return A pointer to the binary string representing the register value in binary format.
  */
-extern "C" __declspec(dllexport) int __cdecl GetCustomRange(unsigned int leaf, unsigned int subleaf, unsigned int registerIndex, unsigned int pos, unsigned int k)
+extern "C" __declspec(dllexport) const char* __cdecl GetCustomRange(unsigned int leaf, unsigned int subleaf, unsigned int registerIndex, unsigned int pos, unsigned int k)
 {
+	// TODO: Implement the logic to extract the specified range of bits from the CPUID register value.
     int cpuInfo[4];
     __cpuidex(cpuInfo, leaf, subleaf);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[registerIndex], binaryStr);
 
-    unsigned int result = ExtractBits(cpuInfo[registerIndex], pos, k);
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
 
     return result;
 }
