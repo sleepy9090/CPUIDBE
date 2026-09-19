@@ -8764,15 +8764,15 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX80000001ECX18_CVT16IsSupport
     return (bool)cvt16Supported;
 }
 
-/* MODEID_MSR - NodeID MSR (C001_100C). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX80000001ECX19_MODEID_MSRIsSupported()
+/* NODEID_MSR - NodeID MSR (C001_100C). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000001ECX19_NODEID_MSRIsSupported()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000001, 0);
 
-    unsigned int modeid_msrSupported = ExtractBits(cpuInfo[2], 19, 1);
+    unsigned int nodeid_msrSupported = ExtractBits(cpuInfo[2], 19, 1);
 
-    return (bool)modeid_msrSupported;
+    return (bool)nodeid_msrSupported;
 }
 
 /* Reserved. */
