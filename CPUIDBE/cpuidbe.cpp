@@ -7778,6 +7778,56 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX1DEDX()
     return result;
 }
 
+extern "C" __declspec(dllexport) int __cdecl GetEAX1EEAX0_15_TotalTileBytes()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1D, 0);
+
+    unsigned int totalTileBytes = ExtractBits(cpuInfo[0], 0, 16);
+
+    return totalTileBytes;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX1EEAX16_31_BytesPerTile()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1D, 0);
+
+    unsigned int bytesPerTile = ExtractBits(cpuInfo[0], 16, 16);
+
+    return bytesPerTile;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX1EEAX0_15_BytesPerRow()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1D, 0);
+
+    unsigned int totalTileBytes = ExtractBits(cpuInfo[1], 0, 16);
+
+    return totalTileBytes;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX1EEAX16_31_MaxNames()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1D, 0);
+
+    unsigned int bytesPerTile = ExtractBits(cpuInfo[1], 16, 16);
+
+    return bytesPerTile;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX1EEAX0_15_MaxRows()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1D, 0);
+
+    unsigned int totalTileBytes = ExtractBits(cpuInfo[2], 0, 16);
+
+    return totalTileBytes;
+}
+
 #pragma endregion
 
 #pragma region EAX=0x1E: Intel AMX Tile Multiplier (TMUL) Information
@@ -7836,6 +7886,116 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX1EEDX()
         strcpy_s(result, 33, binaryStr);
     }
     return result;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX1EEAX0_7_MaxNumRowsOrCols()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1E, 0);
+
+    unsigned int tmulMaxk = ExtractBits(cpuInfo[0], 0, 7);
+
+    return tmulMaxk;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX1EEAX8_23_MaxNumBytesPerCol()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1E, 0);
+
+    unsigned int tmulMaxn = ExtractBits(cpuInfo[0], 8, 16);
+
+    return tmulMaxn;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1EECX1_EAX0_AMXINT8IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1E, 1);
+
+    unsigned int amxInt8Supported = ExtractBits(cpuInfo[0], 0, 1);
+
+    return (bool)amxInt8Supported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1EECX1_EAX0_AMXBF16IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1E, 1);
+
+    unsigned int amxBF16Supported = ExtractBits(cpuInfo[0], 1, 1);
+
+    return (bool)amxBF16Supported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1EECX1_EAX0_AMXComplexIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1E, 1);
+
+    unsigned int amxComplexSupported = ExtractBits(cpuInfo[0], 2, 1);
+
+    return (bool)amxComplexSupported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1EECX1_EAX0_AMXFP16IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1E, 1);
+
+    unsigned int amxFP16Supported = ExtractBits(cpuInfo[0], 3, 1);
+
+    return (bool)amxFP16Supported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1EECX1_EAX0_AMXFP8IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1E, 1);
+
+    unsigned int amxFP8Supported = ExtractBits(cpuInfo[0], 4, 1);
+
+    return (bool)amxFP8Supported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1EECX1_EAX0_AMXTransposeIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1E, 1);
+
+    unsigned int amxTransposeSupported = ExtractBits(cpuInfo[0], 5, 1);
+
+    return (bool)amxTransposeSupported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1EECX1_EAX0_AMXTF32IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1E, 1);
+
+    unsigned int amxTF32Supported = ExtractBits(cpuInfo[0], 6, 1);
+
+    return (bool)amxTF32Supported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1EECX1_EAX0_AMXAVX512IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1E, 1);
+
+    unsigned int amxAVX512Supported = ExtractBits(cpuInfo[0], 7, 1);
+
+    return (bool)amxAVX512Supported;
+}
+
+extern "C" __declspec(dllexport) bool __cdecl GetEAX1EECX1_EAX0_AMXMOVRSIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x1E, 1);
+
+    unsigned int amxMOVRSSupported = ExtractBits(cpuInfo[0], 8, 1);
+
+    return (bool)amxMOVRSSupported;
 }
 
 #pragma endregion
