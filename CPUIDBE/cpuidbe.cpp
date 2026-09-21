@@ -7778,7 +7778,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX1DEDX()
     return result;
 }
 
-extern "C" __declspec(dllexport) int __cdecl GetEAX1EEAX0_15_TotalTileBytes()
+extern "C" __declspec(dllexport) int __cdecl GetEAX1EDAX0_15_TotalTileBytes()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x1D, 0);
@@ -7788,7 +7788,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX1EEAX0_15_TotalTileBytes()
     return totalTileBytes;
 }
 
-extern "C" __declspec(dllexport) int __cdecl GetEAX1EEAX16_31_BytesPerTile()
+extern "C" __declspec(dllexport) int __cdecl GetEAX1DEAX16_31_BytesPerTile()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x1D, 0);
@@ -7798,7 +7798,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX1EEAX16_31_BytesPerTile()
     return bytesPerTile;
 }
 
-extern "C" __declspec(dllexport) int __cdecl GetEAX1EEAX0_15_BytesPerRow()
+extern "C" __declspec(dllexport) int __cdecl GetEAX1DEAX0_15_BytesPerRow()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x1D, 0);
@@ -7808,7 +7808,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX1EEAX0_15_BytesPerRow()
     return totalTileBytes;
 }
 
-extern "C" __declspec(dllexport) int __cdecl GetEAX1EEAX16_31_MaxNames()
+extern "C" __declspec(dllexport) int __cdecl GetEAX1DEAX16_31_MaxNames()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x1D, 0);
@@ -7818,7 +7818,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX1EEAX16_31_MaxNames()
     return bytesPerTile;
 }
 
-extern "C" __declspec(dllexport) int __cdecl GetEAX1EEAX0_15_MaxRows()
+extern "C" __declspec(dllexport) int __cdecl GetEAX1DEAX0_15_MaxRows()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x1D, 0);
