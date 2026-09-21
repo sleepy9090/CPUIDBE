@@ -7778,7 +7778,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX1DEDX()
     return result;
 }
 
-extern "C" __declspec(dllexport) int __cdecl GetEAX1EDAX0_15_TotalTileBytes()
+extern "C" __declspec(dllexport) int __cdecl GetEAX1DEAX0_15_TotalTileBytes()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x1D, 0);
