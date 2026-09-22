@@ -8499,8 +8499,6 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000001EAX_InterfaceSignatur
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000001, 0);
 
-    //unsigned int interfaceSignature = ExtractBits(cpuInfo[0], 0, 32);
-
     return cpuInfo[0];
 }
 
