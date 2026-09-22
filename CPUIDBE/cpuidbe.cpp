@@ -8308,7 +8308,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX20000001EDX()
 
 #pragma endregion
 
-#pragma region EAX=0x40000000-0x4FFFFFFF: Reserved for Hypervisors
+#pragma region EAX=0x40000000: Reserved for Hypervisors
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000000EAX()
 {
@@ -8434,6 +8434,185 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX40000000EDXCpuVendor()
     return result;
 }
 
+#pragma endregion
+
+#pragma region EAX=0x40000001: Reserved for Hypervisors
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000001EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000001, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[0], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000001EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000001, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[1], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000001ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000001, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[2], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000001EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000001, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[3], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+#pragma endregion
+
+#pragma region EAX=0x40000002: Reserved for Hypervisors
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000002EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000002, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[0], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000002EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000002, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[1], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000002ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000002, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[2], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000002EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000002, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[3], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+#pragma endregion
+
+#pragma region EAX=0x40000003: Reserved for Hypervisors
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000003EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000003, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[0], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000003EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000003, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[1], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000003ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000003, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[2], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000003EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000003, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[3], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
 
 #pragma endregion
 
