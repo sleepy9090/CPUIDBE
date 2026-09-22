@@ -8494,6 +8494,16 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX40000001EDX()
     return result;
 }
 
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000001EAX_InterfaceSignature()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000001, 0);
+
+    unsigned int modelId = ExtractBits(cpuInfo[0], 0, 32);
+
+    return modelId;
+}
+
 #pragma endregion
 
 #pragma region EAX=0x40000002: Reserved for Hypervisors
