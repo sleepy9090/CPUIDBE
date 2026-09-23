@@ -8308,7 +8308,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX20000001EDX()
 
 #pragma endregion
 
-#pragma region EAX=0x40000000: Reserved for Hypervisors
+#pragma region EAX=0x40000000: Reserved for Hypervisors - vendor information
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000000EAX()
 {
@@ -8436,7 +8436,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX40000000EDXCpuVendor()
 
 #pragma endregion
 
-#pragma region EAX=0x40000001: Reserved for Hypervisors
+#pragma region EAX=0x40000001: Reserved for Hypervisors - interface information
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000001EAX()
 {
@@ -8502,9 +8502,28 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000001EAX_InterfaceSignatur
     return cpuInfo[0];
 }
 
+extern "C" __declspec (dllexport) char* __cdecl GetEAX40000001EAX_InterfaceSignatureString()
+{
+    int cpuInfo[4] = { 0 };
+
+    __cpuid(cpuInfo, 0x40000001);
+
+    char vendor[5];
+    memcpy(vendor, &cpuInfo[0], 4); // EAX
+    vendor[4] = '\0';
+
+    char* result = (char*)malloc(5);
+    if (result) {
+        strcpy_s(result, 5, vendor);
+    }
+
+    return result;
+
+}
+
 #pragma endregion
 
-#pragma region EAX=0x40000002: Reserved for Hypervisors
+#pragma region EAX=0x40000002: Reserved for Hypervisors - version information
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000002EAX()
 {
@@ -8562,9 +8581,65 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX40000002EDX()
     return result;
 }
 
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000002_EAX_0_31_BuildNumber()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000002, 0);
+
+    return cpuInfo[0];
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000002_EBX_0_15_MinorVersion()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000002, 0);
+
+    unsigned int minorVersion = ExtractBits(cpuInfo[1], 0, 16);
+
+    return minorVersion;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000002_EBX_16_31_MajorVersion()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000002, 0);
+
+    unsigned int majorVersion = ExtractBits(cpuInfo[1], 16, 16);
+
+    return majorVersion;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000002_ECX_0_31_ServicePack()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000002, 0);
+
+    return cpuInfo[2];
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000002_EDX_0_23_ServiceNumber()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000002, 0);
+
+    unsigned int serviceNumber = ExtractBits(cpuInfo[3], 0, 23);
+
+    return serviceNumber;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000002_EDX_24_31_ServiceBranch()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000002, 0);
+
+    unsigned int serviceBranch = ExtractBits(cpuInfo[3], 24, 8);
+
+    return serviceBranch;
+}
+
 #pragma endregion
 
-#pragma region EAX=0x40000003: Reserved for Hypervisors
+#pragma region EAX=0x40000003: Reserved for Hypervisors - feature information
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000003EAX()
 {
