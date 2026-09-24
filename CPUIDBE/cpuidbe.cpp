@@ -8308,7 +8308,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX20000001EDX()
 
 #pragma endregion
 
-#pragma region EAX=0x40000000: Reserved for Hypervisors - vendor information
+#pragma region EAX=0x40000000: Reserved for Hypervisors - Vendor
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000000EAX()
 {
@@ -8436,7 +8436,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX40000000EDXCpuVendor()
 
 #pragma endregion
 
-#pragma region EAX=0x40000001: Reserved for Hypervisors - interface information
+#pragma region EAX=0x40000001: Reserved for Hypervisors - Interface
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000001EAX()
 {
@@ -8523,7 +8523,7 @@ extern "C" __declspec (dllexport) char* __cdecl GetEAX40000001EAX_InterfaceSigna
 
 #pragma endregion
 
-#pragma region EAX=0x40000002: Reserved for Hypervisors - version information
+#pragma region EAX=0x40000002: Reserved for Hypervisors - Version
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000002EAX()
 {
@@ -8639,7 +8639,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000002_EDX_24_31_ServiceBra
 
 #pragma endregion
 
-#pragma region EAX=0x40000003: Reserved for Hypervisors - feature information
+#pragma region EAX=0x40000003: Reserved for Hypervisors - Description of features based on current privileges (=virtual MSRs)
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000003EAX()
 {
@@ -8687,6 +8687,786 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX40000003EDX()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000003, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[3], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+#pragma endregion
+
+#pragma region EAX=0x40000004: Reserved for Hypervisors - Recommendations
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000004EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000004, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[0], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000004EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000004, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[1], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000004ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000004, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[2], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000004EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000004, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[3], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+#pragma endregion
+
+#pragma region EAX=0x40000005: Reserved for Hypervisors - Limits
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000005EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000005, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[0], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000005EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000005, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[1], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000005ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000005, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[2], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000005EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000005, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[3], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+#pragma endregion
+
+#pragma region EAX=0x40000006: Reserved for Hypervisors - Hardware Features detected and in use
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000006EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[0], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000006EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[1], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000006ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[2], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000006EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[3], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+#pragma endregion
+
+#pragma region EAX=0x40000007: Reserved for Hypervisors - Hypervisor CPU management features
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000007EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000007, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[0], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000007EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000007, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[1], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000007ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000007, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[2], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000007EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000007, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[3], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+#pragma endregion
+
+#pragma region EAX=0x40000008: Reserved for Hypervisors - Hypervisor SVM features
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000008EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000008, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[0], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000008EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000008, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[1], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000008ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000008, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[2], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000008EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000008, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[3], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+#pragma endregion
+
+#pragma region EAX=0x40000009: Reserved for Hypervisors - Nested hypervisor feature identification
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000009EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000009, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[0], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000009EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000009, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[1], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000009ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000009, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[2], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000009EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000009, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[3], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+#pragma endregion
+
+#pragma region EAX=0x4000000A: Reserved for Hypervisors - Hypervisor nested virtualization features
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000AEAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000A, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[0], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000AEBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000A, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[1], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000AECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000A, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[2], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000AEDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000A, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[3], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+#pragma endregion
+
+#pragma region EAX=0x4000000B: Reserved for Hypervisors -
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000BEAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000B, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[0], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000BEBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000B, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[1], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000BECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000B, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[2], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000BEDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000B, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[3], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+#pragma endregion
+
+#pragma region EAX=0x4000000C: Reserved for Hypervisors - Isolation configuration
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000CEAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000C, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[0], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000CEBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000C, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[1], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000CECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000C, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[2], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000CEDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000C, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[3], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+#pragma endregion
+
+#pragma region EAX=0x4000000D: Reserved for Hypervisors
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000DEAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000D, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[0], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000DEBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000D, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[1], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000DECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000D, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[2], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000DEDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000D, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[3], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+#pragma endregion
+
+#pragma region EAX=0x4000000E: Reserved for Hypervisors
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000EEAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000E, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[0], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000EEBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000E, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[1], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000EECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000E, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[2], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000EEDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000E, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[3], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+#pragma endregion
+
+#pragma region EAX=0x4000000F: Reserved for Hypervisors
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000FEAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000F, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[0], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000FEBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000F, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[1], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000FECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000F, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[2], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000FEDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000F, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[3], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+#pragma endregion
+
+#pragma region EAX=0x40000010: Reserved for Hypervisors - Frequency
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000010EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000010, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[0], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000010EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000010, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[1], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000010ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000010, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[2], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000010EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000010, 0);
     char binaryStr[33];
     IntToBinary32(cpuInfo[3], binaryStr);
 
