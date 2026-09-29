@@ -10135,6 +10135,61 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX40000004EDX()
     return result;
 }
 
+/* Hypercall for address space switch. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000004EAX0_HypercallForAddressSpaceSwitchIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000004, 0);
+
+    unsigned int hypercallForAddressSpaceSwitchSupported = ExtractBits(cpuInfo[0], 0, 1);
+
+    return (bool)hypercallForAddressSpaceSwitchSupported;
+}
+
+/* Hypercall for local TLB flush. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000004EAX1_HypercallForLocalTLBFlushIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000004, 0);
+
+    unsigned int hypercallForLocalTLBFlushSupported = ExtractBits(cpuInfo[0], 1, 1);
+
+    return (bool)hypercallForLocalTLBFlushSupported;
+}
+
+/* Hypercall for remote TLB flush. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000004EAX1_HypercallForRemoteTLBFlushIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000004, 0);
+
+    unsigned int hypercallForRemoteTLBFlushSupported = ExtractBits(cpuInfo[0], 2, 1);
+
+    return (bool)hypercallForRemoteTLBFlushSupported;
+}
+
+/* MSRs for APIC EOI/ICR/TPR. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000004EAX1_MSRsForAPICEOIICRTPRIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000004, 0);
+
+    unsigned int msrsForAPICEOIICRTPRSupported = ExtractBits(cpuInfo[0], 3, 1);
+
+    return (bool)msrsForAPICEOIICRTPRSupported;
+}
+
+/* MSR for system reset. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000004EAX1_MSRForSystemResetIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000004, 0);
+
+    unsigned int msrForSystemResetSupported = ExtractBits(cpuInfo[0], 4, 1);
+
+    return (bool)msrForSystemResetSupported;
+}
+
 #pragma endregion
 
 #pragma region EAX=0x40000005: Reserved for Hypervisors - Limits
