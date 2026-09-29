@@ -10158,7 +10158,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX40000004EAX1_HypercallForLoc
 }
 
 /* Hypercall for remote TLB flush. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX40000004EAX1_HypercallForRemoteTLBFlushIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000004EAX2_HypercallForRemoteTLBFlushIsSupported()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000004, 0);
@@ -10169,7 +10169,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX40000004EAX1_HypercallForRem
 }
 
 /* MSRs for APIC EOI/ICR/TPR. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX40000004EAX1_MSRsForAPICEOIICRTPRIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000004EAX3_MSRsForAPICEOIICRTPRIsSupported()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000004, 0);
@@ -10180,7 +10180,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX40000004EAX1_MSRsForAPICEOII
 }
 
 /* MSR for system reset. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX40000004EAX1_MSRForSystemResetIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000004EAX4_MSRForSystemResetIsSupported()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000004, 0);
@@ -10188,6 +10188,17 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX40000004EAX1_MSRForSystemRes
     unsigned int msrForSystemResetSupported = ExtractBits(cpuInfo[0], 4, 1);
 
     return (bool)msrForSystemResetSupported;
+}
+
+/* Relaxed timing – disable watchdogs. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000004EAX5_RelaxedTimingDisableWatchdogsIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000004, 0);
+
+    unsigned int relaxedTimingDisableWatchdogs = ExtractBits(cpuInfo[0], 5, 1);
+
+    return (bool)relaxedTimingDisableWatchdogs;
 }
 
 #pragma endregion
