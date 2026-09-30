@@ -10490,7 +10490,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX40000004EAX31_ReservedIsSupp
 
 // EBX
 /* Recommended spinlock failure retries (FFFF_FFFFh = -1 = never). */
-extern "C" __declspec(dllexport) int __cdecl GetEAX1EBX0_31_RecommendedSpinlockFailureRetries()
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000004EBX0_31_RecommendedSpinlockFailureRetries()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000004, 0);
@@ -10502,7 +10502,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX1EBX0_31_RecommendedSpinlockF
 
 // ECX
 /* ImplementedPhysicalAddressBits. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX1ECX0_6_ImplementedPhysicalAddressBits()
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000004ECX0_6_ImplementedPhysicalAddressBits()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000004, 0);
@@ -10511,10 +10511,29 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX1ECX0_6_ImplementedPhysicalAd
 
     return implementedPhysicalAddressBits;
 }
-// 31...7 	reserved
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000004ECX7_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000004, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[2], 7, 25);
+
+    return reserved;
+}
 
 // EDX
-// 31...0 	reserved
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000004EDX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000004, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
+
+    return reserved;
+}
 
 
 #pragma endregion
@@ -10575,6 +10594,50 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX40000005EDX()
         strcpy_s(result, 33, binaryStr);
     }
     return result;
+}
+
+/* Maximum supported virtual processors. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000005EAX0_31_MaximumSupportedVirtualProcessors()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000005, 0);
+
+    unsigned int maximumSupportedVirtualProcessors = ExtractBits(cpuInfo[0], 0, 32);
+
+    return maximumSupportedVirtualProcessors;
+}
+
+/* Maximum supported logical processors. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000005EBX0_31_MaximumSupportedLogicalProcessors()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000005, 0);
+
+    unsigned int maximumSupportedLogicalProcessors = ExtractBits(cpuInfo[1], 0, 32);
+
+    return maximumSupportedLogicalProcessors;
+}
+
+/* Maximum supported physical interrupt vectors for remapping. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000005ECX0_31_MaximumSupportedPhysicalInterruptVectorsForRemapping()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000005, 0);
+
+    unsigned int maximumSupportedPhysicalInterruptVectorsForRemapping = ExtractBits(cpuInfo[2], 0, 32);
+
+    return maximumSupportedPhysicalInterruptVectorsForRemapping;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000005EDX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000005, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
+
+    return reserved;
 }
 
 #pragma endregion
