@@ -10820,6 +10820,72 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX40000008EDX()
     return result;
 }
 
+/* SvmSupported. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000008EAX0_SvmSupportedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000008, 0);
+
+    unsigned int svmSupportedSupported = ExtractBits(cpuInfo[0], 0, 1);
+
+    return (bool)svmSupportedSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000005EAX1_10_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000008, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[0], 1, 10);
+
+    return reserved;
+}
+
+/* MaxPasidSpacePasidCount. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000005EAX11_31_MaxPasidSpacePasidCount()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000008, 0);
+
+    unsigned int maxPasidSpacePasidCount = ExtractBits(cpuInfo[0], 11, 20);
+
+    return maxPasidSpacePasidCount;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000005EBX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000008, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 0, 32);
+
+    return reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000005ECX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000008, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[2], 0, 32);
+
+    return reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000005EDX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000008, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
+
+    return reserved;
+}
+
 #pragma endregion
 
 #pragma region EAX=0x40000009: Reserved for Hypervisors - Nested hypervisor feature identification
