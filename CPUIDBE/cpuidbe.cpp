@@ -10700,6 +10700,296 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX40000006EDX()
     return result;
 }
 
+// EAX
+/* APIC overlay assist. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000006EAX0_APICOverlayAssistIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+
+    unsigned int apicOverlayAssist = ExtractBits(cpuInfo[0], 0, 1);
+
+    return (bool)apicOverlayAssist;
+}
+
+/* MSR bitmaps. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000006EAX1_MSRBitmapsIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+
+    unsigned int msrBitmaps = ExtractBits(cpuInfo[0], 1, 1);
+
+    return (bool)msrBitmaps;
+}
+
+/* Architectural performance counter. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000006EAX2_ArchitecturalPerformanceCounterIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+
+    unsigned int architecturalPerformanceCounter = ExtractBits(cpuInfo[0], 2, 1);
+
+    return (bool)architecturalPerformanceCounter;
+}
+
+/* Second level address translation. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000006EAX3_SecondLevelAddressTranslationIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+
+    unsigned int secondLevelAddressTranslation = ExtractBits(cpuInfo[0], 3, 1);
+
+    return (bool)secondLevelAddressTranslation;
+}
+
+/* DMA remapping. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000006EAX4_DMARemappingIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+
+    unsigned int dmaRemapping = ExtractBits(cpuInfo[0], 4, 1);
+
+    return (bool)dmaRemapping;
+}
+
+/* Interrupt remapping. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000006EAX5_InterruptRemappingIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+
+    unsigned int interruptRemapping = ExtractBits(cpuInfo[0], 5, 1);
+
+    return (bool)interruptRemapping;
+}
+
+/* Memory patrol scrubber. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000006EAX6_MemoryPatrolScrubberIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+
+    unsigned int memoryPatrolScrubber = ExtractBits(cpuInfo[0], 6, 1);
+
+    return (bool)memoryPatrolScrubber;
+}
+
+/* DMA protection is in use. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000006EAX7_DMAProtectionIsInUseIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+
+    unsigned int dmaProtectionIsInUse = ExtractBits(cpuInfo[0], 7, 1);
+
+    return (bool)dmaProtectionIsInUse;
+}
+
+/* HPET is requested. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000006EAX8_HPETIsRequestedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+
+    unsigned int hpetIsRequested = ExtractBits(cpuInfo[0], 8, 1);
+
+    return (bool)hpetIsRequested;
+}
+
+/* Synthetic timers are volatile. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000006EAX9_SyntheticTimersAreVolatileIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+
+    unsigned int syntheticTimersAreVolatile = ExtractBits(cpuInfo[0], 9, 1);
+
+    return (bool)syntheticTimersAreVolatile;
+}
+
+/* HV level of current guest (0 if non-nested). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000006EAX10_13_HVLevelOfCurrentGuest()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[0], 10, 4);
+
+    return reserved;
+}
+
+/* Physical destination mode required. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000006EAX14_PhysicalDestinationModeRequiredIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+
+    unsigned int physicalDestinationModeRequired = ExtractBits(cpuInfo[0], 14, 1);
+
+    return (bool)physicalDestinationModeRequired;
+}
+
+/* Use VMFUNC for alias map switch. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000006EAX15_UseVMFUNCForAliasMapSwitchIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+
+    unsigned int useVMFUNCForAliasMapSwitch = ExtractBits(cpuInfo[0], 15, 1);
+
+    return (bool)useVMFUNCForAliasMapSwitch;
+}
+
+/* Hardware memory zeroing. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000006EAX16_HardwareMemoryZeroingIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+
+    unsigned int hardwareMemoryZeroing = ExtractBits(cpuInfo[0], 16, 1);
+
+    return (bool)hardwareMemoryZeroing;
+}
+
+/* Unrestricted guest. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000006EAX17_UnrestrictedGuestIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+
+    unsigned int unrestrictedGuest = ExtractBits(cpuInfo[0], 17, 1);
+
+    return (bool)unrestrictedGuest;
+}
+
+/* Resource allocation (RDT-A, PQoS-A). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000006EAX18_ResourceAllocationIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+
+    unsigned int resourceAllocation = ExtractBits(cpuInfo[0], 18, 1);
+
+    return (bool)resourceAllocation;
+}
+
+/* Resource monitoring (RDT-M, PQoS-M). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000006EAX19_ResourceMonitoringIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+
+    unsigned int resourceMonitoring = ExtractBits(cpuInfo[0], 19, 1);
+
+    return (bool)resourceMonitoring;
+}
+
+/* Guest virtual PMU. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000006EAX20_GuestVirtualPMUIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+
+    unsigned int guestVirtualPMU = ExtractBits(cpuInfo[0], 20, 1);
+
+    return (bool)guestVirtualPMU;
+}
+
+/* Guest virtual LBR. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000006EAX21_GuestVirtualLBRIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+
+    unsigned int guestVirtualLBR = ExtractBits(cpuInfo[0], 21, 1);
+
+    return (bool)guestVirtualLBR;
+}
+
+/* Guest virtual IPT. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000006EAX22_GuestVirtualIPTIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+
+    unsigned int guestVirtualIPT = ExtractBits(cpuInfo[0], 22, 1);
+
+    return (bool)guestVirtualIPT;
+}
+
+/* APIC emulation. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000006EAX23_APICEmulationIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+
+    unsigned int apicEmulation = ExtractBits(cpuInfo[0], 23, 1);
+
+    return (bool)apicEmulation;
+}
+
+/* ACPI WDAT table detected and in use by HV. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000006EAX24_ACPIWDATTableDetectedAndInUseByHVIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+
+    unsigned int apicWDATTableDetectedAndInUseByHV = ExtractBits(cpuInfo[0], 24, 1);
+
+    return (bool)apicWDATTableDetectedAndInUseByHV;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000006EBX25_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[0], 25, 7);
+
+    return reserved;
+}
+
+// EBX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000006EBX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 0, 32);
+
+    return reserved;
+}
+
+// ECX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000006ECX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[2], 0, 32);
+
+    return reserved;
+}
+
+// EDX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000006EDX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000006, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
+
+    return reserved;
+}
+
 #pragma endregion
 
 #pragma region EAX=0x40000007: Reserved for Hypervisors - Hypervisor CPU management features
@@ -10758,6 +11048,142 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX40000007EDX()
         strcpy_s(result, 33, binaryStr);
     }
     return result;
+}
+
+// EAX
+/* StartLogicalProcessor. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000007EAX0_StartLogicalProcessorIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000007, 0);
+
+    unsigned int processorPowerManagement = ExtractBits(cpuInfo[0], 0, 1);
+
+    return (bool)processorPowerManagement;
+}
+
+/* CreateRootvirtualProcessor. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000007EAX1_CreateRootvirtualProcessorIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000007, 0);
+
+    unsigned int createRootvirtualProcessor = ExtractBits(cpuInfo[0], 1, 1);
+
+    return (bool)createRootvirtualProcessor;
+}
+
+/* PerformanceCounterSync. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000007EAX1_PerformanceCounterSyncIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000007, 0);
+
+    unsigned int performanceCounterSync = ExtractBits(cpuInfo[0], 2, 1);
+
+    return (bool)performanceCounterSync;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000007EAX3_30_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000007, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[0], 3, 28);
+
+    return reserved;
+}
+
+/* ReservedIdentityBit. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000007EAX31_ReservedIdentityBitIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000007, 0);
+
+    unsigned int reservedIdentityBit = ExtractBits(cpuInfo[0], 31, 1);
+
+    return (bool)reservedIdentityBit;
+}
+
+// EBX
+/* ProcessorPowerManagement. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000007EBX0_ProcessorPowerManagementIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000007, 0);
+
+    unsigned int processorPowerManagement = ExtractBits(cpuInfo[1], 0, 1);
+
+    return (bool)processorPowerManagement;
+}
+
+/* MwaitIdleStates. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000007EBX1_MwaitIdleStatesIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000007, 0);
+
+    unsigned int mwaitIdleStates = ExtractBits(cpuInfo[1], 1, 1);
+
+    return (bool)mwaitIdleStates;
+}
+
+/* LogicalProcessorIdling. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000007EBX2_LogicalProcessorIdlingIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000007, 0);
+
+    unsigned int logicalProcessorIdling = ExtractBits(cpuInfo[1], 2, 1);
+
+    return (bool)logicalProcessorIdling;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000007EBX3_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000007, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 3, 29);
+
+    return reserved;
+}
+
+// ECX
+/* RemapGuestUncached. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000007ECX0_RemapGuestUncachedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000007, 0);
+
+    unsigned int remapGuestUncached = ExtractBits(cpuInfo[2], 0, 1);
+
+    return (bool)remapGuestUncached;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000007ECX1_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000007, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[2], 1, 31);
+
+    return reserved;
+}
+
+// EDX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000007EDX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000007, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
+
+    return reserved;
 }
 
 #pragma endregion
