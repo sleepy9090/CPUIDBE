@@ -10832,7 +10832,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX40000008EAX0_SvmSupportedIsS
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX40000005EAX1_10_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000008EAX1_10_Reserved()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000008, 0);
@@ -10843,7 +10843,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000005EAX1_10_Reserved()
 }
 
 /* MaxPasidSpacePasidCount. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX40000005EAX11_31_MaxPasidSpacePasidCount()
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000008EAX11_31_MaxPasidSpacePasidCount()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000008, 0);
@@ -10854,7 +10854,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000005EAX11_31_MaxPasidSpac
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX40000005EBX0_31_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000008EBX0_31_Reserved()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000008, 0);
@@ -10865,7 +10865,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000005EBX0_31_Reserved()
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX40000005ECX0_31_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000008ECX0_31_Reserved()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000008, 0);
@@ -10876,7 +10876,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000005ECX0_31_Reserved()
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX40000005EDX0_31_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000008EDX0_31_Reserved()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000008, 0);
