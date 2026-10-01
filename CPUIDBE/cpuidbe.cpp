@@ -12523,7 +12523,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX40000010EDX()
 }
 
 // EAX
-/* virtual TSC frequency in kHz. */
+/* Virtual TSC frequency in kHz. */
 extern "C" __declspec(dllexport) int __cdecl GetEAX40000010EAX0_31_VirtualTSCFrequencyInKHz()
 {
     int cpuInfo[4];
@@ -12535,7 +12535,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000010EAX0_31_VirtualTSCFre
 }
 
 // EBX
-/* virtual bus frequency in kHz (local APIC timer). */
+/* Virtual bus frequency in kHz (local APIC timer). */
 extern "C" __declspec(dllexport) int __cdecl GetEAX40000010EBX0_31_VirtualBusBrequencyInKHz()
 {
     int cpuInfo[4];
@@ -12564,6 +12564,114 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000010EDX0_31_Reserved()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000010, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
+
+    return reserved;
+}
+
+#pragma endregion
+
+#pragma region EAX=0x4C780002: Get supervisor information – Linux
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780002EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4C780002, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[0], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780002EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4C780002, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[1], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780002ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4C780002, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[2], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780002EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4C780002, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[3], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+// EAX
+/* Word 0. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX4C780002EAX0_31_Word0()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4C780002, 0);
+
+    unsigned int word0 = ExtractBits(cpuInfo[0], 0, 32);
+
+    return word0;
+}
+
+// EBX
+/* Word 1. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX4C780002EBX0_31_Word1()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4C780002, 0);
+
+    unsigned int word1 = ExtractBits(cpuInfo[1], 0, 32);
+
+    return word1;
+}
+
+// ECX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX4C780002ECX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4C780002, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[2], 0, 32);
+
+    return reserved;
+}
+
+// EDX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX4C780002EDX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4C780002, 0);
 
     unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
 
