@@ -12282,6 +12282,109 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000CEDX()
     return result;
 }
 
+// EAX
+/* PV present. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX4000000CEAX0_PVPresentIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000C, 0);
+
+    unsigned int pvPresent = ExtractBits(cpuInfo[0], 31, 1);
+
+    return (bool)pvPresent;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX400000CEAX1_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000C, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[0], 1, 31);
+
+    return reserved;
+}
+
+// EBX
+/* Isolation type (0=none, 1=VBS, 2=SNP, 3=TDX). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX400000CEBX0_3_IsolationType()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000C, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 0, 4);
+
+    return reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX400000CEBX4_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000C, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 4, 1);
+
+    return reserved;
+}
+
+/* Shared GPA boundary active. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX400000CEBX5_SharedGPABoundaryActive()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000C, 0);
+
+    unsigned int sharedGPABoundaryActive = ExtractBits(cpuInfo[1], 5, 1);
+
+    return sharedGPABoundaryActive;
+}
+
+/* Shared GPA boundary bits. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX400000CEBX5_SharedGPABoundaryBits()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000C, 0);
+
+    unsigned int sharedGPABoundaryBits = ExtractBits(cpuInfo[1], 6, 6);
+
+    return sharedGPABoundaryBits;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX400000CEBX12_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000C, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 12, 20);
+
+    return reserved;
+}
+
+// ECX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX400000CECX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000C, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[2], 0, 32);
+
+    return reserved;
+}
+
+// EDX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX4000000CEDX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000C, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
+
+    return reserved;
+}
+
 #pragma endregion
 
 #pragma region EAX=0x4000000D: Reserved for Hypervisors
