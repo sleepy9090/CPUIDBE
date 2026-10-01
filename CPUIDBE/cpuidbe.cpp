@@ -12572,7 +12572,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000010EDX0_31_Reserved()
 
 #pragma endregion
 
-#pragma region EAX=0x4C780001: Get supervisor information – Linux flags
+#pragma region EAX=0x4C780001: Get supervisor information - Linux flags
 
 // ECX = 0, Subleaf 0
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780001EAX()
@@ -12680,7 +12680,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001EDX0_31_Word11()
 }
 
 // ECX = 1, subleaf 1
-extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780001EAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780001ECX1EAX()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4C780001, 1);
@@ -12694,7 +12694,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780001EAX()
     return result;
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780001EBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780001ECX1EBX()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4C780001, 1);
@@ -12708,7 +12708,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780001EBX()
     return result;
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780001ECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780001ECX1ECX()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4C780001, 1);
@@ -12722,7 +12722,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780001ECX()
     return result;
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780001EDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780001ECX1EDX()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4C780001, 1);
@@ -12738,7 +12738,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780001EDX()
 
 // EAX
 /* Word 17. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001EAX0_31_Word17()
+extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001ECX1EAX0_31_Word17()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4C780001, 1);
@@ -12750,7 +12750,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001EAX0_31_Word17()
 
 // EBX
 /* Word 21. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001EBX0_31_Word21()
+extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001ECX1EBX0_31_Word21()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4C780001, 1);
@@ -12762,7 +12762,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001EBX0_31_Word21()
 
 // ECX
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001ECX0_31_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001ECX1ECX0_31_Reserved()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4C780001, 1);
@@ -12774,7 +12774,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001ECX0_31_Reserved()
 
 // EDX
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001EDX0_31_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001ECX1EDX0_31_Reserved()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4C780001, 1);
@@ -12786,7 +12786,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001EDX0_31_Reserved()
 
 #pragma endregion
 
-#pragma region EAX=0x4C780002: Get supervisor information – Linux bugs
+#pragma region EAX=0x4C780002: Get supervisor information - Linux bugs
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780002EAX()
 {
