@@ -12572,7 +12572,221 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000010EDX0_31_Reserved()
 
 #pragma endregion
 
-#pragma region EAX=0x4C780002: Get supervisor information – Linux
+#pragma region EAX=0x4C780001: Get supervisor information – Linux flags
+
+// ECX = 0, Subleaf 0
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780001EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4C780001, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[0], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780001EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4C780001, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[1], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780001ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4C780001, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[2], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780001EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4C780001, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[3], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+// EAX
+/* Word 3. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001EAX0_31_Word3()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4C780001, 0);
+
+    unsigned int word3 = ExtractBits(cpuInfo[0], 0, 32);
+
+    return word3;
+}
+
+// EBX
+/* Word 7. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001EBX0_31_Word7()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4C780001, 0);
+
+    unsigned int word7 = ExtractBits(cpuInfo[1], 0, 32);
+
+    return word7;
+}
+
+// ECX
+/* Word 8. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001ECX0_31_Word8()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4C780001, 0);
+
+    unsigned int word8 = ExtractBits(cpuInfo[2], 0, 32);
+
+    return word8;
+}
+
+// EDX
+/* Word 11. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001EDX0_31_Word11()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4C780001, 0);
+
+    unsigned int word11 = ExtractBits(cpuInfo[3], 0, 32);
+
+    return word11;
+}
+
+// ECX = 1, subleaf 1
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780001EAX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4C780001, 1);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[0], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780001EBX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4C780001, 1);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[1], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780001ECX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4C780001, 1);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[2], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780001EDX()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4C780001, 1);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[3], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+// EAX
+/* Word 17. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001EAX0_31_Word17()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4C780001, 1);
+
+    unsigned int word17 = ExtractBits(cpuInfo[0], 0, 32);
+
+    return word17;
+}
+
+// EBX
+/* Word 21. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001EBX0_31_Word21()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4C780001, 1);
+
+    unsigned int word21 = ExtractBits(cpuInfo[1], 0, 32);
+
+    return word21;
+}
+
+// ECX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001ECX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4C780001, 1);
+
+    unsigned int reserved = ExtractBits(cpuInfo[2], 0, 32);
+
+    return reserved;
+}
+
+// EDX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001EDX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4C780001, 1);
+
+    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
+
+    return reserved;
+}
+
+#pragma endregion
+
+#pragma region EAX=0x4C780002: Get supervisor information – Linux bugs
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780002EAX()
 {
