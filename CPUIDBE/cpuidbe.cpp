@@ -12522,6 +12522,54 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX40000010EDX()
     return result;
 }
 
+// EAX
+/* virtual TSC frequency in kHz. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000010EAX0_31_VirtualTSCFrequencyInKHz()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000010, 0);
+
+    unsigned int virtualTSCFrequencyInKHz = ExtractBits(cpuInfo[0], 0, 32);
+
+    return virtualTSCFrequencyInKHz;
+}
+
+// EBX
+/* virtual bus frequency in kHz (local APIC timer). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000010EBX0_31_VirtualBusBrequencyInKHz()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000010, 0);
+
+    unsigned int virtualBusBrequencyInKHz = ExtractBits(cpuInfo[1], 0, 32);
+
+    return virtualBusBrequencyInKHz;
+}
+
+// ECX
+/* Reserved (VMware: non-zero values have been observed). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX4000010ECX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000010, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[2], 0, 32);
+
+    return reserved;
+}
+
+// EDX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000010EDX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x40000010, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
+
+    return reserved;
+}
+
 #pragma endregion
 
 #pragma region EAX=0x80000000: Highest Extended Function Implemented
