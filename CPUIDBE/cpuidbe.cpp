@@ -12162,6 +12162,164 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000AEDX()
     return result;
 }
 
+// EAX
+/* Enlightened VMCS version (low). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX400000AEAX0_7_EnlightenedVMCSVersionLow()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000A, 0);
+
+    unsigned int enlightenedVMCSVersionLow = ExtractBits(cpuInfo[0], 0, 8);
+
+    return enlightenedVMCSVersionLow;
+}
+
+/* Enlightened VMCS version (high). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX400000AEAX8_15_EnlightenedVMCSVersionHigh()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000A, 0);
+
+    unsigned int enlightenedVMCSVersionHigh = ExtractBits(cpuInfo[0], 8, 8);
+
+    return enlightenedVMCSVersionHigh;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX4000000CEAX16_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000A, 0);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[0], 16, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* Direct virtual flush hypercalls supported. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX4000000CEAX17_DirectVirtualFlushHypercallsIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000A, 0);
+
+    unsigned int directVirtualFlushHypercallsSupported = ExtractBits(cpuInfo[0], 17, 1);
+
+    return (bool)directVirtualFlushHypercallsSupported;
+}
+
+/* HvFlushGuestPhysicalAddress {Space,List} hypercalls supported. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX4000000CEAX18_HvFlushGuestPhysicalAddressHypercallsIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000A, 0);
+
+    unsigned int hvFlushGuestPhysicalAddressHypercallsSupported = ExtractBits(cpuInfo[0], 18, 1);
+
+    return (bool)hvFlushGuestPhysicalAddressHypercallsSupported;
+}
+
+/* Enlightened MSR bitmap supported. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX4000000CEAX19_EnlightenedMSRBitmapIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000A, 0);
+
+    unsigned int enlightenedMSRBitmapSupported = ExtractBits(cpuInfo[0], 19, 1);
+
+    return (bool)enlightenedMSRBitmapSupported;
+}
+
+/* Page fault class virtualization exception combining supported. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX4000000CEAX20_PageFaultClassVirtualizationExceptionCombiningIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000A, 0);
+
+    unsigned int pageFaultClassVirtualizationExceptionCombiningSupported = ExtractBits(cpuInfo[0], 20, 1);
+
+    return (bool)pageFaultClassVirtualizationExceptionCombiningSupported;
+}
+
+/* Non-zero VMCS.GuestIa32DebugCtl (0x00002802) supported. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX4000000CEAX21_NonZeroVMCSGuestIa32DebugCtlIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000A, 0);
+
+    unsigned int nonZeroVMCSGuestIa32DebugCtlSupported = ExtractBits(cpuInfo[0], 21, 1);
+
+    return (bool)nonZeroVMCSGuestIa32DebugCtlSupported;
+}
+
+/* AMD platform enlightened TLB. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX4000000CEAX22_AMDPlatformEnlightenedTLBIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000A, 0);
+
+    unsigned int amdPlatformEnlightenedTLBSupported = ExtractBits(cpuInfo[0], 22, 1);
+
+    return (bool)amdPlatformEnlightenedTLBSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX400000AEAX23_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000A, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[0], 23, 9);
+
+    return reserved;
+}
+
+// EBX
+/* {Guest,Host} PerfGlobalCtrl fields in enlightened VMCS. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX400000CEBX0_PerfGlobalCtrlFieldsInEnlightenedVMCS()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000A, 0);
+
+    unsigned int perfGlobalCtrlFieldsInEnlightenedVMCS = ExtractBits(cpuInfo[1], 0, 1);
+
+    return perfGlobalCtrlFieldsInEnlightenedVMCS;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX400000AEBX1_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000A, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 1, 31);
+
+    return reserved;
+}
+
+// ECX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX400000AECX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000A, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[2], 0, 32);
+
+    return reserved;
+}
+
+// EDX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX4000000AEDX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x4000000A, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
+
+    return reserved;
+}
+
 #pragma endregion
 
 #pragma region EAX=0x4000000B: Reserved for Hypervisors -
