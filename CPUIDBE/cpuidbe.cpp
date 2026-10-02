@@ -139,7 +139,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetCustomBitAsBool(unsigned int le
 
 #pragma endregion
 
-#pragma region EAX=0x0: Highest Function Parameter and Manufacturer ID
+#pragma region EAX=0x00000000: Highest Function Parameter and Manufacturer ID
 extern "C" __declspec(dllexport) const char* __cdecl GetEAX0EAX()
 {
     int cpuInfo[4];
@@ -292,7 +292,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX0EBXEDXECXCpuVendor()
 
 #pragma endregion
 
-#pragma region EAX=0x1: Processor Info and Feature Bits
+#pragma region EAX=0x00000001: Processor Info and Feature Bits
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX1EAX()
 {
@@ -1209,7 +1209,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EDX31_PBEIsSupported()
 
 #pragma endregion
 
-#pragma region EAX=0x2: Cache and TLB Descriptor Information
+#pragma region EAX=0x00000002: Cache and TLB Descriptor Information
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX2EAX()
 {
@@ -1456,7 +1456,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX2_EDX24_31_CacheAndTLBDescrip
 
 #pragma endregion
 
-#pragma region EAX=0x3: Processor Serial Number
+#pragma region EAX=0x00000003: Processor Serial Number
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX3EAX()
 {
@@ -1572,7 +1572,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX3_EAX_EDX_ECX_TransmetaCrus
 
 #pragma endregion
 
-#pragma region EAX=0x4 and EAX=0x8000001D: Cache Hierarchy and Topology
+#pragma region EAX=0x00000004 and EAX=0x8000001D: Cache Hierarchy and Topology
 
 // EAX=0x4
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4EAX(int ecxSubLeaf)
@@ -2272,7 +2272,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX8000001D_EDX26_31_Reserved(in
 
 #pragma endregion
 
-#pragma region EAX=0x4 and EAX=0xB: Intel Thread/Core and Cache Topology
+#pragma region EAX=0x00000004 and EAX=0x0000000B: Intel Thread/Core and Cache Topology
 
 /*
 // EAX=0x4
@@ -2371,7 +2371,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXBEDX()
 
 #pragma endregion
 
-#pragma region EAX=0x5: MONITOR/MWAIT Features
+#pragma region EAX=0x00000005: MONITOR/MWAIT Features
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX5EAX()
 {
@@ -2618,7 +2618,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX5_EDX28_31_NumberOfC7SubState
 
 #pragma endregion
 
-#pragma region EAX=0x6: Thermal and Power Management
+#pragma region EAX=0x00000006: Thermal and Power Management
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX6EAX()
 {
@@ -3198,7 +3198,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX6EDX16_31_IndexOfThisLogicalP
 
 #pragma endregion
 
-#pragma region EAX=0x7, ECX=0x0: Extended Features
+#pragma region EAX=0x00000007, ECX=0x00000000: Extended Features
 
 /* Returns the maximum ECX value for EAX=7 in EAX. */
 extern "C" __declspec(dllexport) char* __cdecl GetEAX7ECX0EAX()
@@ -6198,7 +6198,27 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX2_EDX31_ReservedIsSuppor
 
 #pragma endregion
 
-#pragma region EAX=0xD: XSAVE Features and State Components
+#pragma region EAX=0x00000008: Reserved
+
+#pragma endregion
+
+#pragma region EAX=0x00000009: DCA Parameters
+
+#pragma endregion
+
+#pragma region EAX=0x0000000A: Architectural perf mon information
+
+#pragma endregion
+
+#pragma region EAX=0x0000000B: Topology enumeration information
+
+#pragma endregion
+
+#pragma region EAX=0x0000000C: Reserved
+
+#pragma endregion
+
+#pragma region EAX=0x0000000D: XSAVE Features and State Components
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAXDEAX()
 {
@@ -6258,7 +6278,23 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXDEDX()
 
 #pragma endregion
 
-#pragma region EAX=0x12: SGX Capabilities
+#pragma region EAX=0x0000000E: Reserved
+
+#pragma endregion
+
+#pragma region EAX=0x0000000F: RDT-M (QoS monitoring) enumeration
+
+#pragma endregion
+
+#pragma region EAX=0x00000010: RDT-A (QoS allocation) enumeration
+
+#pragma endregion
+
+#pragma region EAX=0x00000011: Reserved
+
+#pragma endregion
+
+#pragma region EAX=0x00000012: SGX Capabilities
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX12EAX()
 {
@@ -6318,7 +6354,11 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX12EDX()
 
 #pragma endregion
 
-#pragma region EAX=0x14, ECX=0x0: Processor Trace feature bits in EBX and ECX
+#pragma region EAX=0x00000013: Reserved
+
+#pragma endregion
+
+#pragma region EAX=0x00000014, ECX=0x00000000: Processor Trace feature bits in EBX and ECX
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX14ECX0EAX()
 {
@@ -7084,7 +7124,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX14ECX0_ECX31_IPFormatForTrac
 
 #pragma endregion
 
-#pragma region EAX=0x14, ECX=0x1: Processor Trace packet generation information in EAX, EBX and ECX
+#pragma region EAX=0x00000014, ECX=0x00000001: Processor Trace packet generation information in EAX, EBX and ECX
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX14ECX1EAX()
 {
@@ -7304,7 +7344,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1ECX16_31_Reserved()
 
 #pragma endregion
 
-#pragma region EAX=0x15: TSC and Core Crystal frequency information
+#pragma region EAX=0x00000015: TSC and Core Crystal frequency information
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX15EAX()
 {
@@ -7410,7 +7450,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX15EDX0_31_Reserved()
 
 #pragma endregion
 
-#pragma region EAX=0x16: Processor and Bus specification frequencies
+#pragma region EAX=0x00000016: Processor and Bus specification frequencies
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX16EAX()
 {
@@ -7540,7 +7580,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX16EDX0_31_Reserved()
 
 #pragma endregion
 
-#pragma region EAX=0x17: SoC Vendor Attribute Enumeration
+#pragma region EAX=0x00000017: SoC Vendor Attribute Enumeration
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX17EAX()
 {
@@ -7600,7 +7640,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX17EDX()
 
 #pragma endregion
 
-#pragma region EAX=0x18: TLB Hierarchy and Topology
+#pragma region EAX=0x00000018: TLB Hierarchy and Topology
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX18EAX()
 {
@@ -7660,7 +7700,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX18EDX()
 
 #pragma endregion
 
-#pragma region EAX=0x19: Intel Key Locker Features
+#pragma region EAX=0x00000019: Intel Key Locker Features
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX19EAX()
 {
@@ -7720,7 +7760,19 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX19EDX()
 
 #pragma endregion
 
-#pragma region EAX=0x1D: Intel AMX Tile Information
+#pragma region EAX=0x0000001A: Core Model Information
+
+#pragma endregion
+
+#pragma region EAX=0x0000001B: PCONFIG Information
+
+#pragma endregion
+
+#pragma region EAX=0x0000001C: LBR Information
+
+#pragma endregion
+
+#pragma region EAX=0x0000001D: Intel AMX Tile Information
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX1DEAX()
 {
@@ -7830,7 +7882,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX1DEAX0_15_MaxRows()
 
 #pragma endregion
 
-#pragma region EAX=0x1E: Intel AMX Tile Multiplier (TMUL) Information
+#pragma region EAX=0x0000001E: Intel AMX Tile Multiplier (TMUL) Information
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX1EEAX()
 {
@@ -8000,7 +8052,15 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EECX1_EAX0_AMXMOVRSIsSuppor
 
 #pragma endregion
 
-#pragma region EAX=0x21: Reserved for TDX enumeration
+#pragma region EAX=0x0000001F: Topology Enumeration Information
+
+#pragma endregion
+
+#pragma region EAX=0x00000020: HRESET Information
+
+#pragma endregion
+
+#pragma region EAX=0x00000021: TDX Software Information
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX21EAX()
 {
@@ -8060,7 +8120,15 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX21EDX()
 
 #pragma endregion
 
-#pragma region EAX=0x24, ECX=0x0: AVX10 Converged Vector ISA
+#pragma region EAX=0x00000022: Reserved
+
+#pragma endregion
+
+#pragma region EAX=0x00000023: Architectural perf mon extended information
+
+#pragma endregion
+
+#pragma region EAX=0x00000024, ECX=0x00000000: AVX10 Converged Vector ISA
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX0EAX()
 {
@@ -8120,7 +8188,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX0EDX()
 
 #pragma endregion
 
-#pragma region EAX=0x24, ECX=0x1: Discrete AVX10 Features
+#pragma region EAX=0x00000024, ECX=0x00000001: Discrete AVX10 Features
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX1EAX()
 {
@@ -8177,6 +8245,26 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX1EDX()
     }
     return result;
 }
+
+#pragma endregion
+
+#pragma region EAX=0x00000025: Reserved
+
+#pragma endregion
+
+#pragma region EAX=0x00000026: Reserved
+
+#pragma endregion
+
+#pragma region EAX=0x00000027: Asymmetric RDT-M (QoS monitoring) enumeration
+
+#pragma endregion
+
+#pragma region EAX=0x00000028: Asymmetric RDT-A (QoS allocation) enumeration
+
+#pragma endregion
+
+#pragma region EAX=0x00000029: APX Information
 
 #pragma endregion
 
