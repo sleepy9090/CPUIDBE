@@ -8248,11 +8248,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX1EDX()
 
 #pragma endregion
 
-#pragma region EAX=0x00000025: Reserved
-
-#pragma endregion
-
-#pragma region EAX=0x00000026: Reserved
+#pragma region [EAX=0x00000025..EAX=0x00000026]: Reserved
 
 #pragma endregion
 
@@ -8265,6 +8261,22 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX1EDX()
 #pragma endregion
 
 #pragma region EAX=0x00000029: APX Information
+
+#pragma endregion
+
+#pragma region [EAX=0x0000002A..EAX=0x00000037]: Reserved
+
+#pragma endregion
+
+#pragma region [EAX=0x00005A48..EAX=0x00005A4D]: Reserved
+
+#pragma endregion
+
+#pragma region EAX=0x00005A4E: Rise mP6 prank leaf
+
+#pragma endregion
+
+#pragma region EAX=0x00005A4F: Reserved
 
 #pragma endregion
 
@@ -8393,6 +8405,10 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX20000001EDX()
     }
     return result;
 }
+
+#pragma endregion
+
+#pragma region [EAX=0x20000002..EAX=0x20000007]: Reserved
 
 #pragma endregion
 
@@ -12410,7 +12426,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4000000AEDX0_31_Reserved()
 
 #pragma endregion
 
-#pragma region EAX=0x4000000B: Reserved for Hypervisors -
+#pragma region EAX=0x4000000B: Reserved for Hypervisors - Unknown/Undocumented
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000BEAX()
 {
@@ -12633,7 +12649,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4000000CEDX0_31_Reserved()
 
 #pragma endregion
 
-#pragma region EAX=0x4000000D: Reserved for Hypervisors
+#pragma region [EAX=0x4000000D..EAX=0x4000000F: Reserved
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000DEAX()
 {
@@ -12691,10 +12707,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000DEDX()
     return result;
 }
 
-#pragma endregion
-
-#pragma region EAX=0x4000000E: Reserved for Hypervisors
-
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000EEAX()
 {
     int cpuInfo[4];
@@ -12750,10 +12762,6 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000EEDX()
     }
     return result;
 }
-
-#pragma endregion
-
-#pragma region EAX=0x4000000F: Reserved for Hypervisors
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000FEAX()
 {
@@ -12918,6 +12926,30 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000010EDX0_31_Reserved()
 
     return reserved;
 }
+
+#pragma endregion
+
+#pragma region [EAX=0x40000011..EAX=0x40000017]: Reserved
+
+#pragma endregion
+
+#pragma region EAX=0x40000080: SYNDBG vendor + max (deprecated) / unknown/undocumented
+
+#pragma endregion
+
+#pragma region EAX=0x40000081: SYNDBG interface (deprecated) / undocumented/Virtual Stack Interface
+
+#pragma endregion
+
+#pragma region EAX=0x40000082: SYNDBG platform cap's (deprecated) / undocumented/Virtual Stack Properties
+
+#pragma endregion
+
+#pragma region [EAX=0x40000083..EAX=0x40000087]: Reserved
+
+#pragma endregion
+
+#pragma region EAX=0x4C780000: Reserved
 
 #pragma endregion
 
@@ -13240,6 +13272,30 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4C780002EDX0_31_Reserved()
 
     return reserved;
 }
+
+#pragma endregion
+
+#pragma region [EAX=0x4C780003..EAX=0x4C780007]: Reserved
+
+#pragma endregion
+
+#pragma region [EAX=0x63634520..EAX=0x63634522]: Reserved
+
+#pragma endregion
+
+#pragma region EAX=0x63634523: Config Leaves Rise mP6 - Config
+
+#pragma endregion
+
+#pragma region [EAX=0x63634524..EAX=0x63634529]: Reserved
+
+#pragma endregion
+
+#pragma region EAX=0x6363452A: Config Leaves Rise mP6 - Config
+
+#pragma endregion
+
+#pragma region [EAX=0x6363452B..EAX=0x6363452F]: Reserved
 
 #pragma endregion
 
@@ -14228,7 +14284,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX80000001EDX31_3DNOWIsSupport
 
 #pragma endregion
 
-#pragma region EAX=0x80000002,0x80000003,0x80000004: Processor Brand String
+#pragma region [EAX=0x80000002..0x80000004]: Processor Brand String
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX80000002EAX()
 {
@@ -15361,6 +15417,10 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000008EDX16_31_MaximumECXVa
 
 #pragma endregion
 
+#pragma region EAX=0x80000009: Reserved
+
+#pragma endregion
+
 #pragma region EAX=0x8000000A: SVM features
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX8000000AEAX()
@@ -15421,7 +15481,35 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8000000AEDX()
 
 #pragma endregion
 
-#pragma region EAX=0x8000001F: Encrypted Memory Capabilities
+#pragma region [EAX=0x8000000B..EAX=0x80000018]: Reserved
+
+#pragma endregion
+
+#pragma region EAX=0x80000019: TLB configuration descriptors
+
+#pragma endregion
+
+#pragma region EAX=0x8000001A: Performance optimization identifiers
+
+#pragma endregion
+
+#pragma region EAX=0x8000001B: IBS Information
+
+#pragma endregion
+
+#pragma region EAX=0x8000001C: LWP Information
+
+#pragma endregion
+
+#pragma region EAX=0x8000001D: Cache configuration descriptors
+
+#pragma endregion
+
+#pragma region EAX=0x8000001E: APIC/unit/node information
+
+#pragma endregion
+
+#pragma region EAX=0x8000001F: Encrypted Memory Capabilities / SME/SEV information
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001FEAX()
 {
@@ -15481,7 +15569,11 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001FEDX()
 
 #pragma endregion
 
-#pragma region EAX=0x80000021: Extended Feature Identification
+#pragma region EAX=0x80000020: Platform QoS enumeration
+
+#pragma endregion
+
+#pragma region EAX=0x80000021: Extended Feature Identification / Feature Information
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX80000021EAX()
 {
@@ -15541,7 +15633,19 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000021EDX()
 
 #pragma endregion
 
-#pragma region EAX=0x80000025: Encrypted Memory Capabilities 2
+#pragma region EAX=0x80000022: Extended performance monitoring and debug information
+
+#pragma endregion
+
+#pragma region EAX=0x80000023: Secure host multi-key memory encryption information
+
+#pragma endregion
+
+#pragma region EAX=0x80000024: Reserved
+
+#pragma endregion
+
+#pragma region EAX=0x80000025: Encrypted Memory Capabilities 2 / RMP information
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX80000025EAX()
 {
@@ -15601,7 +15705,47 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000025EDX()
 
 #pragma endregion
 
-#pragma region EAX=0x8C860000: Hygon Extended Feature Flags
+#pragma region EAX=0x80000026: Topology enumeration information
+
+#pragma endregion
+
+#pragma region EAX=0x80000027: Workload class information
+
+#pragma endregion
+
+#pragma region [EAX=0x80000028..EAX=0x8000002F]: Reserved
+
+#pragma endregion
+
+#pragma region EAX=0x80860000: Vendor leaves - Transmeta - Maximum supported leaf and vendor ID string
+
+#pragma endregion
+
+#pragma region EAX=0x80860001: Vendor leaves - Transmeta - Processor information - FMS + Flags
+
+#pragma endregion
+
+#pragma region EAX=0x80860002: Vendor leaves - Transmeta - Processor information - HW/SW Revision
+
+#pragma endregion
+
+#pragma region [EAX=0x80860003..EAX=0x80860006]: Vendor leaves - Transmeta - CMS Info String
+
+#pragma endregion
+
+#pragma region EAX=0x80860007: Vendor leaves - Transmeta - Processor information - MHz + mV
+
+#pragma endregion
+
+#pragma region EAX=0x80860008: Vendor leaves - Transmeta - Hypervisor Information
+
+#pragma endregion
+
+#pragma region [EAX=0x80860009..EAX=0x8086000F]: Reserved
+
+#pragma endregion
+
+#pragma region EAX=0x8C860000: Vendor leaves - Hygon - Extended Feature Flags - Maximum supported leaf and feature flags
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX8C860000EAX()
 {
@@ -15661,7 +15805,15 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8C860000EDX()
 
 #pragma endregion
 
-#pragma region EAX=0x8FFFFFFE: AMD Easter Eggs
+#pragma region [EAX=0x8C860001..EAX=0x8C860007]: Reserved
+
+#pragma endregion
+
+#pragma region [EAX=0x8FFFFFF8..EAX=0x8FFFFFFD]: Reserved
+
+#pragma endregion
+
+#pragma region EAX=0x8FFFFFFE: AMD Easter Eggs / DEI
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX8FFFFFFEEAX()
 {
@@ -15721,7 +15873,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8FFFFFFEEDX()
 
 #pragma endregion
 
-#pragma region EAX=0x8FFFFFFF: AMD Easter Eggs
+#pragma region EAX=0x8FFFFFFF: AMD Easter Eggs / AMD Prank Leaf
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX8FFFFFFFEAX()
 {
