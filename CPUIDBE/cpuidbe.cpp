@@ -8248,7 +8248,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX1EDX()
 
 #pragma endregion
 
-#pragma region [EAX=0x00000025..EAX=0x00000026]: Reserved
+#pragma region EAX=0x00000025-EAX=0x00000026: Reserved
 
 #pragma endregion
 
@@ -8264,11 +8264,11 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX1EDX()
 
 #pragma endregion
 
-#pragma region [EAX=0x0000002A..EAX=0x00000037]: Reserved
+#pragma region EAX=0x0000002A-EAX=0x00000037: Reserved
 
 #pragma endregion
 
-#pragma region [EAX=0x00005A48..EAX=0x00005A4D]: Reserved
+#pragma region EAX=0x00005A48-EAX=0x00005A4D: Reserved
 
 #pragma endregion
 
@@ -8280,7 +8280,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX1EDX()
 
 #pragma endregion
 
-#pragma region EAX=0x20000000: Highest Xeon Phi Function Implemented
+#pragma region EAX=0x20000000: Highest Xeon Phi Function Implemented / Maimum Supported Leaf
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX20000000EAX()
 {
@@ -8348,7 +8348,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX20000000EAX_HighestXeonPhiFun
 
 #pragma endregion
 
-#pragma region EAX=0x20000001: Xeon Phi Feature Bits
+#pragma region EAX=0x20000001: Xeon Phi Feature Bits / Processor Information
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX20000001EAX()
 {
@@ -8406,9 +8406,66 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX20000001EDX()
     return result;
 }
 
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX20000001_EDX0_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x20000001, 0);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[3], 0, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* L1OM - L1OM (62h/D6h), V0...31, K0...7, transform modifiers, VSIB512, disp8*N. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX20000001_EDX1_L1OM()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x20000001, 0);
+
+    unsigned int l1OMSupported = ExtractBits(cpuInfo[3], 1, 1);
+
+    return (bool)l1OMSupported;
+}
+
+/* L1OM_D6_EN - L1OM opcode map D6h enabled. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX20000001_EDX2_L1OM_D6_EN()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x20000001, 0);
+
+    unsigned int l1OMD6ENSupported = ExtractBits(cpuInfo[3], 2, 1);
+
+    return (bool)l1OMD6ENSupported;
+}
+
+/* L1OM_62_EN - L1OM opcode map D6h enabled. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX20000001_EDX2_L1OM_62_EN()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x20000001, 0);
+
+    unsigned int l1OM62ENSupported = ExtractBits(cpuInfo[3], 3, 1);
+
+    return (bool)l1OM62ENSupported;
+}
+
+/* K1OM - MVEX (62h), ZMM0...31, K0...7, transform modifiers, VSIB512, disp8*N. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX20000001_EDX2_K1OM()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x20000001, 0);
+
+    unsigned int k1OMSupported = ExtractBits(cpuInfo[3], 4, 1);
+
+    return (bool)k1OMSupported;
+}
+
+/* 5-31 Reserved */
+
 #pragma endregion
 
-#pragma region [EAX=0x20000002..EAX=0x20000007]: Reserved
+#pragma region EAX=0x20000002-EAX=0x20000007: Reserved
 
 #pragma endregion
 
@@ -12649,7 +12706,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4000000CEDX0_31_Reserved()
 
 #pragma endregion
 
-#pragma region [EAX=0x4000000D..EAX=0x4000000F: Reserved
+#pragma region EAX=0x4000000D-EAX=0x4000000F: Reserved
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000DEAX()
 {
@@ -12929,11 +12986,11 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000010EDX0_31_Reserved()
 
 #pragma endregion
 
-#pragma region [EAX=0x40000011..EAX=0x40000017]: Reserved
+#pragma region EAX=0x40000011-EAX=0x40000017: Reserved
 
 #pragma endregion
 
-#pragma region EAX=0x40000080: SYNDBG vendor + max (deprecated) / unknown/undocumented
+#pragma region EAX=0x40000080: SYNDBG vendor plus max (deprecated) / unknown/undocumented
 
 #pragma endregion
 
@@ -12941,11 +12998,11 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000010EDX0_31_Reserved()
 
 #pragma endregion
 
-#pragma region EAX=0x40000082: SYNDBG platform cap's (deprecated) / undocumented/Virtual Stack Properties
+#pragma region EAX=0x40000082-EAX=0x40000082: SYNDBG platform capabilities (deprecated) / undocumented/Virtual Stack Properties
 
 #pragma endregion
 
-#pragma region [EAX=0x40000083..EAX=0x40000087]: Reserved
+#pragma region EAX=0x40000083-EAX=0x40000087: Reserved
 
 #pragma endregion
 
@@ -13275,11 +13332,11 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4C780002EDX0_31_Reserved()
 
 #pragma endregion
 
-#pragma region [EAX=0x4C780003..EAX=0x4C780007]: Reserved
+#pragma region EAX=0x4C780003-EAX=0x4C780007: Reserved
 
 #pragma endregion
 
-#pragma region [EAX=0x63634520..EAX=0x63634522]: Reserved
+#pragma region EAX=0x63634520-EAX=0x63634522: Reserved
 
 #pragma endregion
 
@@ -13287,7 +13344,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4C780002EDX0_31_Reserved()
 
 #pragma endregion
 
-#pragma region [EAX=0x63634524..EAX=0x63634529]: Reserved
+#pragma region EAX=0x63634524-EAX=0x63634529: Reserved
 
 #pragma endregion
 
@@ -13295,7 +13352,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4C780002EDX0_31_Reserved()
 
 #pragma endregion
 
-#pragma region [EAX=0x6363452B..EAX=0x6363452F]: Reserved
+#pragma region EAX=0x6363452B-EAX=0x6363452F: Reserved
 
 #pragma endregion
 
@@ -14284,7 +14341,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX80000001EDX31_3DNOWIsSupport
 
 #pragma endregion
 
-#pragma region [EAX=0x80000002..0x80000004]: Processor Brand String
+#pragma region EAX=0x80000002-0x80000004: Processor Brand String
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX80000002EAX()
 {
@@ -15481,7 +15538,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8000000AEDX()
 
 #pragma endregion
 
-#pragma region [EAX=0x8000000B..EAX=0x80000018]: Reserved
+#pragma region EAX=0x8000000B-EAX=0x80000018: Reserved
 
 #pragma endregion
 
@@ -15713,7 +15770,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000025EDX()
 
 #pragma endregion
 
-#pragma region [EAX=0x80000028..EAX=0x8000002F]: Reserved
+#pragma region EAX=0x80000028-EAX=0x8000002F: Reserved
 
 #pragma endregion
 
@@ -15729,7 +15786,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000025EDX()
 
 #pragma endregion
 
-#pragma region [EAX=0x80860003..EAX=0x80860006]: Vendor leaves - Transmeta - CMS Info String
+#pragma region EAX=0x80860003-EAX=0x80860006: Vendor leaves - Transmeta - CMS Info String
 
 #pragma endregion
 
@@ -15741,7 +15798,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000025EDX()
 
 #pragma endregion
 
-#pragma region [EAX=0x80860009..EAX=0x8086000F]: Reserved
+#pragma region EAX=0x80860009-EAX=0x8086000F: Reserved
 
 #pragma endregion
 
@@ -15805,11 +15862,11 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8C860000EDX()
 
 #pragma endregion
 
-#pragma region [EAX=0x8C860001..EAX=0x8C860007]: Reserved
+#pragma region EAX=0x8C860001-EAX=0x8C860007: Reserved
 
 #pragma endregion
 
-#pragma region [EAX=0x8FFFFFF8..EAX=0x8FFFFFFD]: Reserved
+#pragma region EAX=0x8FFFFFF8-EAX=0x8FFFFFFD: Reserved
 
 #pragma endregion
 
