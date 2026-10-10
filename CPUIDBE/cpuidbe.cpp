@@ -5802,22 +5802,22 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX2_EDX31_ReservedIsSuppor
 
 #pragma region EAX=0x00000008: Reserved
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX8EAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000008EAX()
 {
     return GetCustom(0x00000008, 0, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX8EBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000008EBX()
 {
     return GetCustom(0x00000008, 0, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX8ECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000008ECX()
 {
     return GetCustom(0x00000008, 0, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX8EDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000008EDX()
 {
     return GetCustom(0x00000008, 0, 3);
 }
@@ -5826,22 +5826,22 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8EDX()
 
 #pragma region EAX=0x00000009: DCA Parameters
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX9EAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000009EAX()
 {
     return GetCustom(0x00000009, 0, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX9EBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000009EBX()
 {
     return GetCustom(0x00000009, 0, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX9ECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000009ECX()
 {
     return GetCustom(0x00000009, 0, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX9EDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000009EDX()
 {
     return GetCustom(0x00000009, 0, 3);
 }
@@ -5850,22 +5850,22 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX9EDX()
 
 #pragma region EAX=0x0000000A: Architectural perf mon information
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXAEAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000AEAX()
 {
     return GetCustom(0x0000000A, 0, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXAEBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000AEBX()
 {
     return GetCustom(0x0000000A, 0, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXAECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000AECX()
 {
     return GetCustom(0x0000000A, 0, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXAEDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000AEDX()
 {
     return GetCustom(0x0000000A, 0, 3);
 }
@@ -5898,22 +5898,22 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXBEDX()
 
 #pragma region EAX=0x0000000C: Reserved
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXCEAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000CEAX()
 {
     return GetCustom(0x0000000C, 0, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXCEBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000CEBX()
 {
     return GetCustom(0x0000000C, 0, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXCECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000CECX()
 {
     return GetCustom(0x0000000C, 0, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXCEDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000CEDX()
 {
     return GetCustom(0x0000000C, 0, 3);
 }
@@ -5946,22 +5946,22 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXDEDX()
 
 #pragma region EAX=0x0000000E: Reserved
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXEEAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000EEAX()
 {
     return GetCustom(0x0000000E, 0, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXEEBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000EEBX()
 {
     return GetCustom(0x0000000E, 0, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXEECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000EECX()
 {
     return GetCustom(0x0000000E, 0, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXEEDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000EEDX()
 {
     return GetCustom(0x0000000E, 0, 3);
 }
@@ -5970,22 +5970,22 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXEEDX()
 
 #pragma region EAX=0x0000000F: RDT-M (QoS monitoring) enumeration
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXFEAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000FEAX()
 {
     return GetCustom(0x0000000F, 0, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXFEBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000FEBX()
 {
     return GetCustom(0x0000000F, 0, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXFECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000FECX()
 {
     return GetCustom(0x0000000F, 0, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXFEDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000FEDX()
 {
     return GetCustom(0x0000000F, 0, 3);
 }
@@ -5994,22 +5994,22 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXFEDX()
 
 #pragma region EAX=0x00000010: RDT-A (QoS allocation) enumeration
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX10EAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010EAX()
 {
     return GetCustom(0x00000010, 0, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX10EBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010EBX()
 {
     return GetCustom(0x00000010, 0, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX10ECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX()
 {
     return GetCustom(0x00000010, 0, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX10EDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010EDX()
 {
     return GetCustom(0x00000010, 0, 3);
 }
@@ -6018,22 +6018,22 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX10EDX()
 
 #pragma region EAX=0x00000011: Reserved
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX11EAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000011EAX()
 {
     return GetCustom(0x00000011, 0, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX11EBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000011EBX()
 {
     return GetCustom(0x00000011, 0, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX11ECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000011ECX()
 {
     return GetCustom(0x00000011, 0, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX11EDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000011EDX()
 {
     return GetCustom(0x00000011, 0, 3);
 }
@@ -6066,22 +6066,22 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX12EDX()
 
 #pragma region EAX=0x00000013: Reserved
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX13EAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000013EAX()
 {
     return GetCustom(0x00000013, 0, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX13EBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000013EBX()
 {
     return GetCustom(0x00000013, 0, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX13ECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000013ECX()
 {
     return GetCustom(0x00000013, 0, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX13EDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000013EDX()
 {
     return GetCustom(0x00000013, 0, 3);
 }
@@ -7240,22 +7240,22 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX19EDX()
 
 #pragma region EAX=0x0000001A: Core Model Information
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX1AEAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001AEAX()
 {
     return GetCustom(0x0000001A, 0, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX1AEBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001AEBX()
 {
     return GetCustom(0x0000001A, 0, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX1AECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001AECX()
 {
     return GetCustom(0x0000001A, 0, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX1AEDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001AEDX()
 {
     return GetCustom(0x0000001A, 0, 3);
 }
@@ -7264,22 +7264,22 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX1AEDX()
 
 #pragma region EAX=0x0000001B: PCONFIG Information
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX1BEAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001BEAX()
 {
     return GetCustom(0x0000001B, 0, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX1BEBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001BEBX()
 {
     return GetCustom(0x0000001B, 0, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX1BECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001BECX()
 {
     return GetCustom(0x0000001B, 0, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX1BEDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001BEDX()
 {
     return GetCustom(0x0000001B, 0, 3);
 }
@@ -7288,22 +7288,22 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX1BEDX()
 
 #pragma region EAX=0x0000001C: LBR Information
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX1CEAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001CEAX()
 {
     return GetCustom(0x0000001C, 0, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX1CEBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001CEBX()
 {
     return GetCustom(0x0000001C, 0, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX1CECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001CECX()
 {
     return GetCustom(0x0000001C, 0, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX1CEDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001CEDX()
 {
     return GetCustom(0x0000001C, 0, 3);
 }
@@ -7520,22 +7520,22 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX1EECX1_EAX0_AMXMOVRSIsSuppor
 
 #pragma region EAX=0x0000001F: Topology Enumeration Information
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX1FEAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001FEAX()
 {
     return GetCustom(0x0000001F, 0, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX1FEBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001FEBX()
 {
     return GetCustom(0x0000001F, 0, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX1FECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001FECX()
 {
     return GetCustom(0x0000001F, 0, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX1FEDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001FEDX()
 {
     return GetCustom(0x0000001F, 0, 3);
 }
@@ -7544,73 +7544,97 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX1FEDX()
 
 #pragma region EAX=0x00000020: HRESET Information
 
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000020FEAX()
+{
+    return GetCustom(0x00000020, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000020EBX()
+{
+    return GetCustom(0x00000020, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000020ECX()
+{
+    return GetCustom(0x00000020, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000020EDX()
+{
+    return GetCustom(0x00000020, 0, 3);
+}
+
 #pragma endregion
 
 #pragma region EAX=0x00000021: TDX Software Information
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX21EAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX21FEAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x21, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x00000021, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX21EBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x21, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x00000021, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX21ECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x21, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x00000021, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX21EDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x21, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x00000021, 0, 3);
 }
 
 #pragma endregion
 
 #pragma region EAX=0x00000022: Reserved
 
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000022FEAX()
+{
+    return GetCustom(0x00000022, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000022EBX()
+{
+    return GetCustom(0x00000022, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000022ECX()
+{
+    return GetCustom(0x00000022, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000022EDX()
+{
+    return GetCustom(0x00000022, 0, 3);
+}
+
 #pragma endregion
 
 #pragma region EAX=0x00000023: Architectural perf mon extended information
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000023FEAX()
+{
+    return GetCustom(0x00000023, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000023EBX()
+{
+    return GetCustom(0x00000023, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000023ECX()
+{
+    return GetCustom(0x00000023, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000023EDX()
+{
+    return GetCustom(0x00000023, 0, 3);
+}
 
 #pragma endregion
 
@@ -7618,58 +7642,22 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX21EDX()
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX0EAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x24, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x00000024, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX0EBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x24, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x00000024, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX0ECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x24, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x00000024, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX0EDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x24, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x00000024, 0, 3);
 }
 
 #pragma endregion
@@ -7678,91 +7666,181 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX0EDX()
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX1EAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x24, 1);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x00000024, 1, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX1EBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x24, 1);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x00000024, 1, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX1ECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x24, 1);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x00000024, 1, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX1EDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x24, 1);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x00000024, 1, 3);
 }
 
 #pragma endregion
 
 #pragma region EAX=0x00000025-EAX=0x00000026: Reserved
 
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000025FEAX()
+{
+    return GetCustom(0x00000025, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000025EBX()
+{
+    return GetCustom(0x00000025, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000025ECX()
+{
+    return GetCustom(0x00000025, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000025EDX()
+{
+    return GetCustom(0x00000025, 0, 3);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000026FEAX()
+{
+    return GetCustom(0x00000026, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000026EBX()
+{
+    return GetCustom(0x00000026, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000026ECX()
+{
+    return GetCustom(0x00000026, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000026EDX()
+{
+    return GetCustom(0x00000026, 0, 3);
+}
+
 #pragma endregion
 
 #pragma region EAX=0x00000027: Asymmetric RDT-M (QoS monitoring) enumeration
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000027FEAX()
+{
+    return GetCustom(0x00000027, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000027EBX()
+{
+    return GetCustom(0x00000027, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000027ECX()
+{
+    return GetCustom(0x00000027, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000027EDX()
+{
+    return GetCustom(0x00000027, 0, 3);
+}
 
 #pragma endregion
 
 #pragma region EAX=0x00000028: Asymmetric RDT-A (QoS allocation) enumeration
 
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000028FEAX()
+{
+    return GetCustom(0x00000028, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000028EBX()
+{
+    return GetCustom(0x00000028, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000028ECX()
+{
+    return GetCustom(0x00000028, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000028EDX()
+{
+    return GetCustom(0x00000028, 0, 3);
+}
+
 #pragma endregion
 
 #pragma region EAX=0x00000029: APX Information
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000029FEAX()
+{
+    return GetCustom(0x00000029, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000029EBX()
+{
+    return GetCustom(0x00000029, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000029ECX()
+{
+    return GetCustom(0x00000029, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000029EDX()
+{
+    return GetCustom(0x00000029, 0, 3);
+}
 
 #pragma endregion
 
 #pragma region EAX=0x0000002A-EAX=0x00000037: Reserved
 
+// TODO: 
+
 #pragma endregion
 
 #pragma region EAX=0x00005A48-EAX=0x00005A4D: Reserved
+
+// TODO:
 
 #pragma endregion
 
 #pragma region EAX=0x00005A4E: Rise mP6 prank leaf
 
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00005A4EFEAX()
+{
+    return GetCustom(0x00005A4E, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00005A4EEBX()
+{
+    return GetCustom(0x00005A4E, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00005A4EECX()
+{
+    return GetCustom(0x00005A4E, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00005A4EEDX()
+{
+    return GetCustom(0x00005A4E, 0, 3);
+}
+
 #pragma endregion
 
 #pragma region EAX=0x00005A4F: Reserved
+
+// TODO:
 
 #pragma endregion
 
@@ -7770,58 +7848,22 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX1EDX()
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX20000000EAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x20000000, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x20000000, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX20000000EBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x20000000, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x20000000, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX20000000ECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x20000000, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x20000000, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX20000000EDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x20000000, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x20000000, 0, 3);
 }
 
 extern "C" __declspec(dllexport) int __cdecl GetEAX20000000EAX_HighestXeonPhiFunctionImplemented()
@@ -7838,58 +7880,22 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX20000000EAX_HighestXeonPhiFun
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX20000001EAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x20000001, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x20000001, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX20000001EBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x20000001, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x20000001, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX20000001ECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x20000001, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x20000001, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX20000001EDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x20000001, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x20000001, 0, 3);
 }
 
 /* Reserved. */
@@ -7953,64 +7959,30 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX20000001_EDX2_K1OM()
 
 #pragma region EAX=0x20000002-EAX=0x20000007: Reserved
 
+// TODO:
+
 #pragma endregion
 
 #pragma region EAX=0x40000000: Reserved for Hypervisors - Vendor
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000000EAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000000, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000000, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000000EBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000000, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000000, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000000ECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000000, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000000, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000000EDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000000, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000000, 0, 3);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000000EAXHightestFunctionParameter()
@@ -8087,58 +8059,22 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX40000000EDXCpuVendor()
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000001EAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000001, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000001, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000001EBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000001, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000001, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000001ECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000001, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000001, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000001EDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000001, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000001, 0, 3);
 }
 
 extern "C" __declspec(dllexport) int __cdecl GetEAX40000001EAX_InterfaceSignature()
@@ -8174,58 +8110,22 @@ extern "C" __declspec (dllexport) char* __cdecl GetEAX40000001EAX_InterfaceSigna
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000002EAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000002, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000002, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000002EBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000002, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000002, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000002ECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000002, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000002, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000002EDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000002, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000002, 0, 3);
 }
 
 extern "C" __declspec(dllexport) int __cdecl GetEAX40000002_EAX_0_31_BuildNumber()
@@ -8290,58 +8190,22 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000002_EDX_24_31_ServiceBra
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000003EAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000003, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000003, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000003EBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000003, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000003, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000003ECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000003, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000003, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000003EDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000003, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000003, 0, 3);
 }
 
 /* EAX */
@@ -9728,58 +9592,22 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX40000003EDX31_ReservedIsSupp
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000004EAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000004, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000004, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000004EBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000004, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000004, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000004ECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000004, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000004, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000004EDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000004, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000004, 0, 3);
 }
 
 // EAX
@@ -10189,58 +10017,22 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000004EDX0_31_Reserved()
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000005EAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000005, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000005, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000005EBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000005, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000005, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000005ECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000005, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000005, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000005EDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000005, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000005, 0, 3);
 }
 
 /* Maximum supported virtual processors. */
@@ -10293,58 +10085,22 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000005EDX0_31_Reserved()
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000006EAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000006, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000006, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000006EBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000006, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000006, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000006ECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000006, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000006, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000006EDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000006, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000006, 0, 3);
 }
 
 // EAX
@@ -10643,58 +10399,22 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000006EDX0_31_Reserved()
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000007EAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000007, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000007, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000007EBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000007, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000007, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000007ECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000007, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000007, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000007EDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000007, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000007, 0, 3);
 }
 
 // EAX
@@ -10839,58 +10559,22 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000007EDX0_31_Reserved()
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000008EAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000008, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000008, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000008EBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000008, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000008, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000008ECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000008, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000008, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000008EDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000008, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000008, 0, 3);
 }
 
 /* SvmSupported. */
@@ -10965,58 +10649,22 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000008EDX0_31_Reserved()
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000009EAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000009, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000009, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000009EBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000009, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000009, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000009ECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000009, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000009, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000009EDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000009, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000009, 0, 3);
 }
 
 // EAX
@@ -11755,58 +11403,22 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX40000009EDX31_ReservedIsSupp
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000AEAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x4000000A, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x4000000A, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000AEBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x4000000A, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x4000000A, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000AECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x4000000A, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x4000000A, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000AEDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x4000000A, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x4000000A, 0, 3);
 }
 
 // EAX
@@ -11973,58 +11585,22 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4000000AEDX0_31_Reserved()
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000BEAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x4000000B, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x4000000B, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000BEBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x4000000B, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x4000000B, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000BECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x4000000B, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x4000000B, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000BEDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x4000000B, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x4000000B, 0, 3);
 }
 
 #pragma endregion
@@ -12033,58 +11609,22 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000BEDX()
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000CEAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x4000000C, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x4000000C, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000CEBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x4000000C, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x4000000C, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000CECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x4000000C, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x4000000C, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000CEDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x4000000C, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x4000000C, 0, 3);
 }
 
 // EAX
@@ -12194,60 +11734,26 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4000000CEDX0_31_Reserved()
 
 #pragma region EAX=0x4000000D-EAX=0x4000000F: Reserved
 
+// TODO: use custom method
+
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000DEAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x4000000D, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x4000000D, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000DEBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x4000000D, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x4000000D, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000DECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x4000000D, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x4000000D, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000DEDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x4000000D, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x4000000D, 0, 3);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000EEAX()
@@ -12368,58 +11874,22 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX4000000FEDX()
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000010EAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000010, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000010, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000010EBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000010, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000010, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000010ECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000010, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000010, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX40000010EDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x40000010, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x40000010, 0, 3);
 }
 
 // EAX
@@ -12474,30 +11944,97 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000010EDX0_31_Reserved()
 
 #pragma region EAX=0x40000011-EAX=0x40000017: Reserved
 
+// TODO:
+
 #pragma endregion
 
 #pragma region EAX=0x40000080: SYNDBG vendor plus max (deprecated) / unknown/undocumented
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000080EAX()
+{
+    return GetCustom(0x40000080, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000080EBX()
+{
+    return GetCustom(0x40000080, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000080ECX()
+{
+    return GetCustom(0x40000080, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000080EDX()
+{
+    return GetCustom(0x40000080, 0, 3);
+}
 
 #pragma endregion
 
 #pragma region EAX=0x40000081: SYNDBG interface (deprecated) / undocumented/Virtual Stack Interface
 
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000081EAX()
+{
+    return GetCustom(0x40000081, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000081EBX()
+{
+    return GetCustom(0x40000081, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000081ECX()
+{
+    return GetCustom(0x40000081, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000081EDX()
+{
+    return GetCustom(0x40000081, 0, 3);
+}
+
 #pragma endregion
 
-#pragma region EAX=0x40000082-EAX=0x40000082: SYNDBG platform capabilities (deprecated) / undocumented/Virtual Stack Properties
+#pragma region EAX=0x40000082: SYNDBG platform capabilities (deprecated) / undocumented/Virtual Stack Properties
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000082EAX()
+{
+    return GetCustom(0x40000082, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000082EBX()
+{
+    return GetCustom(0x40000082, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000082ECX()
+{
+    return GetCustom(0x40000082, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX40000082EDX()
+{
+    return GetCustom(0x40000082, 0, 3);
+}
 
 #pragma endregion
 
 #pragma region EAX=0x40000083-EAX=0x40000087: Reserved
 
+// TODO:
+
 #pragma endregion
 
 #pragma region EAX=0x4C780000: Reserved
+
+// TODO:
 
 #pragma endregion
 
 #pragma region EAX=0x4C780001: Get supervisor information - Linux flags
 
+// TODO: use custom method
 // ECX = 0, Subleaf 0
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780001EAX()
 {
@@ -12712,6 +12249,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001ECX1EDX0_31_Reserved(
 
 #pragma region EAX=0x4C780002: Get supervisor information - Linux bugs
 
+// TODO: use custom method
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4C780002EAX()
 {
     int cpuInfo[4];
@@ -12820,28 +12358,77 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4C780002EDX0_31_Reserved()
 
 #pragma region EAX=0x4C780003-EAX=0x4C780007: Reserved
 
+// TODO:
+
 #pragma endregion
 
 #pragma region EAX=0x63634520-EAX=0x63634522: Reserved
 
+// TODO:
+
 #pragma endregion
 
-#pragma region EAX=0x63634523: Config Leaves Rise mP6 - Config
+#pragma region EAX=0x63634523: Config Leaves - Rise mP6 - Config
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX63634523EAX()
+{
+    return GetCustom(0x63634523, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX63634523EBX()
+{
+    return GetCustom(0x63634523, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX63634523ECX()
+{
+    return GetCustom(0x63634523, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX63634523EDX()
+{
+    return GetCustom(0x63634523, 0, 3);
+}
 
 #pragma endregion
 
 #pragma region EAX=0x63634524-EAX=0x63634529: Reserved
 
+// TODO:
+
 #pragma endregion
 
-#pragma region EAX=0x6363452A: Config Leaves Rise mP6 - Config
+#pragma region EAX=0x6363452A: Config Leaves - Rise mP6 - Config
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX6363452AEAX()
+{
+    return GetCustom(0x6363452A, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX6363452AEBX()
+{
+    return GetCustom(0x6363452A, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX6363452AECX()
+{
+    return GetCustom(0x6363452A, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX6363452AEDX()
+{
+    return GetCustom(0x6363452A, 0, 3);
+}
 
 #pragma endregion
 
 #pragma region EAX=0x6363452B-EAX=0x6363452F: Reserved
 
+// TODO:
+
 #pragma endregion
 
+// TODO: use custom method
 #pragma region EAX=0x80000000: Highest Extended Function Implemented
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX80000000EAX()
@@ -14962,6 +14549,8 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000008EDX16_31_MaximumECXVa
 
 #pragma region EAX=0x80000009: Reserved
 
+// TODO:
+
 #pragma endregion
 
 #pragma region EAX=0x8000000A: SVM features
@@ -15026,29 +14615,155 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8000000AEDX()
 
 #pragma region EAX=0x8000000B-EAX=0x80000018: Reserved
 
+// TODO:
+
 #pragma endregion
 
 #pragma region EAX=0x80000019: TLB configuration descriptors
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80000019EAX()
+{
+    return GetCustom(0x80000019, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80000019EBX()
+{
+    return GetCustom(0x80000019, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80000019ECX()
+{
+    return GetCustom(0x80000019, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80000019EDX()
+{
+    return GetCustom(0x80000019, 0, 3);
+}
 
 #pragma endregion
 
 #pragma region EAX=0x8000001A: Performance optimization identifiers
 
+extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001AEAX()
+{
+    return GetCustom(0x8000001A, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001AEBX()
+{
+    return GetCustom(0x8000001A, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001AECX()
+{
+    return GetCustom(0x8000001A, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001AEDX()
+{
+    return GetCustom(0x8000001A, 0, 3);
+}
+
 #pragma endregion
 
 #pragma region EAX=0x8000001B: IBS Information
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001BEAX()
+{
+    return GetCustom(0x8000001B, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001BEBX()
+{
+    return GetCustom(0x8000001B, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001BECX()
+{
+    return GetCustom(0x8000001B, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001BEDX()
+{
+    return GetCustom(0x8000001B, 0, 3);
+}
 
 #pragma endregion
 
 #pragma region EAX=0x8000001C: LWP Information
 
+extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001CEAX()
+{
+    return GetCustom(0x8000001C, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001CEBX()
+{
+    return GetCustom(0x8000001C, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001CECX()
+{
+    return GetCustom(0x8000001C, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001CEDX()
+{
+    return GetCustom(0x8000001C, 0, 3);
+}
+
 #pragma endregion
 
 #pragma region EAX=0x8000001D: Cache configuration descriptors
 
+// TODO: Sort
+
+/**
+extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001DEAX()
+{
+    return GetCustom(0x8000001D, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001DEBX()
+{
+    return GetCustom(0x8000001D, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001DECX()
+{
+    return GetCustom(0x8000001D, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001DEDX()
+{
+    return GetCustom(0x8000001D, 0, 3);
+}
+**/
+
 #pragma endregion
 
 #pragma region EAX=0x8000001E: APIC/unit/node information
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001EEAX()
+{
+    return GetCustom(0x8000001E, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001EEBX()
+{
+    return GetCustom(0x8000001E, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001EECX()
+{
+    return GetCustom(0x8000001E, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001EEDX()
+{
+    return GetCustom(0x8000001E, 0, 3);
+}
 
 #pragma endregion
 
@@ -15056,63 +14771,47 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8000000AEDX()
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001FEAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001F, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x8000001F, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001FEBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001F, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x8000001F, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001FECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001F, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x8000001F, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001FEDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001F, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x8000001F, 0, 3);
 }
 
 #pragma endregion
 
 #pragma region EAX=0x80000020: Platform QoS enumeration
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80000020EAX()
+{
+    return GetCustom(0x80000020, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80000020EBX()
+{
+    return GetCustom(0x80000020, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80000020ECX()
+{
+    return GetCustom(0x80000020, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80000020EDX()
+{
+    return GetCustom(0x80000020, 0, 3);
+}
 
 #pragma endregion
 
@@ -15120,71 +14819,77 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001FEDX()
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX80000021EAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x80000021, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x80000021, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX80000021EBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x80000021, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x80000021, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX80000021ECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x80000021, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x80000021, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX80000021EDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x80000021, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x80000021, 0, 3);
 }
 
 #pragma endregion
 
 #pragma region EAX=0x80000022: Extended performance monitoring and debug information
 
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80000022EAX()
+{
+    return GetCustom(0x80000022, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80000022EBX()
+{
+    return GetCustom(0x80000022, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80000022ECX()
+{
+    return GetCustom(0x80000022, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80000022EDX()
+{
+    return GetCustom(0x80000022, 0, 3);
+}
+
 #pragma endregion
 
 #pragma region EAX=0x80000023: Secure host multi-key memory encryption information
 
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80000023EAX()
+{
+    return GetCustom(0x80000023, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80000023EBX()
+{
+    return GetCustom(0x80000023, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80000023ECX()
+{
+    return GetCustom(0x80000023, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80000023EDX()
+{
+    return GetCustom(0x80000023, 0, 3);
+}
+
 #pragma endregion
 
 #pragma region EAX=0x80000024: Reserved
+
+// TODO:
 
 #pragma endregion
 
@@ -15192,99 +14897,287 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000021EDX()
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX80000025EAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x80000025, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x80000025, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX80000025EBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x80000025, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x80000025, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX80000025ECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x80000025, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x80000025, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX80000025EDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x80000025, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x80000025, 0, 3);
 }
 
 #pragma endregion
 
 #pragma region EAX=0x80000026: Topology enumeration information
 
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80000026EAX()
+{
+    return GetCustom(0x80000026, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80000026EBX()
+{
+    return GetCustom(0x80000026, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80000026ECX()
+{
+    return GetCustom(0x80000026, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80000026EDX()
+{
+    return GetCustom(0x80000026, 0, 3);
+}
+
 #pragma endregion
 
 #pragma region EAX=0x80000027: Workload class information
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80000027EAX()
+{
+    return GetCustom(0x80000027, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80000027EBX()
+{
+    return GetCustom(0x80000027, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80000027ECX()
+{
+    return GetCustom(0x80000027, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80000027EDX()
+{
+    return GetCustom(0x80000027, 0, 3);
+}
 
 #pragma endregion
 
 #pragma region EAX=0x80000028-EAX=0x8000002F: Reserved
 
+// TODO:
+
 #pragma endregion
 
 #pragma region EAX=0x80860000: Vendor leaves - Transmeta - Maximum supported leaf and vendor ID string
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860000EAX()
+{
+    return GetCustom(0x80860000, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860000EBX()
+{
+    return GetCustom(0x80860000, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860000ECX()
+{
+    return GetCustom(0x80860000, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860000EDX()
+{
+    return GetCustom(0x80860000, 0, 3);
+}
 
 #pragma endregion
 
 #pragma region EAX=0x80860001: Vendor leaves - Transmeta - Processor information - FMS + Flags
 
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860001EAX()
+{
+    return GetCustom(0x80860001, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860001EBX()
+{
+    return GetCustom(0x80860001, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860001ECX()
+{
+    return GetCustom(0x80860001, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860001EDX()
+{
+    return GetCustom(0x80860001, 0, 3);
+}
+
 #pragma endregion
 
 #pragma region EAX=0x80860002: Vendor leaves - Transmeta - Processor information - HW/SW Revision
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860002EAX()
+{
+    return GetCustom(0x80860002, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860002EBX()
+{
+    return GetCustom(0x80860002, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860002ECX()
+{
+    return GetCustom(0x80860002, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860002EDX()
+{
+    return GetCustom(0x80860002, 0, 3);
+}
 
 #pragma endregion
 
 #pragma region EAX=0x80860003-EAX=0x80860006: Vendor leaves - Transmeta - CMS Info String
 
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860003EAX()
+{
+    return GetCustom(0x80860003, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860003EBX()
+{
+    return GetCustom(0x80860003, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860003ECX()
+{
+    return GetCustom(0x80860003, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860003EDX()
+{
+    return GetCustom(0x80860003, 0, 3);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860004EAX()
+{
+    return GetCustom(0x80860004, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860004EBX()
+{
+    return GetCustom(0x80860004, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860004ECX()
+{
+    return GetCustom(0x80860004, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860004EDX()
+{
+    return GetCustom(0x80860004, 0, 3);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860005EAX()
+{
+    return GetCustom(0x80860005, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860005EBX()
+{
+    return GetCustom(0x80860005, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860005ECX()
+{
+    return GetCustom(0x80860005, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860005EDX()
+{
+    return GetCustom(0x80860005, 0, 3);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860006EAX()
+{
+    return GetCustom(0x80860006, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860006EBX()
+{
+    return GetCustom(0x80860006, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860006ECX()
+{
+    return GetCustom(0x80860006, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860006EDX()
+{
+    return GetCustom(0x80860006, 0, 3);
+}
+
 #pragma endregion
 
 #pragma region EAX=0x80860007: Vendor leaves - Transmeta - Processor information - MHz + mV
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860007EAX()
+{
+    return GetCustom(0x80860007, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860007EBX()
+{
+    return GetCustom(0x80860007, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860007ECX()
+{
+    return GetCustom(0x80860007, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860007EDX()
+{
+    return GetCustom(0x80860007, 0, 3);
+}
 
 #pragma endregion
 
 #pragma region EAX=0x80860008: Vendor leaves - Transmeta - Hypervisor Information
 
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860008EAX()
+{
+    return GetCustom(0x80860008, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860008EBX()
+{
+    return GetCustom(0x80860008, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860008ECX()
+{
+    return GetCustom(0x80860008, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX80860008EDX()
+{
+    return GetCustom(0x80860008, 0, 3);
+}
+
 #pragma endregion
 
 #pragma region EAX=0x80860009-EAX=0x8086000F: Reserved
+
+// TODO:
 
 #pragma endregion
 
@@ -15292,67 +15185,35 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000025EDX()
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX8C860000EAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8C860000, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x8C860000, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX8C860000EBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8C860000, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x8C860000, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX8C860000ECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8C860000, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x8C860000, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX8C860000EDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8C860000, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x8C860000, 0, 3);
 }
 
 #pragma endregion
 
 #pragma region EAX=0x8C860001-EAX=0x8C860007: Reserved
 
+// TODO:
+
 #pragma endregion
 
 #pragma region EAX=0x8FFFFFF8-EAX=0x8FFFFFFD: Reserved
+
+// TODO:
 
 #pragma endregion
 
@@ -15360,58 +15221,22 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8C860000EDX()
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX8FFFFFFEEAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8FFFFFFE, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x8FFFFFFE, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX8FFFFFFEEBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8FFFFFFE, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x8FFFFFFE, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX8FFFFFFEECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8FFFFFFE, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x8FFFFFFE, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX8FFFFFFEEDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8FFFFFFE, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x8FFFFFFE, 0, 3);
 }
 
 #pragma endregion
@@ -15420,58 +15245,22 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8FFFFFFEEDX()
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX8FFFFFFFEAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8FFFFFFF, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x8FFFFFFF, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX8FFFFFFFEBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8FFFFFFF, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x8FFFFFFF, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX8FFFFFFFECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8FFFFFFF, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x8FFFFFFF, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX8FFFFFFFEDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8FFFFFFF, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0x8FFFFFFF, 0, 3);
 }
 
 #pragma endregion
@@ -15480,58 +15269,22 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8FFFFFFFEDX()
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000000EAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0xC0000000, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0xC0000000, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000000EBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0xC0000000, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0xC0000000, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000000ECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0xC0000000, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0xC0000000, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000000EDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0xC0000000, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0xC0000000, 0, 3);
 }
 
 #pragma endregion
@@ -15540,58 +15293,22 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000000EDX()
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000001EAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0xC0000001, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0xC0000001, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000001EBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0xC0000001, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0xC0000001, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000001ECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0xC0000001, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0xC0000001, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000001EDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0xC0000001, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0xC0000001, 0, 3);
 }
 
 #pragma endregion
@@ -15600,118 +15317,46 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000001EDX()
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000002EAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0xC0000002, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0xC0000002, 0, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000002EBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0xC0000002, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0xC0000002, 0, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000002ECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0xC0000002, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0xC0000002, 0, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000002EDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0xC0000002, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0xC0000002, 0, 3);
 }
 
 #pragma endregion
 
 #pragma region EAX=0xC0000006, ECX=0: Zhaoxin Feature Information
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000006ECX0EAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000006EAX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0xC0000006, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[0], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0xC0000006, 0, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000006ECX0EBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000006EBX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0xC0000006, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[1], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0xC0000006, 0, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000006ECX0ECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000006ECX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0xC0000006, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[2], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0xC0000006, 0, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000006ECX0EDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000006EDX()
 {
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0xC0000006, 0);
-    char binaryStr[33];
-    IntToBinary32(cpuInfo[3], binaryStr);
-
-    char* result = (char*)malloc(33);
-    if (result) {
-        strcpy_s(result, 33, binaryStr);
-    }
-    return result;
+    return GetCustom(0xC0000006, 0, 3);
 }
 
 #pragma endregion
