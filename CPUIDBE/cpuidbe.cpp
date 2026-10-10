@@ -5446,7 +5446,9 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX7ECX2EDX()
 }
 
 /* EDX. */
-/* Fast Store Forwarding Predictor disable supported. (SPEC_CTRL (MSR 48h) bit 7) - (psfd). */
+/* Fast Store Forwarding Predictor disable supported. (SPEC_CTRL (MSR 48h) bit 7) - (psfd).
+ * 0 (PSFD) - SPEC_CTRL.PSF_DIS.
+ */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX2_EDX0_PSFDIsSupported()
 {
     int cpuInfo[4];
@@ -5457,7 +5459,9 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX2_EDX0_PSFDIsSupported()
     return (bool)psfdSupported;
 }
 
-/* IPRED_DIS controls supported. (SPEC_CTRL bits 3 and 4) IPRED_DIS prevents instructions at an indirect branch target from speculatively executing until the branch target address is resolved. - (ipred_ctrl). */
+/* IPRED_DIS controls supported. (SPEC_CTRL bits 3 and 4) IPRED_DIS prevents instructions at an indirect branch target from speculatively executing until the branch target address is resolved. - (ipred_ctrl).
+ * 1 (IPRED_CTRL) - SPEC_CTRL.IPRED_DIS_U SPEC_CTRL.IPRED_DIS_S.
+ */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX2_EDX1_IPREDIsSupported()
 {
     int cpuInfo[4];
@@ -5468,7 +5472,9 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX2_EDX1_IPREDIsSupported(
     return (bool)ipredSupported;
 }
 
-/* RRSBA behavior disable supported. (SPEC_CTRL bits 5 and 6) - (rrsba_ctrl). */
+/* RRSBA behavior disable supported. (SPEC_CTRL bits 5 and 6) - (rrsba_ctrl). 
+ * 2 (RRSBA_CTRL) - SPEC_CTRL.RRSBA_DIS_U SPEC_CTRL.RRSBA_DIS_S.
+ */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX2_EDX2_RRSBA_CTRLIsSupported()
 {
     int cpuInfo[4];
@@ -5479,7 +5485,9 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX2_EDX2_RRSBA_CTRLIsSuppo
     return (bool)rrsba_ctrlSupported;
 }
 
-/* Data Dependent Prefetcher disable supported. (SPEC_CTRL bit 8) - (ddpd_u). */
+/* Data Dependent Prefetcher disable supported. (SPEC_CTRL bit 8) - (ddpd_u).
+ * 3 (DDP_CTRL) - SPEC_CTRL.DDP_DIS_U.
+ */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX2_EDX3_DDPD_UIsSupported()
 {
     int cpuInfo[4];
@@ -5490,7 +5498,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX2_EDX3_DDPD_UIsSupported
     return (bool)ddpd_uSupported;
 }
 
-/* BHI_DIS_S behavior[128] enable supported. (SPEC_CTRL bit 10) BHI_DIS_S prevents predicted targets of indirect branches executed in ring 0 / 1 / 2 from being selected based on branch history from branches executed in ring 3. - (bhi_ctrl). */
+/* BHI_DIS_S behavior[128] enable supported. (SPEC_CTRL bit 10) BHI_DIS_S prevents predicted targets of indirect branches executed in ring 0 / 1 / 2 from being selected based on branch history from branches 
+ * executed in ring 3. - (bhi_ctrl).
+ * 4 (BHI_CTRL) - SPEC_CTRL.BHI_DIS_S, IBHF.
+ */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX2_EDX4_BHI_CTRLIsSupported()
 {
     int cpuInfo[4];
@@ -5501,7 +5512,9 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX2_EDX4_BHI_CTRLIsSupport
     return (bool)bhi_ctrlSupported;
 }
 
-/* If set, the processor does not exhibit MXCSR configuration dependent timing. - (mcdt_no). */
+/* If set, the processor does not exhibit MXCSR configuration dependent timing. - (mcdt_no).
+ * 5 (MCDT_NO) - not affected by MCDT (aka MXCSR Configuration Dependent Timing).
+ */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX2_EDX5_MCDT_NOIsSupported()
 {
     int cpuInfo[4];
@@ -5512,7 +5525,9 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX2_EDX5_MCDT_NOIsSupporte
     return (bool)mcdt_noSupported;
 }
 
-/* UC-lock disable feature (with UC-lock exceptions reported as #AC) supported. - (UC_LOCK_DISABLE). */
+/* UC-lock disable feature (with UC-lock exceptions reported as #AC) supported. - (UC_LOCK_DISABLE).
+ * 6 (UC_LOCK_DIS) - #AC(4) if MEMORY_CTRL.UC_LK_DIS_XX_EN = 1 (legacy implementation: #GP(0) if CORE_CAPABILITIES.UC_LK_DIS_GP_avl = 1).
+ */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX2_EDX6_UC_LOCK_DISABLEIsSupported()
 {
     int cpuInfo[4];
@@ -5523,7 +5538,9 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX2_EDX6_UC_LOCK_DISABLEIs
     return (bool)uc_lock_disableSupported;
 }
 
-/* If set, indicates that the MONITOR/UMONITOR instructions are not affected by performance/power issues caused by the instructions exceeding the capacity of an internal monitor tracking table. - (monitor_­mitg_no). */
+/* If set, indicates that the MONITOR/UMONITOR instructions are not affected by performance/power issues caused by the instructions exceeding the capacity of an internal monitor tracking table. - (monitor_­mitg_no).
+ * 7 (MON_MITG_NO) - not affected by MONITOR/UMONITOR performance or power issues due to the instructions exceeding an internal tracking table's capacity.
+ */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX2_EDX7_MONITOR_MITG_NOIsSupported()
 {
     int cpuInfo[4];
@@ -5844,6 +5861,16 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX00000009ECX()
 extern "C" __declspec(dllexport) char* __cdecl GetEAX00000009EDX()
 {
     return GetCustom(0x00000009, 0, 3);
+}
+
+extern "C" __declspec(dllexport) int __cdecl Get00000009EAX0_31_ValueOfPlatformDcaCapMsr()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000009, 0);
+
+    unsigned int valueOfPlatformDcaCapMs = ExtractBits(cpuInfo[0], 0, 32);
+
+    return valueOfPlatformDcaCapMs;
 }
 
 #pragma endregion
