@@ -5863,7 +5863,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX00000009EDX()
     return GetCustom(0x00000009, 0, 3);
 }
 
-extern "C" __declspec(dllexport) int __cdecl Get00000009EAX0_31_ValueOfPlatformDcaCapMsr()
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000009EAX0_31_ValueOfPlatformDcaCapMsr()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x00000009, 0);
@@ -5895,6 +5895,483 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000AECX()
 extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000AEDX()
 {
     return GetCustom(0x0000000A, 0, 3);
+}
+
+// EAX
+/* Revision. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000AEAX0_7_Revision()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int revision = ExtractBits(cpuInfo[0], 0, 8);
+
+    return revision;
+}
+
+/* Number of perf mon counters per logical processor. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000AEAX8_15_NumberOfPerfMonCountersPerLogicalProcessor()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int numberOfPerfMonCountersPerLogicalProcessor = ExtractBits(cpuInfo[0], 8, 8);
+
+    return numberOfPerfMonCountersPerLogicalProcessor;
+}
+
+/* Bit width of perf mon counter. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000AEAX16_23_BitWidthOfPerfMonCounter()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int bitWidthOfPerfMonCounter = ExtractBits(cpuInfo[0], 16, 8);
+
+    return bitWidthOfPerfMonCounter;
+}
+
+/* Length of EBX bit vector. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000AEAX24_31_LengthOfEBXBitVector()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int lengthOfEBXBitVector = ExtractBits(cpuInfo[0], 24, 8);
+
+    return lengthOfEBXBitVector;
+}
+
+// EBX
+/* Core cycles event unavailable. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX0_CoreCyclesEventUnavailable()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int coreCyclesEventUnavailable = ExtractBits(cpuInfo[1], 0, 1);
+
+    return (bool)coreCyclesEventUnavailable;
+}
+
+/* Instructions retired event unavailable. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX1_InstructionsRetiredEventUnavailable()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int instructionsRetiredEventUnavailable = ExtractBits(cpuInfo[1], 1, 1);
+
+    return (bool)instructionsRetiredEventUnavailable;
+}
+
+/* Reference cycles event unavailable. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX2_ReferenceCyclesEventUnavailable()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int referenceCyclesEventUnavailable = ExtractBits(cpuInfo[1], 2, 1);
+
+    return (bool)referenceCyclesEventUnavailable;
+}
+
+/* Last level cache references event unavailable. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX3_LastLevelCacheReferencesEventUnavailable()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int lastLevelCacheReferencesEventUnavailable = ExtractBits(cpuInfo[1], 3, 1);
+
+    return (bool)lastLevelCacheReferencesEventUnavailable;
+}
+
+/* Last level cache misses event unavailable. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX4_LastLevelCacheMissesEventUnavailable()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int lastLevelCacheMissesEventUnavailable = ExtractBits(cpuInfo[1], 4, 1);
+
+    return (bool)lastLevelCacheMissesEventUnavailable;
+}
+
+/* Branch instructions retired event unavailable. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX5_BranchInstructionsRetiredEventUnavailable()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int branchInstructionsRetiredEventUnavailable = ExtractBits(cpuInfo[1], 5, 1);
+
+    return (bool)branchInstructionsRetiredEventUnavailable;
+}
+
+/* Branch mispredicts retired event unavailable. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX6_BranchMispredictsRetiredEventUnavailable()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int branchMispredictsRetiredEventUnavailable = ExtractBits(cpuInfo[1], 6, 1);
+
+    return (bool)branchMispredictsRetiredEventUnavailable;
+}
+
+/* Topdown slots event unavailable. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX7_TopdownSlotsEventUnavailable()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int topdownSlotsEventUnavailable = ExtractBits(cpuInfo[1], 7, 1);
+
+    return (bool)topdownSlotsEventUnavailable;
+}
+
+/* Topdown backend bound unavailable. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX8_TopdownBackendBoundUnavailable()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int topdownBackendBoundUnavailable = ExtractBits(cpuInfo[1], 8, 1);
+
+    return (bool)topdownBackendBoundUnavailable;
+}
+
+/* Topdown bad speculation unavailable. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX9_TopdownBadSpeculationUnavailable()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int topdownBadSpeculationUnavailable = ExtractBits(cpuInfo[1], 9, 1);
+
+    return (bool)topdownBadSpeculationUnavailable;
+}
+
+/* Topdown frontend bound unavailable. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX10_TopdownFrontendBoundUnavailable()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int topdownFrontendBoundUnavailable = ExtractBits(cpuInfo[1], 10, 1);
+
+    return (bool)topdownFrontendBoundUnavailable;
+}
+
+/* Topdown retiring unavailable. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX11_TopdownRetiringUnavailable()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int topdownRetiringUnavailable = ExtractBits(cpuInfo[1], 11, 1);
+
+    return (bool)topdownRetiringUnavailable;
+}
+
+/* LBR inserts unavailable. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX12_LBRInsertsUnavailable()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int lbrInsertsUnavailable = ExtractBits(cpuInfo[1], 12, 1);
+
+    return (bool)lbrInsertsUnavailable;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX13_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 13, 1);
+
+    return (bool)reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX14_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 14, 1);
+
+    return (bool)reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX15_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 15, 1);
+
+    return (bool)reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX16_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 16, 1);
+
+    return (bool)reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX17_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 17, 1);
+
+    return (bool)reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX18_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 18, 1);
+
+    return (bool)reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX19_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 19, 1);
+
+    return (bool)reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX20_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 20, 1);
+
+    return (bool)reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX21_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 21, 1);
+
+    return (bool)reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX22_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 22, 1);
+
+    return (bool)reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX23_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 23, 1);
+
+    return (bool)reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX24_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 24, 1);
+
+    return (bool)reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX25_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 25, 1);
+
+    return (bool)reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX26_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 26, 1);
+
+    return (bool)reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX27_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 27, 1);
+
+    return (bool)reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX28_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 28, 1);
+
+    return (bool)reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX29_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 29, 1);
+
+    return (bool)reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX30_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 30, 1);
+
+    return (bool)reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_EBX31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 31, 1);
+
+    return (bool)reserved;
+}
+
+// ECX
+/* Fixed counters bit mask. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000AECX0_31_FixedCountersBitMask()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int fixedCountersBitMask = ExtractBits(cpuInfo[2], 0, 32);
+
+    return fixedCountersBitMask;
+}
+
+// EDX
+/* Number of fixed-function perf mon counters (if revision > 1). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000AEDX0_4_NumberOfFixedFunctionPerfMonCounters()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int numberOfFixedFunctionPerfMonCounters = ExtractBits(cpuInfo[3], 0, 4);
+
+    return numberOfFixedFunctionPerfMonCounters;
+}
+
+/* Bit width of fixed-function perf mon counters (if revision > 1). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000AEDX5_12_BitWidthOfFixedFunctionPerfMonCounters()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int bitWidthOfFixedFunctionPerfMonCounters = ExtractBits(cpuInfo[3], 5, 8);
+
+    return bitWidthOfFixedFunctionPerfMonCounters;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000AEDX13_14_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[3], 13, 2);
+
+    return reserved;
+}
+
+/* Any thread mode deprecation. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000AEDX15_AnyThreadModeDeprecation()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int anyThreadModeDeprecation = ExtractBits(cpuInfo[3], 15, 1);
+
+    return anyThreadModeDeprecation;
+}
+
+/* Number of topdown microarchitecture analysis (TMA) slots per cycle. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000AEDX16_19_NumberOfTopdownMicroarchitectureAnalysisTMASlotsPerCycle()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int numberOfTopdownMicroarchitectureAnalysisTMASlotsPerCycle = ExtractBits(cpuInfo[3], 16, 4);
+
+    return numberOfTopdownMicroarchitectureAnalysisTMASlotsPerCycle;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000AEDX20_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[3], 20, 12);
+
+    return reserved;
 }
 
 #pragma endregion
