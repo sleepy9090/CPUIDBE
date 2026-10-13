@@ -6398,6 +6398,98 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXBEDX()
     return GetCustom(0x0000000B, 0, 3);
 }
 
+// EAX
+/* Number of bits that x2APIC ID must be shifted to right for next domain. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BEAX0_4_NumberOfBitsThatX2APICIDMustBeShiftedToRightForNextDomain()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000B, 0);
+
+    unsigned int numberOfBitsThatX2APICIDMustBeShiftedToRightForNextDomain = ExtractBits(cpuInfo[3], 0, 5);
+
+    return numberOfBitsThatX2APICIDMustBeShiftedToRightForNextDomain;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BEAX5_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000B, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[3], 5, 27);
+
+    return reserved;
+}
+
+// EBX
+/* Number of logical processors across all the instances of this domain. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BEBX0_15_NumberOfLogicalProcessors()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000B, 0);
+
+    unsigned int numberOfLogicalProcessorsAcrossAllInstancesOfThisDomain = ExtractBits(cpuInfo[1], 0, 16);
+
+    return numberOfLogicalProcessorsAcrossAllInstancesOfThisDomain;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BEBX16_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000B, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 16, 16);
+
+    return reserved;
+}
+
+// ECX
+/* Input ECX sub-leaf index. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BECX0_7_InputECXSubLeafIndex()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000B, 0);
+
+    unsigned int inputECXSubLeafIndex = ExtractBits(cpuInfo[2], 0, 8);
+
+    return inputECXSubLeafIndex;
+}
+
+/* Domain Type - (0=invalid, 1=thread, 2=core, implied=package/socket, 3-255=reserved). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BECX8_15_DomainType()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000B, 0);
+
+    unsigned int domainType = ExtractBits(cpuInfo[2], 8, 8);
+
+    return domainType;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BECX16_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000B, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[2], 16, 16);
+
+    return reserved;
+}
+
+// EDX
+/* x2APIC ID – always valid – does not vary with sub-leaf index. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BEDX0_31_X2APICIDAlwaysValidDoesNotVaryWithSubLeafIndex()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000B, 0);
+
+    unsigned int x2APICIDAlwaysValidDoesNotVaryWithSubLeafIndex = ExtractBits(cpuInfo[3], 0, 32);
+
+    return x2APICIDAlwaysValidDoesNotVaryWithSubLeafIndex;
+}
+
 #pragma endregion
 
 #pragma region EAX=0x0000000C: Reserved
