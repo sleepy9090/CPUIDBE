@@ -6518,24 +6518,36 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000CEDX()
 
 #pragma region EAX=0x0000000D: XSAVE Features and State Components
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXDEAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000DEAX()
 {
     return GetCustom(0x0000000D, 0, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXDEBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000DEBX()
 {
     return GetCustom(0x0000000D, 0, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXDECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000DECX()
 {
     return GetCustom(0x0000000D, 0, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXDEDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000DEDX()
 {
     return GetCustom(0x0000000D, 0, 3);
+}
+
+// EAX
+/* Valid XCR0.31...0 bits. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEAX0_31_ValidXCR0Bits()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000D, 0);
+
+    unsigned int validXCR0Bits = ExtractBits(cpuInfo[0], 0, 32);
+
+    return validXCR0Bits;
 }
 
 #pragma endregion
