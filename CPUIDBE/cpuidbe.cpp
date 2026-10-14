@@ -6516,7 +6516,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000CEDX()
 
 #pragma endregion
 
-#pragma region EAX=0x0000000D: XSAVE Features and State Components
+#pragma region EAX=0x0000000D: XSAVE Features and State Components (ECX=0), (Sub 0) (main) (XCR0)
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000DEAX()
 {
@@ -6549,6 +6549,257 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEAX0_31_ValidXCR0Bits
 
     return validXCR0Bits;
 }
+
+// EBX
+/* Current size (in bytes) of XSAVE/XRSTOR area (as per current XCR0). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEBX0_31_CurrentSizeInBytesOfXSAVE_XRSTORAreaAsPerCurrentXCR0()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000D, 0);
+
+    unsigned int currentSizeInBytesOfXSAVE_XRSTORAreaAsPerCurrentXCR0 = ExtractBits(cpuInfo[1], 0, 32);
+
+    return currentSizeInBytesOfXSAVE_XRSTORAreaAsPerCurrentXCR0;
+}
+
+// ECX
+/* Max. size (in bytes) of XSAVE/XRSTOR area (incl. XSAVE.HEADER) */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DECX0_31_MaxSizeInBytesOfXSAVE_XRSTORAreaInclXSAVEHEADER()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000D, 0);
+
+    unsigned int maxSizeInBytesOfXSAVE_XRSTORAreaInclXSAVEHEADER = ExtractBits(cpuInfo[2], 0, 32);
+
+    return maxSizeInBytesOfXSAVE_XRSTORAreaInclXSAVEHEADER;
+}
+
+// EDX
+/* Valid XCR0.63...32 bits. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEDX32_63_ValidXCR0Bits()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000D, 0);
+
+    unsigned int validXCR0Bits = ExtractBits(cpuInfo[3], 0, 32);
+
+    return validXCR0Bits;
+}
+
+#pragma endregion
+
+#pragma region EAX=0x0000000D: XSAVE Features and State Components (ECX=1), (Sub 1) (feat) (XSS)
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000DEAX_ECX1()
+{
+    return GetCustom(0x0000000D, 1, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000DEBX_ECX1()
+{
+    return GetCustom(0x0000000D, 1, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000DECX_ECX1()
+{
+    return GetCustom(0x0000000D, 1, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000DEDX_ECX1()
+{
+    return GetCustom(0x0000000D, 1, 3);
+}
+
+// EAX
+/* XSAVEOPT. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_ECX1_EAX0_XSAVEOPT()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 1);
+
+    unsigned int xsaveopt = ExtractBits(cpuInfo[0], 0, 1);
+
+    return (bool)xsaveopt;
+}
+
+/* XSAVEC and compacted form of XRSTOR. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_ECX1_EAX1_XSAVECAndCompactedFormOfXRSTOR()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 1);
+
+    unsigned int xsavecAndCompactedFormOfXRSTOR = ExtractBits(cpuInfo[0], 1, 1);
+
+    return (bool)xsavecAndCompactedFormOfXRSTOR;
+}
+
+/* XGETBV with ECX=1. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_ECX1_EAX2_XGETBVWithECX1()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 1);
+
+    unsigned int xgetbvWithECX1 = ExtractBits(cpuInfo[0], 2, 1);
+
+    return (bool)xgetbvWithECX1;
+}
+
+/* XSAVES/XRSTORS and XSS. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_ECX1_EAX3_XSAVES_XRSTORSAndXSS()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 1);
+
+    unsigned int xsavesXRSTORSAndXSS = ExtractBits(cpuInfo[0], 3, 1);
+
+    return (bool)xsavesXRSTORSAndXSS;
+}
+
+/* XFD and XFD_ERR. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_ECX1_EAX4_XFDAndXFD_ERR()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000A, 1);
+
+    unsigned int xfdAndXfd_ERR = ExtractBits(cpuInfo[0], 4, 1);
+
+    return (bool)xfdAndXfd_ERR;
+}
+
+// Bits 5 - 31 are reserved
+/* Reserved. */
+//extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_ECX1_EAX5_Reserved()
+//{
+//    int cpuInfo[4];
+//    __cpuidex(cpuInfo, 0x0000000A, 1);
+
+//    unsigned int reserved = ExtractBits(cpuInfo[0], 5, 1);
+
+//    return (bool)reserved;
+//}
+
+// EBX
+/* Current size (in bytes) in XSAVE/XRSTOR area for XCR0 | XSS. (mutable - XCR0 | XSS) */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000D_ECX1_EBX0_31_CurrentSizeInBytesOfXSAVE_XRSTORAreaAsPerCurrentXCR0_XSS()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000D, 1);
+
+    unsigned int currentSizeInBytesOfXSAVE_XRSTORAreaAsPerCurrentXCR0_XSS = ExtractBits(cpuInfo[1], 0, 32);
+
+    return currentSizeInBytesOfXSAVE_XRSTORAreaAsPerCurrentXCR0_XSS;
+}
+
+// ECX
+/* Valid XSS.31...0 bits. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000D_ECX1_ECX0_31_ValidXSSBits()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000D, 1);
+
+    unsigned int validXSSBits = ExtractBits(cpuInfo[2], 0, 32);
+
+    return validXSSBits;
+}
+
+// EDX
+/* Valid XSS.63...32 bits. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000D_ECX1_EDX32_63_ValidXSSBits()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000D, 1);
+
+    unsigned int validXSSBits = ExtractBits(cpuInfo[3], 0, 32);
+
+    return validXSSBits;
+}
+
+#pragma endregion
+
+#pragma region EAX=0x0000000D: XSAVE Features and State Components (ECX=2 to 62), (Sub n) (2 to 62) (comp)
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000DEAX_ECXN(int n)
+{
+    return GetCustom(0x0000000D, n, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000DEBX_ECXN(int n)
+{
+    return GetCustom(0x0000000D, n, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000DECX_ECXN(int n)
+{
+    return GetCustom(0x0000000D, n, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000DEDX_ECXN(int n)
+{
+    return GetCustom(0x0000000D, n, 3);
+}
+
+// EAX
+/* Size (in bytes) in XSAVE/XRSTOR area for XCR0.n (n=ECX=2...62). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEDX_ECXN_SizeInBytesInXSAVE_SRSTORAreaForXCR0N(int n)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000D, n);
+
+    unsigned int sizeInBytesInXSAVE_SRSTORAreaForXCR0N = ExtractBits(cpuInfo[0], 0, 32);
+
+    return sizeInBytesInXSAVE_SRSTORAreaForXCR0N;
+}
+
+// EBX
+/* Offset (in bytes) in XSAVE/XRSTOR area for XCR0.n (n=ECX=2...62). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEDX_ECXN_OffsetInBytesInXSAVE_SRSTORAreaForXCR0N(int n)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000D, n);
+
+    unsigned int offsetInBytesInXSAVE_SRSTORAreaForXCR0N = ExtractBits(cpuInfo[1], 0, 32);
+
+    return offsetInBytesInXSAVE_SRSTORAreaForXCR0N;
+}
+
+// ECX
+/* 0 if component is valid in XCR0, 1 if component is valid in XSS. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEDX_ECXN_ECX0_ZeroIfComponentIsValidInXCR0_OneIfComponentIsValidInXSS(int n)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000D, n);
+
+    unsigned int zeroIfComponentIsValidInXCR0_OneIfComponentIsValidInXSS = ExtractBits(cpuInfo[2], 0, 1);
+
+    return (bool)zeroIfComponentIsValidInXCR0_OneIfComponentIsValidInXSS;
+}
+
+/* 0 if component immediately follows previous component, 1 if component is aligned to next 64 byte boundary. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEDX_ECXN_ECX1_ZeroIfComponentImmediatelyFollowsPreviousComponent_OneIfComponentIsAlignedToNext64ByteBoundary(int n)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000D, n);
+
+    unsigned int zeroIfComponentImmediatelyFollowsPreviousComponent_OneIfComponentIsAlignedToNext64ByteBoundary = ExtractBits(cpuInfo[2], 1, 1);
+
+    return (bool)zeroIfComponentImmediatelyFollowsPreviousComponent_OneIfComponentIsAlignedToNext64ByteBoundary;
+}
+
+/* XFD.n and XFD_ERR.n (n=ECX=2...62) are supported for component. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_ECXN_ECX2_XFDAndXFD_ERR(int n)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000D, n);
+
+    unsigned int xfdAndXfd_ERR = ExtractBits(cpuInfo[2], 2, 1);
+
+    return (bool)xfdAndXfd_ERR;
+}
+
+// Bits 3 - 31 are reserved
+
+// EDX
+// Bits 0 - 31 are reserved
 
 #pragma endregion
 
