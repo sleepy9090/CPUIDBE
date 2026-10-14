@@ -6827,7 +6827,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000EEDX()
 
 #pragma endregion
 
-#pragma region EAX=0x0000000F: RDT-M (QoS monitoring) enumeration
+#pragma region EAX=0x0000000F: RDT-M (QoS monitoring) enumeration, ECX=0 - resources: 0=main
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000FEAX()
 {
@@ -6848,6 +6848,100 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000FEDX()
 {
     return GetCustom(0x0000000F, 0, 3);
 }
+
+// EAX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEAX_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000D, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[0], 0, 32);
+
+    return reserved;
+}
+
+// EBX
+/* Max range (zero-based) of RMID within this phys. processor of all types. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEBX_MaxRangeOfRMIDWithinThisPhysProcessorOfAllTypes()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000D, 0);
+
+    unsigned int maxRangeOfRMIDWithinThisPhysProcessorOfAllTypes = ExtractBits(cpuInfo[1], 0, 32);
+
+    return maxRangeOfRMIDWithinThisPhysProcessorOfAllTypes;
+}
+
+// ECX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DECX_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000D, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[2], 0, 32);
+
+    return reserved;
+}
+
+// EDX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEDX_0_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000D, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 1);
+
+    return reserved;
+}
+
+/* L3 cache QoS monitoring. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEDX_1_L3CacheQoSMonitoring()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000D, 0);
+
+    unsigned int l3CacheQoSMonitoring = ExtractBits(cpuInfo[3], 1, 1);
+
+    return l3CacheQoSMonitoring;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEDX_2_30_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000000D, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[3], 2, 30);
+
+    return reserved;
+}
+
+#pragma region EAX=0x0000000F: RDT-M (QoS monitoring) enumeration, ECX=1..n - 1=L3
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000FEAX_ECX(int n)
+{
+    return GetCustom(0x0000000F, n, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000FEBX_ECX(int n)
+{
+    return GetCustom(0x0000000F, n, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000FECX_ECX(int n)
+{
+    return GetCustom(0x0000000F, n, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000FEDX_ECX(int n)
+{
+    return GetCustom(0x0000000F, n, 3);
+}
+
+#pragma endregion
 
 #pragma endregion
 
