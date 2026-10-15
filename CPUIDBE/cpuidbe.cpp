@@ -22,15 +22,22 @@
 
 using namespace std;
 
-unsigned int ExtractBits(unsigned int num,
-                         unsigned int pos,
-                         unsigned int k)
+unsigned int ExtractBits(unsigned int number,
+                         unsigned int position,
+                         unsigned int numberOfBits)
 {
+    // TODO: If I want to read 32 bits, this returns 0, why?
+    if (numberOfBits == 32)
+    {
+        // temp hax
+        numberOfBits = 31;
+    }
+    
     // Right shift 'num' by 'pos' bits
-    unsigned int shifted = (num >> pos);
+    unsigned int shifted = (number >> position);
 
     // Create a mask with 'k' bits set to 1
-    unsigned int mask = (1 << k) - 1;
+    unsigned int mask = (1 << numberOfBits) - 1;
 
     // Apply the mask to the shifted number
     return (shifted & mask);
@@ -7195,7 +7202,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX00000014EAX_0_31_MaxSubleaf()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x00000014, 0);
 
-    unsigned int maxSubleaf = ExtractBits(cpuInfo[0], 0, 32);
+    unsigned int maxSubleaf = ExtractBits(cpuInfo[0], 0, 31);
 
     return maxSubleaf;
 }
