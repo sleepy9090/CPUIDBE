@@ -7188,6 +7188,18 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX14ECX0EDX()
     return GetCustom(0x00000014, 0, 3);
 }
 
+// EAX
+/* Max sub-leaf. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000014EAX_0_31_MaxSubleaf()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000014, 0);
+
+    unsigned int maxSubleaf = ExtractBits(cpuInfo[0], 0, 32);
+
+    return maxSubleaf;
+}
+
 // EBX Feature Bits
 /* CR3 filtering supported - (cr3_filter). */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX14ECX0_EBX0_Cr3FilterIsSupported()
@@ -7883,7 +7895,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX14ECX0_ECX30_ReservedIsSuppo
     return (bool)reservedSupported;
 }
 
-/* IP (Instruction Pointer) format for trace packets that contain IP payloads. */
+/* IP (Instruction Pointer) format for trace packets that contain IP payloads / IP payloads are LIP. */
 extern "C" __declspec(dllexport) bool __cdecl GetEAX14ECX0_ECX31_IPFormatForTracePacketsThatContainIPPayloadsIsSupported()
 {
     int cpuInfo[4];
@@ -7892,6 +7904,18 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX14ECX0_ECX31_IPFormatForTrac
     unsigned int iPFormatForTracePacketsThatContainIPPayloadsSupported = ExtractBits(cpuInfo[2], 31, 1);
 
     return (bool)iPFormatForTracePacketsThatContainIPPayloadsSupported;
+}
+
+// EDX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000014EDX_0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000014, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
+
+    return reserved;
 }
 
 #pragma endregion
@@ -7918,6 +7942,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX14ECX1EDX()
     return GetCustom(0x00000014, 1, 3);
 }
 
+// EAX
 /* Number of configurable address ranges for filtering = (rangecnt). */
 extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EAX0_2_Rangecnt()
 {
@@ -7978,6 +8003,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EAX16_31_MtcRate()
     return mtcRate;
 }
 
+// EBX
 /* Bitmap of supported cycle threshold value encodings - (cyc_thresholds). */
 extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EBX0_15_CycThresholds()
 {
@@ -7998,6 +8024,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EBX16_31_PsbRate()
     return psbRate;
 }
 
+// ECX
 /* Trigger Action EN_ICNT supported. */
 extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1ECX0_Icnt()
 {
@@ -8074,6 +8101,18 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1ECX16_31_Reserved()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x14, 1);
     unsigned int reserved = ExtractBits(cpuInfo[2], 16, 16);
+
+    return reserved;
+}
+
+// EDX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000014_ECX1_EDX_0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000014, 1);
+
+    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
 
     return reserved;
 }
