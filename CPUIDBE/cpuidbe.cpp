@@ -30,17 +30,9 @@ using namespace std;
  * @return The extracted bits as an integer.
  */
 int ExtractBits(int number, int startPosition, int length) {
-    // Create a mask to extract bits from position to length
-    // Calculate the number of bits to extract
-    int numBits = length - startPosition + 1;
-
-    // Shift left by (numBits - 1) to create a mask of the appropriate length
-    int mask = (1 << numBits) - 1;
-
-    // Shift number to the right by startPosition position and then mask to extract bits
-    int extractedBits = (number >> startPosition) & mask;
-
-    return extractedBits;
+    unsigned int shifted = (number >> startPosition);
+	unsigned int mask = (1u << length) - 1;
+    return shifted & mask;
 }
 
 // Pad a number with zeros to make it 8 characters long, return the padded hex string
