@@ -22,25 +22,25 @@
 
 using namespace std;
 
-unsigned int ExtractBits(unsigned int number,
-                         unsigned int position,
-                         unsigned int numberOfBits)
-{
-    // TODO: If I want to read 32 bits, this returns 0, why?
-    if (numberOfBits == 32)
-    {
-        // temp hax
-        numberOfBits = 31;
-    }
-    
-    // Right shift 'num' by 'pos' bits
-    unsigned int shifted = (number >> position);
+/*
+ * Extracts a range of bits from a 32-bit integer.
+ * @param number The integer from which to extract bits, cannot exceed 31.
+ * @param startPosition The starting position of the bit range (0-based index).
+ * @param length The number of bits to extract.
+ * @return The extracted bits as an integer.
+ */
+int ExtractBits(int number, int startPosition, int length) {
+    // Create a mask to extract bits from position to length
+    // Calculate the number of bits to extract
+    int numBits = length - startPosition + 1;
 
-    // Create a mask with 'k' bits set to 1
-    unsigned int mask = (1 << numberOfBits) - 1;
+    // Shift left by (numBits - 1) to create a mask of the appropriate length
+    int mask = (1 << numBits) - 1;
 
-    // Apply the mask to the shifted number
-    return (shifted & mask);
+    // Shift number to the right by startPosition position and then mask to extract bits
+    int extractedBits = (number >> startPosition) & mask;
+
+    return extractedBits;
 }
 
 // Pad a number with zeros to make it 8 characters long, return the padded hex string
@@ -1603,14 +1603,12 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4EBX22_31_WaysOfCacheAssociat
     return waysOfCacheAssociativity;
 }
 
-extern "C" __declspec(dllexport) int __cdecl GetEAX4ECX0_31_NumberOfSetsInCacheMinusOne(int ecxSubLeaf)
+extern "C" __declspec(dllexport) unsigned int __cdecl GetEAX4ECX0_31_NumberOfSetsInCacheMinusOne(int ecxSubLeaf)
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4, ecxSubLeaf);
 
-    unsigned int numberOfSets = ExtractBits(cpuInfo[2], 0, 32);
-
-    return numberOfSets;
+    return cpuInfo[2];
 }
 
 // For any caches that are valid and not fully-associative, the value returned in ECX 
@@ -1627,7 +1625,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4TotalCacheSizeInBytes(int ec
     unsigned int ebx11_0 = ExtractBits(cpuInfo[1], 0, 12);
     unsigned int ebx21_12 = ExtractBits(cpuInfo[1], 12, 10);
     unsigned int ebx31_22 = ExtractBits(cpuInfo[1], 22, 10);
-    unsigned int ecx = ExtractBits(cpuInfo[2], 0, 32);
+    unsigned int ecx = cpuInfo[2];
 
     unsigned int cacheSize = (ebx11_0 + 1) * (ebx21_12 + 1) * (ebx31_22 + 1) * (ecx + 1);
 
@@ -1920,9 +1918,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DECX0_31_NumberOfSetsI
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
 
-    unsigned int numberOfSets = ExtractBits(cpuInfo[2], 0, 32);
-
-    return numberOfSets;
+    return cpuInfo[2];
 }
 
 // For any caches that are valid and not fully-associative, the value returned in ECX 
@@ -1939,7 +1935,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DTotalCacheSizeInBytes
     unsigned int ebx11_0 = ExtractBits(cpuInfo[1], 0, 12);
     unsigned int ebx21_12 = ExtractBits(cpuInfo[1], 12, 10);
     unsigned int ebx31_22 = ExtractBits(cpuInfo[1], 22, 10);
-    unsigned int ecx = ExtractBits(cpuInfo[2], 0, 32);
+    unsigned int ecx = cpuInfo[2];
 
     unsigned int cacheSize = (ebx11_0 + 1) * (ebx21_12 + 1) * (ebx31_22 + 1) * (ecx + 1);
 
@@ -5875,9 +5871,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX00000009EAX0_31_ValueOfPlatfo
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x00000009, 0);
 
-    unsigned int valueOfPlatformDcaCapMs = ExtractBits(cpuInfo[0], 0, 32);
-
-    return valueOfPlatformDcaCapMs;
+    return cpuInfo[0];
 }
 
 #pragma endregion
@@ -6309,9 +6303,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000AECX0_31_FixedCounters
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0000000A, 0);
 
-    unsigned int fixedCountersBitMask = ExtractBits(cpuInfo[2], 0, 32);
-
-    return fixedCountersBitMask;
+    return cpuInfo[2];
 }
 
 // EDX
@@ -6492,9 +6484,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BEDX0_31_X2APICIDAlway
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0000000B, 0);
 
-    unsigned int x2APICIDAlwaysValidDoesNotVaryWithSubLeafIndex = ExtractBits(cpuInfo[3], 0, 32);
-
-    return x2APICIDAlwaysValidDoesNotVaryWithSubLeafIndex;
+    return cpuInfo[3];
 }
 
 #pragma endregion
@@ -6552,9 +6542,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEAX0_31_ValidXCR0Bits
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0000000D, 0);
 
-    unsigned int validXCR0Bits = ExtractBits(cpuInfo[0], 0, 32);
-
-    return validXCR0Bits;
+    return cpuInfo[0];
 }
 
 // EBX
@@ -6564,9 +6552,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEBX0_31_CurrentSizeIn
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0000000D, 0);
 
-    unsigned int currentSizeInBytesOfXSAVE_XRSTORAreaAsPerCurrentXCR0 = ExtractBits(cpuInfo[1], 0, 32);
-
-    return currentSizeInBytesOfXSAVE_XRSTORAreaAsPerCurrentXCR0;
+    return cpuInfo[1];
 }
 
 // ECX
@@ -6576,9 +6562,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DECX0_31_MaxSizeInByte
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0000000D, 0);
 
-    unsigned int maxSizeInBytesOfXSAVE_XRSTORAreaInclXSAVEHEADER = ExtractBits(cpuInfo[2], 0, 32);
-
-    return maxSizeInBytesOfXSAVE_XRSTORAreaInclXSAVEHEADER;
+    return cpuInfo[2];
 }
 
 // EDX
@@ -6588,9 +6572,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEDX32_63_ValidXCR0Bit
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0000000D, 0);
 
-    unsigned int validXCR0Bits = ExtractBits(cpuInfo[3], 0, 32);
-
-    return validXCR0Bits;
+    return cpuInfo[3];
 }
 
 #pragma endregion
@@ -6692,9 +6674,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000D_ECX1_EBX0_31_Current
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0000000D, 1);
 
-    unsigned int currentSizeInBytesOfXSAVE_XRSTORAreaAsPerCurrentXCR0_XSS = ExtractBits(cpuInfo[1], 0, 32);
-
-    return currentSizeInBytesOfXSAVE_XRSTORAreaAsPerCurrentXCR0_XSS;
+    return cpuInfo[1];
 }
 
 // ECX
@@ -6704,9 +6684,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000D_ECX1_ECX0_31_ValidXS
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0000000D, 1);
 
-    unsigned int validXSSBits = ExtractBits(cpuInfo[2], 0, 32);
-
-    return validXSSBits;
+    return cpuInfo[2];
 }
 
 // EDX
@@ -6716,9 +6694,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000D_ECX1_EDX32_63_ValidX
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0000000D, 1);
 
-    unsigned int validXSSBits = ExtractBits(cpuInfo[3], 0, 32);
-
-    return validXSSBits;
+    return cpuInfo[3];
 }
 
 #pragma endregion
@@ -6752,9 +6728,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEDX_ECXN_SizeInBytesI
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0000000D, n);
 
-    unsigned int sizeInBytesInXSAVE_SRSTORAreaForXCR0N = ExtractBits(cpuInfo[0], 0, 32);
-
-    return sizeInBytesInXSAVE_SRSTORAreaForXCR0N;
+    return cpuInfo[0];
 }
 
 // EBX
@@ -6764,9 +6738,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEDX_ECXN_OffsetInByte
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0000000D, n);
 
-    unsigned int offsetInBytesInXSAVE_SRSTORAreaForXCR0N = ExtractBits(cpuInfo[1], 0, 32);
-
-    return offsetInBytesInXSAVE_SRSTORAreaForXCR0N;
+    return cpuInfo[1];
 }
 
 // ECX
@@ -6863,9 +6835,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEAX_Reserved()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0000000D, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[0], 0, 32);
-
-    return reserved;
+    return cpuInfo[0];
 }
 
 // EBX
@@ -6875,9 +6845,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEBX_MaxRangeOfRMIDWit
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0000000D, 0);
 
-    unsigned int maxRangeOfRMIDWithinThisPhysProcessorOfAllTypes = ExtractBits(cpuInfo[1], 0, 32);
-
-    return maxRangeOfRMIDWithinThisPhysProcessorOfAllTypes;
+    return cpuInfo[1];
 }
 
 // ECX
@@ -6887,9 +6855,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DECX_Reserved()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0000000D, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[2], 0, 32);
-
-    return reserved;
+    return cpuInfo[2];
 }
 
 // EDX
@@ -7011,9 +6977,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000D_ECX_EBX_0_31_Convers
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0000000D, n);
 
-    unsigned int conversionFactor = ExtractBits(cpuInfo[1], 0, 32);
-
-    return conversionFactor;
+    return cpuInfo[1];
 }
 
 // ECX
@@ -7023,9 +6987,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000D_ECX_ECX_0_31_MaxRang
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0000000D, n);
 
-    unsigned int maxRangeOfRMIDWithinThisResourceType = ExtractBits(cpuInfo[2], 0, 32);
-
-    return maxRangeOfRMIDWithinThisResourceType;
+    return cpuInfo[2];
 }
 
 // EDX
@@ -7202,9 +7164,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX00000014EAX_0_31_MaxSubleaf()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x00000014, 0);
 
-    unsigned int maxSubleaf = ExtractBits(cpuInfo[0], 0, 31);
-
-    return maxSubleaf;
+    return cpuInfo[0];
 }
 
 // EBX Feature Bits
@@ -7920,9 +7880,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX00000014EDX_0_31_Reserved()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x00000014, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
-
-    return reserved;
+    return cpuInfo[3];
 }
 
 #pragma endregion
@@ -8119,9 +8077,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX00000014_ECX1_EDX_0_31_Reserv
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x00000014, 1);
 
-    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
-
-    return reserved;
+    return cpuInfo[3];
 }
 
 #pragma endregion
@@ -8283,9 +8239,8 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX16EDX0_31_Reserved()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x16, 0);
-    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
 
-    return reserved;
+    return cpuInfo[3];
 }
 
 #pragma endregion
@@ -11094,9 +11049,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000004EBX0_31_RecommendedSp
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000004, 0);
 
-    unsigned int recommendedSpinlockFailureRetries = ExtractBits(cpuInfo[1], 0, 32);
-
-    return recommendedSpinlockFailureRetries;
+    return cpuInfo[1];
 }
 
 // ECX
@@ -11129,9 +11082,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000004EDX0_31_Reserved()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000004, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
-
-    return reserved;
+    return cpuInfo[3];
 }
 
 
@@ -11165,9 +11116,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000005EAX0_31_MaximumSuppor
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000005, 0);
 
-    unsigned int maximumSupportedVirtualProcessors = ExtractBits(cpuInfo[0], 0, 32);
-
-    return maximumSupportedVirtualProcessors;
+    return cpuInfo[0];
 }
 
 /* Maximum supported logical processors. */
@@ -11176,9 +11125,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000005EBX0_31_MaximumSuppor
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000005, 0);
 
-    unsigned int maximumSupportedLogicalProcessors = ExtractBits(cpuInfo[1], 0, 32);
-
-    return maximumSupportedLogicalProcessors;
+    return cpuInfo[1];
 }
 
 /* Maximum supported physical interrupt vectors for remapping. */
@@ -11187,9 +11134,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000005ECX0_31_MaximumSuppor
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000005, 0);
 
-    unsigned int maximumSupportedPhysicalInterruptVectorsForRemapping = ExtractBits(cpuInfo[2], 0, 32);
-
-    return maximumSupportedPhysicalInterruptVectorsForRemapping;
+    return cpuInfo[2];
 }
 
 /* Reserved. */
@@ -11198,9 +11143,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000005EDX0_31_Reserved()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000005, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
-
-    return reserved;
+    return cpuInfo[3];
 }
 
 #pragma endregion
@@ -11488,9 +11431,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000006EBX0_31_Reserved()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000006, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[1], 0, 32);
-
-    return reserved;
+    return cpuInfo[1];
 }
 
 // ECX
@@ -11500,9 +11441,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000006ECX0_31_Reserved()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000006, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[2], 0, 32);
-
-    return reserved;
+    return cpuInfo[2];
 }
 
 // EDX
@@ -11512,9 +11451,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000006EDX0_31_Reserved()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000006, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
-
-    return reserved;
+    return cpuInfo[3];
 }
 
 #pragma endregion
@@ -11672,9 +11609,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000007EDX0_31_Reserved()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000007, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
-
-    return reserved;
+    return cpuInfo[3];
 }
 
 #pragma endregion
@@ -11740,9 +11675,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000008EBX0_31_Reserved()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000008, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[1], 0, 32);
-
-    return reserved;
+    return cpuInfo[1];
 }
 
 /* Reserved. */
@@ -11751,9 +11684,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000008ECX0_31_Reserved()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000008, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[2], 0, 32);
-
-    return reserved;
+    return cpuInfo[2];
 }
 
 /* Reserved. */
@@ -11762,9 +11693,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000008EDX0_31_Reserved()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000008, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
-
-    return reserved;
+    return cpuInfo[3];
 }
 
 #pragma endregion
@@ -12151,9 +12080,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000009EBX0_31_Reserved()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000009, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[1], 0, 32);
-
-    return reserved;
+    return cpuInfo[1];
 }
 
 // ECX
@@ -12163,9 +12090,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4000009ECX0_31_Reserved()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000009, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[2], 0, 32);
-
-    return reserved;
+    return cpuInfo[2];
 }
 
 //EDX
@@ -12686,9 +12611,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX400000AECX0_31_Reserved()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4000000A, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[2], 0, 32);
-
-    return reserved;
+    return cpuInfo[2];
 }
 
 // EDX
@@ -12698,9 +12621,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4000000AEDX0_31_Reserved()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4000000A, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
-
-    return reserved;
+    return cpuInfo[3];
 }
 
 #pragma endregion
@@ -12837,9 +12758,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX400000CECX0_31_Reserved()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4000000C, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[2], 0, 32);
-
-    return reserved;
+    return cpuInfo[2];
 }
 
 // EDX
@@ -12849,9 +12768,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4000000CEDX0_31_Reserved()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4000000C, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
-
-    return reserved;
+    return cpuInfo[3];
 }
 
 #pragma endregion
@@ -13023,9 +12940,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000010EAX0_31_VirtualTSCFre
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000010, 0);
 
-    unsigned int virtualTSCFrequencyInKHz = ExtractBits(cpuInfo[0], 0, 32);
-
-    return virtualTSCFrequencyInKHz;
+    return cpuInfo[0];
 }
 
 // EBX
@@ -13035,9 +12950,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000010EBX0_31_VirtualBusBre
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000010, 0);
 
-    unsigned int virtualBusBrequencyInKHz = ExtractBits(cpuInfo[1], 0, 32);
-
-    return virtualBusBrequencyInKHz;
+    return cpuInfo[1];
 }
 
 // ECX
@@ -13047,9 +12960,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4000010ECX0_31_Reserved()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000010, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[2], 0, 32);
-
-    return reserved;
+    return cpuInfo[2];
 }
 
 // EDX
@@ -13059,9 +12970,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX40000010EDX0_31_Reserved()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000010, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
-
-    return reserved;
+    return cpuInfo[3];
 }
 
 #pragma endregion
@@ -13223,9 +13132,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001EAX0_31_Word3()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4C780001, 0);
 
-    unsigned int word3 = ExtractBits(cpuInfo[0], 0, 32);
-
-    return word3;
+    return cpuInfo[0];
 }
 
 // EBX
@@ -13235,9 +13142,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001EBX0_31_Word7()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4C780001, 0);
 
-    unsigned int word7 = ExtractBits(cpuInfo[1], 0, 32);
-
-    return word7;
+    return cpuInfo[1];
 }
 
 // ECX
@@ -13247,9 +13152,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001ECX0_31_Word8()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4C780001, 0);
 
-    unsigned int word8 = ExtractBits(cpuInfo[2], 0, 32);
-
-    return word8;
+    return cpuInfo[2];
 }
 
 // EDX
@@ -13259,9 +13162,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001EDX0_31_Word11()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4C780001, 0);
 
-    unsigned int word11 = ExtractBits(cpuInfo[3], 0, 32);
-
-    return word11;
+    return cpuInfo[3];
 }
 
 // ECX = 1, subleaf 1
@@ -13328,9 +13229,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001ECX1EAX0_31_Word17()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4C780001, 1);
 
-    unsigned int word17 = ExtractBits(cpuInfo[0], 0, 32);
-
-    return word17;
+    return cpuInfo[0];
 }
 
 // EBX
@@ -13340,9 +13239,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001ECX1EBX0_31_Word21()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4C780001, 1);
 
-    unsigned int word21 = ExtractBits(cpuInfo[1], 0, 32);
-
-    return word21;
+    return cpuInfo[1];
 }
 
 // ECX
@@ -13352,9 +13249,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001ECX1ECX0_31_Reserved(
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4C780001, 1);
 
-    unsigned int reserved = ExtractBits(cpuInfo[2], 0, 32);
-
-    return reserved;
+    return cpuInfo[2];
 }
 
 // EDX
@@ -13364,9 +13259,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4C780001ECX1EDX0_31_Reserved(
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4C780001, 1);
 
-    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
-
-    return reserved;
+    return cpuInfo[3];
 }
 
 #pragma endregion
@@ -13437,9 +13330,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4C780002EAX0_31_Word0()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4C780002, 0);
 
-    unsigned int word0 = ExtractBits(cpuInfo[0], 0, 32);
-
-    return word0;
+    return cpuInfo[0];
 }
 
 // EBX
@@ -13449,9 +13340,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4C780002EBX0_31_Word1()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4C780002, 0);
 
-    unsigned int word1 = ExtractBits(cpuInfo[1], 0, 32);
-
-    return word1;
+    return cpuInfo[1];
 }
 
 // ECX
@@ -13461,9 +13350,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4C780002ECX0_31_Reserved()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4C780002, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[2], 0, 32);
-
-    return reserved;
+    return cpuInfo[2];
 }
 
 // EDX
@@ -13473,9 +13360,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4C780002EDX0_31_Reserved()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4C780002, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[3], 0, 32);
-
-    return reserved;
+    return cpuInfo[3];
 }
 
 #pragma endregion
