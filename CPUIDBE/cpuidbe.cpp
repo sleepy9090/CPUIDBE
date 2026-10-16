@@ -6367,34 +6367,34 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000AEDX20_31_Reserved()
 
 #pragma endregion
 
-#pragma region EAX=0x0000000B: Topology enumeration information
+#pragma region EAX=0x0000000B: Topology enumeration information, sub-leaf to query (0...n until EBX[15...0] = 0).
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXBEAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000BEAX(int subLeafIndex)
 {
-    return GetCustom(0x0000000B, 0, 0);
+    return GetCustom(0x0000000B, subLeafIndex, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXBEBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000BEBX(int subLeafIndex)
 {
-    return GetCustom(0x0000000B, 0, 1);
+    return GetCustom(0x0000000B, subLeafIndex, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXBECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000BECX(int subLeafIndex)
 {
-    return GetCustom(0x0000000B, 0, 2);
+    return GetCustom(0x0000000B, subLeafIndex, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAXBEDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000BEDX(int subLeafIndex)
 {
-    return GetCustom(0x0000000B, 0, 3);
+    return GetCustom(0x0000000B, subLeafIndex, 3);
 }
 
 // EAX
 /* Number of bits that x2APIC ID must be shifted to right for next domain. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BEAX0_4_NumberOfBitsThatX2APICIDMustBeShiftedToRightForNextDomain()
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BEAX0_4_NumberOfBitsThatX2APICIDMustBeShiftedToRightForNextDomain(int subLeafIndex)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000B, 0);
+    __cpuidex(cpuInfo, 0x0000000B, subLeafIndex);
 
     unsigned int numberOfBitsThatX2APICIDMustBeShiftedToRightForNextDomain = ExtractBits(cpuInfo[3], 0, 5);
 
@@ -6402,10 +6402,10 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BEAX0_4_NumberOfBitsTh
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BEAX5_31_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BEAX5_31_Reserved(int subLeafIndex)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000B, 0);
+    __cpuidex(cpuInfo, 0x0000000B, subLeafIndex);
 
     unsigned int reserved = ExtractBits(cpuInfo[3], 5, 27);
 
@@ -6414,10 +6414,10 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BEAX5_31_Reserved()
 
 // EBX
 /* Number of logical processors across all the instances of this domain. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BEBX0_15_NumberOfLogicalProcessors()
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BEBX0_15_NumberOfLogicalProcessors(int subLeafIndex)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000B, 0);
+    __cpuidex(cpuInfo, 0x0000000B, subLeafIndex);
 
     unsigned int numberOfLogicalProcessorsAcrossAllInstancesOfThisDomain = ExtractBits(cpuInfo[1], 0, 16);
 
@@ -6425,10 +6425,10 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BEBX0_15_NumberOfLogic
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BEBX16_31_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BEBX16_31_Reserved(int subLeafIndex)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000B, 0);
+    __cpuidex(cpuInfo, 0x0000000B, subLeafIndex);
 
     unsigned int reserved = ExtractBits(cpuInfo[1], 16, 16);
 
@@ -6437,10 +6437,10 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BEBX16_31_Reserved()
 
 // ECX
 /* Input ECX sub-leaf index. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BECX0_7_InputECXSubLeafIndex()
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BECX0_7_InputECXSubLeafIndex(int subLeafIndex)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000B, 0);
+    __cpuidex(cpuInfo, 0x0000000B, subLeafIndex);
 
     unsigned int inputECXSubLeafIndex = ExtractBits(cpuInfo[2], 0, 8);
 
@@ -6448,10 +6448,10 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BECX0_7_InputECXSubLea
 }
 
 /* Domain Type - (0=invalid, 1=thread, 2=core, implied=package/socket, 3-255=reserved). */
-extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BECX8_15_DomainType()
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BECX8_15_DomainType(int subLeafIndex)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000B, 0);
+    __cpuidex(cpuInfo, 0x0000000B, subLeafIndex);
 
     unsigned int domainType = ExtractBits(cpuInfo[2], 8, 8);
 
@@ -6459,10 +6459,10 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BECX8_15_DomainType()
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BECX16_31_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BECX16_31_Reserved(int subLeafIndex)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000B, 0);
+    __cpuidex(cpuInfo, 0x0000000B, subLeafIndex);
 
     unsigned int reserved = ExtractBits(cpuInfo[2], 16, 16);
 
@@ -6471,10 +6471,10 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BECX16_31_Reserved()
 
 // EDX
 /* x2APIC ID – always valid – does not vary with sub-leaf index. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BEDX0_31_X2APICIDAlwaysValidDoesNotVaryWithSubLeafIndex()
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000BEDX0_31_X2APICIDAlwaysValidDoesNotVaryWithSubLeafIndex(int subLeafIndex)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000B, 0);
+    __cpuidex(cpuInfo, 0x0000000B, subLeafIndex);
 
     return cpuInfo[3];
 }
