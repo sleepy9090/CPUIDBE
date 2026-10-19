@@ -6559,7 +6559,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DECX0_31_MaxSizeInByte
 
 // EDX
 /* Valid XCR0.63...32 bits. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEDX32_63_ValidXCR0Bits()
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEDX0_31_ValidXCR0Bits63_32Bits()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0000000D, 0);
