@@ -6822,40 +6822,40 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000FEDX()
 
 // EAX
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEAX_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000FEAX_Reserved()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000D, 0);
+    __cpuidex(cpuInfo, 0x0000000F, 0);
 
     return cpuInfo[0];
 }
 
 // EBX
 /* Max range (zero-based) of RMID within this phys. processor of all types. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEBX_MaxRangeOfRMIDWithinThisPhysProcessorOfAllTypes()
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000FEBX_MaxRangeOfRMIDWithinThisPhysProcessorOfAllTypes()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000D, 0);
+    __cpuidex(cpuInfo, 0x0000000F, 0);
 
     return cpuInfo[1];
 }
 
 // ECX
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DECX_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000FECX_Reserved()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000D, 0);
+    __cpuidex(cpuInfo, 0x0000000F, 0);
 
     return cpuInfo[2];
 }
 
 // EDX
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEDX_0_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000FEDX_0_Reserved()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000D, 0);
+    __cpuidex(cpuInfo, 0x0000000F, 0);
 
     unsigned int reserved = ExtractBits(cpuInfo[3], 0, 1);
 
@@ -6863,10 +6863,10 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEDX_0_Reserved()
 }
 
 /* L3 cache QoS monitoring. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEDX_1_L3CacheQoSMonitoring()
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000FEDX_1_L3CacheQoSMonitoring()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000D, 0);
+    __cpuidex(cpuInfo, 0x0000000F, 0);
 
     unsigned int l3CacheQoSMonitoring = ExtractBits(cpuInfo[3], 1, 1);
 
@@ -6874,10 +6874,10 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEDX_1_L3CacheQoSMonit
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEDX_2_30_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000FEDX_2_31_Reserved()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000D, 0);
+    __cpuidex(cpuInfo, 0x0000000F, 0);
 
     unsigned int reserved = ExtractBits(cpuInfo[3], 2, 30);
 
@@ -6908,10 +6908,10 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000FEDX_ECX(int n)
 
 // EAX
 /* Counter width, offset from 24 bits (if 0, use FMS to pick the width). */
-extern "C" __declspec(dllexport) int __cdecl GetEAX0000000D_ECX_EAX_0_7_CounterWidth(int n)
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000F_ECX_EAX_0_7_CounterWidth(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000D, n);
+    __cpuidex(cpuInfo, 0x0000000F, n);
 
     unsigned int counterWidth = ExtractBits(cpuInfo[0], 0, 8);
 
@@ -6919,10 +6919,10 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000D_ECX_EAX_0_7_CounterW
 }
 
 /* Counter bit 61 is overflow bit. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX0000000D_ECX_EAX_8_CounterBit61IsOverflowBit(int n)
+extern "C" __declspec(dllexport) bool __cdecl GetEAX0000000F_ECX_EAX_8_CounterBit61IsOverflowBit(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000D, n);
+    __cpuidex(cpuInfo, 0x0000000F, n);
 
     unsigned int counterBit61IsOverflowBit = ExtractBits(cpuInfo[0], 8, 1);
 
@@ -6930,10 +6930,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX0000000D_ECX_EAX_8_CounterBi
 }
 
 /* Non-CPU agent present, supporting Intel RDT CMT. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX0000000D_ECX_EAX_9_NonCPUAgentPresentSupportingIntelRDTCMT(int n)
+extern "C" __declspec(dllexport) bool __cdecl GetEAX0000000F_ECX_EAX_9_NonCPUAgentPresentSupportingIntelRDTCMT(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000D, n);
+    __cpuidex(cpuInfo, 0x0000000F, n);
 
     unsigned int nonCPUAgentPresent = ExtractBits(cpuInfo[0], 9, 1);
 
@@ -6941,10 +6941,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX0000000D_ECX_EAX_9_NonCPUAge
 }
 
 /* Non-CPU agent present, supporting Intel RDT MBM. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX0000000D_ECX_EAX_10_NonCPUAgentPresentSupportingIntelRDTMBM(int n)
+extern "C" __declspec(dllexport) bool __cdecl GetEAX0000000F_ECX_EAX_10_NonCPUAgentPresentSupportingIntelRDTMBM(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000D, n);
+    __cpuidex(cpuInfo, 0x0000000F, n);
 
     unsigned int nonCPUAgentPresent = ExtractBits(cpuInfo[0], 10, 1);
 
@@ -6952,10 +6952,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX0000000D_ECX_EAX_10_NonCPUAg
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX0000000D_ECX_EAX_11_31_Reserved(int n)
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000F_ECX_EAX_11_31_Reserved(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000D, n);
+    __cpuidex(cpuInfo, 0x0000000F, n);
 
     unsigned int reserved = ExtractBits(cpuInfo[0], 11, 21);
 
@@ -6964,30 +6964,30 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000D_ECX_EAX_11_31_Reserv
 
 // EBX
 /* Conversion factor from QM_CTR value to occupancy metric (bytes). */
-extern "C" __declspec(dllexport) int __cdecl GetEAX0000000D_ECX_EBX_0_31_ConversionFactorFromQM_CTRValueToOccupancyMetricBytes(int n)
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000F_ECX_EBX_0_31_ConversionFactorFromQM_CTRValueToOccupancyMetricBytes(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000D, n);
+    __cpuidex(cpuInfo, 0x0000000F, n);
 
     return cpuInfo[1];
 }
 
 // ECX
 /* Max. range (zero-based) of RMID within this resource type. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX0000000D_ECX_ECX_0_31_MaxRangeOfRMIDWithinThisResourceType(int n)
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000F_ECX_ECX_0_31_MaxRangeOfRMIDWithinThisResourceType(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000D, n);
+    __cpuidex(cpuInfo, 0x0000000F, n);
 
     return cpuInfo[2];
 }
 
 // EDX
 /* L3 occupancy monitoring. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX0000000D_ECX_EDX_0_L3OccupancyMonitoring(int n)
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000F_ECX_EDX_0_L3OccupancyMonitoring(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000D, n);
+    __cpuidex(cpuInfo, 0x0000000F, n);
 
     unsigned int l3OccupancyMonitoring = ExtractBits(cpuInfo[3], 0, 1);
 
@@ -6995,10 +6995,10 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000D_ECX_EDX_0_L3Occupanc
 }
 
 /* L3 total external bandwidth monitoring. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX0000000D_ECX_EDX_1_L3TotalExternalBandwidthMonitoring(int n)
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000F_ECX_EDX_1_L3TotalExternalBandwidthMonitoring(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000D, n);
+    __cpuidex(cpuInfo, 0x0000000F, n);
 
     unsigned int l3TotalExternalBandwidthMonitoring = ExtractBits(cpuInfo[3], 1, 1);
 
@@ -7006,10 +7006,10 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000D_ECX_EDX_1_L3TotalExt
 }
 
 /* L3 local external bandwidth monitoring. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX0000000D_ECX_EDX_2_L3LocalExternalBandwidthMonitoring(int n)
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000F_ECX_EDX_2_L3LocalExternalBandwidthMonitoring(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000D, n);
+    __cpuidex(cpuInfo, 0x0000000F, n);
 
     unsigned int l3LocalExternalBandwidthMonitoring = ExtractBits(cpuInfo[3], 2, 1);
 
@@ -7017,17 +7017,15 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000D_ECX_EDX_2_L3LocalExt
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX0000000D_ECX_EDX_0_31_Reserved(int n)
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000F_ECX_EDX_0_31_Reserved(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000D, n);
+    __cpuidex(cpuInfo, 0x0000000F, n);
 
     unsigned int reserved = ExtractBits(cpuInfo[3], 3, 29);
 
     return reserved;
 }
-
-#pragma endregion
 
 #pragma endregion
 
