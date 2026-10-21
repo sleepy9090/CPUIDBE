@@ -7875,7 +7875,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX00000014EDX_0_31_Reserved()
 
 #pragma endregion
 
-#pragma region EAX=0x00000014, ECX=0x00000001..N: Processor Trace packet generation information in EAX, EBX and ECX - Details
+#pragma region EAX=0x00000014, ECX=0x00000001 to N: Processor Trace packet generation information in EAX, EBX and ECX - Details
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX14ECX1EAX(int n)
 {
