@@ -7875,84 +7875,84 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX00000014EDX_0_31_Reserved()
 
 #pragma endregion
 
-#pragma region EAX=0x00000014, ECX=0x00000001: Processor Trace packet generation information in EAX, EBX and ECX
+#pragma region EAX=0x00000014, ECX=0x00000001..N: Processor Trace packet generation information in EAX, EBX and ECX - Details
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX14ECX1EAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX14ECX1EAX(int n)
 {
-    return GetCustom(0x00000014, 1, 0);
+    return GetCustom(0x00000014, n, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX14ECX1EBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX14ECX1EBX(int n)
 {
-    return GetCustom(0x00000014, 1, 1);
+    return GetCustom(0x00000014, n, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX14ECX1ECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX14ECX1ECX(int n)
 {
-    return GetCustom(0x00000014, 1, 2);
+    return GetCustom(0x00000014, n, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX14ECX1EDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX14ECX1EDX(int n)
 {
-    return GetCustom(0x00000014, 1, 3);
+    return GetCustom(0x00000014, n, 3);
 }
 
 // EAX
 /* Number of configurable address ranges for filtering = (rangecnt). */
-extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EAX0_2_Rangecnt()
+extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EAX0_2_Rangecnt(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x14, 1);
+    __cpuidex(cpuInfo, 0x14, n);
     unsigned int rangecnt = ExtractBits(cpuInfo[0], 0, 2);
 
     return rangecnt;
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EAX3_7_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EAX3_7_Reserved(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x14, 1);
+    __cpuidex(cpuInfo, 0x14, n);
     unsigned int reserved = ExtractBits(cpuInfo[0], 3, 5);
 
     return reserved;
 }
 
 /* Number of IA32_RTIT_TRIGGERx_CFG MSRs. (Number of triggers supported is 4x this value) - (TRIGGER_CFG_CNT). */
-extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EAX8_10_TriggerConfigCount()
+extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EAX8_10_TriggerConfigCount(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x14, 1);
+    __cpuidex(cpuInfo, 0x14, n);
     unsigned int triggerConfigCount = ExtractBits(cpuInfo[0], 8, 3);
 
     return triggerConfigCount;
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EAX11_14_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EAX11_14_Reserved(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x14, 1);
+    __cpuidex(cpuInfo, 0x14, n);
     unsigned int reserved = ExtractBits(cpuInfo[0], 11, 4);
 
     return reserved;
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EAX15_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EAX15_Reserved(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x14, 1);
+    __cpuidex(cpuInfo, 0x14, n);
     unsigned int reserved = ExtractBits(cpuInfo[0], 15, 1);
 
     return reserved;
 }
 
 /* Bitmap of supported MTC period encodings - (mtc_rate). */
-extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EAX16_31_MtcRate()
+extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EAX16_31_MtcRate(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x14, 1);
+    __cpuidex(cpuInfo, 0x14, n);
     unsigned int mtcRate = ExtractBits(cpuInfo[0], 16, 16);
 
     return mtcRate;
@@ -7960,20 +7960,20 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EAX16_31_MtcRate()
 
 // EBX
 /* Bitmap of supported cycle threshold value encodings - (cyc_thresholds). */
-extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EBX0_15_CycThresholds()
+extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EBX0_15_CycThresholds(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x14, 1);
+    __cpuidex(cpuInfo, 0x14, n);
     unsigned int cycThresholds = ExtractBits(cpuInfo[1], 0, 16);
 
     return cycThresholds;
 }
 
 /* Bitmap of supported Configurable PSB frequency encodings - (psb_rate). */
-extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EBX16_31_PsbRate()
+extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EBX16_31_PsbRate(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x14, 1);
+    __cpuidex(cpuInfo, 0x14, n);
     unsigned int psbRate = ExtractBits(cpuInfo[1], 16, 16);
 
     return psbRate;
@@ -7981,80 +7981,80 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EBX16_31_PsbRate()
 
 // ECX
 /* Trigger Action EN_ICNT supported. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1ECX0_Icnt()
+extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1ECX0_Icnt(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x14, 1);
+    __cpuidex(cpuInfo, 0x14, n);
     unsigned int icnt = ExtractBits(cpuInfo[2], 0, 1);
 
     return icnt;
 }
 
 /* Trigger actions TRACE_PAUSE and TRACE_RESUME supported = (TRIGGER_PAUSE). */
-extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1ECX1_TriggerPause()
+extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1ECX1_TriggerPause(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x14, 1);
+    __cpuidex(cpuInfo, 0x14, n);
     unsigned int triggerPause = ExtractBits(cpuInfo[2], 1, 1);
 
     return triggerPause;
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1ECX2_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1ECX2_Reserved(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x14, 1);
+    __cpuidex(cpuInfo, 0x14, n);
     unsigned int reserved = ExtractBits(cpuInfo[2], 2, 1);
 
     return reserved;
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1ECX3_7_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1ECX3_7_Reserved(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x14, 1);
+    __cpuidex(cpuInfo, 0x14, n);
     unsigned int reserved = ExtractBits(cpuInfo[2], 3, 5);
 
     return reserved;
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1ECX8_10_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1ECX8_10_Reserved(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x14, 1);
+    __cpuidex(cpuInfo, 0x14, n);
     unsigned int reserved = ExtractBits(cpuInfo[2], 8, 3);
 
     return reserved;
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1ECX11_14_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1ECX11_14_Reserved(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x14, 1);
+    __cpuidex(cpuInfo, 0x14, n);
     unsigned int reserved = ExtractBits(cpuInfo[2], 11, 4);
 
     return reserved;
 }
 
 /* Trigger input DR match supported - (TRIGGER_­DR_MATCH). */
-extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1ECX15_TriggerDrMatch()
+extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1ECX15_TriggerDrMatch(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x14, 1);
+    __cpuidex(cpuInfo, 0x14, n);
     unsigned int triggerDrMatch = ExtractBits(cpuInfo[2], 15, 1);
 
     return triggerDrMatch;
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1ECX16_31_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1ECX16_31_Reserved(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x14, 1);
+    __cpuidex(cpuInfo, 0x14, n);
     unsigned int reserved = ExtractBits(cpuInfo[2], 16, 16);
 
     return reserved;
@@ -8062,10 +8062,10 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1ECX16_31_Reserved()
 
 // EDX
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX00000014_ECX1_EDX_0_31_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000014_ECX1_EDX_0_31_Reserved(int n)
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x00000014, 1);
+    __cpuidex(cpuInfo, 0x00000014, n);
 
     return cpuInfo[3];
 }
