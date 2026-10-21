@@ -7017,7 +7017,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000F_ECX_EDX_2_L3LocalExt
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX0000000F_ECX_EDX_0_31_Reserved(int n)
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000F_ECX_EDX_3_31_Reserved(int n)
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0000000F, n);
