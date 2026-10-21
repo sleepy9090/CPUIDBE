@@ -6548,7 +6548,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DEBX0_31_CurrentSizeIn
 }
 
 // ECX
-/* Max. size (in bytes) of XSAVE/XRSTOR area (incl. XSAVE.HEADER) */
+/* Max size (in bytes) of XSAVE/XRSTOR area (incl. XSAVE.HEADER) */
 extern "C" __declspec(dllexport) int __cdecl GetEAX0000000DECX0_31_MaxSizeInBytesOfXSAVE_XRSTORAreaInclXSAVEHEADER()
 {
     int cpuInfo[4];
