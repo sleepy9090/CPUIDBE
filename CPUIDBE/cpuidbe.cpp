@@ -6593,10 +6593,10 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000DEDX_ECX1()
 
 // EAX
 /* XSAVEOPT. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX0000000A_ECX1_EAX0_XSAVEOPT()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX0000000D_ECX1_EAX0_XSAVEOPT()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000A, 1);
+    __cpuidex(cpuInfo, 0x0000000D, 1);
 
     unsigned int xsaveopt = ExtractBits(cpuInfo[0], 0, 1);
 
@@ -6604,10 +6604,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX0000000A_ECX1_EAX0_XSAVEOPT(
 }
 
 /* XSAVEC and compacted form of XRSTOR. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX0000000A_ECX1_EAX1_XSAVECAndCompactedFormOfXRSTOR()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX0000000D_ECX1_EAX1_XSAVECAndCompactedFormOfXRSTOR()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000A, 1);
+    __cpuidex(cpuInfo, 0x0000000D, 1);
 
     unsigned int xsavecAndCompactedFormOfXRSTOR = ExtractBits(cpuInfo[0], 1, 1);
 
@@ -6615,10 +6615,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX0000000A_ECX1_EAX1_XSAVECAnd
 }
 
 /* XGETBV with ECX=1. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX0000000A_ECX1_EAX2_XGETBVWithECX1()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX0000000D_ECX1_EAX2_XGETBVWithECX1()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000A, 1);
+    __cpuidex(cpuInfo, 0x0000000D, 1);
 
     unsigned int xgetbvWithECX1 = ExtractBits(cpuInfo[0], 2, 1);
 
@@ -6626,10 +6626,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX0000000A_ECX1_EAX2_XGETBVWit
 }
 
 /* XSAVES/XRSTORS and XSS. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX0000000A_ECX1_EAX3_XSAVES_XRSTORSAndXSS()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX0000000D_ECX1_EAX3_XSAVES_XRSTORSAndXSS()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000A, 1);
+    __cpuidex(cpuInfo, 0x0000000D, 1);
 
     unsigned int xsavesXRSTORSAndXSS = ExtractBits(cpuInfo[0], 3, 1);
 
@@ -6637,10 +6637,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX0000000A_ECX1_EAX3_XSAVES_XR
 }
 
 /* XFD and XFD_ERR. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX0000000A_ECX1_EAX4_XFDAndXFD_ERR()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX0000000D_ECX1_EAX4_XFDAndXFD_ERR()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x0000000A, 1);
+    __cpuidex(cpuInfo, 0x0000000D, 1);
 
     unsigned int xfdAndXfd_ERR = ExtractBits(cpuInfo[0], 4, 1);
 
@@ -6649,10 +6649,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX0000000A_ECX1_EAX4_XFDAndXFD
 
 // Bits 5 - 31 are reserved
 /* Reserved. */
-//extern "C" __declspec(dllexport) int __cdecl GetEAX0000000A_ECX1_EAX5_Reserved()
+//extern "C" __declspec(dllexport) int __cdecl GetEAX0000000D_ECX1_EAX5_Reserved()
 //{
 //    int cpuInfo[4];
-//    __cpuidex(cpuInfo, 0x0000000A, 1);
+//    __cpuidex(cpuInfo, 0x0000000D, 1);
 
 //    unsigned int reserved = ExtractBits(cpuInfo[0], 5, 1);
 
