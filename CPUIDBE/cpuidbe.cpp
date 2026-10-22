@@ -6660,8 +6660,8 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX0000000D_ECX1_EAX4_XFDAndXFD
 //}
 
 // EBX
-/* Current size (in bytes) in XSAVE/XRSTOR area for XCR0 | XSS. (mutable - XCR0 | XSS) */
-extern "C" __declspec(dllexport) int __cdecl GetEAX0000000D_ECX1_EBX0_31_CurrentSizeInBytesOfXSAVE_XRSTORAreaAsPerCurrentXCR0_XSS()
+/* Size (in bytes) in XSAVE area for XCR0 | XSS. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000000D_ECX1_EBX0_31_SizeInBytesInXSAVEAreaForXCR0_XSS()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0000000D, 1);
