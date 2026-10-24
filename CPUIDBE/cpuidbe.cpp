@@ -6884,6 +6884,8 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000000FEDX_2_31_Reserved()
     return reserved;
 }
 
+#pragma endregion
+
 #pragma region EAX=0x0000000F: RDT-M (QoS monitoring) enumeration, ECX=1..n - 1=L3
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX0000000FEAX_ECX(int n)
@@ -16264,7 +16266,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8FFFFFFFEDX()
 
 #pragma endregion
 
-#pragma region EAX=0xC0000000: Highest Centaur Extended Function
+#pragma region EAX=0xC0000000: Centaur and Zhaoxin - Highest Extended Function / Maximum Supported Leaf
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000000EAX()
 {
@@ -16288,7 +16290,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000000EDX()
 
 #pragma endregion
 
-#pragma region EAX=0xC0000001: Centaur Feature Information
+#pragma region EAX=0xC0000001: Centaur and Zhaoxin - Processor Information
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000001EAX()
 {
@@ -16312,7 +16314,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000001EDX()
 
 #pragma endregion
 
-#pragma region EAX=0xC0000002: Centaur Extended CPUID Performance Data
+#pragma region EAX=0xC0000002: Centaur - Performance Information - Centaur C5J (Esther)
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000002EAX()
 {
@@ -16336,7 +16338,79 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000002EDX()
 
 #pragma endregion
 
-#pragma region EAX=0xC0000006, ECX=0: Zhaoxin Feature Information
+#pragma region EAX=0xC0000003: Centaur - [speculative interpretation] Processor Serial Number
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000003EAX()
+{
+    return GetCustom(0xC0000003, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000003EBX()
+{
+    return GetCustom(0xC0000003, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000003ECX()
+{
+    return GetCustom(0xC0000003, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000003EDX()
+{
+    return GetCustom(0xC0000003, 0, 3);
+}
+
+#pragma endregion
+
+#pragma region EAX=0xC0000004: Centaur and Zhaoxin - Performance Information - Centaur CN (Isaiah) and Zhaoxin ZX
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000004EAX()
+{
+    return GetCustom(0xC0000004, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000004EBX()
+{
+    return GetCustom(0xC0000004, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000004ECX()
+{
+    return GetCustom(0xC0000004, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000004EDX()
+{
+    return GetCustom(0xC0000004, 0, 3);
+}
+
+#pragma endregion
+
+#pragma region EAX=0xC0000005: Zhaoxin - Isolation Information
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000005EAX()
+{
+    return GetCustom(0xC0000005, 0, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000005EBX()
+{
+    return GetCustom(0xC0000005, 0, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000005ECX()
+{
+    return GetCustom(0xC0000005, 0, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000005EDX()
+{
+    return GetCustom(0xC0000005, 0, 3);
+}
+
+#pragma endregion
+
+#pragma region EAX=0xC0000006: Zhaoxin - Processor Information
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAXC0000006EAX()
 {
