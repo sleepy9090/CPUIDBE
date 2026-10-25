@@ -8304,7 +8304,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001FEDX()
 
 #pragma region EAX=0x00000020: HRESET Information
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX00000020FEAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000020EAX()
 {
     return GetCustom(0x00000020, 0, 0);
 }
@@ -8328,22 +8328,22 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX00000020EDX()
 
 #pragma region EAX=0x00000021: TDX Software Information
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX21FEAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000021EAX()
 {
     return GetCustom(0x00000021, 0, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX21EBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000021EBX()
 {
     return GetCustom(0x00000021, 0, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX21ECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000021ECX()
 {
     return GetCustom(0x00000021, 0, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX21EDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000021EDX()
 {
     return GetCustom(0x00000021, 0, 3);
 }
@@ -8376,7 +8376,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX00000022EDX()
 
 #pragma region EAX=0x00000023: Architectural perf mon extended information
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX00000023FEAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000023EAX()
 {
     return GetCustom(0x00000023, 0, 0);
 }
@@ -8492,7 +8492,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX00000026EDX()
 
 #pragma region EAX=0x00000027: Asymmetric RDT-M (QoS monitoring) enumeration
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX00000027FEAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000027EAX()
 {
     return GetCustom(0x00000027, 0, 0);
 }
@@ -8516,7 +8516,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX00000027EDX()
 
 #pragma region EAX=0x00000028: Asymmetric RDT-A (QoS allocation) enumeration
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX00000028FEAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000028EAX()
 {
     return GetCustom(0x00000028, 0, 0);
 }
@@ -8540,7 +8540,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX00000028EDX()
 
 #pragma region EAX=0x00000029: APX Information
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX00000029FEAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000029EAX()
 {
     return GetCustom(0x00000029, 0, 0);
 }
@@ -8576,7 +8576,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX00000029EDX()
 
 #pragma region EAX=0x00005A4E: Rise mP6 prank leaf
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX00005A4EFEAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00005A4EEAX()
 {
     return GetCustom(0x00005A4E, 0, 0);
 }
