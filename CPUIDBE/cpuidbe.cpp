@@ -8400,48 +8400,48 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX00000023EDX()
 
 #pragma region EAX=0x00000024, ECX=0x00000000: AVX10 Converged Vector ISA
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX0EAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000024EAX()
 {
     return GetCustom(0x00000024, 0, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX0EBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000024EBX()
 {
     return GetCustom(0x00000024, 0, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX0ECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000024ECX()
 {
     return GetCustom(0x00000024, 0, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX0EDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000024EDX()
 {
     return GetCustom(0x00000024, 0, 3);
 }
 
 #pragma endregion
 
-#pragma region EAX=0x00000024, ECX=0x00000001: Discrete AVX10 Features
+#pragma region EAX=0x00000024, ECX=0x00000001 to n: Discrete AVX10 Features
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX1EAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000024ECXNEAX(int n)
 {
-    return GetCustom(0x00000024, 1, 0);
+    return GetCustom(0x00000024, n, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX1EBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000024ECXNEBX(int n)
 {
-    return GetCustom(0x00000024, 1, 1);
+    return GetCustom(0x00000024, n, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX1ECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000024ECXNECX(int n)
 {
-    return GetCustom(0x00000024, 1, 2);
+    return GetCustom(0x00000024, n, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX24ECX1EDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000024ECXNEDX(int n)
 {
-    return GetCustom(0x00000024, 1, 3);
+    return GetCustom(0x00000024, n, 3);
 }
 
 #pragma endregion
