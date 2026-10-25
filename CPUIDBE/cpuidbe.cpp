@@ -1452,9 +1452,8 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX4EDX()
 
 #pragma endregion
 
-#pragma region EAX=0x00000004 and EAX=0x8000001D: Cache Hierarchy and Topology
+#pragma region EAX=0x00000004: Cache Hierarchy and Topology
 
-// EAX=0x4
 extern "C" __declspec(dllexport) char* __cdecl GetEAX4EAX(int ecxSubLeaf)
 {
     return GetCustom(0x00000004, ecxSubLeaf, 0);
@@ -1758,316 +1757,6 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX4EDX26_31_Reserved(int ecxSub
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x4, ecxSubLeaf);
-
-    unsigned int reservedBits = ExtractBits(cpuInfo[3], 26, 6);
-
-    return reservedBits;
-}
-
-//EAX=0x8000001D
-extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001DEAX(int ecxSubLeaf)
-{
-    return GetCustom(0x0000001D, ecxSubLeaf, 0);
-}
-
-extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001DEBX(int ecxSubLeaf)
-{
-    return GetCustom(0x0000001D, ecxSubLeaf, 1);
-}
-
-extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001DECX(int ecxSubLeaf)
-{
-    return GetCustom(0x0000001D, ecxSubLeaf, 2);
-}
-
-extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001DEDX(int ecxSubLeaf)
-{
-    return GetCustom(0x0000001D, ecxSubLeaf, 3);
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DEAX0_4_CacheType(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    unsigned int cacheType = ExtractBits(cpuInfo[0], 0, 5);
-
-    return cacheType;
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DEAX5_7_CacheLevel(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    unsigned int cacheLevel = ExtractBits(cpuInfo[0], 5, 3);
-
-    return cacheLevel;
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DEAX8_SelfInitCacheLevel(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    unsigned int selfInitCacheLevel = ExtractBits(cpuInfo[0], 8, 1);
-
-    return selfInitCacheLevel;
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DEAX9_FullyAssociativeCache(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    unsigned int fullyAssociativeCache = ExtractBits(cpuInfo[0], 9, 1);
-
-    return fullyAssociativeCache;
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DEAX10_WBINVDCacheInvalidationExecutionScope(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    unsigned int wbinvdCacheInvalidationExecutionScope = ExtractBits(cpuInfo[0], 10, 1);
-
-    return wbinvdCacheInvalidationExecutionScope;
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DEAX11_CacheInclusiveness(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    unsigned int cacheInclusiveness = ExtractBits(cpuInfo[0], 11, 1);
-
-    return cacheInclusiveness;
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DEAX12_13_Reserved(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    unsigned int reservedBits = ExtractBits(cpuInfo[0], 12, 2);
-
-    return reservedBits;
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DEAX14_25_MaxNumAddrIDsForLogicalProcsSharingThisCacheMinusOne(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    unsigned int max = ExtractBits(cpuInfo[0], 14, 12);
-
-    return max;
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DEAX26_31_MaxNumAddrIDsForProcCoresInPhysicalPackageMinusOne(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    unsigned int max = ExtractBits(cpuInfo[0], 26, 6);
-
-    return max;
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DEBX0_11_SystemCoherencyLineSizeInBytesMinusOne(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    unsigned int lineSize = ExtractBits(cpuInfo[1], 0, 12);
-
-    return lineSize;
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DEBX12_21_PhysicalLinePartitionsMinusOne(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    unsigned int physicalLinePartitions = ExtractBits(cpuInfo[1], 12, 10);
-
-    return physicalLinePartitions;
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DEBX22_31_WaysOfCacheAssociativityMinusOne(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    unsigned int waysOfCacheAssociativity = ExtractBits(cpuInfo[1], 22, 10);
-
-    return waysOfCacheAssociativity;
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DECX0_31_NumberOfSetsInCacheMinusOne(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    return cpuInfo[2];
-}
-
-// For any caches that are valid and not fully-associative, the value returned in ECX 
-// is the number of sets in the cache minus 1. (For fully-associative caches, ECX 
-// should be treated as if it return the value 0.) For any given cache described by a 
-// sub-leaf of CPUID leaf 4 or 8000'001Dh, the total cache size in bytes can be 
-// computed as:
-// CacheSize = (EBX[11:0] + 1) * (EBX[21:12] + 1) * (EBX[31:22] + 1) * (ECX + 1)
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DTotalCacheSizeInBytes(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    unsigned int ebx11_0 = ExtractBits(cpuInfo[1], 0, 12);
-    unsigned int ebx21_12 = ExtractBits(cpuInfo[1], 12, 10);
-    unsigned int ebx31_22 = ExtractBits(cpuInfo[1], 22, 10);
-    unsigned int ecx = cpuInfo[2];
-
-    unsigned int cacheSize = (ebx11_0 + 1) * (ebx21_12 + 1) * (ebx31_22 + 1) * (ecx + 1);
-
-    return cacheSize;
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001D_EDX0_WBINVDCacheInvalidationExecutionScope(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    unsigned int wbinvdCacheInvalidationExecutionScope = ExtractBits(cpuInfo[3], 0, 1);
-
-    return wbinvdCacheInvalidationExecutionScope;
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001D_EDX1_CacheInclusiveness(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    unsigned int cacheInclusiveness = ExtractBits(cpuInfo[3], 1, 1);
-
-    return cacheInclusiveness;
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001D_EDX2_ComplexCacheIndexing(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    unsigned int complexCacheIndexing = ExtractBits(cpuInfo[3], 2, 1);
-
-    return complexCacheIndexing;
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001D_EDX3_Reserved(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    unsigned int reservedBits = ExtractBits(cpuInfo[3], 3, 1);
-
-    return reservedBits;
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001D_EDX4_Reserved(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    unsigned int reservedBits = ExtractBits(cpuInfo[3], 4, 1);
-
-    return reservedBits;
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001D_EDX5_7_Reserved(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    unsigned int reservedBits = ExtractBits(cpuInfo[3], 5, 3);
-
-    return reservedBits;
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001D_EDX8_Reserved(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    unsigned int reservedBits = ExtractBits(cpuInfo[3], 8, 1);
-
-    return reservedBits;
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001D_EDX9_Reserved(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    unsigned int reservedBits = ExtractBits(cpuInfo[3], 9, 1);
-
-    return reservedBits;
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001D_EDX10_Reserved(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    unsigned int reservedBits = ExtractBits(cpuInfo[3], 10, 1);
-
-    return reservedBits;
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001D_EDX11_Reserved(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    unsigned int reservedBits = ExtractBits(cpuInfo[3], 11, 1);
-
-    return reservedBits;
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001D_EDX12_13_Reserved(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    unsigned int reservedBits = ExtractBits(cpuInfo[3], 12, 2);
-
-    return reservedBits;
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001D_EDX14_21_Reserved(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    unsigned int reservedBits = ExtractBits(cpuInfo[3], 14, 8);
-
-    return reservedBits;
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001D_EDX22_25_Reserved(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
-
-    unsigned int reservedBits = ExtractBits(cpuInfo[3], 22, 4);
-
-    return reservedBits;
-}
-
-extern "C" __declspec(dllexport) int __cdecl GetEAX8000001D_EDX26_31_Reserved(int ecxSubLeaf)
-{
-    int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
 
     unsigned int reservedBits = ExtractBits(cpuInfo[3], 26, 6);
 
@@ -15718,29 +15407,184 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001CEDX()
 
 #pragma region EAX=0x8000001D: Cache configuration descriptors
 
-// TODO: Sort
-
-/**
-extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001DEAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001DEAX(int ecxSubLeaf)
 {
-    return GetCustom(0x8000001D, 0, 0);
+    return GetCustom(0x0000001D, ecxSubLeaf, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001DEBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001DEBX(int ecxSubLeaf)
 {
-    return GetCustom(0x8000001D, 0, 1);
+    return GetCustom(0x0000001D, ecxSubLeaf, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001DECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001DECX(int ecxSubLeaf)
 {
-    return GetCustom(0x8000001D, 0, 2);
+    return GetCustom(0x0000001D, ecxSubLeaf, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001DEDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX8000001DEDX(int ecxSubLeaf)
 {
-    return GetCustom(0x8000001D, 0, 3);
+    return GetCustom(0x0000001D, ecxSubLeaf, 3);
 }
-**/
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DEAX0_4_CacheType(int ecxSubLeaf)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
+
+    unsigned int cacheType = ExtractBits(cpuInfo[0], 0, 5);
+
+    return cacheType;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DEAX5_7_CacheLevel(int ecxSubLeaf)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
+
+    unsigned int cacheLevel = ExtractBits(cpuInfo[0], 5, 3);
+
+    return cacheLevel;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DEAX8_SelfInitCacheLevel(int ecxSubLeaf)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
+
+    unsigned int selfInitCacheLevel = ExtractBits(cpuInfo[0], 8, 1);
+
+    return selfInitCacheLevel;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DEAX9_FullyAssociativeCache(int ecxSubLeaf)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
+
+    unsigned int fullyAssociativeCache = ExtractBits(cpuInfo[0], 9, 1);
+
+    return fullyAssociativeCache;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DEAX10_13_Reserved(int ecxSubLeaf)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
+
+    unsigned int reservedBits = ExtractBits(cpuInfo[0], 10, 4);
+
+    return reservedBits;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DEAX14_25_MaxNumAddrIDsForLogicalProcsSharingThisCacheMinusOne(int ecxSubLeaf)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
+
+    unsigned int max = ExtractBits(cpuInfo[0], 14, 12);
+
+    return max;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DEAX26_31_Reserved(int ecxSubLeaf)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
+
+    unsigned int max = ExtractBits(cpuInfo[0], 26, 6);
+
+    return max;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DEBX0_11_SystemCoherencyLineSizeInBytesMinusOne(int ecxSubLeaf)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
+
+    unsigned int lineSize = ExtractBits(cpuInfo[1], 0, 12);
+
+    return lineSize;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DEBX12_21_PhysicalLinePartitionsMinusOne(int ecxSubLeaf)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
+
+    unsigned int physicalLinePartitions = ExtractBits(cpuInfo[1], 12, 10);
+
+    return physicalLinePartitions;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DEBX22_31_WaysOfCacheAssociativityMinusOne(int ecxSubLeaf)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
+
+    unsigned int waysOfCacheAssociativity = ExtractBits(cpuInfo[1], 22, 10);
+
+    return waysOfCacheAssociativity;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DECX0_31_NumberOfSetsInCacheMinusOne(int ecxSubLeaf)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
+
+    return cpuInfo[2];
+}
+
+// For any caches that are valid and not fully-associative, the value returned in ECX 
+// is the number of sets in the cache minus 1. (For fully-associative caches, ECX 
+// should be treated as if it return the value 0.) For any given cache described by a 
+// sub-leaf of CPUID leaf 4 or 8000'001Dh, the total cache size in bytes can be 
+// computed as:
+// CacheSize = (EBX[11:0] + 1) * (EBX[21:12] + 1) * (EBX[31:22] + 1) * (ECX + 1)
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000001DTotalCacheSizeInBytes(int ecxSubLeaf)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
+
+    unsigned int ebx11_0 = ExtractBits(cpuInfo[1], 0, 12);
+    unsigned int ebx21_12 = ExtractBits(cpuInfo[1], 12, 10);
+    unsigned int ebx31_22 = ExtractBits(cpuInfo[1], 22, 10);
+    unsigned int ecx = cpuInfo[2];
+
+    unsigned int cacheSize = (ebx11_0 + 1) * (ebx21_12 + 1) * (ebx31_22 + 1) * (ecx + 1);
+
+    return cacheSize;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000001D_EDX0_WBINVDCacheInvalidationExecutionScope(int ecxSubLeaf)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
+
+    unsigned int wbinvdCacheInvalidationExecutionScope = ExtractBits(cpuInfo[3], 0, 1);
+
+    return wbinvdCacheInvalidationExecutionScope;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000001D_EDX1_CacheInclusiveness(int ecxSubLeaf)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
+
+    unsigned int cacheInclusiveness = ExtractBits(cpuInfo[3], 1, 1);
+
+    return cacheInclusiveness;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX8000001D_EDX2_31_Reserved(int ecxSubLeaf)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x8000001D, ecxSubLeaf);
+
+    unsigned int reservedBits = ExtractBits(cpuInfo[3], 2, 29);
+
+    return reservedBits;
+}
 
 #pragma endregion
 
