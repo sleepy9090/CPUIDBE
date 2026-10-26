@@ -6768,26 +6768,74 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX00000011EDX()
 
 #pragma endregion
 
-#pragma region EAX=0x00000012: SGX Capabilities
+#pragma region EAX=0x00000012, ECX=0x00000000: SGX Capabilities (0=capabilities)
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX12EAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000012EAX()
 {
     return GetCustom(0x00000012, 0, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX12EBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000012EBX()
 {
     return GetCustom(0x00000012, 0, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX12ECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000012ECX()
 {
     return GetCustom(0x00000012, 0, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX12EDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000012EDX()
 {
     return GetCustom(0x00000012, 0, 3);
+}
+
+#pragma endregion
+
+#pragma region EAX=0x00000012, ECX0x00000001: SGX Capabilities (1=SECS)
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000012ECX1EAX()
+{
+    return GetCustom(0x00000012, 1, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000012ECX1EBX()
+{
+    return GetCustom(0x00000012, 1, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000012ECX1ECX()
+{
+    return GetCustom(0x00000012, 1, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000012ECX1EDX()
+{
+    return GetCustom(0x00000012, 1, 3);
+}
+
+#pragma endregion
+
+#pragma region EAX=0x00000012, ECX0x00000001: SGX Capabilities (1=SECS)
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000012ECXNEAX(int n)
+{
+    return GetCustom(0x00000012, n, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000012ECXNEBX(int n)
+{
+    return GetCustom(0x00000012, n, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000012ECXNECX(int n)
+{
+    return GetCustom(0x00000012, n, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000012ECXNEDX(int n)
+{
+    return GetCustom(0x00000012, n, 3);
 }
 
 #pragma endregion
