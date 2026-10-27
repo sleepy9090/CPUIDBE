@@ -6792,7 +6792,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX00000012EDX()
 
 #pragma endregion
 
-#pragma region EAX=0x00000012, ECX0x00000001: SGX Capabilities (1=SECS)
+#pragma region EAX=0x00000012, ECX=0x00000001: SGX Capabilities (1=SECS)
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX00000012ECX1EAX()
 {
@@ -6816,7 +6816,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX00000012ECX1EDX()
 
 #pragma endregion
 
-#pragma region EAX=0x00000012, ECX0x00000001: SGX Capabilities (1=SECS)
+#pragma region EAX=0x00000012, ECX=0x00000002 to n: SGX Capabilities (2...n=EPC)
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX00000012ECXNEAX(int n)
 {
