@@ -11220,14 +11220,14 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX40000007EAX0_StartLogicalPro
 }
 
 /* CreateRootvirtualProcessor. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX40000007EAX1_CreateRootvirtualProcessorIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX40000007EAX1_CreateRootVirtualProcessorIsSupported()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000007, 0);
 
-    unsigned int createRootvirtualProcessor = ExtractBits(cpuInfo[0], 1, 1);
+    unsigned int createRootVirtualProcessor = ExtractBits(cpuInfo[0], 1, 1);
 
-    return (bool)createRootvirtualProcessor;
+    return (bool)createRootVirtualProcessor;
 }
 
 /* PerformanceCounterSync. */
