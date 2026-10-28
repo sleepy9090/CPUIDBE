@@ -11143,7 +11143,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX40000006EAX24_ACPIWDATTableD
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX40000006EBX25_31_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX40000006EAX25_31_Reserved()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x40000006, 0);
