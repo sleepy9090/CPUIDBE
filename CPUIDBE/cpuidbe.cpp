@@ -14860,7 +14860,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000007EAX8_15_Version()
 }
 
 /* Maximum wrap time in ms. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000007EAX8_15_MaximumWrapTimeInMs()
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000007EAX16_31_MaximumWrapTimeInMs()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000007, 0);
