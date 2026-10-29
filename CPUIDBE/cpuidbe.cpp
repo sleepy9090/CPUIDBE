@@ -14836,6 +14836,349 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000007EDX()
     return result;
 }
 
+//EAX
+/* Number of Monitors (MSR C001_008[01]h etc.). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000007EAX0_7_NumberOfMonitors()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int numberOfMonitors = ExtractBits(cpuInfo[0], 0, 8);
+
+    return numberOfMonitors;
+}
+
+/* Version (01h). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000007EAX8_15_Version()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int version = ExtractBits(cpuInfo[0], 8, 8);
+
+    return version;
+}
+
+/* Maximum wrap time in ms. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000007EAX8_15_MaximumWrapTimeInMs()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int maximumWrapTime = ExtractBits(cpuInfo[0], 16, 16);
+
+    return maximumWrapTime;
+}
+
+//EBX
+/* MCA overflow recovery - (MCAOVR). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EBX0_MCAOVR_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int mcaovrSupported = ExtractBits(cpuInfo[1], 0, 1);
+
+    return (bool)mcaovrSupported;
+}
+
+/* Software uncorrectable error containment and recovery - (SUCCOR). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EBX0_SUCCOR_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int succorSupported = ExtractBits(cpuInfo[1], 1, 1);
+
+    return (bool)succorSupported;
+}
+
+/* Hardware assert (MSR C001_10[DF...C0]h) - (HWA). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EBX0_HWA_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int hwaSupported = ExtractBits(cpuInfo[1], 2, 1);
+
+    return (bool)hwaSupported;
+}
+
+/* Scalable MCA (more banks, MCA ext regs, DOER/SEER roles) - (SCMCA). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EBX0_SCMCA_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int scmcaSupported = ExtractBits(cpuInfo[1], 3, 1);
+
+    return (bool)scmcaSupported;
+}
+
+/* Platform first error handling (MSR C001_012[0-2]h) - (PFEH). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EBX0_PFEH_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int pfehSupported = ExtractBits(cpuInfo[1], 4, 1);
+
+    return (bool)pfehSupported;
+}
+
+/* Lightweight SMI (MSR C001_012[3-4]h) - (LWSMI). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EBX0_LWSMI_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int lwsmiSupported = ExtractBits(cpuInfo[1], 5, 1);
+
+    return (bool)lwsmiSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000007EBX6_14_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 6, 9);
+
+    return reserved;
+}
+
+/* MCA query (MSR C000_042[0-3]h) - (MCA_Q). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EBX0_MCA_Q_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int mca_qSupported = ExtractBits(cpuInfo[1], 15, 1);
+
+    return (bool)mca_qSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000007EBX16_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 16, 16);
+
+    return reserved;
+}
+
+//ECX
+/* Ratio of power accumulator sample period to GTSC counter period. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000007ECX0_31_RatioOfPowerAccumulatorSamplePeriodToGTSCCounterPeriod()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    return cpuInfo[2];
+}
+
+//EDX
+/* Temperature sensor - (TS). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EDX0_TS_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int tsSupported = ExtractBits(cpuInfo[3], 0, 1);
+
+    return (bool)tsSupported;
+}
+
+/* Frequency ID control - (FID). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EDX1_FID_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int fidSupported = ExtractBits(cpuInfo[3], 1, 1);
+
+    return (bool)fidSupported;
+}
+
+/* Voltage ID control - (VID). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EDX2_VID_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int vidSupported = ExtractBits(cpuInfo[3], 2, 1);
+
+    return (bool)vidSupported;
+}
+
+/* Thermal trip - (TTP). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EDX3_TTP_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int ttpSupported = ExtractBits(cpuInfo[3], 3, 1);
+
+    return (bool)ttpSupported;
+}
+
+/* Thermal monitoring - (TM). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EDX4_TM_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int tmSupported = ExtractBits(cpuInfo[3], 4, 1);
+
+    return (bool)tmSupported;
+}
+
+/* Software thermal control - (STC). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EDX5_STC_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int stcSupported = ExtractBits(cpuInfo[3], 5, 1);
+
+    return (bool)stcSupported;
+}
+
+/* 100 MHz multiplier steps - (MUL100). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EDX6_MUL100_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int mul100Supported = ExtractBits(cpuInfo[3], 6, 1);
+
+    return (bool)mul100Supported;
+}
+
+/* Hardware P-state support - (HWPS). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EDX7_HWPS_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int hwpsSupported = ExtractBits(cpuInfo[3], 7, 1);
+
+    return (bool)hwpsSupported;
+}
+
+/* Invariant TSC - (ITSC). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EDX8_ITSC_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int itscSupported = ExtractBits(cpuInfo[3], 8, 1);
+
+    return (bool)itscSupported;
+}
+
+/* Core performance boost - (CPB). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EDX9_CPB_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int cpbSupported = ExtractBits(cpuInfo[3], 9, 1);
+
+    return (bool)cpbSupported;
+}
+
+/* Read-only MPERF/APERF (MSR C000_00E[78]h) - (EFRO). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EDX10_EFRO_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int efroSupported = ExtractBits(cpuInfo[3], 10, 1);
+
+    return (bool)efroSupported;
+}
+
+/* Processor feedback interface (see EAX) - (PFI). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EDX11_PFI_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int pfiSupported = ExtractBits(cpuInfo[3], 11, 1);
+
+    return (bool)pfiSupported;
+}
+
+/* Processor accumulator (MSR C001_007Ah) - (PA). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EDX12_PA_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int paSupported = ExtractBits(cpuInfo[3], 12, 1);
+
+    return (bool)paSupported;
+}
+
+/* Connected standby - (CSB). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EDX13_CSB_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int csbSupported = ExtractBits(cpuInfo[3], 13, 1);
+
+    return (bool)csbSupported;
+}
+
+/* Running average power limit - (RAPL). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EDX14_RAPL_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int raplSupported = ExtractBits(cpuInfo[3], 14, 1);
+
+    return (bool)raplSupported;
+}
+
+/* CPPC fast - (CPPC_FAST). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EDX15_CPPC_FAST_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int cppcFastSupported = ExtractBits(cpuInfo[3], 15, 1);
+
+    return (bool)cppcFastSupported;
+}
+
+/* CPPC performance priority - (CPPC_PRIO). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EDX16_CPPC_PRIO_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int cppcPrioSupported = ExtractBits(cpuInfo[3], 16, 1);
+
+    return (bool)cppcPrioSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000007EDX17_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000007, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[3], 17, 15);
+
+    return reserved;
+}
+
 #pragma endregion
 
 #pragma region EAX=0x80000008: Virtual and Physical Address Sizes
@@ -14903,7 +15246,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000008EAX0_7_NumberOfPhysic
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000008, 0);
 
-    unsigned int numberOfPhysicalAddressBits = ExtractBits(cpuInfo[0], 0, 7);
+    unsigned int numberOfPhysicalAddressBits = ExtractBits(cpuInfo[0], 0, 8);
 
     return numberOfPhysicalAddressBits;
 }
@@ -14914,7 +15257,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000008EAX8_15_NumberOfLinea
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000008, 0);
 
-    unsigned int numberOfLinearAddressBits = ExtractBits(cpuInfo[0], 8, 15);
+    unsigned int numberOfLinearAddressBits = ExtractBits(cpuInfo[0], 8, 8);
 
     return numberOfLinearAddressBits;
 }
@@ -14925,7 +15268,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000008EAX16_23_GuestPhysica
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000008, 0);
 
-    unsigned int guestPhysicalAddressSize = ExtractBits(cpuInfo[0], 16, 23);
+    unsigned int guestPhysicalAddressSize = ExtractBits(cpuInfo[0], 16, 8);
 
     return guestPhysicalAddressSize;
 }
@@ -14936,7 +15279,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000008EAX24_31_Reserved()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000008, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[0], 24, 31);
+    unsigned int reserved = ExtractBits(cpuInfo[0], 24, 8);
 
     return reserved;
 }
@@ -15301,7 +15644,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000008ECX0_7_NumberOfPhysic
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000008, 0);
 
-    unsigned int numberOfPhysicalThreads = ExtractBits(cpuInfo[2], 0, 7);
+    unsigned int numberOfPhysicalThreads = ExtractBits(cpuInfo[2], 0, 8);
 
     return numberOfPhysicalThreads;
 }
@@ -15312,7 +15655,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000008ECX8_11_Reserved()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000008, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[2], 8, 3);
+    unsigned int reserved = ExtractBits(cpuInfo[2], 8, 4);
 
     return reserved;
 }
@@ -15323,7 +15666,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000008ECX12_15_APIC_IDSize(
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000008, 0);
 
-    unsigned int apicIdSize = ExtractBits(cpuInfo[2], 12, 3);
+    unsigned int apicIdSize = ExtractBits(cpuInfo[2], 12, 4);
 
     return apicIdSize;
 }
@@ -15334,7 +15677,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000008ECX16_17_PerformanceT
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000008, 0);
 
-    unsigned int performanceTimestampCounterSize = ExtractBits(cpuInfo[2], 16, 1);
+    unsigned int performanceTimestampCounterSize = ExtractBits(cpuInfo[2], 16, 2);
 
     return performanceTimestampCounterSize;
 }
@@ -15345,7 +15688,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000008ECX18_31_Reserverd()
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000008, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[2], 18, 13);
+    unsigned int reserved = ExtractBits(cpuInfo[2], 18, 14);
 
     return reserved;
 }
