@@ -14883,7 +14883,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EBX0_MCAOVR_IsSuppor
 }
 
 /* Software uncorrectable error containment and recovery - (SUCCOR). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EBX0_SUCCOR_IsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EBX1_SUCCOR_IsSupported()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000007, 0);
@@ -14894,7 +14894,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EBX0_SUCCOR_IsSuppor
 }
 
 /* Hardware assert (MSR C001_10[DF...C0]h) - (HWA). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EBX0_HWA_IsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EB2_HWA_IsSupported()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000007, 0);
@@ -14905,7 +14905,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EBX0_HWA_IsSupported
 }
 
 /* Scalable MCA (more banks, MCA ext regs, DOER/SEER roles) - (SCMCA). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EBX0_SCMCA_IsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EBX3_SCMCA_IsSupported()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000007, 0);
@@ -14916,7 +14916,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EBX0_SCMCA_IsSupport
 }
 
 /* Platform first error handling (MSR C001_012[0-2]h) - (PFEH). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EBX0_PFEH_IsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EBX4_PFEH_IsSupported()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000007, 0);
@@ -14927,7 +14927,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EBX0_PFEH_IsSupporte
 }
 
 /* Lightweight SMI (MSR C001_012[3-4]h) - (LWSMI). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EBX0_LWSMI_IsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EBX5_LWSMI_IsSupported()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000007, 0);
@@ -14949,7 +14949,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000007EBX6_14_Reserved()
 }
 
 /* MCA query (MSR C000_042[0-3]h) - (MCA_Q). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EBX0_MCA_Q_IsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000007EBX15_MCA_Q_IsSupported()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000007, 0);
