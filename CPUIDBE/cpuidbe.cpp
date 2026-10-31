@@ -6989,6 +6989,46 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX00000012ECX1EDX()
     return GetCustom(0x00000012, 1, 3);
 }
 
+//EAX
+/* SECS.ATTRIBUTES.31...0 that can be set with ENCLS[ECREATE]. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000012ECX1_EAX_0_31_SECS_ATTRIBUTES_31_0_ThatCanBeSetWithENCLS_ECREATE()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, 1);
+
+    return cpuInfo[0];
+}
+
+//EBX
+/* SECS.ATTRIBUTES.63...32 that can be set with ENCLS[ECREATE]. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000012ECX1_EBX_0_31_SECS_ATTRIBUTES_63_32_ThatCanBeSetWithENCLS_ECREATE()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, 1);
+
+    return cpuInfo[1];
+}
+
+//ECX
+/* SECS.ATTRIBUTES.95...64 that can be set with ENCLS[ECREATE]. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000012ECX1_ECX_0_31_SECS_ATTRIBUTES_95_64_ThatCanBeSetWithENCLS_ECREATE()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, 1);
+
+    return cpuInfo[2];
+}
+
+//EDX
+/* SECS.ATTRIBUTES.127...96 that can be set with ENCLS[ECREATE]. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000012ECX1_EDX_0_31_SECS_ATTRIBUTES_127_96_ThatCanBeSetWithENCLS_ECREATE()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, 1);
+
+    return cpuInfo[3];
+}
+
 #pragma endregion
 
 #pragma region EAX=0x00000012, ECX=0x00000002 to n: SGX Capabilities (2...n=EPC)
@@ -7011,6 +7051,126 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX00000012ECXNECX(int n)
 extern "C" __declspec(dllexport) char* __cdecl GetEAX00000012ECXNEDX(int n)
 {
     return GetCustom(0x00000012, n, 3);
+}
+
+//EAX
+/* 0000b = not valid, 0001b = leaf is valid, other = reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000012ECXN_EAX0_3_LeafValid_NotValid_Reserved(int n)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, n);
+
+    unsigned int leafValid_NotValid_Reserved = ExtractBits(cpuInfo[0], 0, 4);
+
+    return leafValid_NotValid_Reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000012ECXN_EAX4_11_Reserved(int n)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, n);
+
+    unsigned int reserved = ExtractBits(cpuInfo[0], 4, 8);
+
+    return reserved;
+}
+
+/* EPC base bits 31...12. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000012ECXN_EAX12_31_EPCBaseBits_31_12(int n)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, n);
+
+    unsigned int ePCBaseBits_31_12 = ExtractBits(cpuInfo[0], 12, 20);
+
+    return ePCBaseBits_31_12;
+}
+
+//EBX
+/* EPC base bits 51...32. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000012ECXN_EBX0_19_EPCBaseBits_51_32(int n)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, n);
+
+    unsigned int ePCBaseBits_51_32 = ExtractBits(cpuInfo[1], 0, 20);
+
+    return ePCBaseBits_51_32;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000012ECXN_EBX20_31_Reserved(int n)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, n);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 20, 12);
+
+    return reserved;
+}
+
+//ECX
+/* EPC section protection
+ * 0000b = not valid
+ * 0001b = confidentiality + integrity + replay
+ * 0010b = confidentiality
+ * 0011b = confidentiality + integrity
+ * other = reserved.
+ */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000012ECXN_ECX0_3_EPCSectionProtection(int n)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, n);
+
+    unsigned int ePCSectionProtection = ExtractBits(cpuInfo[2], 0, 4);
+
+    return ePCSectionProtection;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000012ECXN_ECX4_11_Reserved(int n)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, n);
+
+    unsigned int reserved = ExtractBits(cpuInfo[2], 4, 8);
+
+    return reserved;
+}
+
+/* EPC size bits 31...12. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000012ECXN_ECX12_31_EPCSizeBits_31_12(int n)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, n);
+
+    unsigned int epcSizeBits_31_12 = ExtractBits(cpuInfo[2], 12, 20);
+
+    return epcSizeBits_31_12;
+}
+
+//EDX
+/* EPC size bits 51...32. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000012ECXN_EDX0_19_EPCSizeBits_51_32(int n)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, n);
+
+    unsigned int epcSizeBits_51_32 = ExtractBits(cpuInfo[3], 0, 20);
+
+    return epcSizeBits_51_32;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000012ECXN_EDX20_31_Reserved(int n)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, n);
+
+    unsigned int reserved = ExtractBits(cpuInfo[3], 20, 12);
+
+    return reserved;
 }
 
 #pragma endregion
