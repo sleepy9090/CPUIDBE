@@ -6789,6 +6789,182 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX00000012EDX()
     return GetCustom(0x00000012, 0, 3);
 }
 
+//EAX
+/* SGX1 - ENCLS and ENCLU, #PF.SGX. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000012EAX0_SGX1IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, 0);
+
+    unsigned int sgx1Supported = ExtractBits(cpuInfo[0], 0, 1);
+
+    return (bool)sgx1Supported;
+}
+
+/* SGX2 - EAUG/EMODPR/EMODT and EACCEPT/EMODPE/EACCEPTCOPY. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000012EAX1_SGX2IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, 0);
+
+    unsigned int sgx2Supported = ExtractBits(cpuInfo[0], 1, 1);
+
+    return (bool)sgx2Supported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000012EAX2_4_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[0], 2, 3);
+
+    return reserved;
+}
+
+/* ENCLV and EINCVIRTCHILD/EDECVIRTCHILD/ESETCONTEXT. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000012EAX5_ENCLV_And_EINCVIRTCHILD_EDECVIRTCHILD_ESETCONTEXTIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, 0);
+
+    unsigned int eNCLV_And_EINCVIRTCHILD_EDECVIRTCHILD_ESETCONTEXTSupported = ExtractBits(cpuInfo[0], 5, 1);
+
+    return (bool)eNCLV_And_EINCVIRTCHILD_EDECVIRTCHILD_ESETCONTEXTSupported;
+}
+
+/* ETRACKC/ERDINFO/ELDBC/ELDUC. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000012EAX6_ETRACKC_ERDINFO_ELDBC_ELDUCIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, 0);
+
+    unsigned int eTRACKC_ERDINFO_ELDBC_ELDUCSupported = ExtractBits(cpuInfo[0], 6, 1);
+
+    return (bool)eTRACKC_ERDINFO_ELDBC_ELDUCSupported;
+}
+
+/* ENCLU[EVERIFYREPORT2]. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000012EAX7_ENCLU_EVERIFYREPORT2IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, 0);
+
+    unsigned int eNCLU_EVERIFYREPORT2Supported = ExtractBits(cpuInfo[0], 7, 1);
+
+    return (bool)eNCLU_EVERIFYREPORT2Supported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000012EAX8_9_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[0], 8, 2);
+
+    return reserved;
+}
+
+/* ENCLS[EUPDATESVN]. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000012EAX10_ENCLS_EUPDATESVNIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, 0);
+
+    unsigned int eNCLS_EUPDATESVNSupported = ExtractBits(cpuInfo[0], 10, 1);
+
+    return (bool)eNCLS_EUPDATESVNSupported;
+}
+
+/* ENCLU[EDECCSSA]. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000012EAX11_ENCLU_EDECCSSAIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, 0);
+
+    unsigned int eNCLU_EDECCSSASupported = ExtractBits(cpuInfo[0], 11, 1);
+
+    return (bool)eNCLU_EDECCSSASupported;
+}
+
+/* ENCLU[EGETKEY256] and ENCLU[EREPORT2], and SGXLEPUBKEYHASH[4,5] and SGXLECONFIG MSRs. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000012EAX12_ENCLU_EGETKEY256_And_ENCLU_EREPORT2_And_SGXLEPUBKEYHASH_4_5_And_SGXLECONFIG_MSRsIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, 0);
+
+    unsigned int eNCLU_EGETKEY256_And_ENCLU_EREPORT2_And_SGXLEPUBKEYHASH_4_5_And_SGXLECONFIG_MSRsSupported = ExtractBits(cpuInfo[0], 12, 1);
+
+    return (bool)eNCLU_EGETKEY256_And_ENCLU_EREPORT2_And_SGXLEPUBKEYHASH_4_5_And_SGXLECONFIG_MSRsSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000012EAX13_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[0], 13, 19);
+
+    return reserved;
+}
+
+//EBX
+/* Bit vector of supported extended features (that can be written to SSA.MISC). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000012EBX_0_31_BitVectorOfSupportedExtendedFeatures()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, 0);
+
+    return cpuInfo[1];
+}
+
+//ECX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000012ECX_0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, 0);
+
+    return cpuInfo[2];
+}
+
+//EDX
+/* Maximum enclave size in 2^n bytes when not in PM64. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000012EDX0_7_MaximumEnclaveSizeIn2ToTheNBytesWhenNotInPM64()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, 0);
+
+    unsigned int maximumEnclaveSizeIn2ToTheNBytesWhenNotInPM64 = ExtractBits(cpuInfo[3], 0, 8);
+
+    return maximumEnclaveSizeIn2ToTheNBytesWhenNotInPM64;
+}
+
+/* Maximum enclave size in 2^n bytes when in PM64. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000012EDX8_15_MaximumEnclaveSizeIn2ToTheNBytesWhenInPM64()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, 0);
+
+    unsigned int maximumEnclaveSizeIn2ToTheNBytesWhenInPM64 = ExtractBits(cpuInfo[3], 8, 8);
+
+    return maximumEnclaveSizeIn2ToTheNBytesWhenInPM64;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000012EDX16_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000012, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[3], 16, 16);
+
+    return reserved;
+}
+
 #pragma endregion
 
 #pragma region EAX=0x00000012, ECX=0x00000001: SGX Capabilities (1=SECS)
