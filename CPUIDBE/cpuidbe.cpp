@@ -1977,22 +1977,22 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX5_EDX28_31_NumberOfC7SubState
 
 #pragma region EAX=0x00000006: Thermal and Power Management
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX6EAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000006EAX()
 {
     return GetCustom(0x00000006, 0, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX6EBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000006EBX()
 {
     return GetCustom(0x00000006, 0, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX6ECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000006ECX()
 {
     return GetCustom(0x00000006, 0, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX6EDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000006EDX()
 {
     return GetCustom(0x00000006, 0, 3);
 }
@@ -2000,10 +2000,10 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX6EDX()
 /* [Thermal/power management feature bits in EAX]. */
 
 /* Digital Thermal Sensor capability - (DTS). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX0_DTSIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX0_DTSIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int dtsSupported = ExtractBits(cpuInfo[0], 0, 1);
 
@@ -2011,10 +2011,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX0_DTSIsSupported()
 }
 
 /* Intel Turbo Boost Technology capability - (TURBO_BOOST). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX1_TURBO_BOOSTIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX1_TURBO_BOOSTIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int turboBoostSupported = ExtractBits(cpuInfo[0], 1, 1);
 
@@ -2022,10 +2022,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX1_TURBO_BOOSTIsSupported
 }
 
 /* Always Running APIC Timer capability  - (ARAT). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX2_ARATIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX2_ARATIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int aratSupported = ExtractBits(cpuInfo[0], 2, 1);
 
@@ -2033,10 +2033,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX2_ARATIsSupported()
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX3_ReservedIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX3_ReservedIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int reserved = ExtractBits(cpuInfo[0], 3, 1);
 
@@ -2044,10 +2044,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX3_ReservedIsSupported()
 }
 
 /* Power Limit Notification capability - (PLN). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX4_PowerLimitNotificationCapability_PLNIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX4_PowerLimitNotificationCapability_PLNIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int plnSupported = ExtractBits(cpuInfo[0], 4, 1);
 
@@ -2055,10 +2055,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX4_PowerLimitNotification
 }
 
 /* Extended Clock Modulation Duty capability - (ECMD). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX5_ExtendedClockModulationDutyCapability_ECMDIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX5_ExtendedClockModulationDutyCapability_ECMDIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int ecmdSupported = ExtractBits(cpuInfo[0], 5, 1);
 
@@ -2066,10 +2066,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX5_ExtendedClockModulatio
 }
 
 /* Package Thermal Management capability - (PTM). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX6_PackageThermalManagementCapability_PTMIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX6_PackageThermalManagementCapability_PTMIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int ptmSupported = ExtractBits(cpuInfo[0], 6, 1);
 
@@ -2077,10 +2077,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX6_PackageThermalManageme
 }
 
 /* Hardware-controlled Performance States. MSRs added: IA32_PM_ENABLE(770h), IA32_HWP_CAPABILITIES(771h), IA32_HWP_REQUEST(774h), IA32_HWP_STATUS(777h) - (HWP). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX7_HardwareControlledPerformanceStatesCapability_HWPIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX7_HardwareControlledPerformanceStatesCapability_HWPIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int hwpSupported = ExtractBits(cpuInfo[0], 7, 1);
 
@@ -2088,10 +2088,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX7_HardwareControlledPerf
 }
 
 /* HWP notification of dynamic guaranteed performance change - IA32_HWP_INTERRUPT(773h) MSR - (HWP_Notification). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX8_HWPNotificationCapability_HWP_NotificationIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX8_HWPNotificationCapability_HWP_NotificationIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int hwpNotificationSupported = ExtractBits(cpuInfo[0], 8, 1);
 
@@ -2099,10 +2099,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX8_HWPNotificationCapabil
 }
 
 /* HWP Activity Window control - bits 41:32 of IA32_HWP_REQUEST MSR - (HWP_Activity_Window). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX9_HWPActivityWindowCapability_HWP_Activity_WindowIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX9_HWPActivityWindowCapability_HWP_Activity_WindowIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int hwpActivityWindowSupported = ExtractBits(cpuInfo[0], 9, 1);
 
@@ -2110,10 +2110,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX9_HWPActivityWindowCapab
 }
 
 /* HWP Energy/performance preference control - bits 31:24 of IA32_HWP_REQUEST MSR - (HWP_Energy_Performance_Preference). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX10_HWPEnergyPerformancePreferenceCapability_HWP_Energy_Performance_PreferenceIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX10_HWPEnergyPerformancePreferenceCapability_HWP_Energy_Performance_PreferenceIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int hwpEnergyPerformancePreferenceSupported = ExtractBits(cpuInfo[0], 10, 1);
 
@@ -2121,10 +2121,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX10_HWPEnergyPerformanceP
 }
 
 /* HWP Package-level control - IA32_HWP_REQUEST_PKG(772h) MSR - (HWP_Package_Level_Request). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX11_HWPPackageLevelRequestCapability_HWP_Package_Level_RequestIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX11_HWPPackageLevelRequestCapability_HWP_Package_Level_RequestIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int hwpPackageLevelRequestSupported = ExtractBits(cpuInfo[0], 11, 1);
 
@@ -2132,10 +2132,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX11_HWPPackageLevelReques
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX12_ReservedIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX12_ReservedIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int reserved = ExtractBits(cpuInfo[0], 12, 1);
 
@@ -2143,10 +2143,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX12_ReservedIsSupported()
 }
 
 /* Hardware Duty Cycling supported. MSRs added: IA32_PKG_HDC_CTL(DB0h), IA32_PM_CTL1(DB1h), IA32_THREAD_STALL(DB2h) - (HDC). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX13_HardwareDutyCyclingCapability_HDCIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX13_HardwareDutyCyclingCapability_HDCIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int hdcSupported = ExtractBits(cpuInfo[0], 13, 1);
 
@@ -2154,10 +2154,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX13_HardwareDutyCyclingCa
 }
 
 /* Intel Turbo Boost Max Technology 3.0 available - (TURBO_BOOST_MAX). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX14_IntelTurboBoostMaxTechnology30Availability_TURBO_BOOST_MAXIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX14_IntelTurboBoostMaxTechnology30Availability_TURBO_BOOST_MAXIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int turboBoostMaxSupported = ExtractBits(cpuInfo[0], 14, 1);
 
@@ -2165,10 +2165,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX14_IntelTurboBoostMaxTec
 }
 
 /* Interrupts upon changes to IA32_HWP_CAPABILITIES.Highest_Performance (bits 7:0) supported - (HWP_CAP). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX15_HWP_CAPIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX15_HWP_CAPIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int hwpCapSupported = ExtractBits(cpuInfo[0], 15, 1);
 
@@ -2176,10 +2176,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX15_HWP_CAPIsSupported()
 }
 
 /* HWP PECI override supported - bits 63:60 of IA32_HWP_PECI_REQUEST_INFO(775h) MSR - (HWP_PECI_OVERRIDE). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX16_HWP_PECI_OVERRIDEIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX16_HWP_PECI_OVERRIDEIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int hwpPeciOverrideSupported = ExtractBits(cpuInfo[0], 16, 1);
 
@@ -2187,10 +2187,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX16_HWP_PECI_OVERRIDEIsSu
 }
 
 /* Flexible HWP - bits 63:59 of IA32_HWP_REQUEST MSR - (FLEXIBLE_HWP). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX17_FlexibleHWPIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX17_FlexibleHWPIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int flexibleHwpSupported = ExtractBits(cpuInfo[0], 17, 1);
 
@@ -2198,10 +2198,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX17_FlexibleHWPIsSupporte
 }
 
 /* Fast access mode for IA32_HWP_REQUEST MSR supported - (HWP_REQUEST_FAST_ACCESS). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX18_HWP_REQUEST_FAST_ACCESSIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX18_HWP_REQUEST_FAST_ACCESSIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int hwpRequestFastAccessSupported = ExtractBits(cpuInfo[0], 18, 1);
 
@@ -2209,10 +2209,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX18_HWP_REQUEST_FAST_ACCE
 }
 
 /* Hardware Feedback Interface. Added MSRs: IA32_HW_FEEDBACK_PTR(17D0h), IA32_HW_FEEDBACK_CONFIG(17D1h) (bit 0 enables HFI, bit 1 enables Intel Thread Director) - (HW_FEEDBACK). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX19_HW_FEEDBACKIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX19_HW_FEEDBACKIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int hwFeedbackSupported = ExtractBits(cpuInfo[0], 19, 1);
 
@@ -2220,10 +2220,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX19_HW_FEEDBACKIsSupporte
 }
 
 /* IA32_HWP_REQUEST of idle logical processor ignored when only one of two logical processors that share a physical processor is active. - (HWP_REQUEST_IGNORE_IDLE). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX20_HWP_REQUEST_IGNORE_IDLEIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX20_HWP_REQUEST_IGNORE_IDLEIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int hwpRequestIgnoreIdleSupported = ExtractBits(cpuInfo[0], 20, 1);
 
@@ -2231,10 +2231,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX20_HWP_REQUEST_IGNORE_ID
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX21_ReservedIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX21_ReservedIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int reserved = ExtractBits(cpuInfo[0], 21, 1);
 
@@ -2242,10 +2242,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX21_ReservedIsSupported()
 }
 
 /* IA32_HWP_CTL(776h) MSR supported - (HWP Control MSR). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX22_HWP_CTLIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX22_HWP_CTLIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int hwpCtlSupported = ExtractBits(cpuInfo[0], 22, 1);
 
@@ -2253,10 +2253,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX22_HWP_CTLIsSupported()
 }
 
 /* Intel Thread Director supported. Added MSRs: IA32_THREAD_FEEDBACK_CHAR(17D2h), IA32_HW_FEEDBACK_THREAD_CONFIG(17D4h) - (THREAD_DIRECTOR). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX23_THREAD_DIRECTORIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX23_THREAD_DIRECTORIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int threadDirectorSupported = ExtractBits(cpuInfo[0], 23, 1);
 
@@ -2264,10 +2264,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX23_THREAD_DIRECTORIsSupp
 }
 
 /* (IA32_THERM_INTERRUPT MSR bit 25 supported). */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX24_IA32_THERM_INTERRUPTIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX24_IA32_THERM_INTERRUPTIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int ia32ThermInterruptSupported = ExtractBits(cpuInfo[0], 24, 1);
 
@@ -2275,10 +2275,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX24_IA32_THERM_INTERRUPTI
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX25_ReservedIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX25_ReservedIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int reserved = ExtractBits(cpuInfo[0], 25, 1);
 
@@ -2286,10 +2286,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX25_ReservedIsSupported()
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX26_ReservedIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX26_ReservedIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int reserved = ExtractBits(cpuInfo[0], 26, 1);
 
@@ -2297,10 +2297,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX26_ReservedIsSupported()
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX27_ReservedIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX27_ReservedIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int reserved = ExtractBits(cpuInfo[0], 27, 1);
 
@@ -2308,10 +2308,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX27_ReservedIsSupported()
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX28_ReservedIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX28_ReservedIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int reserved = ExtractBits(cpuInfo[0], 28, 1);
 
@@ -2319,10 +2319,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX28_ReservedIsSupported()
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX29_ReservedIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX29_ReservedIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int reserved = ExtractBits(cpuInfo[0], 29, 1);
 
@@ -2330,10 +2330,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX29_ReservedIsSupported()
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX30_ReservedIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX30_ReservedIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int reserved = ExtractBits(cpuInfo[0], 30, 1);
 
@@ -2341,10 +2341,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX30_ReservedIsSupported()
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX31_ReservedIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EAX31_ReservedIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int reserved = ExtractBits(cpuInfo[0], 31, 1);
 
@@ -2353,32 +2353,32 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EAX31_ReservedIsSupported()
 
 /* Thermal / power management feature fields in EBX, ECX and EDX. */
 /* Number of Interrupt Thresholds in Digital Thermal Sensor: EBX Bits 3:0. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX6_EBX0_3_NumberOfInterruptThresholdsInDigitalThermalSensor()
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000006_EBX0_3_NumberOfInterruptThresholdsInDigitalThermalSensor()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
-    unsigned int numberOfInterruptThresholdsInDigitalThermalSensor = ExtractBits(cpuInfo[1], 28, 4);
+    unsigned int numberOfInterruptThresholdsInDigitalThermalSensor = ExtractBits(cpuInfo[1], 0, 4);
 
     return numberOfInterruptThresholdsInDigitalThermalSensor;
 }
 
 /* Reserved: EBX Bits 31:4. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX6_EBX4_31_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000006_EBX4_31_Reserved()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[1], 4, 28);
+    unsigned int reserved = ExtractBits(cpuInfo[1], 4, 27);
 
     return reserved;
 }
 
 /* Effective frequency interface supported - IA32_MPERF(0E7h) and IA32_APERF(0E8h) MSRs. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6ECX0_EffectiveFrequencyInterfaceIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006ECX0_EffectiveFrequencyInterfaceIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int effectiveFrequencyInterfaceSupported = ExtractBits(cpuInfo[2], 0, 1);
 
@@ -2386,10 +2386,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6ECX0_EffectiveFrequencyInte
 }
 
 /* ACNT2 Capability supported. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6ECX1_ACNT2CapabilityIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006ECX1_ACNT2CapabilityIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int acnt2CapabilitySupported = ExtractBits(cpuInfo[2], 1, 1);
 
@@ -2397,10 +2397,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6ECX1_ACNT2CapabilityIsSuppo
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6ECX2_ReservedIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006ECX2_ReservedIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int reserved = ExtractBits(cpuInfo[2], 2, 1);
 
@@ -2408,10 +2408,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6ECX2_ReservedIsSupported()
 }
 
 /* Performance-Energy Bias capability - IA32_ENERGY_PERF_BIAS(1B0h) MSR. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6ECX3_PerformanceEnergyBiasCapabilityMSRIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006ECX3_PerformanceEnergyBiasCapabilityMSRIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int performanceEnergyBiasCapabilityMSRSupported = ExtractBits(cpuInfo[2], 3, 1);
 
@@ -2419,10 +2419,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6ECX3_PerformanceEnergyBiasC
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX6ECX4_7_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000006ECX4_7_Reserved()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int reserved = ExtractBits(cpuInfo[2], 4, 4);
 
@@ -2430,10 +2430,10 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX6ECX4_7_Reserved()
 }
 
 /* Number of Intel Thread Director classes supported by hardware. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX6ECX8_15_NumberOfIntelThreadDirectorClasses()
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000006ECX8_15_NumberOfIntelThreadDirectorClasses()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int numberOfIntelThreadDirectorClasses = ExtractBits(cpuInfo[2], 8, 8);
 
@@ -2441,10 +2441,10 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX6ECX8_15_NumberOfIntelThreadD
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX6ECX16_31_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000006ECX16_31_Reserved()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int reserved = ExtractBits(cpuInfo[2], 16, 16);
 
@@ -2452,10 +2452,10 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX6ECX16_31_Reserved()
 }
 
 /* Hardware Feedback reporting: Performance Capability Reporting supported. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EDX0_HardwareFeedbackReportingPerformanceCapabilityReportingIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EDX0_HardwareFeedbackReportingPerformanceCapabilityReportingIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int hardwareFeedbackReportingPerformanceCapabilityReportingSupported = ExtractBits(cpuInfo[3], 0, 1);
 
@@ -2463,10 +2463,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EDX0_HardwareFeedbackReport
 }
 
 /* Hardware Feedback reporting: Efficiency Capability Reporting supported. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EDX1_HardwareFeedbackReportingEfficiencyCapabilityReportingIsSupported()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EDX1_HardwareFeedbackReportingEfficiencyCapabilityReportingIsSupported()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int hardwareFeedbackReportingEfficiencyCapabilityReportingSupported = ExtractBits(cpuInfo[3], 1, 1);
 
@@ -2474,10 +2474,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EDX1_HardwareFeedbackReport
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX6EDX2_7_Reserved()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000006EDX2_7_Reserved()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int reserved = ExtractBits(cpuInfo[3], 2, 6);
 
@@ -2485,10 +2485,10 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX6EDX2_7_Reserved()
 }
 
 /* Size of Hardware Feedback interface structure (in units of 4 KiB) minus 1. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX6EDX8_11_SizeOfHardwareFeedbackInterfaceStructure()
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000006EDX8_11_SizeOfHardwareFeedbackInterfaceStructure()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int sizeOfHardwareFeedbackInterfaceStructure = ExtractBits(cpuInfo[3], 8, 4);
 
@@ -2496,10 +2496,10 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX6EDX8_11_SizeOfHardwareFeedba
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX6EDX12_15_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000006EDX12_15_Reserved()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int reserved = ExtractBits(cpuInfo[3], 12, 4);
 
@@ -2507,10 +2507,10 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX6EDX12_15_Reserved()
 }
 
 /* Index of this logical processor's row in hardware feedback interface structure. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX6EDX16_31_IndexOfThisLogicalProcessorsRowInHardwareFeedbackInterfaceStructure()
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000006EDX16_31_IndexOfThisLogicalProcessorsRowInHardwareFeedbackInterfaceStructure()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x6, 0);
+    __cpuidex(cpuInfo, 0x00000006, 0);
 
     unsigned int indexOfThisLogicalProcessorsRowInHardwareFeedbackInterfaceStructure = ExtractBits(cpuInfo[3], 16, 16);
 
