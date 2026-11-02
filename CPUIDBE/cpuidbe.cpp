@@ -17112,7 +17112,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000021ECX11_31_Reserved()
 
 // EDX
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000007EDX0_31_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000021EDX0_31_Reserved()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000021, 0);
