@@ -8731,6 +8731,97 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX00000021EDX()
     return GetCustom(0x00000021, 0, 3);
 }
 
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000021EAXHightestFunctionParameter()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000021, 0);
+    char binaryStr[33];
+    IntToBinary32(cpuInfo[0], binaryStr);
+
+    char* result = (char*)malloc(33);
+    if (result) {
+        strcpy_s(result, 33, binaryStr);
+    }
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000021EBXCpuVendor()
+{
+    int cpuInfo[4] = { 0 };
+
+    __cpuid(cpuInfo, 0x00000021);
+
+    char vendor[5];
+    memcpy(vendor, &cpuInfo[1], 4); // EBX
+    vendor[4] = '\0';
+
+    char* result = (char*)malloc(5);
+    if (result) {
+        strcpy_s(result, 5, vendor);
+    }
+
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000021ECXCpuVendor()
+{
+    int cpuInfo[4] = { 0 };
+
+    __cpuid(cpuInfo, 0x00000021);
+
+    char vendor[5];
+    memcpy(vendor, &cpuInfo[2], 4); // ECX
+    vendor[4] = '\0';
+
+    char* result = (char*)malloc(5);
+    if (result) {
+        strcpy_s(result, 5, vendor);
+    }
+
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000021EDXCpuVendor()
+{
+    int cpuInfo[4] = { 0 };
+
+    __cpuid(cpuInfo, 0x00000021);
+
+    char vendor[5];
+    memcpy(vendor, &cpuInfo[3], 4); // EDX
+    vendor[4] = '\0';
+
+    char* result = (char*)malloc(5);
+    if (result) {
+        strcpy_s(result, 5, vendor);
+    }
+
+    return result;
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000021EBXEDXECXCpuVendor()
+{
+    int cpuInfo[4] = { 0 };
+
+    // Call CPUID with EAX = 21 to get vendor string information
+    __cpuid(cpuInfo, 0x00000021);
+
+    // The vendor string is stored across EBX, EDX, and ECX in that order
+    // EBX (4 bytes) + EDX (4 bytes) + ECX (4 bytes) = 12 bytes
+    char vendor[13];
+    memcpy(vendor, &cpuInfo[1], 4); // EBX
+    memcpy(vendor + 4, &cpuInfo[3], 4); // EDX
+    memcpy(vendor + 8, &cpuInfo[2], 4); // ECX
+    vendor[12] = '\0'; // Null-terminate the string
+
+    char* result = (char*)malloc(13);
+    if (result) {
+        strcpy_s(result, 13, vendor);
+    }
+
+    return result;
+}
+
 #pragma endregion
 
 #pragma region EAX=0x00000022: Reserved
