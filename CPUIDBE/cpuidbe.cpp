@@ -16590,6 +16590,536 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000021EDX()
     return GetCustom(0x80000021, 0, 3);
 }
 
+// EAX
+/* Processor ignores nested data breakpoints. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX0_ProcessorIgnoresNestedDataBreakpointsIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int processorIgnoresNestedDataBreakpoints = ExtractBits(cpuInfo[0], 0, 1);
+
+    return (bool)processorIgnoresNestedDataBreakpoints;
+}
+
+/* FS_BAS, GS_BAS, and KERNEL_GS_BAS writes are non-serializing. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX1_FS_BAS_GS_BAS_And_KERNEL_GS_BAS_WritesAreNonserializingIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int fsBasGsBasAndKernelGsBasWritesAreNonserializing = ExtractBits(cpuInfo[0], 1, 1);
+
+    return (bool)fsBasGsBasAndKernelGsBasWritesAreNonserializing;
+}
+
+/* LFENCE always dispatch serializing. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX2_LFENCE_AlwaysDispatchSerializingIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int lfenceAlwaysDispatchSerializing = ExtractBits(cpuInfo[0], 2, 1);
+
+    return (bool)lfenceAlwaysDispatchSerializing;
+}
+
+/* SMM paging configuration lock. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX3_SMM_Paging_Configuration_LockIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int smmPagingConfigurationLock = ExtractBits(cpuInfo[0], 3, 1);
+
+    return (bool)smmPagingConfigurationLock;
+}
+
+/* Was: TSX_CTL MSR (C000_0107h) not supported (Zen4) Now: TLBSYNC_SFW_NO. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX4_TLBSYNC_SFW_NOIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int tlbsyncSfwNo = ExtractBits(cpuInfo[0], 4, 1);
+
+    return (bool)tlbsyncSfwNo;
+}
+
+/* VERW for TSA mitigation. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX5_VERW_ForTSA_MitigationIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int verwForTSA_Mitigation = ExtractBits(cpuInfo[0], 5, 1);
+
+    return (bool)verwForTSA_Mitigation;
+}
+
+/* Null sreg.sel load also clears sreg.bas and sreg.lim. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX6_NullSregSelLoadAlsoClearsSregBasAndSregLimIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int nullSregSelLoadAlsoClearsSregBasAndSregLim = ExtractBits(cpuInfo[0], 6, 1);
+
+    return (bool)nullSregSelLoadAlsoClearsSregBasAndSregLim;
+}
+
+/* UAIv1, EFER.UAI_V1_E. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX7_UAIv1_EFER_UAI_V1_EIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int uaiv1EferUaiV1E = ExtractBits(cpuInfo[0], 7, 1);
+
+    return (bool)uaiv1EferUaiV1E;
+}
+
+/* Automatic IBRS. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX8_AutomaticIBRSIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int automaticIBRS = ExtractBits(cpuInfo[0], 8, 1);
+
+    return (bool)automaticIBRS;
+}
+
+/* SMM_CTL MSR (C001_0116h) not supported. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX9_SMM_CTL_MSR_NotSupportedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int smmCtlMsrNotSupported = ExtractBits(cpuInfo[0], 9, 1);
+
+    return (bool)smmCtlMsrNotSupported;
+}
+
+/* Fast short REP STOSB. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX10_FastShortREPSTOSBIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int fastShortREPSTOSB = ExtractBits(cpuInfo[0], 10, 1);
+
+    return (bool)fastShortREPSTOSB;
+}
+
+/* Fast short REPE CMPSB. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX11_FastShortREPE_CMPSBIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int fastShortREPE_CMPSB = ExtractBits(cpuInfo[0], 11, 1);
+
+    return (bool)fastShortREPE_CMPSB;
+}
+
+/* PerfEvtSel2[PreciseRetire]. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX12_PerfEvtSel2_PreciseRetireIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int perfEvtSel2PreciseRetire = ExtractBits(cpuInfo[0], 12, 1);
+
+    return (bool)perfEvtSel2PreciseRetire;
+}
+
+/* PREFETCH_CTRL MSR. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX13_PREFETCH_CTRL_MSRIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int prefetchedCtrlMsr = ExtractBits(cpuInfo[0], 13, 1);
+
+    return (bool)prefetchedCtrlMsr;
+}
+
+/* L2 TLB sizes are encoded as multiples of 32. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX14_L2_TLB_Sizes_Are_Encoded_As_Multiples_Of_32IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int l2TlbSizesAreEncodedAsMultiplesOf32 = ExtractBits(cpuInfo[0], 14, 1);
+
+    return (bool)l2TlbSizesAreEncodedAsMultiplesOf32;
+}
+
+/* Enhanced REP MOVSB/STOSB. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX15_Enhanced_REP_MOVSB_STOSBIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int enhancedRepMovsbStosb = ExtractBits(cpuInfo[0], 15, 1);
+
+    return (bool)enhancedRepMovsbStosb;
+}
+
+/* 0Fh,01h,/7 opcode space is reserved for AMD use. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX16_0Fh_01h_7_Opcode_Space_Is_Reserved_For_AMD_UseIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int _0Fh_01h_7_Opcode_Space_Is_Reserved_For_AMD_Use = ExtractBits(cpuInfo[0], 16, 1);
+
+    return (bool)_0Fh_01h_7_Opcode_Space_Is_Reserved_For_AMD_Use;
+}
+
+/* CPUID at CPL>0 outside SMM may #GP – HWCR[35] = enable bit. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX17_CPUID_At_CPL0_Outside_SMM_May_GPIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int cpuidAtCpl0OutsideSmmMayGp = ExtractBits(cpuInfo[0], 17, 1);
+
+    return (bool)cpuidAtCpl0OutsideSmmMayGp;
+}
+
+/* EPSF – enhanced PSF. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX18_EPSF_Enhanced_PSFIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int epsfEnhancedPsf = ExtractBits(cpuInfo[0], 18, 1);
+
+    return (bool)epsfEnhancedPsf;
+}
+
+/* Fast short REP SCASB. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX19_Fast_Short_REP_SCASBIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int fastShortRepScasb = ExtractBits(cpuInfo[0], 19, 1);
+
+    return (bool)fastShortRepScasb;
+}
+
+/* PREFETCHIT0/PREFETCHIT1. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX20_PREFETCHIT0_PREFETCHIT1IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int prefetchedCtrlMsr = ExtractBits(cpuInfo[0], 20, 1);
+
+    return (bool)prefetchedCtrlMsr;
+}
+
+/* FP512 downgraded to FP256, via HWCR[34]=1. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX21_FP512_Downgraded_To_FP256_Via_HWCR34IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int fp512DowngradedToFP256 = ExtractBits(cpuInfo[0], 21, 1);
+
+    return (bool)fp512DowngradedToFP256;
+}
+
+/* Workload class, extended leaf 8000_0027h. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX22_Workload_Class_Extended_Leaf_8000_0027hIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int workloadClass = ExtractBits(cpuInfo[0], 22, 1);
+
+    return (bool)workloadClass;
+}
+
+/* AVX512BMM – VBMAC[OR,XOR]16X16X16, VBITREVB. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX23_AVX512BMM_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int avx512bmmSupported = ExtractBits(cpuInfo[0], 23, 1);
+
+    return (bool)avx512bmmSupported;
+}
+
+/* ERAPS. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX24_ERAPS_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int erapsSupported = ExtractBits(cpuInfo[0], 24, 1);
+
+    return (bool)erapsSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX25_Reserved_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[0], 25, 1);
+
+    return (bool)reserved;
+}
+
+/* UAIv2, EFER.UAI_[S,U]_E, CR3.LAM_U_57. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX26_UAIv2_EFER_UAI_S_U_E_CR3_LAM_U_57_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int uaiv2Supported = ExtractBits(cpuInfo[0], 26, 1);
+
+    return (bool)uaiv2Supported;
+}
+
+/* PRED_CMD.SBPB. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX27_PRED_CMD_SBPB_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int predCmdSbpbSupported = ExtractBits(cpuInfo[0], 27, 1);
+
+    return (bool)predCmdSbpbSupported;
+}
+
+/* PRED_CMD.IBPB clears all branch type predictions. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX28_PRED_CMD_Ibpb_Clears_All_Branch_Type_Predictions_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int predCmdIbpbSupported = ExtractBits(cpuInfo[0], 28, 1);
+
+    return (bool)predCmdIbpbSupported;
+}
+
+/* SRSO_NO. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX29_SRSO_NO_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int srsoNoSupported = ExtractBits(cpuInfo[0], 29, 1);
+
+    return (bool)srsoNoSupported;
+}
+
+/* SRSO_USER_KERNEL_NO. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX30_SRSO_USER_KERNEL_NO_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int srsoUserKernelNoSupported = ExtractBits(cpuInfo[0], 30, 1);
+
+    return (bool)srsoUserKernelNoSupported;
+}
+
+/* SRSO_MSR_FIX – MSR_BP_CFG[BpSpecReduce] = SRSO mitigation. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021EAX31_SRSO_MSR_FIX_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int srsoMsrFixSupported = ExtractBits(cpuInfo[0], 31, 1);
+
+    return (bool)srsoMsrFixSupported;
+}
+
+// EBX
+/* Microcode patch block (MPB) size in 16-byte multiples. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000021EBX0_15_MPBSize()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int mpbSize = ExtractBits(cpuInfo[1], 0, 16);
+
+    return mpbSize;
+}
+
+/* RAP size (Zen5: 64, if 0: assume 32). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000021EBX16_23_RAPSize()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int rapSize = ExtractBits(cpuInfo[1], 16, 8);
+
+    return rapSize;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000021EBX24_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 24, 8);
+
+    return reserved;
+}
+
+// ECX
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021ECX0_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[2], 0, 1);
+
+    return (bool)reserved;
+}
+
+/* TSA_SQ_NO (TSA affects Zen3/Zen4, but not pre-Zen3 or Zen5 – if unaffected, HV could synthesize it). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021ECX1_TSA_SQ_NO_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int tsaSqNoSupported = ExtractBits(cpuInfo[2], 1, 1);
+
+    return (bool)tsaSqNoSupported;
+}
+
+/* TSA_L1_NO (TSA affects Zen3/Zen4, but not pre-Zen3 or Zen5 – if unaffected, HV could synthesize it). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021ECX2_TSA_L1_NO_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int tsaL1NoSupported = ExtractBits(cpuInfo[2], 2, 1);
+
+    return (bool)tsaL1NoSupported;
+}
+
+/* ThreadPatchLevel – MSR C001_0023h for last patch loaded by thread. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021ECX3_ThreadPatchLevel_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int threadPatchLevelSupported = ExtractBits(cpuInfo[2], 3, 1);
+
+    return (bool)threadPatchLevelSupported;
+}
+
+/* AspPatchAuth – ASP authenticaed microcode patch load. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021ECX4_AspPatchAuth_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int aspPatchAuthSupported = ExtractBits(cpuInfo[2], 4, 1);
+
+    return (bool)aspPatchAuthSupported;
+}
+
+/* OobPatchLoad – out-of-band microcode patch load. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021ECX5_OobPatchLoad_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int oobPatchLoadSupported = ExtractBits(cpuInfo[2], 5, 1);
+
+    return (bool)oobPatchLoadSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021ECX6_Reserved_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[2], 6, 1);
+
+    return (bool)reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021ECX7_Reserved_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[2], 7, 1);
+
+    return (bool)reserved;
+}
+
+/* BTB_CTX_ISOLATION (BP in one context [US/SV and guest/host] only influenced by same context). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021ECX8_BTB_CTX_ISOLATION_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int btbCtxIsolationSupported = ExtractBits(cpuInfo[2], 8, 1);
+
+    return (bool)btbCtxIsolationSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021ECX9_Reserved_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[2], 9, 1);
+
+    return (bool)reserved;
+}
+
+/* SameFpWidthReporting – HWCR.ReportSameFpWidth supported. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX80000021ECX10_SameFpWidthReporting_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int sameFpWidthReportingSupported = ExtractBits(cpuInfo[2], 10, 1);
+
+    return (bool)sameFpWidthReportingSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000021ECX11_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[2], 11, 21);
+
+    return reserved;
+}
+
+// EDX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000007EDX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000021, 0);
+
+    return cpuInfo[3];
+}
+
 #pragma endregion
 
 #pragma region EAX=0x80000022: Extended performance monitoring and debug information
