@@ -15176,7 +15176,29 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000006EDX()
     return result;
 }
 
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000006ECX_LineSize()
+// Generic
+
+
+// Intel
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000007EAX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000006, 0);
+
+    return cpuInfo[0];
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000007EBX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000006, 0);
+
+    return cpuInfo[1];
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006ECX0_7_LineSize()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000006, 0);
@@ -15185,7 +15207,18 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000006ECX_LineSize()
     return lineSize;
 }
 
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000006ECX_Associativity()
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EAX8_11_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000006, 0);
+
+    unsigned int reserved = ExtractBits(cpuInfo[0], 8, 4);
+
+    return reserved;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006ECX12_15_Associativity()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000006, 0);
@@ -15194,7 +15227,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000006ECX_Associativity()
     return associativity;
 }
 
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000006ECX_CacheSize()
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006ECX16_31_CacheSize()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000006, 0);
@@ -15202,6 +15235,17 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000006ECX_CacheSize()
 
     return cacheSize;
 }
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000007EDX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000006, 0);
+
+    return cpuInfo[3];
+}
+
+//AMD
 
 #pragma endregion
 
