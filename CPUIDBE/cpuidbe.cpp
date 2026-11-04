@@ -15178,7 +15178,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX80000006EDX()
 
 // Generic
 /* Code TLB entries – if leaf 8000_0021h.EAX[14]=1, then multiply by 32. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EAX0_11_CodeTableEntries()
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EAX0_11_CodeTableEntries()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000006, 0);
@@ -15189,7 +15189,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EAX0_11_CodeTableEntr
 }
 
 /* Code TLB associativity. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EAX12_15_CodeTableAssociativity()
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EAX12_15_CodeTableAssociativity()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000006, 0);
@@ -15200,7 +15200,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EAX12_15_CodeTableAss
 }
 
 /* Data TLB entries – if leaf 8000_0021h.EAX[14]=1, then multiply by 32. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EAX16_27_DataTableEntries()
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EAX16_27_DataTableEntries()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000006, 0);
@@ -15211,7 +15211,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EAX16_27_DataTableEnt
 }
 
 /* Data TLB associativity. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EAX28_31_DataTableAssociativity()
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EAX28_31_DataTableAssociativity()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000006, 0);
@@ -15222,7 +15222,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EAX28_31_DataTableAss
 }
 
 /* Code TLB entries – if leaf 8000_0021h.EAX[14]=1, then multiply by 32. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX0_11_CodeTableEntries()
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EBX0_11_CodeTableEntries()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000006, 0);
@@ -15233,7 +15233,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX0_11_CodeTableEntr
 }
 
 /* Code TLB associativity. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX12_15_CodeTableAssociativity()
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EBX12_15_CodeTableAssociativity()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000006, 0);
@@ -15244,7 +15244,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX12_15_CodeTableAss
 }
 
 /* Data TLB entries – if leaf 8000_0021h.EAX[14]=1, then multiply by 32. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX16_27_DataTableEntries()
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EBX16_27_DataTableEntries()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000006, 0);
@@ -15255,7 +15255,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX16_27_DataTableEnt
 }
 
 /* Data TLB associativity. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX28_31_DataTableAssociativity()
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EBX28_31_DataTableAssociativity()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000006, 0);
@@ -15266,7 +15266,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX28_31_DataTableAss
 }
 
 /* Unified L2 cache line size in bytes. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX0_7_UnifiedL2CacheLineSize()
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EBX0_7_UnifiedL2CacheLineSize()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000006, 0);
@@ -15277,7 +15277,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX0_7_UnifiedL2Cache
 }
 
 /* Unified L2 cache lines per tag. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX8_11_UnifiedL2CacheLinesPerTag()
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EBX8_11_UnifiedL2CacheLinesPerTag()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000006, 0);
@@ -15288,7 +15288,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX8_11_UnifiedL2Cach
 }
 
 /* Unified L2 cache associativity. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX12_15_UnifiedL2CacheAssociativity()
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EBX12_15_UnifiedL2CacheAssociativity()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000006, 0);
@@ -15299,7 +15299,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX12_15_UnifiedL2Cac
 }
 
 /* Unified L2 cache size in KBs. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX16_31_UnifiedL2CacheSize()
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EBX16_31_UnifiedL2CacheSize()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000006, 0);
@@ -15310,7 +15310,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX16_31_UnifiedL2Cac
 }
 
 /* Unified L3 cache line size in bytes. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX0_7_UnifiedL3CacheLineSize()
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EBX0_7_UnifiedL3CacheLineSize()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000006, 0);
@@ -15321,7 +15321,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX0_7_UnifiedL3Cache
 }
 
 /* Unified L3 cache lines per tag. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX8_11_UnifiedL3CacheLinesPerTag()
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EBX8_11_UnifiedL3CacheLinesPerTag()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000006, 0);
@@ -15332,7 +15332,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX8_11_UnifiedL3Cach
 }
 
 /* Unified L3 cache associativity. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX12_15_UnifiedL3CacheAssociativity()
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EBX12_15_UnifiedL3CacheAssociativity()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000006, 0);
@@ -15343,7 +15343,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX12_15_UnifiedL3Cac
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX16_17_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EBX16_17_Reserved()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000006, 0);
@@ -15354,7 +15354,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX16_17_Reserved()
 }
 
 /* Unified L3 cache size in 512 KB chunks. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX18_31_UnifiedL3CacheSize()
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EBX18_31_UnifiedL3CacheSize()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000006, 0);
@@ -15366,7 +15366,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EBX18_31_UnifiedL3Cac
 
 // Intel
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000007EAX0_31_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EAX0_31_Reserved()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000006, 0);
@@ -15375,7 +15375,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000007EAX0_31_Reserved()
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000007EBX0_31_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EBX0_31_Reserved()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000006, 0);
@@ -15393,7 +15393,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000006ECX0_7_LineSize()
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000005EAX8_11_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EAX8_11_Reserved()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000006, 0);
@@ -15422,7 +15422,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000006ECX16_31_CacheSize()
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000007EDX0_31_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EDX0_31_Reserved()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000006, 0);
@@ -15431,6 +15431,146 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000007EDX0_31_Reserved()
 }
 
 //AMD
+/* L2 TLB parameters, 2M/4M pages - Instruction table entries. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EAX0_11_L2TableParameters2M4MPagesInstructionTableEntries()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000006, 0);
+
+    unsigned int instructionTableEntries = ExtractBits(cpuInfo[0], 0, 12);
+
+    return instructionTableEntries;
+}
+
+/* L2 TLB parameters, 2M/4M pages - Instruction table associativity. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EAX12_15_L2TableParameters2M4MPagesInstructionTableAssociativity()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000006, 0);
+
+    unsigned int instructionTableAssociativity = ExtractBits(cpuInfo[0], 12, 4);
+
+    return instructionTableAssociativity;
+}
+
+/* L2 TLB parameters, 2M/4M pages - Data table entries. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EAX16_27_L2TableParameters2M4MPagesDataTableEntries()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000006, 0);
+
+    unsigned int dataTableEntries = ExtractBits(cpuInfo[0], 16, 12);
+
+    return dataTableEntries;
+}
+
+/* L2 TLB parameters, 2M/4M pages - Data table associativity. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EAX28_31_L2TableParameters2M4MPagesDataTableAssociativity()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000006, 0);
+
+    unsigned int dataTableAssociativity = ExtractBits(cpuInfo[0], 28, 4);
+
+    return dataTableAssociativity;
+}
+
+/* L2 TLB parameters, 4K pages - Instruction table entries. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EBX0_11_L2TableParameters4KPagesInstructionTableEntries()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000006, 0);
+
+    unsigned int instructionTableEntries = ExtractBits(cpuInfo[1], 0, 12);
+
+    return instructionTableEntries;
+}
+
+/* L2 TLB parameters, 4K pages - Instruction table associativity. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EBX12_15_L2TableParameters4KPagesInstructionTableAssociativity()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000006, 0);
+
+    unsigned int instructionTableAssociativity = ExtractBits(cpuInfo[1], 12, 4);
+
+    return instructionTableAssociativity;
+}
+
+/* L2 TLB parameters, 4K pages - Data table entries. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EBX16_27_L2TableParameters4KPagesDataTableEntries()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000006, 0);
+
+    unsigned int dataTableEntries = ExtractBits(cpuInfo[1], 16, 12);
+
+    return dataTableEntries;
+}
+
+/* L2 TLB parameters, 4K pages - Data table associativity. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EBX28_31_L2TableParameters4KPagesDataTableAssociativity()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000006, 0);
+
+    unsigned int dataTableAssociativity = ExtractBits(cpuInfo[1], 28, 4);
+
+    return dataTableAssociativity;
+}
+
+/* Cache Line Size. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006ECX0_7_CacheLineSize()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000006, 0);
+
+    unsigned int instructionTableEntries = ExtractBits(cpuInfo[2], 0, 8);
+
+    return instructionTableEntries;
+}
+
+/* LPT. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006ECX8_11_LPT()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000006, 0);
+
+    unsigned int instructionTableEntries = ExtractBits(cpuInfo[2], 8, 4);
+
+    return instructionTableEntries;
+}
+
+/* L2 Associativity. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006ECX12_15_L2Associativity()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000006, 0);
+
+    unsigned int l2Associativity = ExtractBits(cpuInfo[2], 12, 4);
+
+    return l2Associativity;
+}
+
+/* Cache size in 1K units. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006ECX16_31_CacheSizeIn1kUnits()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x80000006, 0);
+
+    unsigned int cacheSizeIn1kUnits = ExtractBits(cpuInfo[2], 16, 16);
+
+    return cacheSizeIn1kUnits;
+}
+
+/* Reserved. (same as Intel)*/
+//extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EDX0_31_Reserved()
+//{
+//    int cpuInfo[4];
+//    __cpuidex(cpuInfo, 0x80000006, 0);
+
+//    return cpuInfo[3];
+//}
 
 #pragma endregion
 
