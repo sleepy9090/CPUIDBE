@@ -15393,12 +15393,12 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX80000006ECX0_7_LineSize()
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX80000006EAX8_11_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX80000006ECX8_11_Reserved()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x80000006, 0);
 
-    unsigned int reserved = ExtractBits(cpuInfo[0], 8, 4);
+    unsigned int reserved = ExtractBits(cpuInfo[2], 8, 4);
 
     return reserved;
 }
