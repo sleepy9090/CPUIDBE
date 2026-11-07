@@ -5072,7 +5072,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX7ECX1_EDX31_ReservedIsSuppor
 }
 
 /* EAX=0x7, ECX=0x2: Extended Features. */
-extern "C" __declspec(dllexport) char* __cdecl GetEAX7ECX2EAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000007ECX2EAX()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x7, 2);
@@ -5086,7 +5086,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX7ECX2EAX()
     return result;
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX7ECX2EBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000007ECX2EBX()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x7, 2);
@@ -5100,7 +5100,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX7ECX2EBX()
     return result;
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX7ECX2ECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000007ECX2ECX()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x7, 2);
@@ -5114,7 +5114,7 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX7ECX2ECX()
     return result;
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX7ECX2EDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000007ECX2EDX()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x7, 2);
