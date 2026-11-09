@@ -8389,24 +8389,96 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX18EDX()
 
 #pragma region EAX=0x00000019: Intel Key Locker Features
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX19EAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000019EAX()
 {
     return GetCustom(0x00000019, 0, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX19EBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000019EBX()
 {
     return GetCustom(0x00000019, 0, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX19ECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000019ECX()
 {
     return GetCustom(0x00000019, 0, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX19EDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000019EDX()
 {
     return GetCustom(0x00000019, 0, 3);
+}
+
+/* CPL0 - KL restricted to CPL0. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000019_EAX0_CPL0()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000019, 0);
+
+    unsigned int cpl0Supported = ExtractBits(cpuInfo[0], 0, 1);
+
+    return (bool)cpl0Supported;
+}
+
+/* NO_ENC - KL restricted to no-encrypt. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000019_EAX1_NO_ENC()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000019, 0);
+
+    unsigned int noEncSupported = ExtractBits(cpuInfo[0], 1, 1);
+
+    return (bool)noEncSupported;
+}
+
+/* NO_DEC - KL restricted to no-decrypt. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000019_EAX2_NO_DEC()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000019, 0);
+
+    unsigned int noDecSupported = ExtractBits(cpuInfo[0], 2, 1);
+
+    return (bool)noDecSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX16EAX3_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000019, 0);
+    unsigned int reserved = ExtractBits(cpuInfo[0], 3, 28);
+
+    return reserved;
+}
+
+/* AES_KL_E - AES KL enabled (CR4.KL=1) – note: a SKU may force 0 when in SMM. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000019_EBX0_AES_KL_E()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000019, 0);
+
+    unsigned int aesKlEnabled = ExtractBits(cpuInfo[1], 0, 1);
+
+    return (bool)aesKlEnabled;
+}
+
+
+
+
+
+
+
+
+
+
+/* Reserved */
+extern "C" __declspec(dllexport) int __cdecl GetEAX16EDX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000019, 0);
+
+    return cpuInfo[3];
 }
 
 #pragma endregion
