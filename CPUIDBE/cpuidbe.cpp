@@ -8463,17 +8463,94 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX00000019_EBX0_AES_KL_E()
     return (bool)aesKlEnabled;
 }
 
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000019_EBX1_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000019, 0);
 
+    unsigned int reserved = ExtractBits(cpuInfo[1], 1, 1);
 
+    return (bool)reserved;
+}
 
+/* AES_WIDE - AES KL wide instructions supported. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000019_EBX2_AES_WIDE()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000019, 0);
 
+    unsigned int aesWideSupported = ExtractBits(cpuInfo[1], 2, 1);
 
+    return (bool)aesWideSupported;
+}
 
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000019_EBX3_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000019, 0);
 
+    unsigned int reserved = ExtractBits(cpuInfo[1], 3, 1);
 
+    return (bool)reserved;
+}
 
-/* Reserved */
-extern "C" __declspec(dllexport) int __cdecl GetEAX16EDX0_31_Reserved()
+/* IWKEYBACKUP -  	internal wrapping key backup supported. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000019_EBX4_IWKEYBACKUP()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000019, 0);
+
+    unsigned int iWKEYBACKUP = ExtractBits(cpuInfo[1], 4, 1);
+
+    return (bool)iWKEYBACKUP;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000019EAX5_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000019, 0);
+    unsigned int reserved = ExtractBits(cpuInfo[1], 5, 26);
+
+    return reserved;
+}
+
+/* NO_BACKUP - LOADIWKEY supports NoBackup parameter. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000019_ECX0_NO_BACKUP()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000019, 0);
+
+    unsigned int noBackupSupported = ExtractBits(cpuInfo[2], 0, 1);
+
+    return (bool)noBackupSupported;
+}
+
+/* RAND_IW_KEY - supports KeySource=1, i.e. randomization of the internal wrapping key. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000019_ECX1_RAND_IW_KEY()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000019, 0);
+
+    unsigned int randIwKeySupported = ExtractBits(cpuInfo[2], 1, 1);
+
+    return (bool)randIwKeySupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000019ECX2_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000019, 0);
+    unsigned int reserved = ExtractBits(cpuInfo[2], 2, 29);
+
+    return reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000019EDX0_31_Reserved()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x00000019, 0);
