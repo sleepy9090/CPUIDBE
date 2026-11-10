@@ -8582,6 +8582,56 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001AEDX()
     return GetCustom(0x0000001A, 0, 3);
 }
 
+/* Core native model ID
+ * Atom 0=TNT, 1=GRM, 2=CRM, 3=SKM, 4=DKM, 5=ARW
+ * Core 0=SNC, 1=GLC, 2=RWC, 3=LNC, 4=CGC, 5=CYC.
+ */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001AEAX0_23_CoreNativeModelId()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001A, 0);
+    unsigned int coreNativeModelId = ExtractBits(cpuInfo[0], 0, 24);
+
+    return coreNativeModelId;
+}
+
+/* Core type (10h=reserved, 20h=Atom, 30h=reserved, 40h=Core) */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001AEAX24_31_CoreType()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001A, 0);
+    unsigned int coreType = ExtractBits(cpuInfo[0], 24, 8);
+
+    return coreType;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001AEBX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001A, 0);
+
+    return cpuInfo[1];
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001AECX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001A, 0);
+
+    return cpuInfo[2];
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001AEDX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001A, 0);
+
+    return cpuInfo[3];
+}
+
 #pragma endregion
 
 #pragma region EAX=0x0000001B: PCONFIG Information
