@@ -5584,6 +5584,30 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX00000009EAX0_31_ValueOfPlatfo
     return cpuInfo[0];
 }
 
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000009EBX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000009, 0);
+
+    return cpuInfo[1];
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000009ECX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000009, 0);
+
+    return cpuInfo[2];
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000009EDX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000009, 0);
+
+    return cpuInfo[3];
+}
+
 #pragma endregion
 
 #pragma region EAX=0x0000000A: Architectural perf mon information
