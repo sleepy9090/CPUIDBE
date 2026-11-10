@@ -8443,7 +8443,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX00000019_EAX2_NO_DEC()
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX16EAX3_31_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000019EAX3_31_Reserved()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x00000019, 0);
@@ -8508,7 +8508,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX00000019_EBX4_IWKEYBACKUP()
 }
 
 /* Reserved. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX00000019EAX5_31_Reserved()
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000019EBX5_31_Reserved()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x00000019, 0);
