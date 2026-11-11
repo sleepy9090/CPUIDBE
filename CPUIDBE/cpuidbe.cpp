@@ -8680,6 +8680,124 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001BEDX()
     return GetCustom(0x0000001B, 0, 3);
 }
 
+/* Sub-leaf (0) – invalid */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001BEAX0_11_Subleaf0Invalid()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001B, 0);
+    unsigned int subleaf0Invalid = ExtractBits(cpuInfo[0], 0, 12);
+
+    return subleaf0Invalid;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001BEAX12_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001B, 0);
+    unsigned int reserved = ExtractBits(cpuInfo[0], 12, 20);
+
+    return reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001BEBX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001B, 0);
+
+    return cpuInfo[1];
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001BECX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001B, 0);
+
+    return cpuInfo[2];
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001BEDX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001B, 0);
+
+    return cpuInfo[3];
+}
+
+#pragma endregion
+
+#pragma region EAX=0x0000001B: 1=target ID - PCONFIG Information
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001BECX1EAX()
+{
+    return GetCustom(0x0000001B, 1, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001BECX1EBX()
+{
+    return GetCustom(0x0000001B, 1, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001BECX1ECX()
+{
+    return GetCustom(0x0000001B, 1, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001BECX1EDX()
+{
+    return GetCustom(0x0000001B, 1, 3);
+}
+
+/* Sub-leaf (1) – target ID */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001BECX1EAX0_11_Subleaf1TargetId()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001B, 1);
+    unsigned int subleaf1TargetId = ExtractBits(cpuInfo[0], 0, 12);
+
+    return subleaf1TargetId;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001BECX1EAX12_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001B, 1);
+    unsigned int reserved = ExtractBits(cpuInfo[0], 12, 20);
+
+    return reserved;
+}
+
+/* Target ID 1 – (0=invalid, 1=MK-TME, 2=TSE, 3...n=reserved). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001BECX1EBX0_31_TargetId1()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001B, 1);
+
+    return cpuInfo[1];
+}
+
+/* Target ID 2 – (0=invalid, 1=MK-TME, 2=TSE, 3...n=reserved). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001BECX1ECX0_31_TargetId2()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001B, 1);
+
+    return cpuInfo[2];
+}
+
+/* Target ID 3 – (0=invalid, 1=MK-TME, 2=TSE, 3...n=reserved). */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001BECX1EDX0_31_TargetId3()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001B, 1);
+
+    return cpuInfo[3];
+}
+
 #pragma endregion
 
 #pragma region EAX=0x0000001C: LBR Information
