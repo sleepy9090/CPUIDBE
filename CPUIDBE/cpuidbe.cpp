@@ -6795,6 +6795,372 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010EDX()
     return GetCustom(0x00000010, 0, 3);
 }
 
+// EAX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010EAX_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000000);
+
+    return cpuInfo[0];
+}
+
+// EBX
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000010EBX0_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000000);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 0, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* L3 cache QoS enforcement. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000010EBX1_L3CacheQoSEnforcementIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000000);
+
+    unsigned int l3CacheQoSEnforcementSupported = ExtractBits(cpuInfo[1], 1, 1);
+
+    return (bool)l3CacheQoSEnforcementSupported;
+}
+
+/* L2 cache QoS enforcement. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000010EBX2_L2CacheQoSEnforcementIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000000);
+
+    unsigned int l2CacheQoSEnforcementSupported = ExtractBits(cpuInfo[1], 2, 1);
+
+    return (bool)l2CacheQoSEnforcementSupported;
+}
+
+/* MBA – Memory bandwidth allocation. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000010EBX3_MBAMemoryBandwidthAllocationIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000000);
+
+    unsigned int mBAMemoryBandwidthAllocatioSupported = ExtractBits(cpuInfo[1], 3, 1);
+
+    return (bool)mBAMemoryBandwidthAllocatioSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000010EBX4_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000000);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[1], 4, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* CBA – Cache bandwidth allocation. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000010EBX5_CBACacheBandwidthAllocationIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000000);
+
+    unsigned int cBACacheBandwidthAllocationSupported = ExtractBits(cpuInfo[1], 5, 1);
+
+    return (bool)cBACacheBandwidthAllocationSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010EBX_7_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000000);
+
+    unsigned int reserved = ExtractBits(cpuInfo[1], 7, 25);
+
+    return reserved;
+}
+
+// ECX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000000);
+
+    return cpuInfo[2];
+}
+
+// EDX
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000010EDX0_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000000);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[3], 0, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* AMD APM: L3 cache allocation enforcement support (not confirmed by PPRs). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000010EDX1_AMDAPMIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000000);
+
+    unsigned int amdAPMSupported = ExtractBits(cpuInfo[3], 1, 1);
+
+    return (bool)amdAPMSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010EDX_2_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000000);
+
+    unsigned int reserved = ExtractBits(cpuInfo[3], 2, 30);
+
+    return reserved;
+}
+
+#pragma endregion
+
+#pragma region EAX=0x00000010, ECX=0x00000001: RDT-A (QoS allocation) enumeration, (1 = L3)
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX1EAX()
+{
+    return GetCustom(0x00000010, 0x00000001, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX1EBX()
+{
+    return GetCustom(0x00000010, 0x00000001, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX1ECX()
+{
+    return GetCustom(0x00000010, 0x00000001, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX1EDX()
+{
+    return GetCustom(0x00000010, 0x00000001, 3);
+}
+
+// EAX
+/* Length of capacity bit mask for resource n using minus-one notation. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX1EAX_0_4_LengthOfCapacityBitMaskForResource()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000001);
+
+    unsigned int lengthOfCapacityBitMaskForResource = ExtractBits(cpuInfo[0], 0, 5);
+
+    return lengthOfCapacityBitMaskForResource;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX1EAX_5_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000001);
+
+    unsigned int reserved = ExtractBits(cpuInfo[0], 5, 27);
+
+    return reserved;
+}
+
+// EBX
+/* Bit-granular map of isolation/contention of allocation units. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX1EBX_BitGranularMapOfIsolationContentionOfAllocationUnits()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000001);
+
+    return cpuInfo[1];
+}
+
+// ECX
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000010ECX1ECX0_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000001);
+
+    unsigned int reservedSupported = ExtractBits(cpuInfo[2], 0, 1);
+
+    return (bool)reservedSupported;
+}
+
+/* (ISE 049) was: updates of COS should be infrequent
+ * (ISE 050) now: non-CPU agent present, supporting Intel RDT L3 CAT.
+ */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000010ECX1ECX1_ISE049_ISE050_IsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000001);
+
+    unsigned int iSE049_ISE050Supported = ExtractBits(cpuInfo[2], 1, 1);
+
+    return (bool)iSE049_ISE050Supported;
+}
+
+/* Code/data prioritization – set L3_QOS_CFG MSR bit 0 to 1 to enable. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000010ECX1ECX2_CodeDataPrioritizationIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000001);
+
+    unsigned int codeDataPrioritizationSupported = ExtractBits(cpuInfo[2], 2, 1);
+
+    return (bool)codeDataPrioritizationSupported;
+}
+
+/* Non-contiguous capacity bitmasks. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000010ECX1ECX3_NonContiguousCapacityBitmasksIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000001);
+
+    unsigned int nonContiguousCapacityBitmasksSupported = ExtractBits(cpuInfo[2], 3, 1);
+
+    return (bool)nonContiguousCapacityBitmasksSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX1ECX_4_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000001);
+
+    unsigned int reserved = ExtractBits(cpuInfo[2], 4, 28);
+
+    return reserved;
+}
+
+// EDX
+/* Highest COS number supported for resource n. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX1EDX_0_15_HighestCOSNumberSupportedForResourceN()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000001);
+
+    unsigned int highestCOSNumberSupportedForResourceN = ExtractBits(cpuInfo[3], 0, 16);
+
+    return highestCOSNumberSupportedForResourceN;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX1EDX_16_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000001);
+
+    unsigned int reserved = ExtractBits(cpuInfo[3], 16, 16);
+
+    return reserved;
+}
+
+#pragma endregion
+
+#pragma region EAX=0x00000010, ECX=0x00000002: RDT-A (QoS allocation) enumeration, (2 = L2)
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX2EAX()
+{
+    return GetCustom(0x00000010, 2, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX2EBX()
+{
+    return GetCustom(0x00000010, 2, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX2ECX()
+{
+    return GetCustom(0x00000010, 2, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX2EDX()
+{
+    return GetCustom(0x00000010, 2, 3);
+}
+
+#pragma endregion
+
+#pragma region EAX=0x00000010, ECX=0x00000003: RDT-A (QoS allocation) enumeration, (3 = MBA)
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX3EAX()
+{
+    return GetCustom(0x00000010, 3, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX3EBX()
+{
+    return GetCustom(0x00000010, 3, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX3ECX()
+{
+    return GetCustom(0x00000010, 3, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX3EDX()
+{
+    return GetCustom(0x00000010, 3, 3);
+}
+
+#pragma endregion
+
+#pragma region EAX=0x00000010, ECX=0x00000005: RDT-A (QoS allocation) enumeration, (5 = CBA)
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX5EAX()
+{
+    return GetCustom(0x00000010, 5, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX5EBX()
+{
+    return GetCustom(0x00000010, 5, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX5ECX()
+{
+    return GetCustom(0x00000010, 5, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX5EDX()
+{
+    return GetCustom(0x00000010, 5, 3);
+}
+
+#pragma endregion
+
+#pragma region EAX=0x00000010, ECX=0x00000006: RDT-A (QoS allocation) enumeration, (6 = RP)
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX6EAX()
+{
+    return GetCustom(0x00000010, 6, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX6EBX()
+{
+    return GetCustom(0x00000010, 6, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX6ECX()
+{
+    return GetCustom(0x00000010, 6, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX6EDX()
+{
+    return GetCustom(0x00000010, 6, 3);
+}
+
 #pragma endregion
 
 #pragma region EAX=0x00000011: Reserved
@@ -8729,7 +9095,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000001BEDX0_31_Reserved()
 
 #pragma endregion
 
-#pragma region EAX=0x0000001B: 1=target ID - PCONFIG Information
+#pragma region EAX=0x0000001B: ECX=1, 1=target ID - PCONFIG Information
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001BECX1EAX()
 {
