@@ -7089,6 +7089,107 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX2EDX()
     return GetCustom(0x00000010, 2, 3);
 }
 
+// EAX
+/* Length of capacity bit mask for resource n using minus-one notation. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX2EAX_0_4_LengthOfCapacityBitMaskForResource()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000002);
+
+    unsigned int lengthOfCapacityBitMaskForResource = ExtractBits(cpuInfo[0], 0, 5);
+
+    return lengthOfCapacityBitMaskForResource;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX2EAX_5_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000002);
+
+    unsigned int reserved = ExtractBits(cpuInfo[0], 5, 27);
+
+    return reserved;
+}
+
+// EBX
+/* Bit-granular map of isolation/contention of allocation units. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX2EBX_BitGranularMapOfIsolationContentionOfAllocationUnits()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000002);
+
+    return cpuInfo[1];
+}
+
+// ECX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX2ECX_0_1_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000002);
+
+    unsigned int reserved = ExtractBits(cpuInfo[2], 0, 2);
+
+    return reserved;
+}
+
+/* Code/data prioritization – set L2_QOS_CFG MSR bit 0 to 1 to enable. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000010ECX2ECX2_CodeDataPrioritizationIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000002);
+
+    unsigned int codeDataPrioritizationSupported = ExtractBits(cpuInfo[2], 2, 1);
+
+    return (bool)codeDataPrioritizationSupported;
+}
+
+/* Non-contiguous capacity bitmasks. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000010ECX2ECX3_NonContiguousCapacityBitmasksIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000002);
+
+    unsigned int nonContiguousCapacityBitmasksSupported = ExtractBits(cpuInfo[2], 3, 1);
+
+    return (bool)nonContiguousCapacityBitmasksSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX2ECX_4_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000002);
+
+    unsigned int reserved = ExtractBits(cpuInfo[2], 4, 28);
+
+    return reserved;
+}
+
+// EDX
+/* Highest COS number supported for resource n. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX2EDX_0_15_HighestCOSNumberSupportedForResourceN()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000002);
+
+    unsigned int highestCOSNumberSupportedForResourceN = ExtractBits(cpuInfo[3], 0, 16);
+
+    return highestCOSNumberSupportedForResourceN;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX2EDX_16_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000002);
+
+    unsigned int reserved = ExtractBits(cpuInfo[3], 16, 16);
+
+    return reserved;
+}
+
 #pragma endregion
 
 #pragma region EAX=0x00000010, ECX=0x00000003: RDT-A (QoS allocation) enumeration, (3 = MBA)
