@@ -7071,22 +7071,22 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX1EDX_16_31_Reserve
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX2EAX()
 {
-    return GetCustom(0x00000010, 2, 0);
+    return GetCustom(0x00000010, 0x00000002, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX2EBX()
 {
-    return GetCustom(0x00000010, 2, 1);
+    return GetCustom(0x00000010, 0x00000002, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX2ECX()
 {
-    return GetCustom(0x00000010, 2, 2);
+    return GetCustom(0x00000010, 0x00000002, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX2EDX()
 {
-    return GetCustom(0x00000010, 2, 3);
+    return GetCustom(0x00000010, 0x00000002, 3);
 }
 
 // EAX
@@ -7196,22 +7196,123 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX2EDX_16_31_Reserve
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX3EAX()
 {
-    return GetCustom(0x00000010, 3, 0);
+    return GetCustom(0x00000010, 0x00000003, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX3EBX()
 {
-    return GetCustom(0x00000010, 3, 1);
+    return GetCustom(0x00000010, 0x00000003, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX3ECX()
 {
-    return GetCustom(0x00000010, 3, 2);
+    return GetCustom(0x00000010, 0x00000003, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX3EDX()
 {
-    return GetCustom(0x00000010, 3, 3);
+    return GetCustom(0x00000010, 0x00000003, 3);
+}
+
+// EAX
+/* Maximum MBA throttling value for resource n using minus-one notation. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX3EAX_0_11_MaximumMBAThrottlingValueForResource()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000003);
+
+    unsigned int maximumMBAThrottlingValueForResource = ExtractBits(cpuInfo[0], 0, 12);
+
+    return maximumMBAThrottlingValueForResource;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX3EAX_12_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000003);
+
+    unsigned int reserved = ExtractBits(cpuInfo[0], 12, 20);
+
+    return reserved;
+}
+
+// EBX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX3EBX_0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000003);
+
+    return cpuInfo[1];
+}
+
+// ECX
+/* Per thread MBA controls. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000010ECX3ECX0_PerThreadMBAControlsIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000003);
+
+    unsigned int perThreadMBAControls = ExtractBits(cpuInfo[2], 0, 1);
+
+    return (bool)perThreadMBAControls;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000010ECX3ECX1_ReservedIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000003);
+
+    unsigned int reserved = ExtractBits(cpuInfo[2], 1, 1);
+
+    return (bool)reserved;
+}
+
+/* Response to delay value is linear. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000010ECX3ECX2_ResponseToDelayValueIsLinearIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000003);
+
+    unsigned int responseToDelayValueIsLinear = ExtractBits(cpuInfo[2], 2, 1);
+
+    return (bool)responseToDelayValueIsLinear;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX3ECX_3_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000003);
+
+    unsigned int reserved = ExtractBits(cpuInfo[2], 3, 29);
+
+    return reserved;
+}
+
+// EDX
+/* Highest COS number supported for resource n. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX3EDX_0_15_HighestCOSNumberSupportedForResourceN()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000003);
+
+    unsigned int highestCOSNumberSupportedForResourceN = ExtractBits(cpuInfo[3], 0, 16);
+
+    return highestCOSNumberSupportedForResourceN;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX3EDX_16_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000003);
+
+    unsigned int reserved = ExtractBits(cpuInfo[3], 16, 16);
+
+    return reserved;
 }
 
 #pragma endregion
@@ -7220,22 +7321,123 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX3EDX()
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX5EAX()
 {
-    return GetCustom(0x00000010, 5, 0);
+    return GetCustom(0x00000010, 0x00000005, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX5EBX()
 {
-    return GetCustom(0x00000010, 5, 1);
+    return GetCustom(0x00000010, 0x00000005, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX5ECX()
 {
-    return GetCustom(0x00000010, 5, 2);
+    return GetCustom(0x00000010, 0x00000005, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX5EDX()
 {
-    return GetCustom(0x00000010, 5, 3);
+    return GetCustom(0x00000010, 0x00000005, 3);
+}
+
+// EAX
+/* Maximum CBA throttling value for resource n using minus-one notation. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX5EAX_0_7_MaximumCBAThrottlingValueForResource()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000005);
+
+    unsigned int maximumCBAThrottlingValueForResource = ExtractBits(cpuInfo[0], 0, 8);
+
+    return maximumCBAThrottlingValueForResource;
+}
+
+/* Scope of CBA QoS_Core_BW_Thrtl_n MSRs is logical processor. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX5EAX_8_11_ScopeOfCBAQoS_Core_BW_Thrtl_nMSRsIsLogicalProcessor()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000005);
+
+    unsigned int scopeOfCBAQoS_Core_BW_Thrtl_nMSRsIsLogicalProcessor = ExtractBits(cpuInfo[0], 8, 4);
+
+    return scopeOfCBAQoS_Core_BW_Thrtl_nMSRsIsLogicalProcessor;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX5EAX_12_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000005);
+
+    unsigned int reserved = ExtractBits(cpuInfo[0], 12, 20);
+
+    return reserved;
+}
+
+// EBX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX5EBX_0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000005);
+
+    return cpuInfo[1];
+}
+
+// ECX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX5ECX_0_2_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000005);
+
+    unsigned int reserved = ExtractBits(cpuInfo[0], 0, 3);
+
+    return reserved;
+}
+
+/* Approximately linear response. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000010ECX5ECX3_ApproximatelyLinearResponseIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000005);
+
+    unsigned int approximatelyLinearResponse = ExtractBits(cpuInfo[2], 3, 1);
+
+    return (bool)approximatelyLinearResponse;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX5ECX_4_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000005);
+
+    unsigned int reserved = ExtractBits(cpuInfo[0], 4, 28);
+
+    return reserved;
+}
+
+// EDX
+/* Highest COS number supported for resource n. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX5EDX_0_15_HighestCOSNumberSupportedForResourceN()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000005);
+
+    unsigned int highestCOSNumberSupportedForResourceN = ExtractBits(cpuInfo[3], 0, 16);
+
+    return highestCOSNumberSupportedForResourceN;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX5EDX_16_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000005);
+
+    unsigned int reserved = ExtractBits(cpuInfo[3], 16, 16);
+
+    return reserved;
 }
 
 #pragma endregion
@@ -7244,22 +7446,86 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX5EDX()
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX6EAX()
 {
-    return GetCustom(0x00000010, 6, 0);
+    return GetCustom(0x00000010, 0x00000006, 0);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX6EBX()
 {
-    return GetCustom(0x00000010, 6, 1);
+    return GetCustom(0x00000010, 0x00000006, 1);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX6ECX()
 {
-    return GetCustom(0x00000010, 6, 2);
+    return GetCustom(0x00000010, 0x00000006, 2);
 }
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX00000010ECX6EDX()
 {
-    return GetCustom(0x00000010, 6, 3);
+    return GetCustom(0x00000010, 0x00000006, 3);
+}
+
+// EAX
+/* Thread enable via RESOURCE_PRIORITY MSR. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000010ECX6EAX0_ThreadEnableViaRESOURCE_PRIORITY_MSRIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000006);
+
+    unsigned int threadEnableViaRESOURCE_PRIORITY_MSR = ExtractBits(cpuInfo[0], 0, 1);
+
+    return (bool)threadEnableViaRESOURCE_PRIORITY_MSR;
+}
+
+/* Package enable via RESOURCE_PRIORITY_PKG MSR. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000010ECX6EAX1_PackageEnableViaRESOURCE_PRIORITY_PKG_MSRIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000006);
+
+    unsigned int packageEnableViaRESOURCE_PRIORITY_PKG_MSR = ExtractBits(cpuInfo[0], 1, 1);
+
+    return (bool)packageEnableViaRESOURCE_PRIORITY_PKG_MSR;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX6EAX_2_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000006);
+
+    unsigned int reserved = ExtractBits(cpuInfo[3], 2, 30);
+
+    return reserved;
+}
+
+// EBX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX6EBX_0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000006);
+
+    return cpuInfo[1];
+}
+
+// ECX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX6ECX_0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000006);
+
+    return cpuInfo[2];
+}
+
+// EDX
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000010ECX6EDX_0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000006);
+
+    return cpuInfo[3];
 }
 
 #pragma endregion
