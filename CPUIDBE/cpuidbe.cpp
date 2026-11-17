@@ -6872,6 +6872,17 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX00000010EBX5_CBACacheBandwid
     return (bool)cBACacheBandwidthAllocationSupported;
 }
 
+/* RP – resource priority. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000010EBX6_RPResourcePriorityIsSupported()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000010, 0x00000000);
+
+    unsigned int rpResourcePrioritySupported = ExtractBits(cpuInfo[1], 6, 1);
+
+    return (bool)rpResourcePrioritySupported;
+}
+
 /* Reserved. */
 extern "C" __declspec(dllexport) int __cdecl GetEAX00000010EBX_7_31_Reserved()
 {
