@@ -9568,76 +9568,210 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001CEDX()
 
 #pragma endregion
 
-#pragma region EAX=0x0000001D: Intel AMX Tile Information
+#pragma region EAX=0x0000001D: Intel AMX Tile Information - (main)
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX1DEAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001DEAX()
 {
     return GetCustom(0x0000001D, 0, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX1DEBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001DEBX()
 {
     return GetCustom(0x0000001D, 0, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX1DECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001DECX()
 {
     return GetCustom(0x0000001D, 0, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX1DEDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001DEDX()
 {
     return GetCustom(0x0000001D, 0, 3);
 }
 
-extern "C" __declspec(dllexport) int __cdecl GetEAX1DEAX0_15_TotalTileBytes()
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001DEAX0_31_MaxSubleaf()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x1D, 0);
+    __cpuidex(cpuInfo, 0x0000001D, 0);
+
+    return cpuInfo[0];
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001DEBX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001D, 0);
+
+    return cpuInfo[1];
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001DECX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001D, 0);
+
+    return cpuInfo[2];
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001DEDX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001D, 0);
+
+    return cpuInfo[3];
+}
+
+#pragma endregion
+
+#pragma region EAX=0x0000001D, ECX=0x00000001: Intel AMX Tile Information - (palette 1)
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001DECX1EAX()
+{
+    return GetCustom(0x0000001D, 1, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001DECX1EBX()
+{
+    return GetCustom(0x0000001D, 1, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001DECX1ECX()
+{
+    return GetCustom(0x0000001D, 1, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001DECX1EDX()
+{
+    return GetCustom(0x0000001D, 1, 3);
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001DECX1EAX0_15_TotalTileBytes()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001D, 1);
 
     unsigned int totalTileBytes = ExtractBits(cpuInfo[0], 0, 16);
 
     return totalTileBytes;
 }
 
-extern "C" __declspec(dllexport) int __cdecl GetEAX1DEAX16_31_BytesPerTile()
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001DECX1EAX16_31_BytesPerTile()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x1D, 0);
+    __cpuidex(cpuInfo, 0x0000001D, 1);
 
     unsigned int bytesPerTile = ExtractBits(cpuInfo[0], 16, 16);
 
     return bytesPerTile;
 }
 
-extern "C" __declspec(dllexport) int __cdecl GetEAX1DEAX0_15_BytesPerRow()
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001DECX1EBX0_15_BytesPerRow()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x1D, 0);
+    __cpuidex(cpuInfo, 0x0000001D, 1);
 
     unsigned int totalTileBytes = ExtractBits(cpuInfo[1], 0, 16);
 
     return totalTileBytes;
 }
 
-extern "C" __declspec(dllexport) int __cdecl GetEAX1DEAX16_31_MaxNames()
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001DECX1EBX16_31_MaxNames()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x1D, 0);
+    __cpuidex(cpuInfo, 0x0000001D, 1);
 
     unsigned int bytesPerTile = ExtractBits(cpuInfo[1], 16, 16);
 
     return bytesPerTile;
 }
 
-extern "C" __declspec(dllexport) int __cdecl GetEAX1DEAX0_15_MaxRows()
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001DECX1ECX0_15_MaxRows()
 {
     int cpuInfo[4];
-    __cpuidex(cpuInfo, 0x1D, 0);
+    __cpuidex(cpuInfo, 0x0000001D, 1);
 
     unsigned int totalTileBytes = ExtractBits(cpuInfo[2], 0, 16);
 
     return totalTileBytes;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001DECX1ECX16_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001D, 1);
+
+    unsigned int totalTileBytes = ExtractBits(cpuInfo[2], 16, 16);
+
+    return totalTileBytes;
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001DECX1EDX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001D, 1);
+
+    return cpuInfo[3];
+}
+
+#pragma endregion
+
+#pragma region EAX=0x0000001D, ECX=0x00000002: Intel AMX Tile Information - (palette 2)
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001DECX2EAX()
+{
+    return GetCustom(0x0000001D, 2, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001DECX2EBX()
+{
+    return GetCustom(0x0000001D, 2, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001DECX2ECX()
+{
+    return GetCustom(0x0000001D, 2, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001DECX2EDX()
+{
+    return GetCustom(0x0000001D, 2, 3);
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001DECX2EAX0_7_AceMajorVersion()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001D, 2);
+
+    unsigned int aceMajorVersion = ExtractBits(cpuInfo[0], 0, 8);
+
+    return aceMajorVersion;
+}
+
+
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001DECX2EBX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001D, 2);
+
+    return cpuInfo[1];
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001DECX2ECX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001D, 2);
+
+    return cpuInfo[2];
+}
+
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001DECX2EDX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001D, 2);
+
+    return cpuInfo[3];
 }
 
 #pragma endregion
