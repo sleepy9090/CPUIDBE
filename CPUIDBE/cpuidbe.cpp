@@ -9107,26 +9107,264 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX16EDX0_31_Reserved()
 
 #pragma endregion
 
-#pragma region EAX=0x00000017: SoC Vendor Attribute Enumeration
+#pragma region EAX=0x00000017: SoC Vendor Attribute Enumeration - (main)
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX17EAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000017EAX()
 {
     return GetCustom(0x00000017, 0, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX17EBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000017EBX()
 {
     return GetCustom(0x00000017, 0, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX17ECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000017ECX()
 {
     return GetCustom(0x00000017, 0, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX17EDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000017EDX()
 {
     return GetCustom(0x00000017, 0, 3);
+}
+
+/* Max sub-leaf */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000017EAX0_31_MaxSubleaf()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000017, 0);
+
+    return cpuInfo[0];
+}
+
+/* Vendor ID (1=Spreadtrum) */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000017EBX0_15_VendorId()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000017, 0);
+    unsigned int vendorId = ExtractBits(cpuInfo[1], 0, 16);
+
+    return vendorId;
+}
+
+/* Vendor ID uses industry standard enumeration scheme (0=no, 1=yes). */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000017EBX16_VendorIDUsesIndustryStandardEnumerationScheme()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000017, 0);
+
+    unsigned int vendorIDUsesIndustryStandardEnumerationScheme = ExtractBits(cpuInfo[1], 16, 1);
+
+    return (bool)vendorIDUsesIndustryStandardEnumerationScheme;
+}
+
+/* Reserved */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000017EBX17_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000017, 0);
+    unsigned int reserved = ExtractBits(cpuInfo[1], 17, 15);
+
+    return reserved;
+}
+
+/* Project ID */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000017ECX0_31_ProjectId()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000017, 0);
+
+    return cpuInfo[2];
+}
+
+/* Stepping ID */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000017EDX0_31_SteppingId()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000017, 0);
+
+    return cpuInfo[3];
+}
+
+#pragma endregion
+
+#pragma region EAX=0x00000017: SoC Vendor Attribute Enumeration - N=0x1 = (output 1 of 3)
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000017ECX1EAX()
+{
+    return GetCustom(0x00000017, 1, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000017ECX1EBX()
+{
+    return GetCustom(0x00000017, 1, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000017ECX1ECX()
+{
+    return GetCustom(0x00000017, 1, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000017ECX1EDX()
+{
+    return GetCustom(0x00000017, 1, 3);
+}
+
+/* UTF-8 encoded vendor brand string – part 1/12 */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000017ECX1EAX0_31_UTF8EncodedVendorBrandStringPart1()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000017, 1);
+
+    return cpuInfo[0];
+}
+
+/* UTF-8 encoded vendor brand string – part 2/12 */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000017ECX1EBX0_31_UTF8EncodedVendorBrandStringPart2()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000017, 1);
+
+    return cpuInfo[1];
+}
+
+/* UTF-8 encoded vendor brand string – part 3/12 */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000017ECX1ECX0_31_UTF8EncodedVendorBrandStringPart3()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000017, 1);
+
+    return cpuInfo[2];
+}
+
+/* UTF-8 encoded vendor brand string – part 4/12 */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000017ECX1EDX0_31_UTF8EncodedVendorBrandStringPart4()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000017, 1);
+
+    return cpuInfo[3];
+}
+
+#pragma endregion
+
+#pragma region EAX=0x00000017: SoC Vendor Attribute Enumeration - N=0x2 = (output 2 of 3)
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000017ECX2EAX()
+{
+    return GetCustom(0x00000017, 2, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000017ECX2EBX()
+{
+    return GetCustom(0x00000017, 2, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000017ECX2ECX()
+{
+    return GetCustom(0x00000017, 2, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000017ECX2EDX()
+{
+    return GetCustom(0x00000017, 2, 3);
+}
+
+/* UTF-8 encoded vendor brand string – part 5/12 */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000017ECX2EAX0_31_UTF8EncodedVendorBrandStringPart5()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000017, 2);
+
+    return cpuInfo[0];
+}
+
+/* UTF-8 encoded vendor brand string – part 6/12 */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000017ECX2EBX0_31_UTF8EncodedVendorBrandStringPart6()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000017, 2);
+
+    return cpuInfo[1];
+}
+
+/* UTF-8 encoded vendor brand string – part 7/12 */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000017ECX2ECX0_31_UTF8EncodedVendorBrandStringPart7()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000017, 2);
+
+    return cpuInfo[2];
+}
+
+/* UTF-8 encoded vendor brand string – part 8/12 */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000017ECX2EDX0_31_UTF8EncodedVendorBrandStringPart8()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000017, 2);
+
+    return cpuInfo[3];
+}
+
+#pragma endregion
+
+#pragma region EAX=0x00000017: SoC Vendor Attribute Enumeration - N=0x3 = (output 3 of 3)
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000017ECX3EAX()
+{
+    return GetCustom(0x00000017, 3, 0);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000017ECX3EBX()
+{
+    return GetCustom(0x00000017, 3, 1);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000017ECX3ECX()
+{
+    return GetCustom(0x00000017, 3, 2);
+}
+
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000017ECX3EDX()
+{
+    return GetCustom(0x00000017, 3, 3);
+}
+
+/* UTF-8 encoded vendor brand string – part 9/12 */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000017ECX3EAX0_31_UTF8EncodedVendorBrandStringPart9()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000017, 3);
+
+    return cpuInfo[0];
+}
+
+/* UTF-8 encoded vendor brand string – part 10/12 */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000017ECX3EBX0_31_UTF8EncodedVendorBrandStringPart10()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000017, 3);
+
+    return cpuInfo[1];
+}
+
+/* UTF-8 encoded vendor brand string – part 11/12 */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000017ECX3ECX0_31_UTF8EncodedVendorBrandStringPart11()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000017, 3);
+
+    return cpuInfo[2];
+}
+
+/* UTF-8 encoded vendor brand string – part 12/12 */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000017ECX3EDX0_31_UTF8EncodedVendorBrandStringPart12()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000017, 3);
+
+    return cpuInfo[3];
 }
 
 #pragma endregion
