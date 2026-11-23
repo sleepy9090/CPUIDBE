@@ -9107,7 +9107,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX16EDX0_31_Reserved()
 
 #pragma endregion
 
-#pragma region EAX=0x00000017: SoC Vendor Attribute Enumeration - (main)
+#pragma region EAX=0x00000017: SoC Vendor Attribute Enumeration - ECX=0x0 = (main)
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX00000017EAX()
 {
@@ -9189,7 +9189,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX00000017EDX0_31_SteppingId()
 
 #pragma endregion
 
-#pragma region EAX=0x00000017: SoC Vendor Attribute Enumeration - N=0x1 = (output 1 of 3)
+#pragma region EAX=0x00000017: SoC Vendor Attribute Enumeration - ECX=0x1 = (output 1 of 3)
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX00000017ECX1EAX()
 {
@@ -9249,7 +9249,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX00000017ECX1EDX0_31_UTF8Encod
 
 #pragma endregion
 
-#pragma region EAX=0x00000017: SoC Vendor Attribute Enumeration - N=0x2 = (output 2 of 3)
+#pragma region EAX=0x00000017: SoC Vendor Attribute Enumeration - ECX=0x2 = (output 2 of 3)
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX00000017ECX2EAX()
 {
@@ -9309,7 +9309,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX00000017ECX2EDX0_31_UTF8Encod
 
 #pragma endregion
 
-#pragma region EAX=0x00000017: SoC Vendor Attribute Enumeration - N=0x3 = (output 3 of 3)
+#pragma region EAX=0x00000017: SoC Vendor Attribute Enumeration - ECX=0x3 = (output 3 of 3)
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX00000017ECX3EAX()
 {
@@ -9711,7 +9711,7 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX0000001BEDX0_31_Reserved()
 
 #pragma endregion
 
-#pragma region EAX=0x0000001B: ECX=1, 1=target ID - PCONFIG Information
+#pragma region EAX=0x0000001B: ECX=0x1, 1=target ID - PCONFIG Information
 
 extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001BECX1EAX()
 {
