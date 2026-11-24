@@ -9868,7 +9868,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX0000001C_EBX1_LBRCTLForBranc
 }
 
 /* LBR_CTL[3] for call stack mode. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX0000001C_EBX1_LBRCTLForCallStackMode()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX0000001C_EBX2_LBRCTLForCallStackMode()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0000001C, 0);
@@ -9913,7 +9913,7 @@ extern "C" __declspec(dllexport) bool __cdecl GetEAX0000001C_ECX1_LBRxINFOIndica
 }
 
 /* LBR_x_INFO[59...56] indicates branch type. */
-extern "C" __declspec(dllexport) bool __cdecl GetEAX0000001C_ECX0_LBRxINFOIndicatesBranchType()
+extern "C" __declspec(dllexport) bool __cdecl GetEAX0000001C_ECX2_LBRxINFOIndicatesBranchType()
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x0000001C, 0);
