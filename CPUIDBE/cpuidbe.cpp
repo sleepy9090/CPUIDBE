@@ -8853,23 +8853,23 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1EBX16_31_PsbRate(int n)
 
 // ECX
 /* Trigger Action EN_ICNT supported. */
-extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1ECX0_Icnt(int n)
+extern "C" __declspec(dllexport) bool __cdecl GetEAX14ECX1ECX0_Icnt(int n)
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x14, n);
     unsigned int icnt = ExtractBits(cpuInfo[2], 0, 1);
 
-    return icnt;
+    return (bool)icnt;
 }
 
 /* Trigger actions TRACE_PAUSE and TRACE_RESUME supported = (TRIGGER_PAUSE). */
-extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1ECX1_TriggerPause(int n)
+extern "C" __declspec(dllexport) bool __cdecl GetEAX14ECX1ECX1_TriggerPause(int n)
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x14, n);
     unsigned int triggerPause = ExtractBits(cpuInfo[2], 1, 1);
 
-    return triggerPause;
+    return (bool)triggerPause;
 }
 
 /* Reserved. */
@@ -8913,13 +8913,13 @@ extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1ECX11_14_Reserved(int n
 }
 
 /* Trigger input DR match supported - (TRIGGER_­DR_MATCH). */
-extern "C" __declspec(dllexport) int __cdecl GetEAX14ECX1ECX15_TriggerDrMatch(int n)
+extern "C" __declspec(dllexport) bool __cdecl GetEAX14ECX1ECX15_TriggerDrMatch(int n)
 {
     int cpuInfo[4];
     __cpuidex(cpuInfo, 0x14, n);
     unsigned int triggerDrMatch = ExtractBits(cpuInfo[2], 15, 1);
 
-    return triggerDrMatch;
+    return (bool)triggerDrMatch;
 }
 
 /* Reserved. */
@@ -10657,26 +10657,74 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX00000028EDX()
 
 #pragma endregion
 
-#pragma region EAX=0x00000029: APX Information
+#pragma region EAX=0x00000029: APX Information - ECX= sub-leaf to query (0...n as per EAX reported by sub-leaf 0)
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX00000029EAX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000029_ECXN_EAX(int n)
 {
-    return GetCustom(0x00000029, 0, 0);
+    return GetCustom(0x00000029, n, 0);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX00000029EBX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000029_ECXN_EBX(int n)
 {
-    return GetCustom(0x00000029, 0, 1);
+    return GetCustom(0x00000029, n, 1);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX00000029ECX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000029_ECXN_ECX(int n)
 {
-    return GetCustom(0x00000029, 0, 2);
+    return GetCustom(0x00000029, n, 2);
 }
 
-extern "C" __declspec(dllexport) char* __cdecl GetEAX00000029EDX()
+extern "C" __declspec(dllexport) char* __cdecl GetEAX00000029_ECXN_EDX(int n)
 {
-    return GetCustom(0x00000029, 0, 3);
+    return GetCustom(0x00000029, n, 3);
+}
+
+/* Max sub-leaf. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000029_ECXN_EAX_0_31_MaxSubleaf(int n)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000029, n);
+
+    return cpuInfo[0];
+}
+
+/* APX_NCI_NDD_NF. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX00000029_ECXN_EBX0_APX_NCI_NDD_NFIsSupported(int n)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000029, n);
+
+    unsigned int aPX_NCI_NDD_NFSupported = ExtractBits(cpuInfo[1], 0, 1);
+
+    return (bool)aPX_NCI_NDD_NFSupported;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000029_ECXN_EBX1_31_Reserved(int n)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000029, n);
+    unsigned int reserved = ExtractBits(cpuInfo[1], 1, 31);
+
+    return reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000029_ECXN_ECX_0_31_Reserved(int n)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000029, n);
+
+    return cpuInfo[2];
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX00000029_ECXN_EDX_0_31_Reserved(int n)
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x00000029, n);
+
+    return cpuInfo[3];
 }
 
 #pragma endregion
