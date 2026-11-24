@@ -9804,6 +9804,164 @@ extern "C" __declspec(dllexport) char* __cdecl GetEAX0000001CEDX()
     return GetCustom(0x0000001C, 0, 3);
 }
 
+/* For each bit n = 1, LBR_DEPTH.DEPTH value 8*(n+1) is supported. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001CEAX0_7_LBR_DEPTH()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001C, 0);
+    unsigned int lbrDepth = ExtractBits(cpuInfo[0], 0, 8);
+
+    return lbrDepth;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001CEAX8_29_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001C, 0);
+    unsigned int reserved = ExtractBits(cpuInfo[0], 8, 22);
+
+    return reserved;
+}
+
+/* LBR cleared on MWAIT > C1. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX0000001C_EAX30_LBRClearedOnMWAITGreaterThanC1()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001C, 0);
+
+    unsigned int lbrClearedOnMWAITGreaterThanC1 = ExtractBits(cpuInfo[0], 30, 1);
+
+    return (bool)lbrClearedOnMWAITGreaterThanC1;
+}
+
+/* LBR IP value type (0=EIP, 1=LIP) – note: LIP=EIP if flat memory model. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001CEAX31_LBRIPValueType()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001C, 0);
+    unsigned int lbrIPValueType = ExtractBits(cpuInfo[0], 31, 1);
+
+    return lbrIPValueType;
+}
+
+/* LBR_CTL[2...1] for CPL filtering. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX0000001C_EBX0_LBRCTLForCPLFiltering()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001C, 0);
+
+    unsigned int lbrCTLForCPLFiltering = ExtractBits(cpuInfo[1], 0, 1);
+
+    return (bool)lbrCTLForCPLFiltering;
+}
+
+/* LBR_CTL[22...16] for branch filtering. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX0000001C_EBX1_LBRCTLForBranchFiltering()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001C, 0);
+
+    unsigned int lbrCTLForBranchFiltering = ExtractBits(cpuInfo[1], 1, 1);
+
+    return (bool)lbrCTLForBranchFiltering;
+}
+
+/* LBR_CTL[3] for call stack mode. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX0000001C_EBX1_LBRCTLForCallStackMode()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001C, 0);
+
+    unsigned int lbrCTLForCallStackMode = ExtractBits(cpuInfo[1], 2, 1);
+
+    return (bool)lbrCTLForCallStackMode;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001CEBX3_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001C, 0);
+    unsigned int reserved = ExtractBits(cpuInfo[1], 3, 28);
+
+    return reserved;
+}
+
+/* LBR_x_INFO[63] indicates branch misprediction. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX0000001C_ECX0_LBRxINFOIndicatesBranchMisprediction()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001C, 0);
+
+    unsigned int lbrxINFOIndicatesBranchMisprediction = ExtractBits(cpuInfo[2], 0, 1);
+
+    return (bool)lbrxINFOIndicatesBranchMisprediction;
+}
+
+/* LBR_x_INFO[15...0] indicates cycles since last LBR entry
+ * LBR_x_INFO[60] indicates whether cycle count is valid.
+ */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX0000001C_ECX1_LBRxINFOIndicatesCycles()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001C, 0);
+
+    unsigned int lbrxINFOIndicatesCycles = ExtractBits(cpuInfo[2], 1, 1);
+
+    return (bool)lbrxINFOIndicatesCycles;
+}
+
+/* LBR_x_INFO[59...56] indicates branch type. */
+extern "C" __declspec(dllexport) bool __cdecl GetEAX0000001C_ECX0_LBRxINFOIndicatesBranchType()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001C, 0);
+
+    unsigned int lbrxINFOIndicatesBranchType = ExtractBits(cpuInfo[2], 2, 1);
+
+    return (bool)lbrxINFOIndicatesBranchType;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001CECX3_15_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001C, 0);
+    unsigned int reserved = ExtractBits(cpuInfo[2], 3, 13);
+
+    return reserved;
+}
+
+/* Event logging bitmap – bit per perf mon counter with LBR event logging. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001CECX16_19_EventLoggingBitmap()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001C, 0);
+    unsigned int eventLoggingBitmap = ExtractBits(cpuInfo[2], 16, 4);
+
+    return eventLoggingBitmap;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001CECX20_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001C, 0);
+    unsigned int reserved = ExtractBits(cpuInfo[2], 20, 12);
+
+    return reserved;
+}
+
+/* Reserved. */
+extern "C" __declspec(dllexport) int __cdecl GetEAX0000001CEDX0_31_Reserved()
+{
+    int cpuInfo[4];
+    __cpuidex(cpuInfo, 0x0000001C, 0);
+
+    return cpuInfo[3];
+}
+
 #pragma endregion
 
 #pragma region EAX=0x0000001D: Intel AMX Tile Information - (main)
